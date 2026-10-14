@@ -1,0 +1,180 @@
+
+action4.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/1/action1/0_00000
+  rotate: false
+  xy: 1585, 142
+  size: 234, 236
+  orig: 1024, 1024
+  offset: 342, 290
+  index: -1
+images/1/action1/0_00001
+  rotate: false
+  xy: 1268, 102
+  size: 315, 276
+  orig: 1024, 1024
+  offset: 290, 291
+  index: -1
+images/1/action1/0_00002
+  rotate: true
+  xy: 953, 90
+  size: 344, 313
+  orig: 1024, 1024
+  offset: 280, 291
+  index: -1
+images/1/action1/0_00003
+  rotate: false
+  xy: 534, 4
+  size: 417, 390
+  orig: 1024, 1024
+  offset: 275, 292
+  index: -1
+images/1/action1/0_00006
+  rotate: true
+  xy: 717, 436
+  size: 514, 569
+  orig: 1024, 1024
+  offset: 186, 275
+  index: -1
+images/1/action1/0_00007
+  rotate: true
+  xy: 1288, 380
+  size: 524, 563
+  orig: 1024, 1024
+  offset: 182, 283
+  index: -1
+images/1/action1/0_00011
+  rotate: true
+  xy: 1414, 906
+  size: 561, 572
+  orig: 1024, 1024
+  offset: 197, 254
+  index: -1
+images/1/action1/0_00012
+  rotate: true
+  xy: 1424, 1469
+  size: 562, 581
+  orig: 1024, 1024
+  offset: 204, 254
+  index: -1
+images/1/action1/0_00013
+  rotate: false
+  xy: 723, 1480
+  size: 699, 551
+  orig: 1024, 1024
+  offset: 182, 293
+  index: -1
+images/1/action1/0_00014
+  rotate: false
+  xy: 2, 1479
+  size: 719, 552
+  orig: 1024, 1024
+  offset: 169, 294
+  index: -1
+images/1/action1/0_00015
+  rotate: false
+  xy: 2, 929
+  size: 713, 548
+  orig: 1024, 1024
+  offset: 164, 291
+  index: -1
+images/1/action1/0_00016
+  rotate: false
+  xy: 2, 396
+  size: 702, 531
+  orig: 1024, 1024
+  offset: 155, 297
+  index: -1
+images/1/action1/0_00017
+  rotate: false
+  xy: 723, 952
+  size: 689, 526
+  orig: 1024, 1024
+  offset: 155, 302
+  index: -1
+images/1/action1/0_00022
+  rotate: true
+  xy: 2, 2
+  size: 392, 530
+  orig: 1024, 1024
+  offset: 141, 303
+  index: -1
+images/action1_2/0_00000
+  rotate: true
+  xy: 1853, 764
+  size: 140, 139
+  orig: 200, 200
+  offset: 30, 30
+  index: -1
+
+action42.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/1/action1/0_00004
+  rotate: false
+  xy: 1027, 87
+  size: 457, 467
+  orig: 1024, 1024
+  offset: 248, 292
+  index: -1
+images/1/action1/0_00005
+  rotate: false
+  xy: 1102, 572
+  size: 494, 533
+  orig: 1024, 1024
+  offset: 210, 282
+  index: -1
+images/1/action1/0_00008
+  rotate: false
+  xy: 552, 1074
+  size: 524, 556
+  orig: 1024, 1024
+  offset: 182, 289
+  index: -1
+images/1/action1/0_00009
+  rotate: true
+  xy: 552, 556
+  size: 516, 548
+  orig: 1024, 1024
+  offset: 185, 286
+  index: -1
+images/1/action1/0_00010
+  rotate: false
+  xy: 530, 25
+  size: 495, 528
+  orig: 1024, 1024
+  offset: 196, 291
+  index: -1
+images/1/action1/0_00018
+  rotate: false
+  xy: 1078, 1107
+  size: 551, 523
+  orig: 1024, 1024
+  offset: 149, 311
+  index: -1
+images/1/action1/0_00019
+  rotate: true
+  xy: 2, 2
+  size: 551, 526
+  orig: 1024, 1024
+  offset: 149, 308
+  index: -1
+images/1/action1/0_00020
+  rotate: false
+  xy: 2, 555
+  size: 548, 534
+  orig: 1024, 1024
+  offset: 143, 300
+  index: -1
+images/1/action1/0_00021
+  rotate: false
+  xy: 2, 1091
+  size: 548, 539
+  orig: 1024, 1024
+  offset: 143, 295
+  index: -1

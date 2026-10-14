@@ -1,0 +1,146 @@
+
+action.png
+size: 256,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/00
+  rotate: false
+  xy: 81, 28
+  size: 15, 15
+  orig: 50, 50
+  offset: 18, 16
+  index: -1
+images/02
+  rotate: false
+  xy: 99, 46
+  size: 15, 15
+  orig: 50, 50
+  offset: 18, 16
+  index: -1
+images/04
+  rotate: false
+  xy: 81, 11
+  size: 15, 15
+  orig: 50, 50
+  offset: 18, 16
+  index: -1
+images/06
+  rotate: false
+  xy: 116, 46
+  size: 15, 15
+  orig: 50, 50
+  offset: 18, 16
+  index: -1
+images/08
+  rotate: false
+  xy: 133, 46
+  size: 15, 15
+  orig: 50, 50
+  offset: 18, 16
+  index: -1
+images/10
+  rotate: false
+  xy: 150, 46
+  size: 15, 15
+  orig: 50, 50
+  offset: 18, 16
+  index: -1
+images/12
+  rotate: false
+  xy: 167, 46
+  size: 15, 15
+  orig: 50, 50
+  offset: 18, 16
+  index: -1
+images/14
+  rotate: false
+  xy: 184, 46
+  size: 15, 15
+  orig: 50, 50
+  offset: 18, 16
+  index: -1
+images/16
+  rotate: false
+  xy: 201, 46
+  size: 15, 15
+  orig: 50, 50
+  offset: 18, 16
+  index: -1
+images/18
+  rotate: false
+  xy: 218, 46
+  size: 15, 15
+  orig: 50, 50
+  offset: 18, 16
+  index: -1
+images/20
+  rotate: false
+  xy: 235, 48
+  size: 16, 13
+  orig: 50, 50
+  offset: 17, 16
+  index: -1
+images/22
+  rotate: false
+  xy: 63, 9
+  size: 16, 15
+  orig: 50, 50
+  offset: 17, 16
+  index: -1
+images/24
+  rotate: false
+  xy: 45, 44
+  size: 16, 17
+  orig: 50, 50
+  offset: 17, 16
+  index: -1
+images/26
+  rotate: false
+  xy: 45, 25
+  size: 16, 17
+  orig: 50, 50
+  offset: 17, 16
+  index: -1
+images/28
+  rotate: false
+  xy: 63, 26
+  size: 16, 16
+  orig: 50, 50
+  offset: 17, 16
+  index: -1
+images/30
+  rotate: false
+  xy: 63, 44
+  size: 16, 17
+  orig: 50, 50
+  offset: 17, 16
+  index: -1
+images/32
+  rotate: false
+  xy: 45, 6
+  size: 16, 17
+  orig: 50, 50
+  offset: 17, 16
+  index: -1
+images/34
+  rotate: false
+  xy: 81, 45
+  size: 16, 16
+  orig: 50, 50
+  offset: 17, 16
+  index: -1
+images/36
+  rotate: false
+  xy: 235, 33
+  size: 16, 13
+  orig: 50, 50
+  offset: 17, 16
+  index: -1
+images/xx
+  rotate: false
+  xy: 0, 0
+  size: 43, 61
+  orig: 43, 61
+  offset: 0, 0
+  index: -1

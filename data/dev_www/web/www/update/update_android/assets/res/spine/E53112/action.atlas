@@ -1,0 +1,118 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill3_00002
+  rotate: false
+  xy: 246, 2
+  size: 173, 156
+  orig: 1050, 420
+  offset: 197, 100
+  index: -1
+skill3_00003
+  rotate: false
+  xy: 246, 160
+  size: 176, 209
+  orig: 1050, 420
+  offset: 186, 99
+  index: -1
+skill3_00004
+  rotate: false
+  xy: 1856, 1826
+  size: 154, 180
+  orig: 1050, 420
+  offset: 194, 109
+  index: -1
+skill3_00005
+  rotate: false
+  xy: 1415, 1296
+  size: 139, 162
+  orig: 1050, 420
+  offset: 198, 132
+  index: -1
+skill3_00006
+  rotate: false
+  xy: 1856, 1646
+  size: 155, 178
+  orig: 1050, 420
+  offset: 186, 110
+  index: -1
+skill3_00007
+  rotate: true
+  xy: 1625, 1566
+  size: 440, 229
+  orig: 1050, 420
+  offset: 148, 89
+  index: -1
+skill3_00008
+  rotate: true
+  xy: 246, 371
+  size: 500, 249
+  orig: 1050, 420
+  offset: 126, 75
+  index: -1
+skill3_00009
+  rotate: false
+  xy: 849, 921
+  size: 536, 265
+  orig: 1050, 420
+  offset: 119, 68
+  index: -1
+skill3_00010
+  rotate: false
+  xy: 849, 1188
+  size: 564, 270
+  orig: 1050, 420
+  offset: 112, 67
+  index: -1
+skill3_00011
+  rotate: false
+  xy: 849, 1460
+  size: 674, 294
+  orig: 1050, 420
+  offset: 101, 39
+  index: -1
+skill3_00012
+  rotate: true
+  xy: 550, 1006
+  size: 702, 297
+  orig: 1050, 420
+  offset: 94, 37
+  index: -1
+skill3_00013
+  rotate: true
+  xy: 248, 951
+  size: 757, 300
+  orig: 1050, 420
+  offset: 88, 40
+  index: -1
+skill3_00014
+  rotate: false
+  xy: 2, 1710
+  size: 796, 296
+  orig: 1050, 420
+  offset: 86, 50
+  index: -1
+skill3_00015
+  rotate: false
+  xy: 800, 1756
+  size: 823, 250
+  orig: 1050, 420
+  offset: 81, 47
+  index: -1
+skill3_00016
+  rotate: true
+  xy: 2, 47
+  size: 824, 242
+  orig: 1050, 420
+  offset: 91, 54
+  index: -1
+skill3_00017
+  rotate: true
+  xy: 2, 873
+  size: 835, 244
+  orig: 1050, 420
+  offset: 87, 55
+  index: -1

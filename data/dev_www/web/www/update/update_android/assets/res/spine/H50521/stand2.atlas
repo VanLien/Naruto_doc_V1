@@ -1,0 +1,146 @@
+
+stand2.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/kakashi stand/0_00000
+  rotate: true
+  xy: 223, 122
+  size: 98, 152
+  orig: 600, 400
+  offset: 94, 88
+  index: -1
+images/kakashi stand/0_00001
+  rotate: false
+  xy: 2, 60
+  size: 109, 160
+  orig: 600, 400
+  offset: 89, 89
+  index: -1
+images/kakashi stand/0_00002
+  rotate: true
+  xy: 223, 71
+  size: 49, 142
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/kakashi stand/0_00003
+  rotate: false
+  xy: 113, 73
+  size: 108, 147
+  orig: 600, 400
+  offset: 92, 92
+  index: -1
+images/kakashi stand/0_00004
+  rotate: true
+  xy: 367, 67
+  size: 49, 142
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/kakashi stand/0_00005
+  rotate: true
+  xy: 377, 118
+  size: 102, 144
+  orig: 600, 400
+  offset: 95, 96
+  index: -1
+images/kakashi stand/0_00006
+  rotate: true
+  xy: 667, 114
+  size: 49, 142
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/kakashi stand/0_00007
+  rotate: true
+  xy: 523, 134
+  size: 86, 142
+  orig: 600, 400
+  offset: 104, 98
+  index: -1
+images/kakashi stand/0_00008
+  rotate: true
+  xy: 811, 114
+  size: 49, 142
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/kakashi stand/0_00009
+  rotate: true
+  xy: 523, 83
+  size: 49, 142
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/obito stand/0_00000
+  rotate: true
+  xy: 667, 58
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito stand/0_00001
+  rotate: true
+  xy: 808, 58
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito stand/0_00002
+  rotate: true
+  xy: 511, 27
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito stand/0_00003
+  rotate: true
+  xy: 652, 2
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito stand/0_00004
+  rotate: true
+  xy: 793, 2
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito stand/0_00005
+  rotate: true
+  xy: 667, 165
+  size: 55, 139
+  orig: 600, 400
+  offset: 125, 98
+  index: -1
+images/obito stand/0_00006
+  rotate: true
+  xy: 808, 165
+  size: 55, 139
+  orig: 600, 400
+  offset: 125, 98
+  index: -1
+images/obito stand/0_00007
+  rotate: true
+  xy: 2, 3
+  size: 55, 139
+  orig: 600, 400
+  offset: 125, 98
+  index: -1
+images/obito stand/0_00008
+  rotate: false
+  xy: 955, 81
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito stand/0_00009
+  rotate: true
+  xy: 143, 15
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1

@@ -1,0 +1,76 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+beijingdda
+  rotate: false
+  xy: 2, 743
+  size: 720, 1264
+  orig: 720, 1264
+  offset: 0, 0
+  index: -1
+guangyundadad_0000
+  rotate: false
+  xy: 2, 21
+  size: 720, 720
+  orig: 720, 720
+  offset: 0, 0
+  index: -1
+guangzhubb_0000
+  rotate: false
+  xy: 724, 1287
+  size: 720, 720
+  orig: 720, 720
+  offset: 0, 0
+  index: -1
+shan
+  rotate: true
+  xy: 1146, 805
+  size: 480, 265
+  orig: 480, 265
+  offset: 0, 0
+  index: -1
+shan01
+  rotate: false
+  xy: 1446, 1515
+  size: 339, 492
+  orig: 339, 492
+  offset: 0, 0
+  index: -1
+shan02
+  rotate: false
+  xy: 1446, 1313
+  size: 246, 200
+  orig: 246, 200
+  offset: 0, 0
+  index: -1
+shan03
+  rotate: false
+  xy: 724, 161
+  size: 228, 73
+  orig: 228, 73
+  offset: 0, 0
+  index: -1
+shan04
+  rotate: false
+  xy: 724, 806
+  size: 420, 479
+  orig: 420, 479
+  offset: 0, 0
+  index: -1
+yana
+  rotate: true
+  xy: 1787, 1546
+  size: 461, 220
+  orig: 461, 220
+  offset: 0, 0
+  index: -1
+yanb
+  rotate: true
+  xy: 724, 236
+  size: 568, 262
+  orig: 568, 262
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,90 @@
+
+action3.png
+size: 835,835
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+J0000
+  rotate: true
+  xy: 2, 202
+  size: 210, 217
+  orig: 990, 990
+  offset: 369, 505
+  index: -1
+J0091
+  rotate: false
+  xy: 705, 595
+  size: 115, 238
+  orig: 990, 990
+  offset: 451, 518
+  index: -1
+J0092
+  rotate: false
+  xy: 281, 242
+  size: 267, 209
+  orig: 990, 990
+  offset: 425, 545
+  index: -1
+J0093
+  rotate: false
+  xy: 550, 241
+  size: 136, 210
+  orig: 990, 990
+  offset: 422, 554
+  index: -1
+J0094
+  rotate: true
+  xy: 425, 82
+  size: 157, 240
+  orig: 990, 990
+  offset: 365, 579
+  index: -1
+J0095
+  rotate: false
+  xy: 691, 362
+  size: 137, 231
+  orig: 990, 990
+  offset: 403, 599
+  index: -1
+J0096
+  rotate: true
+  xy: 221, 16
+  size: 224, 202
+  orig: 990, 990
+  offset: 369, 577
+  index: -1
+J0097
+  rotate: false
+  xy: 349, 453
+  size: 340, 178
+  orig: 990, 990
+  offset: 414, 565
+  index: -1
+J0098
+  rotate: false
+  xy: 349, 633
+  size: 354, 200
+  orig: 990, 990
+  offset: 414, 538
+  index: -1
+J0099
+  rotate: false
+  xy: 2, 622
+  size: 345, 211
+  orig: 990, 990
+  offset: 425, 525
+  index: -1
+J0100
+  rotate: false
+  xy: 2, 414
+  size: 277, 206
+  orig: 990, 990
+  offset: 433, 533
+  index: -1
+J0101
+  rotate: true
+  xy: 2, 2
+  size: 198, 210
+  orig: 990, 990
+  offset: 398, 522
+  index: -1

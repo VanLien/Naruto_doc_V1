@@ -1,0 +1,152 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+debuff_2/0_00013
+  rotate: false
+  xy: 947, 566
+  size: 448, 458
+  orig: 1800, 1200
+  offset: 1039, 334
+  index: -1
+debuff_2/0_00014
+  rotate: false
+  xy: 495, 5
+  size: 481, 483
+  orig: 1800, 1200
+  offset: 1022, 325
+  index: -1
+debuff_2/0_00015
+  rotate: false
+  xy: 2, 484
+  size: 473, 508
+  orig: 1800, 1200
+  offset: 1027, 311
+  index: -1
+rinnegan/00
+  rotate: false
+  xy: 1461, 169
+  size: 365, 469
+  orig: 788, 756
+  offset: 224, 142
+  index: -1
+rinnegan/0_00000
+  rotate: false
+  xy: 941, 1026
+  size: 476, 503
+  orig: 800, 600
+  offset: 163, 59
+  index: -1
+rinnegan/0_00001
+  rotate: true
+  xy: 2, 2
+  size: 480, 491
+  orig: 800, 600
+  offset: 163, 54
+  index: -1
+rinnegan/0_00002
+  rotate: false
+  xy: 978, 82
+  size: 481, 482
+  orig: 800, 600
+  offset: 161, 62
+  index: -1
+rinnegan/0_00003
+  rotate: true
+  xy: 1443, 1573
+  size: 473, 508
+  orig: 800, 600
+  offset: 166, 47
+  index: -1
+rinnegan/0_00004
+  rotate: false
+  xy: 488, 1531
+  size: 473, 515
+  orig: 800, 600
+  offset: 177, 42
+  index: -1
+rinnegan/0_00005
+  rotate: true
+  xy: 1419, 640
+  size: 469, 503
+  orig: 800, 600
+  offset: 175, 49
+  index: -1
+rinnegan/0_00006
+  rotate: false
+  xy: 480, 1015
+  size: 459, 505
+  orig: 800, 600
+  offset: 175, 53
+  index: -1
+rinnegan/0_00007
+  rotate: true
+  xy: 1443, 1111
+  size: 460, 511
+  orig: 800, 600
+  offset: 173, 52
+  index: -1
+rinnegan/0_00008
+  rotate: false
+  xy: 477, 490
+  size: 468, 502
+  orig: 800, 600
+  offset: 164, 54
+  index: -1
+rinnegan/0_00009
+  rotate: false
+  xy: 963, 1539
+  size: 478, 507
+  orig: 800, 600
+  offset: 157, 53
+  index: -1
+rinnegan/0_00010
+  rotate: false
+  xy: 2, 994
+  size: 476, 526
+  orig: 800, 600
+  offset: 166, 37
+  index: -1
+rinnegan/0_00011
+  rotate: false
+  xy: 2, 1522
+  size: 484, 524
+  orig: 800, 600
+  offset: 163, 39
+  index: -1
+
+action2.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+debuff_2/0_00012
+  rotate: false
+  xy: 1103, 88
+  size: 378, 383
+  orig: 1800, 1200
+  offset: 1066, 380
+  index: -1
+rinnegan/01
+  rotate: false
+  xy: 2, 2
+  size: 365, 469
+  orig: 788, 756
+  offset: 224, 142
+  index: -1
+rinnegan/02
+  rotate: false
+  xy: 369, 2
+  size: 365, 469
+  orig: 788, 756
+  offset: 224, 142
+  index: -1
+rinnegan/03
+  rotate: false
+  xy: 736, 2
+  size: 365, 469
+  orig: 788, 756
+  offset: 224, 142
+  index: -1

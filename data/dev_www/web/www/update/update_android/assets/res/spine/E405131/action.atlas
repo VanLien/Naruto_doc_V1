@@ -1,0 +1,76 @@
+
+action.png
+size: 2048,512
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/tx/E405131/0_00004
+  rotate: false
+  xy: 1611, 28
+  size: 125, 190
+  orig: 600, 400
+  offset: 198, 91
+  index: -1
+image/tx/E405131/0_00005
+  rotate: false
+  xy: 1611, 220
+  size: 337, 270
+  orig: 600, 400
+  offset: 76, 18
+  index: -1
+image/tx/E405131/0_00006
+  rotate: true
+  xy: 883, 82
+  size: 408, 302
+  orig: 600, 400
+  offset: 41, 0
+  index: -1
+image/tx/E405131/0_00007
+  rotate: true
+  xy: 581, 37
+  size: 453, 300
+  orig: 600, 400
+  offset: 20, 14
+  index: -1
+image/tx/E405131/0_00008
+  rotate: true
+  xy: 293, 11
+  size: 479, 286
+  orig: 600, 400
+  offset: 7, 36
+  index: -1
+image/tx/E405131/0_00009
+  rotate: true
+  xy: 2, 2
+  size: 488, 289
+  orig: 600, 400
+  offset: 0, 42
+  index: -1
+image/tx/E405131/0_00010
+  rotate: true
+  xy: 1187, 10
+  size: 480, 224
+  orig: 600, 400
+  offset: 0, 110
+  index: -1
+image/tx/E405131/0_00011
+  rotate: true
+  xy: 1413, 9
+  size: 481, 196
+  orig: 600, 400
+  offset: 0, 142
+  index: -1
+image/tx/E405131/0_00012
+  rotate: false
+  xy: 883, 6
+  size: 170, 74
+  orig: 600, 400
+  offset: 193, 263
+  index: -1
+image/tx/E405131/0_00013
+  rotate: false
+  xy: 581, 2
+  size: 86, 33
+  orig: 600, 400
+  offset: 269, 299
+  index: -1

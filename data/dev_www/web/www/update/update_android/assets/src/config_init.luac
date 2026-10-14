@@ -1,0 +1,16 @@
+﻿DEBUG = 0
+CC_USE_FRAMEWORK = true
+CC_SHOW_FPS = true
+CC_DISABLE_GLOBAL = false
+CC_DESIGN_RESOLUTION = {
+	autoscale = "FIXED_WIDTH",
+	height = 1280,
+	width = 720,
+	callback = function(arg_1_0)
+		if arg_1_0.height / arg_1_0.width <= 1.78 then
+			return {
+				autoscale = "FIXED_HEIGHT"
+			}
+		end
+	end
+}

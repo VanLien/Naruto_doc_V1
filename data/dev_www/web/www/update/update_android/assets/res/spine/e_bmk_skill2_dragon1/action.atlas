@@ -1,0 +1,153 @@
+
+action.png
+size: 2991,2991
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bj
+  rotate: false
+  xy: 2246, 2568
+  size: 665, 423
+  orig: 665, 423
+  offset: 0, 0
+  index: -1
+cl0
+  rotate: true
+  xy: 2886, 1418
+  size: 274, 65
+  orig: 274, 65
+  offset: 0, 0
+  index: -1
+cl1
+  rotate: true
+  xy: 2911, 2682
+  size: 309, 80
+  orig: 309, 80
+  offset: 0, 0
+  index: -1
+cl2
+  rotate: true
+  xy: 2886, 2088
+  size: 305, 101
+  orig: 305, 101
+  offset: 0, 0
+  index: -1
+cl3
+  rotate: false
+  xy: 0, 2834
+  size: 1175, 157
+  orig: 1175, 157
+  offset: 0, 0
+  index: -1
+cl4
+  rotate: true
+  xy: 2886, 1736
+  size: 295, 68
+  orig: 295, 68
+  offset: 0, 0
+  index: -1
+cl5
+  rotate: true
+  xy: 2911, 2393
+  size: 223, 75
+  orig: 223, 75
+  offset: 0, 0
+  index: -1
+q_00000
+  rotate: false
+  xy: 1175, 2351
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+q_00001
+  rotate: true
+  xy: 2246, 1497
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+q_00002
+  rotate: false
+  xy: 0, 2194
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+q_00003
+  rotate: false
+  xy: 1071, 1711
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+q_00004
+  rotate: false
+  xy: 0, 1554
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+q_00005
+  rotate: false
+  xy: 1071, 1071
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+q_00006
+  rotate: false
+  xy: 0, 914
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+q_00007
+  rotate: true
+  xy: 1071, 0
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+q_00008
+  rotate: false
+  xy: 0, 274
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+q_00009
+  rotate: true
+  xy: 1711, 0
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+q_00010
+  rotate: true
+  xy: 2351, 347
+  size: 1071, 640
+  orig: 1071, 640
+  offset: 0, 0
+  index: -1
+shikuai_2
+  rotate: false
+  xy: 2911, 2616
+  size: 80, 66
+  orig: 80, 66
+  offset: 0, 0
+  index: -1
+shikuai_4
+  rotate: false
+  xy: 2886, 2031
+  size: 91, 57
+  orig: 91, 57
+  offset: 0, 0
+  index: -1
+shikuai_5
+  rotate: false
+  xy: 2886, 1692
+  size: 68, 44
+  orig: 68, 44
+  offset: 0, 0
+  index: -1

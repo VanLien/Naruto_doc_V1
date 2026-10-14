@@ -1,0 +1,180 @@
+
+show.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/show1/man/00000
+  rotate: false
+  xy: 812, 2
+  size: 347, 579
+  orig: 819, 819
+  offset: 225, 146
+  index: -1
+image/show1/man/00001
+  rotate: false
+  xy: 1507, 2
+  size: 343, 579
+  orig: 819, 819
+  offset: 228, 146
+  index: -1
+image/show1/man/00009
+  rotate: false
+  xy: 1160, 3
+  size: 346, 578
+  orig: 819, 819
+  offset: 227, 146
+  index: -1
+image/show1/man/00010
+  rotate: false
+  xy: 1, 1
+  size: 348, 579
+  orig: 819, 819
+  offset: 225, 146
+  index: -1
+image/show1/man/00011
+  rotate: false
+  xy: 462, 2
+  size: 349, 579
+  orig: 819, 819
+  offset: 224, 146
+  index: -1
+image/show1/moon/00000
+  rotate: false
+  xy: 462, 582
+  size: 459, 443
+  orig: 1000, 1000
+  offset: 259, 480
+  index: -1
+image/show1/moon/00001
+  rotate: false
+  xy: 927, 582
+  size: 460, 444
+  orig: 1000, 1000
+  offset: 259, 479
+  index: -1
+image/show1/moon/00002
+  rotate: false
+  xy: 927, 1027
+  size: 461, 445
+  orig: 1000, 1000
+  offset: 258, 479
+  index: -1
+image/show1/moon/00003
+  rotate: false
+  xy: 1394, 1475
+  size: 462, 446
+  orig: 1000, 1000
+  offset: 258, 478
+  index: -1
+image/show1/moon/00004
+  rotate: false
+  xy: 1394, 1028
+  size: 462, 446
+  orig: 1000, 1000
+  offset: 258, 478
+  index: -1
+image/show1/moon/00005
+  rotate: false
+  xy: 466, 1473
+  size: 463, 448
+  orig: 1000, 1000
+  offset: 257, 477
+  index: -1
+image/show1/moon/00006
+  rotate: false
+  xy: 1, 1473
+  size: 464, 448
+  orig: 1000, 1000
+  offset: 257, 477
+  index: -1
+image/show1/moon/00007
+  rotate: false
+  xy: 930, 1473
+  size: 463, 448
+  orig: 1000, 1000
+  offset: 257, 477
+  index: -1
+image/show1/moon/00008
+  rotate: false
+  xy: 1, 1026
+  size: 462, 446
+  orig: 1000, 1000
+  offset: 258, 478
+  index: -1
+image/show1/moon/00009
+  rotate: false
+  xy: 464, 1026
+  size: 462, 446
+  orig: 1000, 1000
+  offset: 258, 478
+  index: -1
+image/show1/moon/00010
+  rotate: false
+  xy: 1389, 582
+  size: 461, 445
+  orig: 1000, 1000
+  offset: 258, 479
+  index: -1
+image/show1/moon/00011
+  rotate: false
+  xy: 1, 581
+  size: 460, 444
+  orig: 1000, 1000
+  offset: 259, 479
+  index: -1
+
+show2.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/show1/man/00002
+  rotate: true
+  xy: 344, 661
+  size: 337, 578
+  orig: 819, 819
+  offset: 232, 146
+  index: -1
+image/show1/man/00003
+  rotate: true
+  xy: 344, 329
+  size: 331, 577
+  orig: 819, 819
+  offset: 236, 146
+  index: -1
+image/show1/man/00004
+  rotate: true
+  xy: 922, 331
+  size: 329, 577
+  orig: 819, 819
+  offset: 239, 146
+  index: -1
+image/show1/man/00005
+  rotate: true
+  xy: 922, 1
+  size: 329, 575
+  orig: 819, 819
+  offset: 240, 146
+  index: -1
+image/show1/man/00006
+  rotate: false
+  xy: 1500, 424
+  size: 332, 574
+  orig: 819, 819
+  offset: 239, 146
+  index: -1
+image/show1/man/00007
+  rotate: true
+  xy: 923, 661
+  size: 337, 575
+  orig: 819, 819
+  offset: 235, 146
+  index: -1
+image/show1/man/00008
+  rotate: false
+  xy: 1, 421
+  size: 342, 577
+  orig: 819, 819
+  offset: 231, 146
+  index: -1

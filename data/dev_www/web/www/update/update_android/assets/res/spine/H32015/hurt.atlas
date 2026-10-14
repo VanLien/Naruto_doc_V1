@@ -1,0 +1,48 @@
+
+hurt.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shouji_00000
+  rotate: false
+  xy: 426, 79
+  size: 71, 156
+  orig: 495, 440
+  offset: 75, 39
+  index: -1
+shouji_00001
+  rotate: true
+  xy: 154, 5
+  size: 94, 139
+  orig: 495, 440
+  offset: 50, 41
+  index: -1
+shouji_00002
+  rotate: true
+  xy: 142, 101
+  size: 134, 137
+  orig: 495, 440
+  offset: 18, 41
+  index: -1
+shouji_00003
+  rotate: false
+  xy: 2, 101
+  size: 138, 134
+  orig: 495, 440
+  offset: 21, 41
+  index: -1
+shouji_00004
+  rotate: true
+  xy: 281, 113
+  size: 122, 143
+  orig: 495, 440
+  offset: 50, 41
+  index: -1
+shouji_00005
+  rotate: true
+  xy: 2, 2
+  size: 97, 150
+  orig: 495, 440
+  offset: 63, 42
+  index: -1

@@ -1,0 +1,948 @@
+﻿local var_0_0 = table.remove
+
+SysController = SysController or BaseClass(BaseController)
+
+function SysController.config(arg_1_0)
+	arg_1_0.dispather = GlobalEvent:getInstance()
+
+	arg_1_0:initAttrProtocalsFunList()
+end
+
+function SysController.registerEvents(arg_2_0)
+	if arg_2_0.init_role_event == nil then
+		arg_2_0.init_role_event = GlobalEvent:getInstance():Bind(EventId.ROLE_CREATE_SUCCESS, function()
+			GlobalEvent:getInstance():UnBind(arg_2_0.init_role_event)
+
+			arg_2_0.init_role_event = nil
+			arg_2_0.role_vo = RoleController:getInstance():getRoleVo()
+
+			if arg_2_0.role_vo and arg_2_0.role_assets_event == nil then
+				arg_2_0.role_assets_event = arg_2_0.role_vo:Bind(RoleEvent.UPDATE_ROLE_ATTRIBUTE, function(arg_4_0, arg_4_1)
+					if arg_4_0 == "lev" or arg_4_0 == "open_day" then
+						arg_2_0:requestAttrProtocals()
+					elseif arg_4_0 == "guild_lev" then
+						-- block empty
+					end
+				end)
+			end
+		end)
+	end
+
+	if arg_2_0.world_lev_event == nil then
+		arg_2_0.world_lev_event = GlobalEvent:getInstance():Bind(RoleEvent.WORLD_LEV, function()
+			arg_2_0:crossarenaProtocal()
+		end)
+	end
+
+	if arg_2_0.re_link_game_event == nil then
+		arg_2_0.re_link_game_event = GlobalEvent:getInstance():Bind(LoginEvent.RE_LINK_GAME, function()
+			if not RoleController:getInstance():checkRoleSetNameViewIsOpen() and not GuideController:getInstance():isInGuide() then
+				MainuiController:getInstance():changeMainUIStatus(MainuiConst.btn_index.main_scene)
+			end
+
+			arg_2_0:resetAttrProtocals()
+			arg_2_0:requestReLinkProtocals()
+		end)
+	end
+end
+
+function SysController.registerProtocals(arg_7_0)
+	arg_7_0:RegisterProtocal(10394, "rgp_hander10394")
+end
+
+function SysController.requestLoginProtocals(arg_8_0)
+	arg_8_0:registerEvents()
+
+	local var_8_0 = {
+		function()
+			arg_8_0:SendProtocal(10500, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10501, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10502, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10503, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(11025, {})
+		end,
+		function()
+			arg_8_0:adventrueProtocal()
+		end,
+		function()
+			arg_8_0:SendProtocal(10906, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10380, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10926, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24600, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(16710, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(23200, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(25300, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10325, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(13006, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(13008, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(13011, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(13017, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10905, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(20700, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10317, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(21100, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(13601, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(21021, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(16637, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24700, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(21000, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(21030, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(21010, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(25000, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(23606, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24204, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24220, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(22200, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24125, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24128, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(11040, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(11037, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(11213, {
+				type_list = {
+					{
+						type = PartnerConst.Fun_Form.Drama
+					},
+					{
+						type = PartnerConst.Fun_Form.Arena
+					}
+				}
+			})
+		end,
+		function()
+			arg_8_0:SendProtocal(19807, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(19804, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24312, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10800, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10950, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(23214, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(13604, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(13607, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(13030, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10400, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(16400, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(20300, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(25810, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(19906, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(16707, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(16712, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(21006, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24502, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(14100, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(16705, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(21008, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(16635, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(16633, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(11320, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(20706, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(16687, {
+				bid = ActionRankCommonType.open_server
+			})
+		end,
+		function()
+			arg_8_0:SendProtocal(16687, {
+				bid = ActionRankCommonType.high_value_gift
+			})
+		end,
+		function()
+			arg_8_0:SendProtocal(16687, {
+				bid = ActionRankCommonType.mysterious_store
+			})
+		end,
+		function()
+			arg_8_0:SendProtocal(25200, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(25219, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(25303, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24313, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24314, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(25830, {
+				num = 1,
+				start = 0
+			})
+		end,
+		function()
+			arg_8_0:SendProtocal(25833, {})
+		end,
+		function()
+			arg_8_0:homepetProtocal()
+		end,
+		function()
+			arg_8_0:SendProtocal(25814, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(11056, {})
+		end,
+		function()
+			arg_8_0:crossarenaProtocal()
+		end,
+		function()
+			arg_8_0:guildRedBagProtocal()
+		end,
+		function()
+			arg_8_0:arenateamProtocal()
+		end,
+		function()
+			arg_8_0:arenaPeakProtocal()
+		end,
+		function()
+			arg_8_0:endlessProtocal()
+		end,
+		function()
+			arg_8_0:voyageProtocal()
+		end,
+		function()
+			arg_8_0:homeworldProtocal()
+		end,
+		function()
+			arg_8_0:crosschampionProtocal()
+		end,
+		function()
+			arg_8_0:elfinProtocal()
+		end,
+		function()
+			arg_8_0:SendProtocal(27100, {})
+		end,
+		function()
+			arg_8_0:monopolyProtocal()
+		end,
+		function()
+			arg_8_0:SendProtocal(27600, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(24952, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(27102, {})
+		end,
+		function()
+			arg_8_0:planesProtocal()
+		end,
+		function()
+			arg_8_0:SendProtocal(10930, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(28700, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(28703, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(25232, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(16651, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10987, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(23235, {})
+		end,
+		function()
+			arg_8_0:SendProtocal(10985, {})
+		end
+	}
+
+	for iter_8_0, iter_8_1 in ipairs(var_8_0) do
+		RenderMgr:getInstance():doNextFrame(iter_8_1)
+	end
+end
+
+function SysController.requestReLinkProtocals(arg_109_0)
+	local var_109_0 = {
+		function()
+			arg_109_0:SendProtocal(10500, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(10501, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(10503, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(13006, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(13008, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(13011, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(13017, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(10906, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(25000, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(24204, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(11025, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(21021, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(10926, {})
+		end,
+		function()
+			arg_109_0:adventrueProtocal()
+		end,
+		function()
+			arg_109_0:SendProtocal(11040, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(11037, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(11213, {
+				type_list = {
+					{
+						type = PartnerConst.Fun_Form.Drama
+					},
+					{
+						type = PartnerConst.Fun_Form.Arena
+					}
+				}
+			})
+		end,
+		function()
+			arg_109_0:SendProtocal(25300, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(24312, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(23200, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(10400, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(16400, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(20300, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(25810, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(19906, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(21006, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(16705, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(24700, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(10800, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(10950, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(26017, {})
+		end,
+		function()
+			arg_109_0:homepetProtocal()
+		end,
+		function()
+			arg_109_0:SendProtocal(25814, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(11056, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(11320, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(25833, {})
+		end,
+		function()
+			arg_109_0:crossarenaProtocal()
+		end,
+		function()
+			arg_109_0:guildRedBagProtocal()
+		end,
+		function()
+			arg_109_0:arenateamProtocal()
+		end,
+		function()
+			arg_109_0:arenaPeakProtocal()
+		end,
+		function()
+			arg_109_0:arenaProtocal()
+		end,
+		function()
+			arg_109_0:endlessProtocal()
+		end,
+		function()
+			arg_109_0:voyageProtocal()
+		end,
+		function()
+			arg_109_0:homeworldProtocal()
+		end,
+		function()
+			arg_109_0:crosschampionProtocal()
+		end,
+		function()
+			arg_109_0:elfinProtocal()
+		end,
+		function()
+			arg_109_0:monopolyProtocal()
+		end,
+		function()
+			arg_109_0:requestVisitior()
+		end,
+		function()
+			arg_109_0:SendProtocal(27102, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(28700, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(13300, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(25232, {})
+		end,
+		function()
+			arg_109_0:SendProtocal(10985, {})
+		end
+	}
+
+	for iter_109_0, iter_109_1 in ipairs(var_109_0) do
+		RenderMgr:getInstance():doNextFrame(iter_109_1)
+	end
+end
+
+function SysController.requestAttrProtocals(arg_163_0)
+	if not arg_163_0.attr_fun_list then
+		return
+	end
+
+	for iter_163_0, iter_163_1 in pairs(arg_163_0.attr_fun_list) do
+		local var_163_0 = iter_163_1.fun
+
+		if not iter_163_1.req_flag and var_163_0 then
+			RenderMgr:getInstance():doNextFrame(var_163_0)
+		end
+	end
+end
+
+function SysController.initAttrProtocalsFunList(arg_164_0, arg_164_1)
+	if arg_164_1 or not arg_164_0.attr_fun_list then
+		arg_164_0.attr_fun_list = {
+			{
+				req_flag = false,
+				fun = function()
+					arg_164_0:adventrueProtocal()
+				end
+			},
+			{
+				req_flag = false,
+				fun = function()
+					arg_164_0:arenaProtocal()
+				end
+			},
+			{
+				req_flag = false,
+				fun = function()
+					arg_164_0:endlessProtocal()
+				end
+			},
+			{
+				req_flag = false,
+				fun = function()
+					arg_164_0:voyageProtocal()
+				end
+			},
+			{
+				req_flag = false,
+				fun = function()
+					arg_164_0:crossarenaProtocal()
+				end
+			},
+			{
+				req_flag = false,
+				fun = function()
+					arg_164_0:homeworldProtocal()
+				end
+			},
+			{
+				req_flag = false,
+				fun = function()
+					arg_164_0:crosschampionProtocal()
+				end
+			},
+			{
+				req_flag = false,
+				fun = function()
+					arg_164_0:elfinProtocal()
+				end
+			},
+			[10] = {
+				req_flag = false,
+				fun = function()
+					arg_164_0:arenateamProtocal()
+				end
+			},
+			[11] = {
+				req_flag = false,
+				fun = function()
+					arg_164_0:arenaPeakProtocal()
+				end
+			},
+			[12] = {
+				req_flag = false,
+				fun = function()
+					arg_164_0:monopolyProtocal()
+				end
+			},
+			[13] = {
+				req_flag = false,
+				fun = function()
+					arg_164_0:planesProtocal()
+				end
+			}
+		}
+	end
+end
+
+function SysController.checkProtocalIsCanRequest(arg_177_0, arg_177_1)
+	if arg_177_0.attr_fun_list and arg_177_0.attr_fun_list[arg_177_1] and not arg_177_0.attr_fun_list[arg_177_1].req_flag then
+		return true
+	end
+
+	return false
+end
+
+function SysController.resetAttrProtocals(arg_178_0)
+	arg_178_0:initAttrProtocalsFunList(true)
+end
+
+function SysController.adventrueProtocal(arg_179_0)
+	local var_179_0 = forces
+
+	if var_179_0 == nil then
+		var_179_0 = AdventureActivityController:getInstance():isOpenActivity(AdventureActivityConst.Ground_Type.adventure)
+	end
+
+	if var_179_0 == false then
+		return
+	end
+
+	if not arg_179_0:checkProtocalIsCanRequest(1) then
+		return
+	end
+
+	arg_179_0:SendProtocal(20600, {})
+	arg_179_0:SendProtocal(20601, {})
+	arg_179_0:SendProtocal(20604, {})
+	arg_179_0:SendProtocal(20634, {})
+
+	if arg_179_0.attr_fun_list[1] then
+		arg_179_0.attr_fun_list[1].req_flag = true
+	end
+end
+
+function SysController.arenaProtocal(arg_180_0)
+	local var_180_0 = Config.ArenaData.data_const.limit_lev
+
+	if not var_180_0 or not arg_180_0.role_vo or arg_180_0.role_vo.lev < var_180_0.val then
+		return
+	end
+
+	if not arg_180_0:checkProtocalIsCanRequest(2) then
+		return
+	end
+
+	arg_180_0:SendProtocal(20208, {})
+	arg_180_0:SendProtocal(20200, {})
+	arg_180_0:SendProtocal(20250, {})
+	arg_180_0:SendProtocal(20223, {})
+
+	if arg_180_0.attr_fun_list[2] then
+		arg_180_0.attr_fun_list[2].req_flag = true
+	end
+end
+
+function SysController.endlessProtocal(arg_181_0)
+	local var_181_0 = Config.EndlessData.data_const.open_lev
+
+	if var_181_0 == nil then
+		return false
+	end
+
+	if not MainuiController:getInstance():checkIsOpenByActivate(var_181_0.val) then
+		return
+	end
+
+	if not arg_181_0:checkProtocalIsCanRequest(3) then
+		return
+	end
+
+	arg_181_0:SendProtocal(23900, {})
+	arg_181_0:SendProtocal(23912, {})
+	arg_181_0:SendProtocal(23906, {})
+
+	if arg_181_0.attr_fun_list[3] then
+		arg_181_0.attr_fun_list[3].req_flag = true
+	end
+end
+
+function SysController.voyageProtocal(arg_182_0)
+	local var_182_0 = Config.ShippingData.data_const.guild_lev
+
+	if not var_182_0 or not arg_182_0.role_vo or var_182_0.val > arg_182_0.role_vo.lev then
+		return
+	end
+
+	if not arg_182_0:checkProtocalIsCanRequest(4) then
+		return
+	end
+
+	arg_182_0:SendProtocal(23800, {})
+	arg_182_0:SendProtocal(23805, {})
+
+	if arg_182_0.attr_fun_list[4] then
+		arg_182_0.attr_fun_list[4].req_flag = true
+	end
+end
+
+function SysController.guildRedBagProtocal(arg_183_0)
+	if arg_183_0.role_vo and arg_183_0.role_vo.gid ~= 0 and arg_183_0.role_vo.gsrv_id ~= "" then
+		arg_183_0:SendProtocal(13534, {})
+	end
+end
+
+function SysController.homepetProtocal(arg_184_0)
+	arg_184_0:SendProtocal(26100, {})
+	arg_184_0:SendProtocal(26105, {})
+	arg_184_0:SendProtocal(26110, {})
+	arg_184_0:SendProtocal(26111, {
+		type = 34
+	})
+	arg_184_0:SendProtocal(26111, {
+		type = 35
+	})
+end
+
+function SysController.crossarenaProtocal(arg_185_0)
+	if not arg_185_0:checkProtocalIsCanRequest(5) then
+		return
+	end
+
+	if CrossarenaController:getInstance():getModel():getCrossarenaIsOpen(true) then
+		arg_185_0:SendProtocal(25610, {})
+		arg_185_0:SendProtocal(25607, {})
+		arg_185_0:SendProtocal(25618, {})
+		arg_185_0:SendProtocal(25605, {
+			type = 2
+		})
+
+		if arg_185_0.attr_fun_list[5] then
+			arg_185_0.attr_fun_list[5].req_flag = true
+		end
+	end
+end
+
+function SysController.homeworldProtocal(arg_186_0)
+	if not HomeworldController:getInstance():getModel():checkHomeworldIsOpen(true) then
+		return
+	end
+
+	if not arg_186_0:checkProtocalIsCanRequest(6) then
+		return
+	end
+
+	arg_186_0:SendProtocal(26017, {})
+	arg_186_0:SendProtocal(26018, {})
+	arg_186_0:SendProtocal(26013, {})
+
+	if arg_186_0.attr_fun_list[6] then
+		arg_186_0.attr_fun_list[6].req_flag = true
+	end
+end
+
+function SysController.crosschampionProtocal(arg_187_0)
+	if not arg_187_0:checkProtocalIsCanRequest(7) then
+		return
+	end
+
+	if not CrosschampionController:getInstance():getModel():checkCrossChampionIsOpen(true) then
+		return
+	end
+
+	arg_187_0:SendProtocal(26200, {})
+	arg_187_0:SendProtocal(26213, {})
+
+	if arg_187_0.attr_fun_list[7] then
+		arg_187_0.attr_fun_list[7].req_flag = true
+	end
+end
+
+function SysController.elfinProtocal(arg_188_0)
+	if not arg_188_0:checkProtocalIsCanRequest(8) then
+		return
+	end
+
+	if not ElfinController:getInstance():getModel():checkElfinIsOpen(true) then
+		return
+	end
+
+	arg_188_0:SendProtocal(26500, {})
+	arg_188_0:SendProtocal(26510, {})
+	arg_188_0:SendProtocal(26550, {})
+
+	if arg_188_0.attr_fun_list[8] then
+		arg_188_0.attr_fun_list[8].req_flag = true
+	end
+end
+
+function SysController.expeditProtocal(arg_189_0)
+	return
+end
+
+function SysController.arenateamProtocal(arg_190_0)
+	if not arg_190_0:checkProtocalIsCanRequest(10) then
+		return
+	end
+
+	local var_190_0 = ArenateamController:getInstance()
+
+	if var_190_0 and var_190_0.checkArenaTeamIsOpen then
+		if var_190_0:checkArenaTeamIsOpen(true) == false then
+			return
+		end
+
+		arg_190_0:SendProtocal(27220, {})
+		arg_190_0:SendProtocal(27215, {})
+		arg_190_0:SendProtocal(11211, {
+			type = PartnerConst.Fun_Form.ArenaTeam
+		})
+
+		if arg_190_0.attr_fun_list[10] then
+			arg_190_0.attr_fun_list[10].req_flag = true
+		end
+	end
+end
+
+function SysController.arenaPeakProtocal(arg_191_0)
+	if not arg_191_0:checkProtocalIsCanRequest(11) then
+		return
+	end
+
+	local var_191_0 = ArenapeakchampionController:getInstance():getModel()
+
+	if var_191_0 and var_191_0.checkPeakChampionIsOpen then
+		if var_191_0:checkPeakChampionIsOpen(true) == false then
+			return
+		end
+
+		arg_191_0:SendProtocal(27700, {})
+		arg_191_0:SendProtocal(27703, {})
+		arg_191_0:SendProtocal(27730, {})
+		arg_191_0:SendProtocal(27726, {})
+		arg_191_0:SendProtocal(27714, {
+			end_num = 1,
+			start_num = 1,
+			zone_id = 0
+		})
+
+		if arg_191_0.attr_fun_list[11] then
+			arg_191_0.attr_fun_list[11].req_flag = true
+		end
+	end
+end
+
+function SysController.monopolyProtocal(arg_192_0)
+	if not arg_192_0:checkProtocalIsCanRequest(12) then
+		return
+	end
+
+	if not MonopolyController:getInstance():getModel():checkMonopolyIsOpen(true) then
+		return
+	end
+
+	if arg_192_0.attr_fun_list[12] then
+		arg_192_0.attr_fun_list[12].req_flag = true
+	end
+end
+
+function SysController.planesProtocal(arg_193_0)
+	if not arg_193_0:checkProtocalIsCanRequest(13) then
+		return
+	end
+
+	if not PlanesafkController:getInstance():checkPlanesIsOpen(true) then
+		return
+	end
+
+	arg_193_0:SendProtocal(28603, {})
+	arg_193_0:SendProtocal(28616, {})
+
+	if arg_193_0.attr_fun_list[13] then
+		arg_193_0.attr_fun_list[13].req_flag = true
+	end
+end
+
+function SysController.requestVisitior(arg_194_0)
+	if NEED_CHECK_VISITIOR_STATUS then
+		arg_194_0:SendProtocal(10394, {})
+	end
+end
+
+function SysController.rgp_hander10394(arg_195_0, arg_195_1)
+	if NEED_CHECK_VISITIOR_STATUS then
+		if OPEN_SDK_VISITIOR_WINDOW == true then
+			NEED_OPEN_OPEN_SDK_VISITIOR_WINDOW = true
+		else
+			callFunc("touristMode", "60")
+		end
+	end
+end
+
+function SysController.__delete(arg_196_0)
+	return
+end

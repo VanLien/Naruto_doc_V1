@@ -1,0 +1,300 @@
+
+action5.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hashirama action1/0_00000
+  rotate: false
+  xy: 1083, 530
+  size: 97, 194
+  orig: 900, 600
+  offset: 230, 196
+  index: -1
+hashirama action1/0_00001
+  rotate: false
+  xy: 861, 145
+  size: 101, 192
+  orig: 900, 600
+  offset: 229, 194
+  index: -1
+hashirama action1/0_00002
+  rotate: true
+  xy: 1507, 583
+  size: 98, 190
+  orig: 900, 600
+  offset: 232, 198
+  index: -1
+hashirama action1/0_00003
+  rotate: true
+  xy: 1699, 549
+  size: 93, 195
+  orig: 900, 600
+  offset: 236, 195
+  index: -1
+hashirama action1/0_00004
+  rotate: true
+  xy: 952, 726
+  size: 90, 196
+  orig: 900, 600
+  offset: 238, 195
+  index: -1
+hashirama action1/0_00005
+  rotate: true
+  xy: 1311, 686
+  size: 120, 194
+  orig: 900, 600
+  offset: 239, 197
+  index: -1
+hashirama action1/0_00006
+  rotate: true
+  xy: 548, 15
+  size: 128, 191
+  orig: 900, 600
+  offset: 238, 201
+  index: -1
+hashirama action1/0_00007
+  rotate: true
+  xy: 1507, 683
+  size: 123, 190
+  orig: 900, 600
+  offset: 242, 203
+  index: -1
+hashirama action1/0_00008
+  rotate: false
+  xy: 1961, 663
+  size: 83, 183
+  orig: 900, 600
+  offset: 241, 197
+  index: -1
+hashirama action1/0_00009
+  rotate: true
+  xy: 2, 4
+  size: 87, 190
+  orig: 900, 600
+  offset: 236, 197
+  index: -1
+hashirama action1/0_00010
+  rotate: true
+  xy: 1311, 584
+  size: 100, 194
+  orig: 900, 600
+  offset: 232, 196
+  index: -1
+hashirama action1/0_00011
+  rotate: true
+  xy: 1699, 644
+  size: 102, 192
+  orig: 900, 600
+  offset: 229, 194
+  index: -1
+hashirama stand/0_00000
+  rotate: true
+  xy: 1285, 384
+  size: 97, 194
+  orig: 900, 600
+  offset: 230, 196
+  index: -1
+hashirama stand/0_00001
+  rotate: false
+  xy: 1182, 422
+  size: 101, 192
+  orig: 900, 600
+  offset: 229, 194
+  index: -1
+hashirama stand/0_00002
+  rotate: true
+  xy: 1675, 347
+  size: 100, 190
+  orig: 900, 600
+  offset: 230, 198
+  index: -1
+hashirama stand/0_00003
+  rotate: true
+  xy: 1285, 483
+  size: 99, 195
+  orig: 900, 600
+  offset: 230, 195
+  index: -1
+hashirama stand/0_00004
+  rotate: true
+  xy: 1763, 748
+  size: 98, 196
+  orig: 900, 600
+  offset: 230, 195
+  index: -1
+hashirama stand/0_00005
+  rotate: true
+  xy: 1482, 482
+  size: 99, 194
+  orig: 900, 600
+  offset: 230, 197
+  index: -1
+hashirama stand/0_00006
+  rotate: true
+  xy: 1678, 449
+  size: 98, 191
+  orig: 900, 600
+  offset: 230, 201
+  index: -1
+hashirama stand/0_00007
+  rotate: false
+  xy: 964, 155
+  size: 96, 190
+  orig: 900, 600
+  offset: 230, 203
+  index: -1
+hashirama stand/0_00008
+  rotate: true
+  xy: 964, 59
+  size: 94, 183
+  orig: 900, 600
+  offset: 230, 197
+  index: -1
+hashirama stand/0_00009
+  rotate: false
+  xy: 1062, 155
+  size: 93, 190
+  orig: 900, 600
+  offset: 230, 197
+  index: -1
+madara action1/0_00000
+  rotate: true
+  xy: 352, 2
+  size: 95, 194
+  orig: 900, 600
+  offset: 231, 196
+  index: -1
+madara action1/0_00001
+  rotate: true
+  xy: 1481, 379
+  size: 101, 192
+  orig: 900, 600
+  offset: 229, 194
+  index: -1
+madara action1/0_00002
+  rotate: true
+  xy: 442, 342
+  size: 192, 236
+  orig: 900, 600
+  offset: 199, 198
+  index: -1
+madara action1/0_00003
+  rotate: false
+  xy: 352, 99
+  size: 164, 227
+  orig: 900, 600
+  offset: 217, 247
+  index: -1
+madara action1/0_00004
+  rotate: true
+  xy: 680, 339
+  size: 181, 224
+  orig: 900, 600
+  offset: 214, 247
+  index: -1
+madara action1/0_00005
+  rotate: true
+  xy: 487, 536
+  size: 211, 254
+  orig: 900, 600
+  offset: 195, 237
+  index: -1
+madara action1/0_00006
+  rotate: true
+  xy: 1231, 808
+  size: 214, 265
+  orig: 900, 600
+  offset: 191, 231
+  index: -1
+madara action1/0_00007
+  rotate: true
+  xy: 1498, 808
+  size: 214, 263
+  orig: 900, 600
+  offset: 189, 238
+  index: -1
+madara action1/0_00008
+  rotate: true
+  xy: 952, 818
+  size: 204, 277
+  orig: 900, 600
+  offset: 193, 219
+  index: -1
+madara action1/0_00009
+  rotate: true
+  xy: 1763, 848
+  size: 174, 283
+  orig: 900, 600
+  offset: 209, 197
+  index: -1
+madara action1/0_00010
+  rotate: true
+  xy: 741, 15
+  size: 128, 194
+  orig: 900, 600
+  offset: 231, 196
+  index: -1
+madara action1/0_00011
+  rotate: false
+  xy: 950, 532
+  size: 131, 192
+  orig: 900, 600
+  offset: 229, 194
+  index: -1
+madara action1/0_00012
+  rotate: false
+  xy: 1182, 616
+  size: 127, 190
+  orig: 900, 600
+  offset: 232, 198
+  index: -1
+madara action1/0_00013
+  rotate: false
+  xy: 518, 145
+  size: 149, 195
+  orig: 900, 600
+  offset: 209, 195
+  index: -1
+madara action1/0_00014
+  rotate: false
+  xy: 487, 749
+  size: 463, 273
+  orig: 900, 600
+  offset: 134, 119
+  index: -1
+madara action1/0_00015
+  rotate: false
+  xy: 2, 679
+  size: 483, 343
+  orig: 900, 600
+  offset: 117, 108
+  index: -1
+madara action1/0_00016
+  rotate: false
+  xy: 2, 328
+  size: 438, 349
+  orig: 900, 600
+  offset: 148, 102
+  index: -1
+madara action1/0_00017
+  rotate: false
+  xy: 2, 93
+  size: 348, 233
+  orig: 900, 600
+  offset: 131, 203
+  index: -1
+madara action1/0_00018
+  rotate: false
+  xy: 743, 522
+  size: 205, 225
+  orig: 900, 600
+  offset: 131, 197
+  index: -1
+madara action1/0_00019
+  rotate: false
+  xy: 669, 147
+  size: 190, 190
+  orig: 900, 600
+  offset: 133, 197
+  index: -1

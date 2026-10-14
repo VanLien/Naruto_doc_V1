@@ -1,0 +1,39 @@
+﻿local var_0_0 = ccui.ScrollView
+
+function var_0_0.onEvent(arg_1_0, arg_1_1)
+	arg_1_0:addEventListener(function(arg_2_0, arg_2_1)
+		local var_2_0 = {}
+
+		if arg_2_1 == 0 then
+			var_2_0.name = "SCROLL_TO_TOP"
+		elseif arg_2_1 == 1 then
+			var_2_0.name = "SCROLL_TO_BOTTOM"
+		elseif arg_2_1 == 2 then
+			var_2_0.name = "SCROLL_TO_LEFT"
+		elseif arg_2_1 == 3 then
+			var_2_0.name = "SCROLL_TO_RIGHT"
+		elseif arg_2_1 == 4 then
+			var_2_0.name = "SCROLLING"
+		elseif arg_2_1 == 5 then
+			var_2_0.name = "BOUNCE_TOP"
+		elseif arg_2_1 == 6 then
+			var_2_0.name = "BOUNCE_BOTTOM"
+		elseif arg_2_1 == 7 then
+			var_2_0.name = "BOUNCE_LEFT"
+		elseif arg_2_1 == 8 then
+			var_2_0.name = "BOUNCE_RIGHT"
+		elseif arg_2_1 == 9 then
+			var_2_0.name = "CONTAINER_MOVED"
+		elseif arg_2_1 == 10 then
+			var_2_0.name = "AUTOSCROLL_ENDED"
+		end
+
+		var_2_0.target = arg_2_0
+
+		arg_1_1(var_2_0)
+	end)
+
+	return arg_1_0
+end
+
+var_0_0.onScroll = var_0_0.onEvent

@@ -1,0 +1,234 @@
+-- --------------------------------------------------------------------
+-- 
+-- 
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      这里填写详细说明,主要填写该模块的功能简要
+-- <br/>Create: 2020-1-4
+-- --------------------------------------------------------------------
+RefundInfoWindow = RefundInfoWindow or BaseClass(BaseView)
+
+local _controller = NoticeController:getInstance()
+function RefundInfoWindow:__init()
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+    self.layout_name = "notice/refund_info_window"
+    self.win_type = WinType.Big
+    self.is_full_screen = true
+    self.title_height = 0
+    self.title = ""
+     self.res_list = {
+        { path = PathTool.getPlistImgForDownLoad("bigbg","pattern/pattern_3"), type = ResourcesType.single},
+    }
+    self.cache_list = {}
+    self.cache_list_2 = {}
+    self.choose_star_list = {}
+    self.star = {}
+    self.choose_star = 0
+    self.is_shrink = false
+    self.container_list_2 = {}
+    self.container_list_1 = {}
+    self.is_first_1 = true
+
+    --new customer
+    self.interFlow_list = {}
+    self.time = 0
+end
+
+function RefundInfoWindow:open_callback()
+    local bg = self.root_wnd:getChildByName("backpanel")
+    bg:setScale(display.getMaxScale())
+    self.background = bg:getChildByName("background")
+    self.main_panel = self.root_wnd:getChildByName("main_panel")
+    self.close_btn = self.main_panel:getChildByName("close_btn")
+    self.close_btn:setVisible(false)
+    self.top_panel = self.main_panel:getChildByName("top_panel")
+    self.title_label = self.top_panel:getChildByName("title_label")
+    self.titlebg = self.top_panel:getChildByName("title")
+    -- self.top_panel:setContentSize(cc.size(500,100))
+    
+    self.title_label:setString(TI18N("语言_c_5031"))
+    local bwidth = self.title_label:getContentSize().width + 140
+    local bheight = self.titlebg:getContentSize().height
+    self.titlebg:setContentSize(cc.size(bwidth,bheight))
+
+    local res = PathTool.getPlistImgForDownLoad("bigbg","pattern/pattern_3")  --底部花纹
+    if res ~= nil then
+        local pattern_1 = createSprite(res, self.main_panel:getContentSize().width/2, 25, self.main_panel, cc.p(0.5,0.5),LOADTEXT_TYPE)
+        pattern_1:setScaleX(0.85)
+    end
+    self.main_container = self.main_panel:getChildByName("main_container")
+
+    self.layout_bar = self.main_container:getChildByName("layout_bar")
+
+    local txt_orderinfo_str = string.format("<div href=detial>%s</div>",TI18N("语言_c_5036"))
+    self.txt_orderinfo = createRichLabel(24, cc.c4b(0x64,0x32,0x23,0xff), cc.p(1,0), cc.p(580,53), nil, nil, 400)
+    self.txt_orderinfo:setString(txt_orderinfo_str)
+    self.layout_bar:addChild(self.txt_orderinfo)
+
+    self.txt_bar_tip = createRichLabel(24, cc.c4b(0x64,0x32,0x23,0xff), cc.p(0.5,0.5), cc.p(300,170), -4, nil, 600)
+    self.txt_bar_tip:setString(TI18N("语言_c_5033"))
+    self.layout_bar:addChild(self.txt_bar_tip)
+    
+    self.txt_paynum = createRichLabel(20, cc.c4b(0x0e,0xa8,0x0e,0xff), cc.p(0,0), cc.p(6,74), nil, nil, 400)
+    self.txt_paynum:setString(TI18N("语言_c_5034"))
+    self.layout_bar:addChild(self.txt_paynum)
+    
+    self.txt_lastnum = createRichLabel(20, cc.c4b(0xff,0x15,0x15,0xff), cc.p(0,0), cc.p(6,45), nil, nil, 400)
+    self.txt_lastnum:setString(TI18N("语言_c_5035"))
+    self.layout_bar:addChild(self.txt_lastnum)
+
+    self.progress = self.layout_bar:getChildByName("progress")
+    self.progress:setScale9Enabled(true)
+    self.progress:setPercent(0)
+
+    self.tip_scroll = self.main_container:getChildByName("tip_scroll")
+    self.txt_tip = createRichLabel(22, cc.c4b(0x64,0x32,0x23,0xff), cc.p(0,1), cc.p(14,177), nil, nil, 600)
+    self.tip_scroll:addChild(self.txt_tip)
+    self.txt_tip:setString(TI18N("语言_c_5032"))
+    local txt_tipY = math.max(self.tip_scroll:getContentSize().height,self.txt_tip:getContentSize().height)
+    self.txt_tip:setPositionY(txt_tipY)
+    self.tip_scroll:setInnerContainerSize(cc.size(self.tip_scroll:getContentSize().width, txt_tipY))
+    
+    self.layout_info = self.main_container:getChildByName("layout_info")
+    self.txt_curorder = self.layout_info:getChildByName("img_bg1"):getChildByName("txt_curorder")
+    self.txt_curorder:setString(TI18N("语言_c_5037"))
+    
+    self.txt_curorderid = self.layout_info:getChildByName("img_bg1"):getChildByName("txt_curorderid")
+    self.txt_curorderid:setString("---")
+    
+    self.txt_orderstate = createRichLabel(24, cc.c4b(0x64,0x32,0x23,0xff), cc.p(0,1), cc.p(20,47), nil, nil, 600)
+    self.layout_info:getChildByName("img_bg2"):addChild(self.txt_orderstate)
+    self.txt_orderstate:setString(TI18N("语言_c_5039"))
+    
+    self.txt_ordernum = createRichLabel(24, cc.c4b(0x64,0x32,0x23,0xff), cc.p(0,1), cc.p(20,95), nil, nil, 600)
+    self.layout_info:getChildByName("img_bg2"):addChild(self.txt_ordernum)
+    self.txt_ordernum:setString(TI18N("语言_c_5038"))
+
+    self.pay_btn = self.layout_info:getChildByName("pay_btn")
+    self.pay_btn.label = self.pay_btn:getChildByName("label")
+    self.pay_btn.label:setString(TI18N("语言_c_5040"))
+
+    self.send_btn = CustomButton.New(self.layout_info, PathTool.getResFrame("common", "common_1017"), PathTool.getResFrame("common", "common_1017"),nil,LOADTEXT_TYPE_PLIST)
+    self.send_btn:setBtnLableColor(cc.c4b(0xF8,0xEF,0x76,0xff))
+    self.send_btn:setSize(cc.size(200,65))
+    self.send_btn:setLabelSize(26)
+    self.send_btn:setPosition(cc.p(132,-46))
+    self.send_btn:setBtnLabel(TI18N("语言_c_2617"))
+    self.send_btn:getLabel():enableOutline(Config.ColorData.data_color4[264], 2)
+    self.send_btn:setVisible(true)
+
+    -- self.send_btn = self.layout_info:getChildByName("send_btn")
+    -- self.send_btn:setTitleText(TI18N("语言_c_2617"))
+    -- self.send_btn.label = self.send_btn:getTitleRenderer()
+    -- if self.send_btn.label ~= nil then
+    --     self.send_btn.label:enableOutline(Config.ColorData.data_color4[264], 2)
+    -- end
+    
+    self.resh_btn = CustomButton.New(self.layout_info, PathTool.getResFrame("common", "common_1017"), PathTool.getResFrame("common", "common_1017"),nil,LOADTEXT_TYPE_PLIST)
+    self.resh_btn:setBtnLableColor(cc.c4b(0xF8,0xEF,0x76,0xff))
+    self.resh_btn:setSize(cc.size(200,65))
+    self.resh_btn:setLabelSize(26)
+    self.resh_btn:setPosition(cc.p(505,-46))
+    self.resh_btn:setBtnLabel(TI18N("语言_c_5041"))
+    self.resh_btn:getLabel():enableOutline(Config.ColorData.data_color4[264], 2)
+    self.resh_btn:setVisible(true)
+
+    -- self.resh_btn:setTitleText(TI18N("语言_c_5041"))
+    -- self.resh_btn.label = self.resh_btn:getTitleRenderer()
+    -- if self.resh_btn.label ~= nil then
+    --     self.resh_btn.label:enableOutline(Config.ColorData.data_color4[264], 2)
+    -- end
+    self:updateData()
+end
+
+function RefundInfoWindow:register_event()
+    self.close_btn:addTouchEventListener(function(sender, event_type) 
+        if event_type == ccui.TouchEventType.ended then
+            playButtonSound2()
+            _controller:openRefundInfoWindow(false)
+        end
+    end)
+
+    local function clickLinkCallBack( type, value )
+        if type == "href" and value == "detial" then
+            _controller:openRefundListWindow(true)
+        end
+    end
+    self.txt_orderinfo:addTouchLinkListener(clickLinkCallBack,{"href"})
+
+    registerButtonEventListener(self.pay_btn, function() 
+        if self.buy_charge_id and self.buy_refund_sn then
+            local charge_config = Config.ChargeData.data_charge_data[self.buy_charge_id]
+            if charge_config then
+                _controller:reqGetRefundInfo(5)
+            end
+        end
+    end ,true, REGISTER_BUTTON_SOUND_BUTTON_TYPY)
+
+    self.send_btn:addTouchEventListener(function(sender, event_type) 
+        if event_type == ccui.TouchEventType.ended then
+            playButtonSound2()
+            _controller:openRefundInfoWindow(false)
+            NoticeController:getInstance():openFeedbackDetailWindow(true, CommonConst.refund_post_id, "", 1)
+        end
+    end)
+    self.resh_btn:addTouchEventListener(function(sender, event_type) 
+        if event_type == ccui.TouchEventType.ended then
+            playButtonSound2()
+            if self.time <= os.time() then
+                _controller:reqGetRefundInfo(2)
+                self.time = os.time() + 2
+            else
+                message(TI18N("语言_c_4278"))
+            end
+        end
+    end)
+
+    self:addGlobalEvent(NoticeEvent.Get_Refund_Info_Event_Data, function(data) --评价成功
+        self:updateData()
+    end)
+
+end
+
+function RefundInfoWindow:updateData()
+    local model = _controller:getModel()
+    local n_refundData = model:getRefundInfoData()
+    if n_refundData then
+        local pay_info = n_refundData.pay_info
+        if pay_info then
+            self.buy_charge_id = pay_info.package_id
+            self.buy_refund_sn = pay_info.refund_sn
+            self.txt_curorderid:setString(pay_info.third_sn)
+            self.txt_orderstate:setString(string.format(TI18N("语言_c_5039"),TI18N("语言_c_5049")))
+            self.txt_ordernum:setString(string.format(TI18N("语言_c_5038"),pay_info.money))
+        end
+        local paycount = 0
+        if n_refundData.lists then
+            for k,v in pairs(n_refundData.lists) do
+                if v and v.status == 2 then
+                    paycount = paycount + 1
+                end
+            end
+        end
+        self.txt_paynum:setString(string.format(TI18N("语言_c_5034"),paycount))
+        self.txt_lastnum:setString(string.format(TI18N("语言_c_5035"),n_refundData.not_pay_num))
+        self.txt_bar_tip:setString(string.format(TI18N("语言_c_5033"),n_refundData.paid_amount,n_refundData.total_amount))
+        
+        self.progress:setPercent(n_refundData.paid_amount / n_refundData.total_amount * 100)
+    end
+end
+
+function RefundInfoWindow:RemoveAll( ... )
+    -- body
+end
+
+function RefundInfoWindow:openRootWnd()
+end
+
+function RefundInfoWindow:close_callback()
+    -- GlobalEvent:getInstance():Fire(NoticeEvent.Get_Customer_Close_Info_Event_Data)
+    self:RemoveAll()
+    doStopAllActions(self.main_panel)
+    _controller:openRefundInfoWindow(false)
+end

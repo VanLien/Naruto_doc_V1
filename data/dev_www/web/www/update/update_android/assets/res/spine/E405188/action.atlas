@@ -1,0 +1,20 @@
+
+action.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/E405188/pttx_00013
+  rotate: false
+  xy: 188, 31
+  size: 169, 160
+  orig: 236, 225
+  offset: 27, 24
+  index: -1
+images/E405188/pttx_00017
+  rotate: false
+  xy: 2, 2
+  size: 184, 189
+  orig: 236, 225
+  offset: 21, 13
+  index: -1

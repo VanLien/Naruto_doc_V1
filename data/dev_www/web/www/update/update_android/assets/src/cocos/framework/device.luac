@@ -1,0 +1,125 @@
+﻿local var_0_0 = {}
+
+var_0_0.platform = "unknown"
+var_0_0.model = "unknown"
+
+local var_0_1 = cc.Application:getInstance()
+local var_0_2 = var_0_1:getTargetPlatform()
+
+if var_0_2 == cc.PLATFORM_OS_WINDOWS then
+	var_0_0.platform = "windows"
+elseif var_0_2 == cc.PLATFORM_OS_MAC then
+	var_0_0.platform = "mac"
+elseif var_0_2 == cc.PLATFORM_OS_ANDROID then
+	var_0_0.platform = "android"
+elseif var_0_2 == cc.PLATFORM_OS_IPHONE or var_0_2 == cc.PLATFORM_OS_IPAD then
+	var_0_0.platform = "ios"
+
+	local var_0_3 = cc.Director:getInstance():getOpenGLView():getFrameSize()
+	local var_0_4 = var_0_3.width
+	local var_0_5 = var_0_3.height
+
+	if var_0_4 == 640 and var_0_5 == 960 then
+		var_0_0.model = "iphone 4"
+	elseif var_0_4 == 640 and var_0_5 == 1136 then
+		var_0_0.model = "iphone 5"
+	elseif var_0_4 == 750 and var_0_5 == 1334 then
+		var_0_0.model = "iphone 6"
+	elseif var_0_4 == 1242 and var_0_5 == 2208 then
+		var_0_0.model = "iphone 6 plus"
+	elseif var_0_4 == 768 and var_0_5 == 1024 then
+		var_0_0.model = "ipad"
+	elseif var_0_4 == 1536 and var_0_5 == 2048 then
+		var_0_0.model = "ipad retina"
+	end
+elseif var_0_2 == cc.PLATFORM_OS_WINRT then
+	var_0_0.platform = "winrt"
+elseif var_0_2 == cc.PLATFORM_OS_WP8 then
+	var_0_0.platform = "wp8"
+end
+
+var_0_0.platform_os = var_0_2
+
+local var_0_6 = var_0_1:getCurrentLanguage()
+
+var_0_6 = var_0_6 == cc.LANGUAGE_CHINESE and "cn" or var_0_6 == cc.LANGUAGE_FRENCH and "fr" or var_0_6 == cc.LANGUAGE_ITALIAN and "it" or var_0_6 == cc.LANGUAGE_GERMAN and "gr" or var_0_6 == cc.LANGUAGE_SPANISH and "sp" or var_0_6 == cc.LANGUAGE_RUSSIAN and "ru" or var_0_6 == cc.LANGUAGE_KOREAN and "kr" or var_0_6 == cc.LANGUAGE_JAPANESE and "jp" or var_0_6 == cc.LANGUAGE_HUNGARIAN and "hu" or var_0_6 == cc.LANGUAGE_PORTUGUESE and "pt" or var_0_6 == cc.LANGUAGE_ARABIC and "ar" or "en"
+var_0_0.language = var_0_6
+var_0_0.writablePath = cc.FileUtils:getInstance():getWritablePath()
+var_0_0.directorySeparator = "/"
+var_0_0.pathSeparator = ":"
+
+if var_0_0.platform == "windows" then
+	var_0_0.directorySeparator = "\\"
+	var_0_0.pathSeparator = ";"
+end
+
+function var_0_0.getDeviceName()
+	return var_0_0.callFunc("getDeviceName")
+end
+
+function var_0_0.hasNotchInScreen()
+	return var_0_0.callFunc("hasNotchInScreen")
+end
+
+function var_0_0.sysTotalSize()
+	return var_0_0.callFunc("sysTotalSize")
+end
+
+function var_0_0.getIdFa()
+	return var_0_0.callFunc("idfa")
+end
+
+function var_0_0.getuiId()
+	return var_0_0.callFunc("getuiId")
+end
+
+function var_0_0.isWifiState()
+	return var_0_0.sdkCallFunc("wifiState") == 3
+end
+
+function var_0_0.getChannel()
+	local var_7_0 = var_0_0.callFunc("channel")
+	local var_7_1 = var_0_0.callFunc("sub_channel")
+
+	if var_7_0 ~= "" and var_7_1 ~= "" and CHANNEL_MERGE == true then
+		var_7_0 = var_7_0 .. "_" .. var_7_1
+	end
+
+	return var_7_0
+end
+
+function var_0_0.getBatteryLevel()
+	return var_0_0.sdkCallFunc("batteryLevel")
+end
+
+function var_0_0.callFunc(arg_9_0, arg_9_1, arg_9_2, arg_9_3, arg_9_4)
+	if not cc.GameDevice.callFunc or arg_9_0 == nil or arg_9_0 == "" then
+		return ""
+	end
+
+	arg_9_1 = arg_9_1 or ""
+	arg_9_2 = arg_9_2 or 0
+	arg_9_3 = arg_9_3 or 0
+	arg_9_4 = arg_9_4 or ""
+
+	return cc.GameDevice:callFunc(arg_9_0, arg_9_1, arg_9_2, arg_9_3, arg_9_4)
+end
+
+function var_0_0.sdkCallFunc(arg_10_0, arg_10_1, arg_10_2, arg_10_3, arg_10_4)
+	if arg_10_0 == "sdkExit" then
+		return cc.Director:getInstance():endToLua()
+	end
+
+	if not cc.GameDevice.sdkCallFunc or arg_10_0 == nil or arg_10_0 == "" then
+		return -1
+	end
+
+	arg_10_1 = arg_10_1 or ""
+	arg_10_2 = arg_10_2 or 0
+	arg_10_3 = arg_10_3 or 0
+	arg_10_4 = arg_10_4 or ""
+
+	return cc.GameDevice:sdkCallFunc(arg_10_0, arg_10_1, arg_10_2, arg_10_3, arg_10_4)
+end
+
+return var_0_0

@@ -1,0 +1,62 @@
+
+run.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+run/zdpb_00000
+  rotate: false
+  xy: 130, 6
+  size: 128, 119
+  orig: 495, 440
+  offset: 45, 43
+  index: -1
+run/zdpb_00001
+  rotate: true
+  xy: 876, 19
+  size: 106, 117
+  orig: 495, 440
+  offset: 64, 42
+  index: -1
+run/zdpb_00002
+  rotate: true
+  xy: 634, 18
+  size: 107, 120
+  orig: 495, 440
+  offset: 64, 42
+  index: -1
+run/zdpb_00003
+  rotate: false
+  xy: 386, 8
+  size: 123, 117
+  orig: 495, 440
+  offset: 47, 48
+  index: -1
+run/zdpb_00004
+  rotate: false
+  xy: 2, 2
+  size: 126, 123
+  orig: 495, 440
+  offset: 46, 39
+  index: -1
+run/zdpb_00005
+  rotate: true
+  xy: 756, 19
+  size: 106, 118
+  orig: 495, 440
+  offset: 64, 40
+  index: -1
+run/zdpb_00006
+  rotate: true
+  xy: 511, 18
+  size: 107, 121
+  orig: 495, 440
+  offset: 64, 40
+  index: -1
+run/zdpb_00007
+  rotate: false
+  xy: 260, 7
+  size: 124, 118
+  orig: 495, 440
+  offset: 46, 47
+  index: -1

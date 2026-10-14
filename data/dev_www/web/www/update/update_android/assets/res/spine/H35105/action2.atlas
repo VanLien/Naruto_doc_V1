@@ -1,0 +1,131 @@
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/1
+  rotate: false
+  xy: 1855, 1878
+  size: 141, 165
+  orig: 1250, 600
+  offset: 208, 75
+  index: -1
+action2/14
+  rotate: false
+  xy: 2, 1443
+  size: 1250, 600
+  orig: 1250, 600
+  offset: 0, 0
+  index: -1
+action2/15
+  rotate: true
+  xy: 1254, 821
+  size: 1222, 599
+  orig: 1250, 600
+  offset: 0, 1
+  index: -1
+action2/16
+  rotate: false
+  xy: 2, 841
+  size: 1250, 600
+  orig: 1250, 600
+  offset: 0, 0
+  index: -1
+action2/17
+  rotate: false
+  xy: 2, 239
+  size: 1250, 600
+  orig: 1250, 600
+  offset: 0, 0
+  index: -1
+action2/2
+  rotate: true
+  xy: 310, 16
+  size: 221, 244
+  orig: 1250, 600
+  offset: 161, 70
+  index: -1
+action2/3
+  rotate: true
+  xy: 2, 2
+  size: 235, 306
+  orig: 1250, 600
+  offset: 148, 70
+  index: -1
+action2/5
+  rotate: false
+  xy: 1794, 387
+  size: 252, 432
+  orig: 1250, 600
+  offset: 130, 75
+  index: -1
+action2/7
+  rotate: true
+  xy: 1254, 89
+  size: 248, 483
+  orig: 1250, 600
+  offset: 130, 76
+  index: -1
+action2/8
+  rotate: false
+  xy: 1254, 339
+  size: 538, 480
+  orig: 1250, 600
+  offset: 0, 120
+  index: -1
+
+action22.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/10
+  rotate: false
+  xy: 545, 64
+  size: 562, 407
+  orig: 1250, 600
+  offset: 0, 193
+  index: -1
+action2/11
+  rotate: false
+  xy: 1182, 484
+  size: 573, 411
+  orig: 1250, 600
+  offset: 0, 189
+  index: -1
+action2/12
+  rotate: false
+  xy: 2, 474
+  size: 591, 421
+  orig: 1250, 600
+  offset: 0, 179
+  index: -1
+action2/13
+  rotate: false
+  xy: 595, 473
+  size: 585, 422
+  orig: 1250, 600
+  offset: 0, 178
+  index: -1
+action2/4
+  rotate: false
+  xy: 1109, 61
+  size: 239, 410
+  orig: 1250, 600
+  offset: 139, 76
+  index: -1
+action2/6
+  rotate: false
+  xy: 1757, 431
+  size: 266, 464
+  orig: 1250, 600
+  offset: 121, 75
+  index: -1
+action2/9
+  rotate: false
+  xy: 2, 2
+  size: 541, 470
+  orig: 1250, 600
+  offset: 0, 130
+  index: -1

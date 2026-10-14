@@ -1,0 +1,152 @@
+
+action2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+2/action21/000003
+  rotate: false
+  xy: 701, 8
+  size: 147, 274
+  orig: 661, 458
+  offset: 123, 72
+  index: -1
+2/action21/000004
+  rotate: false
+  xy: 556, 2
+  size: 143, 280
+  orig: 661, 458
+  offset: 129, 71
+  index: -1
+2/action21/000005
+  rotate: true
+  xy: 682, 284
+  size: 154, 289
+  orig: 661, 458
+  offset: 122, 70
+  index: -1
+2/action21/000007
+  rotate: false
+  xy: 153, 96
+  size: 152, 301
+  orig: 661, 458
+  offset: 129, 73
+  index: -1
+2/action21/000008
+  rotate: false
+  xy: 2, 95
+  size: 149, 302
+  orig: 661, 458
+  offset: 133, 70
+  index: -1
+2/action21/000009
+  rotate: false
+  xy: 2, 399
+  size: 152, 302
+  orig: 661, 458
+  offset: 133, 70
+  index: -1
+2/action21/000010
+  rotate: true
+  xy: 729, 587
+  size: 159, 293
+  orig: 661, 458
+  offset: 122, 72
+  index: -1
+2/action21/000012
+  rotate: true
+  xy: 682, 440
+  size: 145, 292
+  orig: 661, 458
+  offset: 127, 76
+  index: -1
+2/action21/000018
+  rotate: false
+  xy: 476, 709
+  size: 251, 296
+  orig: 661, 458
+  offset: 79, 71
+  index: -1
+2/action21/000019
+  rotate: true
+  xy: 729, 748
+  size: 257, 293
+  orig: 661, 458
+  offset: 76, 74
+  index: -1
+2/action21/000020
+  rotate: false
+  xy: 418, 407
+  size: 262, 297
+  orig: 661, 458
+  offset: 74, 73
+  index: -1
+2/action21/000021
+  rotate: false
+  xy: 156, 402
+  size: 260, 299
+  orig: 661, 458
+  offset: 77, 70
+  index: -1
+2/action21/000022
+  rotate: false
+  xy: 307, 102
+  size: 247, 298
+  orig: 661, 458
+  offset: 90, 70
+  index: -1
+2/action21/000023
+  rotate: false
+  xy: 227, 706
+  size: 247, 299
+  orig: 661, 458
+  offset: 89, 69
+  index: -1
+2/action21/000024
+  rotate: false
+  xy: 2, 703
+  size: 223, 302
+  orig: 661, 458
+  offset: 101, 69
+  index: -1
+2/action21/000025
+  rotate: false
+  xy: 850, 21
+  size: 167, 261
+  orig: 661, 458
+  offset: 104, 72
+  index: -1
+
+action22.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+2/action21/000000
+  rotate: true
+  xy: 204, 148
+  size: 147, 265
+  orig: 661, 458
+  offset: 122, 72
+  index: -1
+2/action21/000002
+  rotate: true
+  xy: 2, 2
+  size: 144, 260
+  orig: 661, 458
+  offset: 127, 76
+  index: -1
+2/action21/000017
+  rotate: false
+  xy: 2, 190
+  size: 200, 256
+  orig: 661, 458
+  offset: 97, 73
+  index: -1
+2/action21/000027
+  rotate: true
+  xy: 204, 297
+  size: 149, 265
+  orig: 661, 458
+  offset: 106, 70
+  index: -1

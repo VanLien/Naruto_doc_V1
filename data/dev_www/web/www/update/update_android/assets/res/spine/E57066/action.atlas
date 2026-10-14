@@ -1,0 +1,230 @@
+
+action.png
+size: 940,593
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dicenganbu_00
+  rotate: false
+  xy: 0, 103
+  size: 130, 130
+  orig: 150, 150
+  offset: 10, 11
+  index: -1
+dicengliangbu_00
+  rotate: false
+  xy: 482, 2
+  size: 96, 96
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+fazhen2_00
+  rotate: false
+  xy: 360, 333
+  size: 260, 260
+  orig: 300, 300
+  offset: 20, 21
+  index: -1
+fazhen_00
+  rotate: false
+  xy: 0, 235
+  size: 358, 358
+  orig: 400, 400
+  offset: 19, 13
+  index: -1
+guangdan_00
+  rotate: false
+  xy: 531, 255
+  size: 83, 76
+  orig: 100, 100
+  offset: 9, 13
+  index: -1
+qipao_00
+  rotate: false
+  xy: 138, 0
+  size: 120, 75
+  orig: 200, 150
+  offset: 38, 40
+  index: -1
+qipao_02
+  rotate: false
+  xy: 308, 97
+  size: 162, 76
+  orig: 200, 150
+  offset: 20, 39
+  index: -1
+qipao_04
+  rotate: false
+  xy: 360, 175
+  size: 167, 76
+  orig: 200, 150
+  offset: 17, 39
+  index: -1
+qipao_06
+  rotate: false
+  xy: 132, 156
+  size: 169, 77
+  orig: 200, 150
+  offset: 15, 39
+  index: -1
+qipao_08
+  rotate: false
+  xy: 622, 357
+  size: 168, 77
+  orig: 200, 150
+  offset: 15, 39
+  index: -1
+qipao_10
+  rotate: false
+  xy: 360, 253
+  size: 169, 78
+  orig: 200, 150
+  offset: 15, 38
+  index: -1
+qipao_12
+  rotate: false
+  xy: 622, 515
+  size: 169, 78
+  orig: 200, 150
+  offset: 15, 38
+  index: -1
+qipao_14
+  rotate: false
+  xy: 622, 279
+  size: 168, 76
+  orig: 200, 150
+  offset: 16, 39
+  index: -1
+qipao_16
+  rotate: false
+  xy: 622, 436
+  size: 169, 77
+  orig: 200, 150
+  offset: 15, 39
+  index: -1
+qipao_18
+  rotate: false
+  xy: 138, 77
+  size: 168, 77
+  orig: 200, 150
+  offset: 15, 39
+  index: -1
+shandian_00
+  rotate: false
+  xy: 260, 0
+  size: 83, 75
+  orig: 150, 150
+  offset: 4, 41
+  index: -1
+shandian_01
+  rotate: false
+  xy: 580, 10
+  size: 72, 63
+  orig: 150, 150
+  offset: 5, 53
+  index: -1
+shandian_02
+  rotate: true
+  xy: 698, 112
+  size: 63, 52
+  orig: 150, 150
+  offset: 11, 63
+  index: -1
+shandian_03
+  rotate: false
+  xy: 0, 1
+  size: 136, 100
+  orig: 150, 150
+  offset: 10, 16
+  index: -1
+shandian_04
+  rotate: false
+  xy: 792, 305
+  size: 141, 99
+  orig: 150, 150
+  offset: 5, 16
+  index: -1
+shandian_05
+  rotate: false
+  xy: 345, 23
+  size: 135, 72
+  orig: 150, 150
+  offset: 2, 17
+  index: -1
+shandian_06
+  rotate: true
+  xy: 886, 114
+  size: 87, 54
+  orig: 150, 150
+  offset: 20, 24
+  index: -1
+shandian_07
+  rotate: false
+  xy: 792, 203
+  size: 140, 100
+  orig: 150, 150
+  offset: 6, 16
+  index: -1
+shandian_08
+  rotate: false
+  xy: 580, 75
+  size: 116, 100
+  orig: 150, 150
+  offset: 8, 16
+  index: -1
+shandian_09
+  rotate: false
+  xy: 472, 100
+  size: 90, 73
+  orig: 150, 150
+  offset: 11, 16
+  index: -1
+shandian_10
+  rotate: false
+  xy: 616, 177
+  size: 139, 100
+  orig: 150, 150
+  offset: 8, 16
+  index: -1
+shandian_11
+  rotate: false
+  xy: 793, 406
+  size: 145, 85
+  orig: 150, 150
+  offset: 1, 31
+  index: -1
+shandian_12
+  rotate: false
+  xy: 698, 22
+  size: 94, 80
+  orig: 150, 150
+  offset: 52, 36
+  index: -1
+shandian_13
+  rotate: false
+  xy: 793, 493
+  size: 144, 100
+  orig: 150, 150
+  offset: 2, 16
+  index: -1
+shandian_14
+  rotate: false
+  xy: 757, 104
+  size: 127, 97
+  orig: 150, 150
+  offset: 5, 19
+  index: -1
+shandian_15
+  rotate: true
+  xy: 654, 11
+  size: 62, 42
+  orig: 150, 150
+  offset: 8, 21
+  index: -1
+shoujianbu_20
+  rotate: false
+  xy: 794, 22
+  size: 90, 80
+  orig: 100, 100
+  offset: 5, 8
+  index: -1

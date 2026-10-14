@@ -1,0 +1,169 @@
+
+action.png
+size: 2009,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill/0_00000
+  rotate: false
+  xy: 2, 2
+  size: 433, 369
+  orig: 2560, 1024
+  offset: 482, 318
+  index: -1
+skill/0_00010
+  rotate: false
+  xy: 2, 373
+  size: 1970, 853
+  orig: 2560, 1024
+  offset: 169, 73
+  index: -1
+skill/0_00011
+  rotate: false
+  xy: 2, 1228
+  size: 2005, 818
+  orig: 2560, 1024
+  offset: 120, 87
+  index: -1
+skill/0_00018
+  rotate: false
+  xy: 437, 7
+  size: 437, 364
+  orig: 2560, 1024
+  offset: 475, 318
+  index: -1
+
+action2.png
+size: 1966,2017
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill/0_00014
+  rotate: false
+  xy: 2, 2
+  size: 1962, 536
+  orig: 2560, 1024
+  offset: 139, 267
+  index: -1
+skill/0_00015
+  rotate: false
+  xy: 2, 540
+  size: 1782, 500
+  orig: 2560, 1024
+  offset: 196, 273
+  index: -1
+skill/0_00016
+  rotate: false
+  xy: 2, 1535
+  size: 1815, 480
+  orig: 2560, 1024
+  offset: 179, 318
+  index: -1
+skill/0_00017
+  rotate: false
+  xy: 2, 1042
+  size: 1830, 491
+  orig: 2560, 1024
+  offset: 167, 318
+  index: -1
+
+action3.png
+size: 1972,1644
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill/0_00009
+  rotate: false
+  xy: 2, 802
+  size: 1959, 840
+  orig: 2560, 1024
+  offset: 120, 65
+  index: -1
+skill/0_00013
+  rotate: false
+  xy: 2, 2
+  size: 1968, 798
+  orig: 2560, 1024
+  offset: 120, 107
+  index: -1
+
+action4.png
+size: 1885,1642
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill/0_00008
+  rotate: false
+  xy: 2, 2
+  size: 1851, 826
+  orig: 2560, 1024
+  offset: 169, 100
+  index: -1
+skill/0_00012
+  rotate: false
+  xy: 2, 830
+  size: 1881, 810
+  orig: 2560, 1024
+  offset: 169, 116
+  index: -1
+
+action5.png
+size: 1859,1602
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill/0_00006
+  rotate: false
+  xy: 2, 2
+  size: 1772, 813
+  orig: 2560, 1024
+  offset: 169, 113
+  index: -1
+skill/0_00007
+  rotate: false
+  xy: 2, 817
+  size: 1855, 783
+  orig: 2560, 1024
+  offset: 120, 122
+  index: -1
+
+action6.png
+size: 1879,1710
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill/0_00001
+  rotate: true
+  xy: 1268, 188
+  size: 761, 609
+  orig: 2560, 1024
+  offset: 305, 247
+  index: -1
+skill/0_00002
+  rotate: true
+  xy: 2, 2
+  size: 916, 657
+  orig: 2560, 1024
+  offset: 294, 193
+  index: -1
+skill/0_00003
+  rotate: false
+  xy: 2, 920
+  size: 877, 788
+  orig: 2560, 1024
+  offset: 257, 124
+  index: -1
+skill/0_00004
+  rotate: false
+  xy: 881, 951
+  size: 868, 757
+  orig: 2560, 1024
+  offset: 255, 202
+  index: -1
+skill/0_00005
+  rotate: true
+  xy: 661, 18
+  size: 900, 605
+  orig: 2560, 1024
+  offset: 120, 300
+  index: -1

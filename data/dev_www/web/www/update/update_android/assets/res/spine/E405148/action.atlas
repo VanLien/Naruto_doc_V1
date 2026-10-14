@@ -1,0 +1,125 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/E405148/1
+  rotate: false
+  xy: 1862, 694
+  size: 119, 58
+  orig: 174, 65
+  offset: 28, 7
+  index: -1
+image/E405148/18
+  rotate: false
+  xy: 1574, 670
+  size: 286, 344
+  orig: 385, 440
+  offset: 48, 20
+  index: -1
+image/E405148/2
+  rotate: false
+  xy: 1862, 754
+  size: 144, 61
+  orig: 174, 65
+  offset: 16, 3
+  index: -1
+image/E405148/20
+  rotate: false
+  xy: 2, 154
+  size: 360, 423
+  orig: 385, 440
+  offset: 12, 7
+  index: -1
+image/E405148/22
+  rotate: false
+  xy: 2, 579
+  size: 369, 435
+  orig: 385, 440
+  offset: 8, 3
+  index: -1
+image/E405148/24
+  rotate: false
+  xy: 373, 601
+  size: 381, 413
+  orig: 385, 440
+  offset: 2, 2
+  index: -1
+image/E405148/26
+  rotate: false
+  xy: 756, 618
+  size: 283, 396
+  orig: 385, 440
+  offset: 48, 2
+  index: -1
+image/E405148/28
+  rotate: false
+  xy: 1311, 631
+  size: 261, 383
+  orig: 385, 440
+  offset: 61, 4
+  index: -1
+image/E405148/3
+  rotate: false
+  xy: 1574, 609
+  size: 174, 59
+  orig: 174, 65
+  offset: 0, 0
+  index: -1
+image/E405148/30
+  rotate: false
+  xy: 1041, 631
+  size: 268, 383
+  orig: 385, 440
+  offset: 58, 1
+  index: -1
+image/E405148/32
+  rotate: false
+  xy: 2, 2
+  size: 201, 150
+  orig: 385, 440
+  offset: 88, 31
+  index: -1
+image/E405148/34
+  rotate: true
+  xy: 1862, 817
+  size: 197, 151
+  orig: 385, 440
+  offset: 92, 31
+  index: -1
+image/E405148/36
+  rotate: false
+  xy: 205, 35
+  size: 182, 117
+  orig: 385, 440
+  offset: 107, 31
+  index: -1
+image/E405148/38
+  rotate: true
+  xy: 1983, 700
+  size: 52, 46
+  orig: 385, 440
+  offset: 129, 97
+  index: -1
+image/E405148/4
+  rotate: false
+  xy: 1750, 618
+  size: 127, 50
+  orig: 174, 65
+  offset: 22, 9
+  index: -1
+image/E405148/5
+  rotate: true
+  xy: 2015, 884
+  size: 130, 25
+  orig: 174, 65
+  offset: 20, 9
+  index: -1
+image/E405148/6
+  rotate: false
+  xy: 205, 10
+  size: 132, 23
+  orig: 174, 65
+  offset: 19, 11
+  index: -1

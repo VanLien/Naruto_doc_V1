@@ -1,0 +1,146 @@
+
+action.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/buff/BUFF1/0_00000
+  rotate: true
+  xy: 1447, 163
+  size: 92, 120
+  orig: 256, 256
+  offset: 113, 50
+  index: -1
+image/buff/BUFF1/0_00001
+  rotate: true
+  xy: 799, 153
+  size: 102, 135
+  orig: 256, 256
+  offset: 103, 53
+  index: -1
+image/buff/BUFF1/0_00002
+  rotate: true
+  xy: 397, 144
+  size: 111, 136
+  orig: 256, 256
+  offset: 92, 64
+  index: -1
+image/buff/BUFF1/0_00003
+  rotate: true
+  xy: 128, 138
+  size: 117, 134
+  orig: 256, 256
+  offset: 82, 75
+  index: -1
+image/buff/BUFF1/0_00004
+  rotate: false
+  xy: 1, 128
+  size: 126, 127
+  orig: 256, 256
+  offset: 67, 88
+  index: -1
+image/buff/BUFF1/0_00005
+  rotate: false
+  xy: 263, 139
+  size: 133, 116
+  orig: 256, 256
+  offset: 52, 100
+  index: -1
+image/buff/BUFF1/0_00006
+  rotate: false
+  xy: 1071, 156
+  size: 126, 99
+  orig: 256, 256
+  offset: 48, 113
+  index: -1
+image/buff/BUFF1/0_00007
+  rotate: false
+  xy: 1795, 165
+  size: 107, 90
+  orig: 256, 256
+  offset: 52, 122
+  index: -1
+image/buff/BUFF1/0_00008
+  rotate: true
+  xy: 1903, 164
+  size: 91, 104
+  orig: 256, 256
+  offset: 53, 108
+  index: -1
+image/buff/BUFF1/0_00009
+  rotate: true
+  xy: 1568, 172
+  size: 83, 115
+  orig: 256, 256
+  offset: 54, 95
+  index: -1
+image/buff/BUFF1/0_00010
+  rotate: true
+  xy: 1320, 166
+  size: 89, 126
+  orig: 256, 256
+  offset: 55, 82
+  index: -1
+image/buff/BUFF1/0_00011
+  rotate: true
+  xy: 935, 157
+  size: 98, 135
+  orig: 256, 256
+  offset: 57, 71
+  index: -1
+image/buff/BUFF1/0_00012
+  rotate: true
+  xy: 665, 149
+  size: 106, 133
+  orig: 256, 256
+  offset: 59, 60
+  index: -1
+image/buff/BUFF1/0_00013
+  rotate: true
+  xy: 534, 143
+  size: 112, 130
+  orig: 256, 256
+  offset: 64, 51
+  index: -1
+image/buff/BUFF1/0_00014
+  rotate: false
+  xy: 1, 1
+  size: 120, 126
+  orig: 256, 256
+  offset: 70, 43
+  index: -1
+image/buff/BUFF1/0_00015
+  rotate: true
+  xy: 122, 1
+  size: 126, 115
+  orig: 256, 256
+  offset: 79, 41
+  index: -1
+image/buff/BUFF1/0_00016
+  rotate: false
+  xy: 1198, 157
+  size: 121, 98
+  orig: 256, 256
+  offset: 88, 45
+  index: -1
+image/buff/BUFF1/0_00017
+  rotate: false
+  xy: 1684, 167
+  size: 110, 88
+  orig: 256, 256
+  offset: 98, 45
+  index: -1
+image/buff/BUFF1/0_00018
+  rotate: true
+  xy: 325, 40
+  size: 98, 93
+  orig: 256, 256
+  offset: 109, 47
+  index: -1
+image/buff/BUFF1/0_00019
+  rotate: false
+  xy: 238, 33
+  size: 86, 104
+  orig: 256, 256
+  offset: 121, 48
+  index: -1

@@ -1,0 +1,87 @@
+﻿GlobalTimeTicket = GlobalTimeTicket or {}
+
+function GlobalTimeTicket.getInstance(arg_1_0)
+	if not arg_1_0.is_init then
+		arg_1_0.scheduler = cc.Director:getInstance():getScheduler()
+		arg_1_0.schedulers = {}
+		arg_1_0.is_init = true
+		arg_1_0.is_stop = nil
+	end
+
+	return arg_1_0
+end
+
+function GlobalTimeTicket.add(arg_2_0, arg_2_1, arg_2_2, arg_2_3, arg_2_4)
+	if arg_2_0.is_stop then
+		return
+	end
+
+	arg_2_4 = arg_2_4 or autoId()
+
+	if arg_2_1 == nil or arg_2_0.schedulers == nil or arg_2_0.schedulers[arg_2_4] ~= nil then
+		return
+	end
+
+	arg_2_3 = arg_2_3 or 0
+	arg_2_2 = arg_2_2 or 1
+
+	local var_2_0 = arg_2_0.scheduler:scheduleScriptFunc(function(arg_3_0)
+		if arg_2_0.is_stop then
+			return
+		end
+
+		if arg_2_1 ~= nil then
+			if arg_2_3 == 1 then
+				arg_2_0:remove(arg_2_4)
+			elseif arg_2_3 > 1 then
+				arg_2_3 = arg_2_3 - 1
+			end
+
+			arg_2_1(arg_3_0)
+		end
+	end, arg_2_2, false)
+
+	arg_2_0.schedulers[arg_2_4] = var_2_0
+
+	return arg_2_4
+end
+
+function GlobalTimeTicket.remove(arg_4_0, arg_4_1)
+	if arg_4_1 == nil then
+		return
+	end
+
+	local var_4_0 = arg_4_0.schedulers[arg_4_1]
+
+	if var_4_0 ~= nil then
+		arg_4_0.scheduler:unscheduleScriptEntry(var_4_0)
+
+		arg_4_0.schedulers[arg_4_1] = nil
+	end
+end
+
+function GlobalTimeTicket.removeAll(arg_5_0)
+	for iter_5_0, iter_5_1 in pairs(arg_5_0.schedulers) do
+		arg_5_0.scheduler:unscheduleScriptEntry(iter_5_1)
+	end
+
+	arg_5_0.schedulers = {}
+end
+
+function GlobalTimeTicket.hasTicket(arg_6_0, arg_6_1)
+	if arg_6_0.schedulers[arg_6_1] ~= nil then
+		return true
+	end
+
+	return false
+end
+
+function GlobalTimeTicket.getSchedulers(arg_7_0)
+	return arg_7_0.schedulers
+end
+
+function GlobalTimeTicket.stop(arg_8_0)
+	arg_8_0.is_stop = true
+
+	arg_8_0:removeAll()
+end

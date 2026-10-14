@@ -1,0 +1,93 @@
+
+action.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+New folder/1
+  rotate: false
+  xy: 2, 2
+  size: 470, 770
+  orig: 470, 770
+  offset: 0, 0
+  index: -1
+New folder/2
+  rotate: false
+  xy: 474, 2
+  size: 470, 770
+  orig: 470, 770
+  offset: 0, 0
+  index: -1
+
+action2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+New folder/3
+  rotate: false
+  xy: 2, 2
+  size: 470, 770
+  orig: 470, 770
+  offset: 0, 0
+  index: -1
+New folder/4
+  rotate: false
+  xy: 474, 2
+  size: 470, 770
+  orig: 470, 770
+  offset: 0, 0
+  index: -1
+
+action3.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+New folder/5
+  rotate: false
+  xy: 2, 2
+  size: 470, 770
+  orig: 470, 770
+  offset: 0, 0
+  index: -1
+New folder/6
+  rotate: false
+  xy: 474, 2
+  size: 470, 770
+  orig: 470, 770
+  offset: 0, 0
+  index: -1
+
+action4.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+New folder/7
+  rotate: false
+  xy: 2, 2
+  size: 470, 770
+  orig: 470, 770
+  offset: 0, 0
+  index: -1
+New folder/8
+  rotate: false
+  xy: 474, 2
+  size: 470, 770
+  orig: 470, 770
+  offset: 0, 0
+  index: -1
+
+action5.png
+size: 512,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+New folder/9
+  rotate: false
+  xy: 2, 2
+  size: 470, 770
+  orig: 470, 770
+  offset: 0, 0
+  index: -1

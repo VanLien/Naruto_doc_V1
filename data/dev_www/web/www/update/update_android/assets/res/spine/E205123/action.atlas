@@ -1,0 +1,160 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+a1
+  rotate: true
+  xy: 2, 2
+  size: 185, 175
+  orig: 185, 175
+  offset: 0, 0
+  index: -1
+a2
+  rotate: true
+  xy: 1531, 1816
+  size: 230, 351
+  orig: 230, 351
+  offset: 0, 0
+  index: -1
+a3
+  rotate: true
+  xy: 755, 1584
+  size: 238, 319
+  orig: 238, 319
+  offset: 0, 0
+  index: -1
+a4
+  rotate: true
+  xy: 179, 2
+  size: 185, 175
+  orig: 185, 175
+  offset: 0, 0
+  index: -1
+a5
+  rotate: true
+  xy: 393, 1449
+  size: 235, 351
+  orig: 235, 351
+  offset: 0, 0
+  index: -1
+a6
+  rotate: true
+  xy: 746, 1344
+  size: 238, 319
+  orig: 238, 319
+  offset: 0, 0
+  index: -1
+b1
+  rotate: true
+  xy: 482, 935
+  size: 183, 178
+  orig: 183, 178
+  offset: 0, 0
+  index: -1
+b2
+  rotate: true
+  xy: 193, 910
+  size: 193, 287
+  orig: 193, 287
+  offset: 0, 0
+  index: -1
+b3
+  rotate: false
+  xy: 393, 1120
+  size: 237, 327
+  orig: 237, 327
+  offset: 0, 0
+  index: -1
+b4
+  rotate: false
+  xy: 2, 189
+  size: 236, 327
+  orig: 236, 327
+  offset: 0, 0
+  index: -1
+b5
+  rotate: false
+  xy: 202, 621
+  size: 193, 287
+  orig: 193, 287
+  offset: 0, 0
+  index: -1
+b6
+  rotate: true
+  xy: 397, 725
+  size: 183, 178
+  orig: 183, 178
+  offset: 0, 0
+  index: -1
+c1
+  rotate: true
+  xy: 755, 1824
+  size: 222, 386
+  orig: 222, 386
+  offset: 0, 0
+  index: -1
+c2
+  rotate: false
+  xy: 193, 1105
+  size: 198, 332
+  orig: 198, 332
+  offset: 0, 0
+  index: -1
+c3
+  rotate: true
+  xy: 1143, 1825
+  size: 221, 386
+  orig: 221, 386
+  offset: 0, 0
+  index: -1
+c4
+  rotate: false
+  xy: 2, 518
+  size: 198, 332
+  orig: 198, 332
+  offset: 0, 0
+  index: -1
+guangdiana_0000
+  rotate: false
+  xy: 1076, 1766
+  size: 56, 56
+  orig: 56, 56
+  offset: 0, 0
+  index: -1
+guangyunaaa_0000
+  rotate: false
+  xy: 393, 1686
+  size: 360, 360
+  orig: 360, 360
+  offset: 0, 0
+  index: -1
+shenti
+  rotate: false
+  xy: 2, 1439
+  size: 389, 607
+  orig: 389, 607
+  offset: 0, 0
+  index: -1
+tou
+  rotate: true
+  xy: 1884, 1867
+  size: 179, 151
+  orig: 179, 151
+  offset: 0, 0
+  index: -1
+tou1
+  rotate: false
+  xy: 397, 572
+  size: 179, 151
+  orig: 179, 151
+  offset: 0, 0
+  index: -1
+tuoweiaa_0000
+  rotate: true
+  xy: 2, 852
+  size: 585, 189
+  orig: 585, 189
+  offset: 0, 0
+  index: -1

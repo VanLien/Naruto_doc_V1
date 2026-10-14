@@ -1,0 +1,184 @@
+-- ******** 文件说明 ********
+-- 
+-- @description: 冒险战令购买进阶卡
+-- @DateTime:    2019-06-24 20:08:18
+-- *******************************
+ActionSignOrderBuyPanel = ActionSignOrderBuyPanel or BaseClass(BaseView)
+
+local controller = ActionController:getInstance()
+local model = controller:getModel()
+function ActionSignOrderBuyPanel:__init()
+    self.is_full_screen = true
+    self.win_type = WinType.Mini
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+    self.layout_name = "battledrama/battle_drama_buy_card_window"
+end
+
+function ActionSignOrderBuyPanel:open_callback()
+    self.background = self.root_wnd:getChildByName("background")
+    self.background:setScale(display.getMaxScale())
+    local main_container = self.root_wnd:getChildByName("main_container")
+    self:playEnterAnimatianByObj(main_container, 2)
+    self.title = main_container:getChildByName("Text_3")
+    self.title:setString(TI18N("语言_c_5047"))
+    local title_bg = main_container:getChildByName("title_bg")
+    local title_width = main_container:getChildByName("Text_3"):getContentSize().width
+    local title_bg_width = math.max(title_width+130, 266)
+    title_bg:setContentSize(cc.size(title_bg_width,44))
+    self.title_1 = main_container:getChildByName("Text_3_0")
+    self.title_1:setString(TI18N("语言_c_2685"))
+    self.title_1:ignoreContentAdaptWithSize(true)
+    self.title_1:setTextAreaSize(cc.size(260,0))
+    self.title_2 = main_container:getChildByName("Text_3_1")
+    self.title_2:setString(TI18N("语言_c_5048"))
+    self.title_2:setPositionX(325)
+    self.title_2:ignoreContentAdaptWithSize(true)
+    self.title_2:setTextAreaSize(cc.size(260,0))
+    
+    local label_lock = createRichLabel(20, cc.c4b(0xff, 0xff, 0xff, 0xff), cc.p(0.5, 0.5), cc.p(325, 136), nil, nil, 400)
+    -- local str = string.format(baseCfg.dungeon_pass_introduce.desc)
+    -- label_lock:setString(str)
+    main_container:addChild(label_lock)
+
+    self.btn_change = main_container:getChildByName("btn_change")
+    self.btn_change_label = self.btn_change:getChildByName("Text_6")
+
+    self.goods_1 = main_container:getChildByName("goods_1")
+    self.goods_1:setScrollBarEnabled(false)
+    self.goods_2 = main_container:getChildByName("goods_2")
+    self.goods_2:setScrollBarEnabled(false)
+
+    self.btn_close = main_container:getChildByName("btn_close")
+end
+
+function ActionSignOrderBuyPanel:setData()
+    local tabvo = controller:getActionSubTabVo(self.order_id)
+    if not tabvo then return end
+    self.camp_id = tabvo.camp_id
+    if not Config.WonderlandSignData.data_constant[self.camp_id] then
+        return
+    end
+    local baseid = Config.WonderlandSignData.data_constant[self.camp_id].key
+    local baseCfg = Config.WonderlandSignData.data_advance_card_list
+    local card_list = baseCfg[baseid]
+    if card_list and card_list.reward_1 and card_list.reward_2 then
+        local data_list = card_list.reward_1 or {}
+        local setting = {}
+        setting.scale = 0.7
+        setting.space_x = 3
+        setting.max_count = 4
+        setting.is_center = true
+        self.item_list1 = commonShowSingleRowItemList(self.goods_1, self.item_list1, data_list, setting)
+
+        local data_list = card_list.reward_2 or {}
+        local setting = {}
+        setting.scale = 0.7
+        setting.max_count = 4
+        setting.is_center = true
+        self.item_list2 = commonShowSingleRowItemList(self.goods_2, self.item_list2, data_list, setting)
+    end
+
+    local cdata = Config.ChargeData.data_charge_data[card_list.charge_id]
+    local val = 198
+    if cdata then
+        val = GetMoneyNum(cdata, "val")
+    end
+    self.btn_change_label:setString(string.format(TI18N("语言_c_4441"), val))
+
+    local lock_status = self.actInfo.args[1].args_key
+    if lock_status ~= 0 then
+        self.btn_change:setTouchEnabled(false)
+        setChildUnEnabled(true, self.btn_change)
+        self.btn_change_label:disableEffect(cc.LabelEffect.OUTLINE)
+    end
+end
+
+function ActionSignOrderBuyPanel:register_event()
+    if not self.update_dram_data_event then
+        self.update_dram_data_event = GlobalEvent:getInstance():Bind(ActionEvent.UPDATE_HOLIDAY_SIGNLE, function(data)
+            if data and data.bid == self.order_id then
+                local lock_status = data.args[1].args_key
+                self.btn_change:setVisible(lock_status == 0)
+            end
+        end)
+    end
+    registerButtonEventListener(self.btn_close, function()
+        controller:openSignOrderBuyWindow(false)
+    end, true, 2)
+    registerButtonEventListener(self.background, function()
+        controller:openSignOrderBuyWindow(false)
+    end, false, 2)
+    registerButtonEventListener(self.btn_change, function()
+        self:changeWarn()
+    end, true, 1)
+end
+
+function ActionSignOrderBuyPanel:changeWarn()
+    local lock_status = self.actInfo.args[1].args_key
+    if lock_status == 1 then
+    else
+        local start_time = self.actInfo.args[1].args_val --1609473600
+        local end_time = self.actInfo.item_effect_list[1].bid --1641095999
+        local now_time = GameNet:getInstance():getTime()
+        local left_time = self.actInfo.remain_sec
+        local left_day = math.floor( left_time/86400 )
+        if now_time - start_time > 86400 and left_time > 86400 then --不在首日购买
+            -- body
+            local baseid = Config.WonderlandSignData.data_constant[self.camp_id].key
+            local baseCfg = Config.WonderlandSignData.data_advance_card_list
+            local cfg = baseCfg[baseid]
+            local chargeId = cfg.charge_id
+            local cdata = Config.ChargeData.data_charge_data[chargeId]
+            local str = string.format(TI18N("语言_c_746"),left_day)
+            CommonAlert.show(str,TI18N("语言_c_63"),function()
+                sdkOnPay(cdata.val, nil, cdata.id, cdata.name)
+            end,TI18N("语言_c_62"),nil,CommonAlert.type.common,nil,{timer=5, timer_for=true},26)
+        elseif left_time <= 86400 then --最后一天购买
+            local baseid = Config.WonderlandSignData.data_constant[self.camp_id].key
+            local baseCfg = Config.WonderlandSignData.data_advance_card_list
+            local cfg = baseCfg[baseid]
+            local chargeId = cfg.charge_id
+            local cdata = Config.ChargeData.data_charge_data[chargeId]
+            local str = TI18N("语言_c_745")
+            CommonAlert.show(str,TI18N("语言_c_63"),function()
+                sdkOnPay(cdata.val, nil, cdata.id, cdata.name)
+            end,TI18N("语言_c_62"),nil,CommonAlert.type.common,nil,{timer=5, timer_for=true},26)
+        else
+            local baseid = Config.WonderlandSignData.data_constant[self.camp_id].key
+            local baseCfg = Config.WonderlandSignData.data_advance_card_list
+            local cfg = baseCfg[baseid]
+            local chargeId = cfg.charge_id
+            local cdata = Config.ChargeData.data_charge_data[chargeId]
+            sdkOnPay(cdata.val, nil, cdata.id, cdata.name)
+        end
+    end
+end
+
+function ActionSignOrderBuyPanel:openRootWnd(id,actInfo)
+    self.order_id = id --活动bid
+    self.actInfo = deepCopy(actInfo)
+    self:setData()
+end
+function ActionSignOrderBuyPanel:close_callback()
+    if self.image_bg_load then
+        self.image_bg_load:DeleteMe()
+    end
+    self.image_bg_load = nil
+    if self.item_list1 then
+        for i, v in pairs(self.item_list1) do
+            v:DeleteMe()
+        end
+        self.item_list1 = nil
+    end
+    if self.item_list2 then
+        for i, v in pairs(self.item_list2) do
+            v:DeleteMe()
+        end
+        self.item_list2 = nil
+    end
+    if self.update_dram_data_event ~= nil then
+        GlobalEvent:getInstance():UnBind(self.update_dram_data_event)
+        self.update_dram_data_event = nil
+    end
+    controller:openSignOrderBuyWindow(false)
+end

@@ -1,0 +1,133 @@
+---------------------------------
+-- @date 2019/12/11 10:22:35
+-- @description: 位面 buff遗物查看
+---------------------------------
+local _controller = PlanesafkController:getInstance()
+PlanesShowBuffInfoWindow = PlanesShowBuffInfoWindow or BaseClass(BaseView)
+
+function PlanesShowBuffInfoWindow:__init()
+	self.win_type = WinType.Big
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+	self.is_full_screen = false
+	self.layout_name = "planes/planes_buff_chose"
+
+    self.res_list = {
+		{path = PathTool.getPlistImgForDownLoad("planes", "planes_buff"), type = ResourcesType.plist},
+	}
+
+	self.buff_item_list = {}
+end
+
+function PlanesShowBuffInfoWindow:open_callback( )
+	self.background = self.root_wnd:getChildByName("background")
+    if self.background then
+        self.background:setScale(display.getMaxScale())
+    end
+
+    local main_container = self.root_wnd:getChildByName("main_container")
+    self.main_container = main_container
+	main_container:setTouchEnabled(false)
+    self:playEnterAnimatianByObj(main_container , 2)
+
+    local txt_list = {
+        {"tips_txt", TI18N("")},
+    }
+    setTextContentList(main_container, txt_list)
+
+    self.btn_chose = main_container:getChildByName("btn_chose")
+    self.btn_chose:getChildByName("label"):setString(TI18N("语言_c_2"))
+    self.btn_chose:setVisible(false)
+
+    self.desc_bg = main_container:getChildByName("desc_bg")
+	self.desc_title_txt = main_container:getChildByName("desc_title_txt")
+	setTextMaxWidth(self.desc_title_txt,500);
+	-- self.desc_title_txt:setString(TI18N("语言_c_3075"))
+	self.desc_txt = main_container:getChildByName("desc_txt")
+	setTextMaxWidth(self.desc_txt,500)
+    self.desc_bg:setVisible(false)
+    self.desc_title_txt:setVisible(false)
+    self.desc_txt:setVisible(false)
+end
+
+function PlanesShowBuffInfoWindow:register_event( )
+	registerButtonEventListener(self.background, handler(self, self.onClickCloseBtn), false, 2)
+	registerButtonEventListener(self.btn_chose, handler(self, self.onClickChoseBtn), true)
+end
+
+function PlanesShowBuffInfoWindow:onClickCloseBtn(  )
+	_controller:openShowBuffInfo(false)
+end
+
+function PlanesShowBuffInfoWindow:onClickChoseBtn(  )
+	_controller:openShowBuffInfo(false)
+end
+
+function PlanesShowBuffInfoWindow:openRootWnd( buff_list )
+	self:setData(buff_list)
+end
+
+function PlanesShowBuffInfoWindow:setData( buff_list )
+	if not buff_list then return end
+	local main_con_size = self.main_container:getContentSize()
+	local space_x = 20
+	local item_width = 200
+	local start_x = main_con_size.width*0.5
+	for i,buff_id in ipairs(buff_list) do
+		local buff_cfg = Config.PlanesData.data_buff[buff_id]
+		if buff_cfg then
+			local buff_item = self.buff_item_list[i]
+			if not buff_item then
+				buff_item = PlanesBuffItem.new(handler(self, self.onClickCallBack))
+				self.main_container:addChild(buff_item)
+				self.buff_item_list[i] = buff_item
+			end
+			buff_item:setData(buff_cfg)
+			buff_item:setPosition(start_x, 290)
+			-- buff_item:handleSelectEffect(false)
+			self:onClickCallBack(buff_item)
+		end
+	end
+end
+
+-- 点击了某一buff
+function PlanesShowBuffInfoWindow:onClickCallBack( item )
+	self.desc_bg:setVisible(true)
+    self.desc_title_txt:setVisible(true)
+    self.desc_txt:setVisible(true)
+    if self.cur_buff_item then
+        self.cur_buff_item:setIsSelect(false)
+    end
+    item:setIsSelect(true)
+    item:handleSelectEffect(false)
+    self.cur_buff_item = item
+   
+    self.desc_txt:setString(self.cur_buff_item.buff_cfg.desc)
+	self.desc_title_txt:setString(self.cur_buff_item.buff_cfg.name)
+    self.desc_title_txt:setTextColor(self:getNameColorByQuality(self.cur_buff_item.buff_cfg.quality))
+	
+    local desc_title_height = self.desc_title_txt:getContentSize().height;
+    local desc_height = self.desc_txt:getContentSize().height;
+    local descbg_width = self.desc_bg:getContentSize().width;
+    self.desc_bg:setContentSize(descbg_width,desc_title_height + desc_height + 50)
+    local pos_x = item:getPositionX()
+    self.btn_chose:setPositionX(pos_x)
+    self.btn_chose:setVisible(false)
+end
+
+function PlanesShowBuffInfoWindow:getNameColorByQuality( quality )
+    if quality == PlanesafkConst.Buff_Quility.Orange then 
+        return Config.ColorData.data_color4[246] 
+    elseif quality == PlanesafkConst.Buff_Quility.Purple then 
+        return Config.ColorData.data_color4[245] 
+    else
+        return Config.ColorData.data_color4[244]
+    end
+end
+
+function PlanesShowBuffInfoWindow:close_callback( )
+	for k,item in pairs(self.buff_item_list) do
+		item:DeleteMe()
+		item = nil
+	end
+	_controller:openShowBuffInfo(false)
+end

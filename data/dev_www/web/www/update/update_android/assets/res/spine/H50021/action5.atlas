@@ -1,0 +1,76 @@
+
+action5.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/2/0_00000
+  rotate: false
+  xy: 697, 1196
+  size: 207, 159
+  orig: 1024, 512
+  offset: 221, 183
+  index: -1
+images/2/0_00001
+  rotate: false
+  xy: 1792, 1732
+  size: 209, 165
+  orig: 1024, 512
+  offset: 215, 180
+  index: -1
+images/2/0_00002
+  rotate: false
+  xy: 1792, 1561
+  size: 204, 169
+  orig: 1024, 512
+  offset: 212, 172
+  index: -1
+images/2/0_00003
+  rotate: false
+  xy: 906, 1183
+  size: 196, 172
+  orig: 1024, 512
+  offset: 219, 167
+  index: -1
+images/susanoo/0_00022
+  rotate: false
+  xy: 2, 1202
+  size: 693, 695
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+images/susanoo/0_00023
+  rotate: false
+  xy: 697, 1357
+  size: 684, 540
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+images/susanoo/0_00025
+  rotate: true
+  xy: 2, 492
+  size: 708, 561
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+images/susanoo/0_00026
+  rotate: false
+  xy: 2, 2
+  size: 396, 488
+  orig: 2125, 1275
+  offset: 715, 364
+  index: -1
+images/susanoo/0_00028
+  rotate: false
+  xy: 1383, 1443
+  size: 407, 454
+  orig: 2125, 1275
+  offset: 715, 430
+  index: -1
+images/susanoo/0_00030
+  rotate: false
+  xy: 400, 115
+  size: 307, 375
+  orig: 2125, 1275
+  offset: 715, 509
+  index: -1

@@ -1,0 +1,83 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+image/skill2_1/0_00004
+  rotate: true
+  xy: 1680, 323
+  size: 241, 187
+  orig: 800, 500
+  offset: 341, 111
+  index: -1
+image/skill2_1/0_00005
+  rotate: true
+  xy: 1786, 588
+  size: 278, 242
+  orig: 800, 500
+  offset: 325, 113
+  index: -1
+image/skill2_1/0_00006
+  rotate: false
+  xy: 1315, 301
+  size: 363, 263
+  orig: 800, 500
+  offset: 289, 113
+  index: -1
+image/skill2_1/0_00007
+  rotate: false
+  xy: 954, 594
+  size: 414, 272
+  orig: 800, 500
+  offset: 248, 113
+  index: -1
+image/skill2_1/0_00008
+  rotate: false
+  xy: 485, 344
+  size: 413, 287
+  orig: 800, 500
+  offset: 239, 113
+  index: -1
+image/skill2_1/0_00009
+  rotate: false
+  xy: 1370, 566
+  size: 414, 300
+  orig: 800, 500
+  offset: 248, 113
+  index: -1
+image/skill2_1/0_00010
+  rotate: false
+  xy: 900, 281
+  size: 413, 311
+  orig: 800, 500
+  offset: 239, 113
+  index: -1
+image/skill2_1/0_00011
+  rotate: false
+  xy: 2, 2
+  size: 414, 321
+  orig: 800, 500
+  offset: 248, 113
+  index: -1
+image/skill2_1/0_00012
+  rotate: false
+  xy: 485, 633
+  size: 467, 233
+  orig: 800, 500
+  offset: 239, 113
+  index: -1
+image/skill2_1/0_00014
+  rotate: false
+  xy: 2, 598
+  size: 481, 268
+  orig: 800, 500
+  offset: 239, 113
+  index: -1
+image/skill2_1/0_00015
+  rotate: false
+  xy: 2, 325
+  size: 473, 271
+  orig: 800, 500
+  offset: 248, 113
+  index: -1

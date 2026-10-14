@@ -1,0 +1,349 @@
+
+action.png
+size: 1007,1007
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+nazi_buchongski2_dibo_00007
+  rotate: true
+  xy: 244, 291
+  size: 227, 58
+  orig: 281, 86
+  offset: 25, 20
+  index: -1
+nazi_pg_shouji_0005
+  rotate: true
+  xy: 399, 3
+  size: 79, 83
+  orig: 206, 203
+  offset: 63, 57
+  index: -1
+nazi_pg_shouji_0006
+  rotate: true
+  xy: 577, 125
+  size: 119, 123
+  orig: 206, 203
+  offset: 44, 38
+  index: -1
+nazi_pg_shouji_0007
+  rotate: true
+  xy: 509, 561
+  size: 155, 165
+  orig: 206, 203
+  offset: 23, 19
+  index: -1
+nazi_pg_shouji_0008
+  rotate: false
+  xy: 509, 718
+  size: 166, 187
+  orig: 206, 203
+  offset: 16, 6
+  index: -1
+nazi_pg_shouji_0009
+  rotate: false
+  xy: 0, 724
+  size: 184, 190
+  orig: 206, 203
+  offset: 11, 5
+  index: -1
+nazi_pg_shouji_0010
+  rotate: false
+  xy: 327, 727
+  size: 180, 178
+  orig: 206, 203
+  offset: 11, 11
+  index: -1
+nazi_pg_shoujiadd_0005
+  rotate: false
+  xy: 636, 5
+  size: 48, 57
+  orig: 103, 102
+  offset: 32, 19
+  index: -1
+nazi_pg_shoujiadd_0006
+  rotate: true
+  xy: 569, 3
+  size: 59, 65
+  orig: 103, 102
+  offset: 24, 12
+  index: -1
+nazi_pg_shoujiadd_0007
+  rotate: false
+  xy: 330, 15
+  size: 67, 71
+  orig: 103, 102
+  offset: 21, 10
+  index: -1
+nazi_pg_shoujiadd_0008
+  rotate: false
+  xy: 737, 458
+  size: 72, 76
+  orig: 103, 102
+  offset: 19, 7
+  index: -1
+nazi_pg_shoujiadd_0009
+  rotate: true
+  xy: 484, 2
+  size: 80, 83
+  orig: 103, 102
+  offset: 16, 4
+  index: -1
+nazi_pg_shoujiadd_0010
+  rotate: true
+  xy: 241, 0
+  size: 86, 87
+  orig: 103, 102
+  offset: 13, 3
+  index: -1
+nazi_skl2xuying_00002
+  rotate: false
+  xy: 304, 212
+  size: 147, 117
+  orig: 225, 334
+  offset: 24, 0
+  index: -1
+nazi_skl2xuying_00003
+  rotate: false
+  xy: 200, 520
+  size: 116, 202
+  orig: 225, 334
+  offset: 35, 9
+  index: -1
+nazi_skl2xuying_00004
+  rotate: false
+  xy: 0, 1
+  size: 123, 184
+  orig: 225, 334
+  offset: 65, 141
+  index: -1
+nazi_skl2xuying_00005
+  rotate: true
+  xy: 318, 530
+  size: 117, 173
+  orig: 225, 334
+  offset: 67, 118
+  index: -1
+nazi_skl2xuying_00006
+  rotate: false
+  xy: 125, 0
+  size: 114, 186
+  orig: 225, 334
+  offset: 55, 3
+  index: -1
+nazi_skl2xuying_00007
+  rotate: false
+  xy: 702, 129
+  size: 142, 122
+  orig: 225, 334
+  offset: 45, 0
+  index: -1
+nazi_skl2xuying_00008
+  rotate: false
+  xy: 815, 373
+  size: 146, 122
+  orig: 225, 334
+  offset: 45, 0
+  index: -1
+skill02_shouji_00
+  rotate: false
+  xy: 573, 64
+  size: 130, 59
+  orig: 203, 150
+  offset: 0, 4
+  index: -1
+skill02_shouji_01
+  rotate: false
+  xy: 103, 188
+  size: 134, 88
+  orig: 203, 150
+  offset: 0, 4
+  index: -1
+skill02_shouji_02
+  rotate: true
+  xy: 701, 253
+  size: 157, 112
+  orig: 203, 150
+  offset: 0, 4
+  index: -1
+skill02_shouji_03
+  rotate: false
+  xy: 811, 497
+  size: 170, 132
+  orig: 203, 150
+  offset: 0, 4
+  index: -1
+skill02_shouji_04
+  rotate: true
+  xy: 676, 536
+  size: 178, 133
+  orig: 203, 150
+  offset: 0, 4
+  index: -1
+skill02_shouji_05
+  rotate: false
+  xy: 817, 771
+  size: 190, 136
+  orig: 203, 150
+  offset: 0, 4
+  index: -1
+skill02_shouji_06
+  rotate: true
+  xy: 304, 331
+  size: 187, 138
+  orig: 203, 150
+  offset: 5, 4
+  index: -1
+skill02_shouji_07
+  rotate: true
+  xy: 186, 724
+  size: 190, 139
+  orig: 203, 150
+  offset: 3, 4
+  index: -1
+skill02_shouji_08
+  rotate: true
+  xy: 103, 278
+  size: 192, 139
+  orig: 203, 150
+  offset: 3, 4
+  index: -1
+skill02_shouji_09
+  rotate: true
+  xy: 677, 716
+  size: 191, 138
+  orig: 203, 150
+  offset: 3, 5
+  index: -1
+skill02_shouji_10
+  rotate: false
+  xy: 817, 631
+  size: 189, 138
+  orig: 203, 150
+  offset: 3, 5
+  index: -1
+skill02_tongyong_00
+  rotate: false
+  xy: 0, 916
+  size: 336, 91
+  orig: 336, 93
+  offset: 0, 0
+  index: -1
+skill02_yanwu_00
+  rotate: false
+  xy: 327, 649
+  size: 180, 76
+  orig: 281, 123
+  offset: 51, 18
+  index: -1
+skill02_yanwu_01
+  rotate: true
+  xy: 103, 472
+  size: 250, 95
+  orig: 281, 123
+  offset: 21, 13
+  index: -1
+skill02_yanwu_02
+  rotate: false
+  xy: 600, 909
+  size: 257, 98
+  orig: 281, 123
+  offset: 17, 12
+  index: -1
+skill02_yanwu_03
+  rotate: false
+  xy: 338, 907
+  size: 260, 100
+  orig: 281, 123
+  offset: 16, 11
+  index: -1
+skill02_yanwu_04
+  rotate: true
+  xy: 0, 187
+  size: 264, 101
+  orig: 281, 123
+  offset: 13, 10
+  index: -1
+skill02_yanwu_05
+  rotate: true
+  xy: 0, 453
+  size: 269, 101
+  orig: 281, 123
+  offset: 9, 9
+  index: -1
+skill02b_shouji_00
+  rotate: false
+  xy: 821, 55
+  size: 111, 58
+  orig: 164, 133
+  offset: 0, 0
+  index: -1
+skill02b_shouji_01
+  rotate: false
+  xy: 705, 50
+  size: 114, 77
+  orig: 164, 133
+  offset: 0, 0
+  index: -1
+skill02b_shouji_02
+  rotate: false
+  xy: 859, 913
+  size: 127, 94
+  orig: 164, 133
+  offset: 0, 0
+  index: -1
+skill02b_shouji_03
+  rotate: true
+  xy: 846, 115
+  size: 136, 116
+  orig: 164, 133
+  offset: 1, 0
+  index: -1
+skill02b_shouji_04
+  rotate: false
+  xy: 815, 253
+  size: 145, 118
+  orig: 164, 133
+  offset: 1, 0
+  index: -1
+skill02b_shouji_05
+  rotate: true
+  xy: 453, 208
+  size: 154, 122
+  orig: 164, 133
+  offset: 2, 0
+  index: -1
+skill02b_shouji_06
+  rotate: true
+  xy: 444, 364
+  size: 164, 125
+  orig: 164, 133
+  offset: 0, 2
+  index: -1
+skill02b_shouji_07
+  rotate: false
+  xy: 241, 88
+  size: 164, 122
+  orig: 164, 133
+  offset: 0, 5
+  index: -1
+skill02b_shouji_08
+  rotate: false
+  xy: 407, 84
+  size: 164, 122
+  orig: 164, 133
+  offset: 0, 5
+  index: -1
+skill02b_shouji_09
+  rotate: false
+  xy: 571, 412
+  size: 164, 122
+  orig: 164, 133
+  offset: 0, 5
+  index: -1
+skill02b_shouji_10
+  rotate: true
+  xy: 577, 246
+  size: 164, 122
+  orig: 164, 133
+  offset: 0, 5
+  index: -1

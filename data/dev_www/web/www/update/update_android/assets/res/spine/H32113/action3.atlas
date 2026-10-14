@@ -1,0 +1,132 @@
+
+action3.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill3_00000
+  rotate: true
+  xy: 445, 2
+  size: 150, 208
+  orig: 1500, 600
+  offset: 300, 166
+  index: -1
+skill3_00001
+  rotate: false
+  xy: 313, 23
+  size: 130, 235
+  orig: 1500, 600
+  offset: 319, 168
+  index: -1
+skill3_00002
+  rotate: false
+  xy: 2, 252
+  size: 154, 239
+  orig: 1500, 600
+  offset: 318, 168
+  index: -1
+skill3_00003
+  rotate: false
+  xy: 2, 12
+  size: 154, 238
+  orig: 1500, 600
+  offset: 318, 168
+  index: -1
+skill3_00004
+  rotate: false
+  xy: 158, 253
+  size: 153, 238
+  orig: 1500, 600
+  offset: 318, 168
+  index: -1
+skill3_00005
+  rotate: false
+  xy: 158, 13
+  size: 153, 238
+  orig: 1500, 600
+  offset: 318, 168
+  index: -1
+skill3_00006
+  rotate: false
+  xy: 313, 260
+  size: 153, 231
+  orig: 1500, 600
+  offset: 318, 168
+  index: -1
+skill3_00007
+  rotate: true
+  xy: 1459, 329
+  size: 162, 207
+  orig: 1500, 600
+  offset: 318, 168
+  index: -1
+skill3_00008
+  rotate: true
+  xy: 1668, 326
+  size: 165, 200
+  orig: 1500, 600
+  offset: 318, 168
+  index: -1
+skill3_00009
+  rotate: false
+  xy: 679, 103
+  size: 163, 197
+  orig: 1500, 600
+  offset: 319, 168
+  index: -1
+skill3_00010
+  rotate: false
+  xy: 1870, 296
+  size: 165, 195
+  orig: 1500, 600
+  offset: 320, 168
+  index: -1
+skill3_00011
+  rotate: false
+  xy: 844, 107
+  size: 183, 192
+  orig: 1500, 600
+  offset: 320, 168
+  index: -1
+skill3_00012
+  rotate: false
+  xy: 1057, 300
+  size: 192, 191
+  orig: 1500, 600
+  offset: 319, 168
+  index: -1
+skill3_00013
+  rotate: false
+  xy: 468, 302
+  size: 195, 189
+  orig: 1500, 600
+  offset: 319, 168
+  index: -1
+skill3_00014
+  rotate: false
+  xy: 665, 302
+  size: 194, 189
+  orig: 1500, 600
+  offset: 319, 168
+  index: -1
+skill3_00015
+  rotate: true
+  xy: 861, 301
+  size: 190, 194
+  orig: 1500, 600
+  offset: 319, 168
+  index: -1
+skill3_00016
+  rotate: true
+  xy: 1251, 321
+  size: 170, 206
+  orig: 1500, 600
+  offset: 319, 167
+  index: -1
+skill3_00017
+  rotate: true
+  xy: 468, 154
+  size: 146, 209
+  orig: 1500, 600
+  offset: 319, 166
+  index: -1

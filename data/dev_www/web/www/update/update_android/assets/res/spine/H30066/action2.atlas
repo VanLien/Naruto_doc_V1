@@ -1,0 +1,132 @@
+
+action2.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/1
+  rotate: false
+  xy: 210, 2
+  size: 112, 116
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/10
+  rotate: true
+  xy: 416, 120
+  size: 120, 162
+  orig: 238, 163
+  offset: 2, 1
+  index: -1
+action2/11
+  rotate: true
+  xy: 580, 120
+  size: 120, 162
+  orig: 238, 163
+  offset: 2, 1
+  index: -1
+action2/12
+  rotate: true
+  xy: 1757, 149
+  size: 91, 139
+  orig: 238, 163
+  offset: 9, 2
+  index: -1
+action2/13
+  rotate: true
+  xy: 324, 6
+  size: 112, 118
+  orig: 238, 163
+  offset: 12, 1
+  index: -1
+action2/14
+  rotate: false
+  xy: 227, 127
+  size: 187, 113
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/15
+  rotate: false
+  xy: 2, 3
+  size: 206, 115
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/16
+  rotate: false
+  xy: 2, 120
+  size: 223, 120
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/17
+  rotate: true
+  xy: 559, 18
+  size: 100, 107
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/18
+  rotate: true
+  xy: 444, 17
+  size: 101, 113
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/2
+  rotate: true
+  xy: 1898, 131
+  size: 109, 125
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/3
+  rotate: true
+  xy: 1357, 136
+  size: 104, 132
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/4
+  rotate: true
+  xy: 1491, 137
+  size: 103, 131
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/5
+  rotate: true
+  xy: 1624, 137
+  size: 103, 131
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/6
+  rotate: true
+  xy: 1209, 129
+  size: 111, 146
+  orig: 238, 163
+  offset: 12, 2
+  index: -1
+action2/7
+  rotate: true
+  xy: 1057, 122
+  size: 118, 150
+  orig: 238, 163
+  offset: 5, 0
+  index: -1
+action2/8
+  rotate: true
+  xy: 903, 117
+  size: 123, 152
+  orig: 238, 163
+  offset: 0, 1
+  index: -1
+action2/9
+  rotate: true
+  xy: 744, 120
+  size: 120, 157
+  orig: 238, 163
+  offset: 2, 1
+  index: -1

@@ -1,0 +1,160 @@
+
+action.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/E24301_01
+  rotate: false
+  xy: 2, 25
+  size: 279, 229
+  orig: 279, 229
+  offset: 0, 0
+  index: -1
+images/E24301_02
+  rotate: false
+  xy: 1214, 54
+  size: 155, 115
+  orig: 155, 115
+  offset: 0, 0
+  index: -1
+images/E24301_03
+  rotate: false
+  xy: 283, 139
+  size: 354, 115
+  orig: 354, 115
+  offset: 0, 0
+  index: -1
+images/E24301_04
+  rotate: false
+  xy: 1860, 158
+  size: 164, 59
+  orig: 164, 59
+  offset: 0, 0
+  index: -1
+images/E24301_05
+  rotate: false
+  xy: 283, 41
+  size: 345, 96
+  orig: 345, 96
+  offset: 0, 0
+  index: -1
+images/E24301_06
+  rotate: false
+  xy: 639, 197
+  size: 301, 57
+  orig: 301, 57
+  offset: 0, 0
+  index: -1
+images/E24301_07
+  rotate: false
+  xy: 1214, 171
+  size: 209, 45
+  orig: 209, 45
+  offset: 0, 0
+  index: -1
+images/E51020/E51020_01
+  rotate: false
+  xy: 942, 151
+  size: 210, 57
+  orig: 297, 68
+  offset: 47, 6
+  index: -1
+images/E51020/E51020_01_$en
+  rotate: false
+  xy: 942, 210
+  size: 270, 44
+  orig: 297, 68
+  offset: 13, 9
+  index: -1
+images/E51020/E51020_01_$ru
+  rotate: false
+  xy: 1480, 223
+  size: 252, 31
+  orig: 297, 68
+  offset: 21, 19
+  index: -1
+images/E51020/E51020_02
+  rotate: false
+  xy: 1480, 164
+  size: 206, 57
+  orig: 297, 68
+  offset: 55, 5
+  index: -1
+images/E51020/E51020_02_$en
+  rotate: false
+  xy: 1734, 219
+  size: 237, 35
+  orig: 297, 68
+  offset: 31, 18
+  index: -1
+images/E51020/E51020_02_$ru
+  rotate: false
+  xy: 283, 2
+  size: 233, 37
+  orig: 297, 68
+  offset: 31, 13
+  index: -1
+images/E51020/E51020_03
+  rotate: false
+  xy: 630, 8
+  size: 211, 57
+  orig: 297, 68
+  offset: 51, 5
+  index: -1
+images/E51020/E51020_03_$en
+  rotate: true
+  xy: 1425, 78
+  size: 138, 44
+  orig: 297, 68
+  offset: 80, 9
+  index: -1
+images/E51020/E51020_03_$ru
+  rotate: false
+  xy: 1214, 218
+  size: 264, 36
+  orig: 297, 68
+  offset: 16, 13
+  index: -1
+images/E51020/E51020_04
+  rotate: true
+  xy: 1154, 2
+  size: 206, 58
+  orig: 297, 68
+  offset: 51, 5
+  index: -1
+images/E51020/E51020_04_$en
+  rotate: false
+  xy: 1214, 16
+  size: 159, 36
+  orig: 297, 68
+  offset: 69, 13
+  index: -1
+images/E51020/E51020_04_$ru
+  rotate: false
+  xy: 1688, 161
+  size: 170, 56
+  orig: 297, 68
+  offset: 68, 7
+  index: -1
+images/E51020/E51020_05
+  rotate: false
+  xy: 630, 67
+  size: 213, 60
+  orig: 297, 68
+  offset: 49, 4
+  index: -1
+images/E51020/E51020_05_$en
+  rotate: false
+  xy: 639, 166
+  size: 293, 29
+  orig: 297, 68
+  offset: 2, 14
+  index: -1
+images/E51020/E51020_05_$ru
+  rotate: false
+  xy: 639, 129
+  size: 224, 35
+  orig: 297, 68
+  offset: 37, 11
+  index: -1

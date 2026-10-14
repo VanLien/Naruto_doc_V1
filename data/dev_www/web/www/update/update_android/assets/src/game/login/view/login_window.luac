@@ -1,0 +1,651 @@
+LoginWindow = LoginWindow or BaseClass(BaseView)
+
+local LOGIN_BG_FRAME_DIR = "resource/login/app/login_frame"
+local LOGIN_BG_FRAME_COUNT = 24
+local LOGIN_BG_FRAME_FPS = 12
+local LOGIN_INTRO_START_BG_FRAME = 6
+
+local INTRO_LOGIN_FRAME_DIR = "resource/login/app/intro_login"
+local INTRO_LOGIN_FRAME_COUNT = 30
+local INTRO_LOGIN_FRAME_FPS = 12
+
+local LOGIN_PANEL_APPEAR_DURATION = 0.5
+local LOGIN_PANEL_START_SCALE = 0.35
+local INTRO_LOGIN_SCALE = 1.5
+
+function LoginWindow.__init(arg_1_0)
+	arg_1_0.last_login = 0
+	arg_1_0.ctrl = LoginController:getInstance()
+	arg_1_0.view_index = 0
+	arg_1_0.views = {}
+	arg_1_0.is_full_screen = true
+	arg_1_0.layout_name = "login/login_window"
+	arg_1_0.back_ground_path = PathTool.getLoginRes()
+	arg_1_0.wait_login_intro = false
+	arg_1_0.intro_started = false
+	arg_1_0.login_panel_revealed = false
+	arg_1_0.login_bg_frame_index = 1
+	arg_1_0.intro_login_frame_index = 1
+	arg_1_0.login_exit_running = false
+	arg_1_0.res_list = {
+		{
+			path = PathTool.getPlistImgForDownLoad("login", "login"),
+			type = ResourcesType.plist
+		},
+		{
+			path = PathTool.getPlistImgForDownLoad("login", "login2"),
+			type = ResourcesType.plist
+		},
+		{
+			path = arg_1_0.back_ground_path,
+			type = ResourcesType.single
+		}
+	}
+
+	if ChatController:getInstance().PreLoadFaceIcon then
+		ChatController:getInstance():PreLoadFaceIcon()
+	end
+end
+
+function LoginWindow.createFrameSequenceBackground(arg_2_0, frame_dir, frame_count, fps, on_frame)
+	if arg_2_0.root_wnd == nil then
+		return nil
+	end
+
+	local file_utils = cc.FileUtils:getInstance()
+	local function getFramePath(index)
+		return string.format("%s/frame_%06d.png", frame_dir, index)
+	end
+
+	for i = 1, frame_count do
+		local frame_path = getFramePath(i)
+		if not file_utils:isFileExist(frame_path) then
+			print("[LOGIN_BG] missing login frame: " .. tostring(frame_path))
+			return nil
+		end
+	end
+
+	local frame_index = 1
+	local sprite = cc.Sprite:create(getFramePath(frame_index))
+	if sprite == nil then
+		print("[LOGIN_BG] create login background sprite failed")
+		return nil
+	end
+
+	local root_size = arg_2_0.root_wnd:getContentSize()
+	local target_width = root_size.width > 0 and root_size.width or SCREEN_WIDTH
+	local target_height = root_size.height > 0 and root_size.height or SCREEN_HEIGHT
+
+	sprite:setAnchorPoint(cc.p(0.5, 0.5))
+	sprite:setPosition(target_width * 0.5, target_height * 0.5)
+
+	local frame_size = sprite:getContentSize()
+	if frame_size.width > 0 and frame_size.height > 0 then
+		sprite:setScaleX(target_width / frame_size.width)
+		sprite:setScaleY(target_height / frame_size.height)
+	end
+
+	arg_2_0.root_wnd:addChild(sprite, -10)
+	arg_2_0.login_bg_frame_index = frame_index
+
+	if on_frame ~= nil then
+		on_frame(frame_index)
+	end
+
+	local action = cc.RepeatForever:create(
+		cc.Sequence:create(
+			cc.DelayTime:create(1 / fps),
+			cc.CallFunc:create(function()
+				if tolua.isnull(sprite) then
+					return
+				end
+
+				frame_index = frame_index + 1
+				if frame_index > frame_count then
+					frame_index = 1
+				end
+
+				arg_2_0.login_bg_frame_index = frame_index
+				loadSpriteTexture(sprite, getFramePath(frame_index), LOADTEXT_TYPE)
+
+				if on_frame ~= nil then
+					on_frame(frame_index)
+				end
+			end)
+		)
+	)
+
+	sprite:runAction(action)
+	print("[LOGIN_BG] login frame loop started, frames=" .. tostring(frame_count))
+
+	return sprite
+end
+
+function LoginWindow.startIntroLogin(arg_3_0)
+	if arg_3_0.intro_started == true or arg_3_0.root_wnd == nil then
+		return
+	end
+
+	arg_3_0.intro_started = true
+
+	local file_utils = cc.FileUtils:getInstance()
+	local function getIntroFramePath(index)
+		return string.format("%s/frame_%06d.png", INTRO_LOGIN_FRAME_DIR, index)
+	end
+
+	for i = 1, INTRO_LOGIN_FRAME_COUNT do
+		local frame_path = getIntroFramePath(i)
+		if not file_utils:isFileExist(frame_path) then
+			print("[LOGIN_INTRO] missing intro frame: " .. tostring(frame_path))
+			arg_3_0.intro_started = false
+			arg_3_0:revealLoginPanel()
+			return
+		end
+	end
+
+	local frame_index = 1
+	local sprite = cc.Sprite:create(getIntroFramePath(frame_index))
+	if sprite == nil then
+		print("[LOGIN_INTRO] create intro sprite failed")
+		arg_3_0.intro_started = false
+		arg_3_0:revealLoginPanel()
+		return
+	end
+
+	local root_size = arg_3_0.root_wnd:getContentSize()
+	local target_width = root_size.width > 0 and root_size.width or SCREEN_WIDTH
+	local target_height = root_size.height > 0 and root_size.height or SCREEN_HEIGHT
+
+	sprite:setAnchorPoint(cc.p(0.5, 0.5))
+	sprite:setPosition(target_width * 0.5, target_height * 0.5)
+	sprite:setScale(INTRO_LOGIN_SCALE)
+	arg_3_0.root_wnd:addChild(sprite, -5)
+	arg_3_0.intro_login = sprite
+	arg_3_0.intro_login_frame_index = frame_index
+
+	local function onIntroFrame(index)
+		if index == 19 then
+			arg_3_0:revealLoginPanel()
+		end
+	end
+
+	onIntroFrame(frame_index)
+
+	local step_action = cc.Sequence:create(
+		cc.DelayTime:create(1 / INTRO_LOGIN_FRAME_FPS),
+		cc.CallFunc:create(function()
+			if tolua.isnull(sprite) then
+				return
+			end
+
+			frame_index = frame_index + 1
+			arg_3_0.intro_login_frame_index = frame_index
+			loadSpriteTexture(sprite, getIntroFramePath(frame_index), LOADTEXT_TYPE)
+			onIntroFrame(frame_index)
+		end)
+	)
+
+	sprite:runAction(cc.Repeat:create(step_action, INTRO_LOGIN_FRAME_COUNT - 1))
+	print("[LOGIN_INTRO] intro started, frames=" .. tostring(INTRO_LOGIN_FRAME_COUNT))
+end
+
+function LoginWindow.revealLoginPanel(arg_4_0)
+	if arg_4_0.login_panel_revealed == true then
+		return
+	end
+
+	arg_4_0.login_panel_revealed = true
+	arg_4_0:showPanel(LoginController.type.user_input)
+
+	local panel = arg_4_0.selected_view
+	if panel == nil then
+		return
+	end
+
+	local effect_target = panel.root_wnd or panel
+	if effect_target == nil or tolua.isnull(effect_target) then
+		return
+	end
+
+	effect_target:stopAllActions()
+
+	pcall(function()
+		effect_target:setCascadeOpacityEnabled(true)
+	end)
+
+	-- UserPanel chỉ gửi request đăng nhập sau khi hiệu ứng đóng hoàn tất.
+	panel.on_login_submit_effect = function(done_callback)
+		arg_4_0:playLoginExitAnimation(done_callback)
+	end
+
+	effect_target:setScale(LOGIN_PANEL_START_SCALE)
+	effect_target:setOpacity(0)
+	effect_target:setVisible(true)
+
+	local appear_action = cc.Spawn:create(
+		cc.ScaleTo:create(LOGIN_PANEL_APPEAR_DURATION, 1),
+		cc.FadeTo:create(LOGIN_PANEL_APPEAR_DURATION, 255)
+	)
+
+	effect_target:runAction(appear_action)
+	print("[LOGIN_INTRO] login CSB reveal at intro frame 19")
+end
+
+function LoginWindow.playLoginExitAnimation(arg_5_0, done_callback)
+	if arg_5_0.login_exit_running == true then
+		return
+	end
+
+	arg_5_0.login_exit_running = true
+	arg_5_0.wait_login_intro = false
+
+	local panel = arg_5_0.selected_view
+	local effect_target = panel and (panel.root_wnd or panel) or nil
+	local intro = arg_5_0.intro_login
+
+	-- Dừng hiệu ứng mở form hiện tại và chạy ngược về trạng thái ban đầu.
+	if effect_target ~= nil and not tolua.isnull(effect_target) then
+		effect_target:stopAllActions()
+
+		pcall(function()
+			effect_target:setCascadeOpacityEnabled(true)
+		end)
+
+		effect_target:runAction(
+			cc.Sequence:create(
+				cc.Spawn:create(
+					cc.ScaleTo:create(LOGIN_PANEL_APPEAR_DURATION, LOGIN_PANEL_START_SCALE),
+					cc.FadeTo:create(LOGIN_PANEL_APPEAR_DURATION, 0)
+				),
+				cc.CallFunc:create(function()
+					if effect_target ~= nil and not tolua.isnull(effect_target) then
+						effect_target:setVisible(false)
+					end
+				end)
+			)
+		)
+	end
+
+	local callback_called = false
+	local function finishExit()
+		if callback_called == true then
+			return
+		end
+
+		callback_called = true
+		arg_5_0.login_exit_running = false
+
+		if arg_5_0.intro_login ~= nil and not tolua.isnull(arg_5_0.intro_login) then
+			arg_5_0.intro_login:stopAllActions()
+			arg_5_0.intro_login:removeFromParent()
+		end
+
+		arg_5_0.intro_login = nil
+		arg_5_0.intro_started = false
+		arg_5_0.intro_login_frame_index = 1
+
+		if done_callback ~= nil then
+			done_callback()
+		end
+	end
+
+	if intro == nil or tolua.isnull(intro) then
+		if effect_target ~= nil and not tolua.isnull(effect_target) then
+			effect_target:runAction(
+				cc.Sequence:create(
+					cc.DelayTime:create(LOGIN_PANEL_APPEAR_DURATION),
+					cc.CallFunc:create(finishExit)
+				)
+			)
+		else
+			finishExit()
+		end
+
+		return
+	end
+
+	intro:stopAllActions()
+	intro:setScale(INTRO_LOGIN_SCALE)
+
+	local current_frame = tonumber(arg_5_0.intro_login_frame_index) or INTRO_LOGIN_FRAME_COUNT
+	current_frame = math.max(1, math.min(INTRO_LOGIN_FRAME_COUNT, current_frame))
+
+	if current_frame <= 1 then
+		intro:runAction(
+			cc.Sequence:create(
+				cc.DelayTime:create(LOGIN_PANEL_APPEAR_DURATION),
+				cc.CallFunc:create(finishExit)
+			)
+		)
+
+		return
+	end
+
+	local function getIntroFramePath(index)
+		return string.format("%s/frame_%06d.png", INTRO_LOGIN_FRAME_DIR, index)
+	end
+
+	local reverse_action = nil
+
+	for frame_index = current_frame - 1, 1, -1 do
+		local target_frame = frame_index
+		local step_action = cc.Sequence:create(
+			cc.DelayTime:create(1 / INTRO_LOGIN_FRAME_FPS),
+			cc.CallFunc:create(function()
+				if intro == nil or tolua.isnull(intro) then
+					return
+				end
+
+				arg_5_0.intro_login_frame_index = target_frame
+				loadSpriteTexture(intro, getIntroFramePath(target_frame), LOADTEXT_TYPE)
+			end)
+		)
+
+		if reverse_action == nil then
+			reverse_action = step_action
+		else
+			reverse_action = cc.Sequence:create(reverse_action, step_action)
+		end
+	end
+
+	if reverse_action ~= nil then
+		intro:runAction(
+			cc.Sequence:create(
+				reverse_action,
+				cc.CallFunc:create(finishExit)
+			)
+		)
+	else
+		finishExit()
+	end
+
+	print("[LOGIN_INTRO] reverse intro from frame " .. tostring(current_frame) .. " to frame 1")
+end
+
+function LoginWindow.open_callback(arg_2_0)
+	arg_2_0.background = arg_2_0.root_wnd:getChildByName("background")
+
+	-- Ảnh mới được giữ làm fallback.
+	if arg_2_0.background ~= nil then
+		loadSpriteTexture(arg_2_0.background, arg_2_0.back_ground_path, LOADTEXT_TYPE)
+		arg_2_0.background:setScale(display.getMaxScale())
+		arg_2_0.background:setVisible(true)
+	end
+
+	-- Background Login dùng bộ login_frame riêng. Đến frame 24 thì bắt đầu intro_login.
+	arg_2_0.bg_anim = arg_2_0:createFrameSequenceBackground(
+		LOGIN_BG_FRAME_DIR,
+		LOGIN_BG_FRAME_COUNT,
+		LOGIN_BG_FRAME_FPS,
+		function(frame_index)
+			if frame_index == LOGIN_INTRO_START_BG_FRAME and arg_2_0.wait_login_intro == true then
+				arg_2_0:startIntroLogin()
+			end
+		end
+	)
+
+	if arg_2_0.bg_anim ~= nil and arg_2_0.background ~= nil then
+		arg_2_0.background:setVisible(false)
+	end
+
+	arg_2_0.container = arg_2_0.root_wnd:getChildByName("container")
+	arg_2_0.size = arg_2_0.container and arg_2_0.container:getContentSize() or cc.size(SCREEN_WIDTH, SCREEN_HEIGHT)
+
+	local var_2_1 = SHOWVERSIONMSG
+
+	if var_2_1 == nil then
+		if GAME_FLAG == "zsry" then
+			var_2_1 = TI18N("")
+		else
+			var_2_1 = TI18N("")
+		end
+	end
+
+	arg_2_0.plate_label = arg_2_0.container:getChildByName("label_plate")
+
+	if arg_2_0.plate_label then
+		if var_2_1 and var_2_1 ~= "" and type(var_2_1) == "string" then
+			arg_2_0.plate_label:setString(var_2_1)
+		else
+			arg_2_0.plate_label:setString("")
+		end
+
+		arg_2_0.plate_label:setPositionY(display.getBottom() + 20)
+	end
+
+	arg_2_0.label_version = arg_2_0.container:getChildByName("label_version")
+
+	if arg_2_0.label_version then
+		local var_2_2 = math.max(cc.UserDefault:getInstance():getIntegerForKey("local_version"), NOW_VERSION)
+
+		if var_2_2 > UPDATE_VERSION_MAX then
+			var_2_2 = UPDATE_VERSION_MAX
+
+			cc.UserDefault:getInstance():setIntegerForKey("lasted_version", UPDATE_VERSION_MAX)
+			cc.UserDefault:getInstance():setIntegerForKey("local_version", UPDATE_VERSION_MAX)
+			cc.UserDefault:getInstance():flush()
+		end
+
+		if cc.UserDefault:getInstance():getBoolForKey("is_enter_try_srv") then
+			var_2_2 = math.max(cc.UserDefault:getInstance():getIntegerForKey("local_try_version"), var_2_2)
+		end
+
+		local var_2_3 = getVersionDesc()
+
+		if not IS_PLATFORM_LOGIN then
+			arg_2_0.label_version:setVisible(true)
+		else
+			arg_2_0.label_version:setVisible(false)
+		end
+
+		arg_2_0.label_version:setString(string.format(TI18N("语言_c_1420"), var_2_3, var_2_2))
+		arg_2_0.label_version:setPositionY(display.getBottom() + 20)
+	end
+
+	if needMourning() then
+		if arg_2_0.bg_anim ~= nil then
+			setChildUnEnabled(true, arg_2_0.bg_anim)
+		elseif arg_2_0.background ~= nil then
+			setChildUnEnabled(true, arg_2_0.background)
+		end
+
+		if arg_2_0.plate_label ~= nil then
+			arg_2_0.plate_label:disableEffect(cc.LabelEffect.OUTLINE)
+			arg_2_0.plate_label:setTextColor(cc.c3b(129, 129, 129))
+		end
+
+		if arg_2_0.label_version ~= nil then
+			arg_2_0.label_version:disableEffect(cc.LabelEffect.OUTLINE)
+			arg_2_0.label_version:setTextColor(cc.c3b(129, 129, 129))
+		end
+	end
+end
+
+function LoginWindow.showVersionLabel(arg_3_0)
+	if not MAKELIFEBETTER and not tolua.isnull(arg_3_0.label_version) then
+		arg_3_0.label_version:setVisible(true)
+	end
+end
+
+function LoginWindow.openRootWnd(arg_6_0, arg_6_1)
+	local open_index = arg_6_1 or LoginController.type.user_input
+
+	if open_index == LoginController.type.user_input then
+		-- Không tạo CSB login ngay. Chờ background frame 24 -> intro frame 19.
+		arg_6_0.wait_login_intro = true
+
+		-- Fallback: nếu login_frame không tạo được thì vẫn chạy intro ngay,
+		-- tránh kẹt vĩnh viễn ở màn Login.
+		if arg_6_0.bg_anim == nil then
+			arg_6_0:startIntroLogin()
+		end
+	else
+		arg_6_0:showPanel(open_index)
+	end
+
+	delayOnce(function()
+		if not AudioManager then
+			require("common.audio_manager")
+		end
+
+		AudioManager:getInstance():playMusic(AudioManager.AUDIO_TYPE.SCENE, "s_001", true)
+	end, 1)
+
+	arg_6_0:preloadSomething()
+end
+
+function LoginWindow.preloadSomething(arg_6_0)
+	if SOUND_EFFECT_LIST and AudioManager:getInstance().preLoadEffectByPath then
+		for iter_6_0, iter_6_1 in ipairs(SOUND_EFFECT_LIST) do
+			AudioManager:getInstance():preLoadEffectByPath(iter_6_1)
+		end
+	end
+
+	if SCENE_MUSIC_LIST and AudioManager:getInstance().preLoadMusicByPath then
+		for iter_6_2, iter_6_3 in ipairs(SCENE_MUSIC_LIST) do
+			AudioManager:getInstance():preLoadMusicByPath(iter_6_3)
+		end
+	end
+
+	if SysEnv:getInstance():getBool(SysEnv.keys.high_quality, true) == true then
+		EQUIPMENT_QUALITY = 3
+	else
+		EQUIPMENT_QUALITY = 1
+	end
+
+	local var_6_0 = 237
+
+	if ACCOUNT_HAS_ROLE == true then
+		var_6_0 = 234
+	end
+
+	local var_6_1 = PathTool.getEffectRes(var_6_0)
+	local var_6_2, var_6_3, var_6_4 = PathTool.getSpineByName(var_6_1)
+	local var_6_5 = getPixelFormat(var_6_1)
+
+	cc.Director:getInstance():getTextureCache():addImageAsync(var_6_4, function()
+		return
+	end, var_6_5)
+end
+
+function LoginWindow.showPanel(arg_8_0, arg_8_1)
+	arg_8_1 = arg_8_1 or LoginController.type.user_input
+
+	if arg_8_0.view_index == arg_8_1 then
+		return
+	end
+
+	local var_8_0 = arg_8_0:getViewById(arg_8_1)
+
+	if var_8_0 == nil then
+		return
+	end
+
+	if arg_8_0.selected_view then
+		arg_8_0.selected_view:setVisible(false)
+
+		arg_8_0.selected_view = nil
+	end
+
+	arg_8_0.view_index = arg_8_1
+	arg_8_0.selected_view = var_8_0
+
+	arg_8_0.selected_view:setVisible(true)
+	arg_8_0.selected_view:update()
+	print("LoginWindow:showPanel-------------------------------")
+
+	if arg_8_1 == LoginController.type.enter_game then
+		if AUTO_SHOW_NOTICE == true and not MAKELIFEBETTER then
+			NoticeController:getInstance():openNoticeView()
+		end
+	elseif arg_8_1 == LoginController.type.server_list then
+		-- block empty
+	elseif arg_8_1 == LoginController.type.user_input then
+		-- block empty
+	end
+
+	arg_8_0.selected_view:stopAllActions()
+	arg_8_0.selected_view:effectHandler()
+end
+
+function LoginWindow.getViewById(arg_9_0, arg_9_1)
+	if arg_9_1 == LoginController.type.server_list and MAKELIFEBETTER == true then
+		return
+	end
+
+	local var_9_0 = arg_9_0.views[arg_9_1]
+
+	if var_9_0 == nil then
+		if arg_9_1 == LoginController.type.user_input then
+			local var_9_1 = PLATFORM == cc.PLATFORM_OS_WINDOWS or PLATFORM == cc.PLATFORM_OS_MAC
+
+			if IS_PLATFORM_LOGIN then
+				if IS_WIN_PLATFORM == true or not var_9_1 then
+					var_9_0 = PlatformPanel.new(arg_9_0.container, arg_9_0.ctrl)
+				end
+			else
+				var_9_0 = UserPanel.new(arg_9_0.container, arg_9_0.ctrl)
+			end
+		elseif arg_9_1 == LoginController.type.enter_game then
+			arg_9_0:createEffect()
+
+			var_9_0 = EnterPanel.new(arg_9_0.container, arg_9_0.ctrl)
+		elseif arg_9_1 == LoginController.type.server_list then
+			var_9_0 = ServerPanel.new(arg_9_0.container, arg_9_0.ctrl)
+		end
+
+		arg_9_0.container:addChild(var_9_0, 1)
+
+		arg_9_0.views[arg_9_1] = var_9_0
+	end
+
+	arg_9_0:removeEffect()
+
+	return arg_9_0.views[arg_9_1]
+end
+
+function LoginWindow.createEffect(arg_10_0)
+	if arg_10_0.effect ~= nil or not arg_10_0.size then
+		return
+	end
+
+	arg_10_0.effect = createSpineByName("E51006")
+
+	arg_10_0.effect:setAnimation(0, PlayerAction.action, true)
+	arg_10_0.effect:setPosition(cc.p(arg_10_0.size.width / 2, arg_10_0.size.height / 2))
+	arg_10_0:addChild(arg_10_0.effect)
+end
+
+function LoginWindow.removeEffect(arg_11_0)
+	if arg_11_0.effect ~= nil then
+		arg_11_0.effect:removeFromParent()
+
+		arg_11_0.effect = nil
+	end
+end
+
+function LoginWindow.close_callback(arg_12_0)
+	if arg_12_0.intro_login then
+		arg_12_0.intro_login:stopAllActions()
+		arg_12_0.intro_login:removeFromParent()
+		arg_12_0.intro_login = nil
+	end
+	if arg_12_0.bg_anim then
+		arg_12_0.bg_anim:stopAllActions()
+		arg_12_0.bg_anim:removeFromParent()
+		arg_12_0.bg_anim = nil
+	end
+
+	if arg_12_0.spine then
+		arg_12_0.spine:setVisible(false)
+		arg_12_0.spine:removeFromParent()
+		arg_12_0.spine = nil
+	end
+
+	for iter_12_0, iter_12_1 in pairs(arg_12_0.views) do
+		iter_12_1:DeleteMe()
+		iter_12_1 = nil
+	end
+
+	arg_12_0.views = nil
+end

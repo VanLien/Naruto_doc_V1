@@ -1,0 +1,118 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action1/00000
+  rotate: false
+  xy: 1157, 230
+  size: 235, 224
+  orig: 960, 960
+  offset: 367, 275
+  index: -1
+action1/yunshi/00000
+  rotate: false
+  xy: 495, 947
+  size: 314, 590
+  orig: 960, 960
+  offset: 328, 261
+  index: -1
+action1/yunshi/00002
+  rotate: false
+  xy: 518, 364
+  size: 312, 582
+  orig: 960, 960
+  offset: 337, 263
+  index: -1
+action1/yunshi/00004
+  rotate: false
+  xy: 1698, 949
+  size: 323, 580
+  orig: 960, 960
+  offset: 330, 258
+  index: -1
+action1/yunshi/00006
+  rotate: false
+  xy: 1635, 404
+  size: 327, 544
+  orig: 960, 960
+  offset: 326, 260
+  index: -1
+action1/yunshi/00008
+  rotate: true
+  xy: 1, 1
+  size: 330, 573
+  orig: 960, 960
+  offset: 325, 262
+  index: -1
+action1/yunshi/00010
+  rotate: false
+  xy: 810, 996
+  size: 326, 590
+  orig: 960, 960
+  offset: 324, 261
+  index: -1
+action1/yunshi/00012
+  rotate: false
+  xy: 831, 413
+  size: 314, 582
+  orig: 960, 960
+  offset: 323, 263
+  index: -1
+action1/yunshi/00014
+  rotate: true
+  xy: 575, 51
+  size: 312, 581
+  orig: 960, 960
+  offset: 328, 257
+  index: -1
+action1/yunshiluodi/00000
+  rotate: false
+  xy: 1137, 1016
+  size: 560, 513
+  orig: 1920, 1920
+  offset: 915, 723
+  index: -1
+action1/yunshiluodi/00001
+  rotate: true
+  xy: 1146, 455
+  size: 560, 488
+  orig: 1920, 1920
+  offset: 915, 679
+  index: -1
+action1/yunshiluodi/00003
+  rotate: false
+  xy: 1265, 1530
+  size: 569, 512
+  orig: 1920, 1920
+  offset: 915, 687
+  index: -1
+action1/yunshiluodi/00004
+  rotate: true
+  xy: 1, 332
+  size: 575, 516
+  orig: 1920, 1920
+  offset: 915, 692
+  index: -1
+action1/yunshiluodi/00006
+  rotate: false
+  xy: 1, 1538
+  size: 622, 504
+  orig: 1920, 1920
+  offset: 890, 705
+  index: -1
+action1/yunshiluodi/00007
+  rotate: true
+  xy: 1, 908
+  size: 629, 493
+  orig: 1920, 1920
+  offset: 883, 712
+  index: -1
+action1/yunshiluodi/00009
+  rotate: false
+  xy: 624, 1587
+  size: 640, 455
+  orig: 1920, 1920
+  offset: 872, 719
+  index: -1

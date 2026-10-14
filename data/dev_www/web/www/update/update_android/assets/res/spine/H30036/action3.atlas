@@ -1,0 +1,90 @@
+
+action3.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ptgj_00000
+  rotate: false
+  xy: 767, 10
+  size: 73, 115
+  orig: 495, 440
+  offset: 82, 36
+  index: -1
+ptgj_00001
+  rotate: false
+  xy: 202, 17
+  size: 89, 108
+  orig: 495, 440
+  offset: 68, 36
+  index: -1
+ptgj_00002
+  rotate: false
+  xy: 108, 18
+  size: 92, 107
+  orig: 495, 440
+  offset: 69, 36
+  index: -1
+ptgj_00003
+  rotate: false
+  xy: 2, 2
+  size: 104, 123
+  orig: 495, 440
+  offset: 67, 38
+  index: -1
+ptgj_00004
+  rotate: false
+  xy: 460, 5
+  size: 75, 120
+  orig: 495, 440
+  offset: 108, 48
+  index: -1
+ptgj_00005
+  rotate: false
+  xy: 293, 10
+  size: 82, 115
+  orig: 495, 440
+  offset: 106, 54
+  index: -1
+ptgj_00006
+  rotate: false
+  xy: 377, 11
+  size: 81, 114
+  orig: 495, 440
+  offset: 108, 58
+  index: -1
+ptgj_00007
+  rotate: false
+  xy: 537, 11
+  size: 76, 114
+  orig: 495, 440
+  offset: 112, 59
+  index: -1
+ptgj_00008
+  rotate: false
+  xy: 842, 9
+  size: 67, 116
+  orig: 495, 440
+  offset: 114, 57
+  index: -1
+ptgj_00009
+  rotate: false
+  xy: 911, 5
+  size: 44, 120
+  orig: 495, 440
+  offset: 111, 47
+  index: -1
+ptgj_00010
+  rotate: false
+  xy: 693, 7
+  size: 72, 118
+  orig: 495, 440
+  offset: 84, 35
+  index: -1
+ptgj_00011
+  rotate: false
+  xy: 615, 12
+  size: 76, 113
+  orig: 495, 440
+  offset: 82, 36
+  index: -1

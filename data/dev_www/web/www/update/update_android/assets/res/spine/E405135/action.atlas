@@ -1,0 +1,20 @@
+
+action.png
+size: 512,256
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/tx/E405132/0_00017
+  rotate: false
+  xy: 2, 2
+  size: 192, 182
+  orig: 800, 400
+  offset: 185, 74
+  index: -1
+image/tx/E405132/0_00018
+  rotate: false
+  xy: 196, 3
+  size: 191, 181
+  orig: 800, 400
+  offset: 185, 74
+  index: -1

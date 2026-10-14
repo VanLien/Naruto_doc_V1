@@ -1,0 +1,91 @@
+﻿if ccs == nil then
+	return
+end
+
+local function var_0_0(arg_1_0, arg_1_1)
+	return
+end
+
+local var_0_1 = {
+	shareReader = function()
+		var_0_0("GUIReader:shareReader", "ccs.GUIReader:getInstance")
+
+		return ccs.GUIReader:getInstance()
+	end
+}
+
+GUIReader.shareReader = var_0_1.shareReader
+
+function var_0_1.purgeGUIReader()
+	var_0_0("GUIReader:purgeGUIReader", "ccs.GUIReader:destroyInstance")
+
+	return ccs.GUIReader:destroyInstance()
+end
+
+GUIReader.purgeGUIReader = var_0_1.purgeGUIReader
+
+local var_0_2 = {
+	sharedSceneReader = function()
+		var_0_0("SceneReader:sharedSceneReader", "ccs.SceneReader:getInstance")
+
+		return ccs.SceneReader:getInstance()
+	end
+}
+
+SceneReader.sharedSceneReader = var_0_2.sharedSceneReader
+
+function var_0_2.purgeSceneReader(arg_5_0)
+	var_0_0("SceneReader:purgeSceneReader", "ccs.SceneReader:destroyInstance")
+
+	return arg_5_0:destroyInstance()
+end
+
+SceneReader.purgeSceneReader = var_0_2.purgeSceneReader
+
+local var_0_3 = {
+	purgeGUIReader = function()
+		var_0_0("ccs.GUIReader:purgeGUIReader", "ccs.GUIReader:destroyInstance")
+
+		return ccs.GUIReader:destroyInstance()
+	end
+}
+
+ccs.GUIReader.purgeGUIReader = var_0_3.purgeGUIReader
+
+local var_0_4 = {
+	destroyActionManager = function()
+		var_0_0("ccs.ActionManagerEx:destroyActionManager", "ccs.ActionManagerEx:destroyInstance")
+
+		return ccs.ActionManagerEx:destroyInstance()
+	end
+}
+
+ccs.ActionManagerEx.destroyActionManager = var_0_4.destroyActionManager
+
+local var_0_5 = {
+	destroySceneReader = function(arg_8_0)
+		var_0_0("ccs.SceneReader:destroySceneReader", "ccs.SceneReader:destroyInstance")
+
+		return arg_8_0:destroyInstance()
+	end
+}
+
+ccs.SceneReader.destroySceneReader = var_0_5.destroySceneReader
+
+local var_0_6 = {
+	sharedArmatureDataManager = function()
+		var_0_0("CCArmatureDataManager:sharedArmatureDataManager", "ccs.ArmatureDataManager:getInstance")
+
+		return ccs.ArmatureDataManager:getInstance()
+	end
+}
+
+CCArmatureDataManager.sharedArmatureDataManager = var_0_6.sharedArmatureDataManager
+
+function var_0_6.purge()
+	var_0_0("CCArmatureDataManager:purge", "ccs.ArmatureDataManager:destoryInstance")
+
+	return ccs.ArmatureDataManager:destoryInstance()
+end
+
+CCArmatureDataManager.purge = var_0_6.purge

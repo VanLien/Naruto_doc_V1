@@ -1,0 +1,139 @@
+
+action.png
+size: 1990,1960
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01
+  rotate: false
+  xy: 1519, 4
+  size: 184, 431
+  orig: 749, 1000
+  offset: 303, 530
+  index: -1
+02
+  rotate: false
+  xy: 1519, 4
+  size: 184, 431
+  orig: 749, 1000
+  offset: 303, 530
+  index: -1
+03
+  rotate: false
+  xy: 1619, 545
+  size: 280, 424
+  orig: 749, 1000
+  offset: 242, 472
+  index: -1
+05
+  rotate: false
+  xy: 1678, 971
+  size: 310, 477
+  orig: 749, 1000
+  offset: 203, 302
+  index: -1
+12
+  rotate: true
+  xy: 1137, 1082
+  size: 401, 539
+  orig: 749, 1000
+  offset: 189, 145
+  index: -1
+14
+  rotate: true
+  xy: 523, 610
+  size: 417, 548
+  orig: 749, 1000
+  offset: 173, 65
+  index: -1
+16
+  rotate: true
+  xy: 466, 157
+  size: 451, 548
+  orig: 749, 1000
+  offset: 162, 63
+  index: -1
+18
+  rotate: true
+  xy: 537, 1029
+  size: 413, 560
+  orig: 749, 1000
+  offset: 162, 60
+  index: -1
+20
+  rotate: false
+  xy: 2, 174
+  size: 462, 594
+  orig: 749, 1000
+  offset: 138, 37
+  index: -1
+21
+  rotate: false
+  xy: 2, 2
+  size: 435, 170
+  orig: 749, 1000
+  offset: 140, 85
+  index: -1
+22
+  rotate: true
+  xy: 537, 1444
+  size: 514, 598
+  orig: 749, 1000
+  offset: 110, 14
+  index: -1
+23
+  rotate: false
+  xy: 2, 770
+  size: 519, 598
+  orig: 749, 1000
+  offset: 105, 14
+  index: -1
+24
+  rotate: false
+  xy: 2, 1370
+  size: 533, 588
+  orig: 749, 1000
+  offset: 85, 23
+  index: -1
+25
+  rotate: false
+  xy: 1137, 1485
+  size: 542, 473
+  orig: 749, 1000
+  offset: 72, 28
+  index: -1
+26
+  rotate: false
+  xy: 1073, 437
+  size: 513, 317
+  orig: 749, 1000
+  offset: 101, 62
+  index: -1
+27
+  rotate: false
+  xy: 1099, 756
+  size: 518, 324
+  orig: 749, 1000
+  offset: 108, 63
+  index: -1
+28
+  rotate: true
+  xy: 1681, 1450
+  size: 508, 303
+  orig: 749, 1000
+  offset: 116, 84
+  index: -1
+29
+  rotate: false
+  xy: 1016, 137
+  size: 501, 298
+  orig: 749, 1000
+  offset: 134, 85
+  index: -1
+30
+  rotate: true
+  xy: 1705, 38
+  size: 505, 246
+  orig: 749, 1000
+  offset: 134, 85
+  index: -1

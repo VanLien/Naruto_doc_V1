@@ -1,0 +1,132 @@
+<GameFile>
+  <PropertyGroup Name="adventure_mine_fight_result_panel" Type="Layer" ID="lstu3fob89d0vrepinzkw4qyx716c-maghj2" Version="3.10.0.0" />
+  <Content ctype="GameProjectContent">
+    <Content>
+      <Animation Duration="0" Speed="1.000000">
+      </Animation>
+      <ObjectData Name="root_wnd" ctype="GameNodeObjectData">
+        <Size X="720.000000" Y="1280.000000" />
+        <Children>
+          <AbstractNodeData Name="background" ActionTag="192994410" Tag="358" RotationSkewX="0" RotationSkewY="0" LeftMargin="0" RightMargin="0" TopMargin="0" BottomMargin="0" TouchEnable="True" ComboBoxIndex="1" BackColorAlpha="178" LeftEage="0" RightEage="0" TopEage="0" BottomEage="0" Scale9OriginX="0" Scale9OriginY="0" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+            <Size Y="1280" X="720" />
+            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+            <Position X="360" Y="640" />
+            <Scale ScaleX="1" ScaleY="1" />
+            <CColor A="255" B="255" G="255" R="255" />
+            <FileData />
+            <FirstColor A="255" B="255" G="200" R="150" />
+            <EndColor A="255" B="255" G="255" R="255" />
+            <ColorVector ScaleX="0" ScaleY="1" />
+            <SingleColor A="255" B="0" G="0" R="0" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="container" ActionTag="1749840975" Tag="349" RotationSkewX="0" RotationSkewY="0" LeftMargin="0" RightMargin="0" TopMargin="427.5" BottomMargin="427.5" BackColorAlpha="102" Scale9Enable="True" LeftEage="18" RightEage="18" TopEage="18" BottomEage="18" Scale9OriginX="18" Scale9OriginY="18" Scale9Width="21" Scale9Height="21" ctype="PanelObjectData">
+            <Size Y="425" X="720" />
+            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+            <Position X="360" Y="640" />
+            <Scale ScaleX="1" ScaleY="1" />
+            <CColor A="255" B="255" G="255" R="255" />
+            <FileData Type="PlistSubImage" Path="common_1064.png" Plist="resource/common/common.plist" />
+            <FirstColor A="255" B="255" G="200" R="150" />
+            <EndColor A="255" B="255" G="255" R="255" />
+            <ColorVector ScaleX="0" ScaleY="1" />
+            <SingleColor A="255" B="255" G="200" R="150" />
+            <Children>
+              <AbstractNodeData Name="Sprite_1" ActionTag="1523551395" Tag="350" RotationSkewX="0" RotationSkewY="0" LeftMargin="337" RightMargin="337" TopMargin="0" BottomMargin="379" CallBackType="None" CallBackName="None" ctype="SpriteObjectData">
+                <Size Y="46" X="46" />
+                <AnchorPoint ScaleX="0.5" ScaleY="1" />
+                <Position X="360" Y="425" />
+                <Scale ScaleX="2.62" ScaleY="1" />
+                <CColor A="255" B="255" G="255" R="255" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
+                <BlendFunc Dst="771" Src="1" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Sprite_2" ActionTag="428654912" Tag="351" RotationSkewX="0" RotationSkewY="0" LeftMargin="337" RightMargin="337" TopMargin="379" BottomMargin="0" CallBackType="None" CallBackName="None" ctype="SpriteObjectData">
+                <Size Y="46" X="46" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0" />
+                <Position X="360" Y="0" />
+                <Scale ScaleX="2.62" ScaleY="1" />
+                <CColor A="255" B="255" G="255" R="255" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
+                <BlendFunc Dst="771" Src="1" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Sprite_3" ActionTag="1835629668" Tag="352" RotationSkewX="0" RotationSkewY="0" LeftMargin="11.992" RightMargin="356.007996" TopMargin="418.500488" BottomMargin="-22.5005" CallBackType="None" CallBackName="None" ctype="SpriteObjectData">
+                <Size Y="29" X="352" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <Position X="187.992004" Y="-8.0005" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <CColor A="255" B="255" G="255" R="255" />
+                <FileData Type="PlistSubImage" Path="common_30003.png" Plist="resource/common/common.plist" />
+                <BlendFunc Dst="771" Src="1" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Sprite_4" ActionTag="1633653504" Tag="353" RotationSkewX="0" RotationSkewY="0" LeftMargin="364.000092" RightMargin="3.9999" TopMargin="418.500214" BottomMargin="-22.5002" CallBackType="None" CallBackName="None" ctype="SpriteObjectData">
+                <Size Y="29" X="352" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <Position X="540.000122" Y="-8.0002" />
+                <Scale ScaleX="-1" ScaleY="1" />
+                <CColor A="255" B="255" G="255" R="255" />
+                <FileData Type="PlistSubImage" Path="common_30003.png" Plist="resource/common/common.plist" />
+                <BlendFunc Dst="771" Src="1" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Sprite_5" ActionTag="1901701731" Tag="354" RotationSkewX="0" RotationSkewY="0" LeftMargin="535.97998" RightMargin="1.02" TopMargin="-25.7925" BottomMargin="420.792511" CallBackType="None" CallBackName="None" ctype="SpriteObjectData">
+                <Size Y="30" X="183" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0" />
+                <Position X="627.47998" Y="420.792511" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <CColor A="255" B="255" G="255" R="255" />
+                <FileData Type="PlistSubImage" Path="common_30002.png" Plist="resource/common/common.plist" />
+                <BlendFunc Dst="771" Src="1" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Sprite_6" ActionTag="413749919" Tag="355" RotationSkewX="0" RotationSkewY="0" LeftMargin="-183" RightMargin="720" TopMargin="-25.7925" BottomMargin="420.792511" CallBackType="None" CallBackName="None" ctype="SpriteObjectData">
+                <Size Y="30" X="183" />
+                <AnchorPoint ScaleX="1" ScaleY="0" />
+                <Position X="0" Y="420.792511" />
+                <Scale ScaleX="-1" ScaleY="1" />
+                <CColor A="255" B="255" G="255" R="255" />
+                <FileData Type="PlistSubImage" Path="common_30002.png" Plist="resource/common/common.plist" />
+                <BlendFunc Dst="771" Src="1" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="title_container" ActionTag="590927196" Tag="356" RotationSkewX="0" RotationSkewY="0" LeftMargin="260" RightMargin="260" TopMargin="-40" BottomMargin="425" BackColorAlpha="102" LeftEage="0" RightEage="0" TopEage="0" BottomEage="0" Scale9OriginX="0" Scale9OriginY="0" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                <Size Y="40" X="200" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0" />
+                <Position X="360" Y="425" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <CColor A="255" B="255" G="255" R="255" />
+                <FileData />
+                <FirstColor A="255" B="255" G="200" R="150" />
+                <EndColor A="255" B="255" G="255" R="255" />
+                <ColorVector ScaleX="0" ScaleY="1" />
+                <SingleColor A="255" B="255" G="200" R="150" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="harm_btn" Visible="False" ActionTag="2073243964" Tag="357" RotationSkewX="0" RotationSkewY="0" LeftMargin="631.90448" RightMargin="5.0955" TopMargin="5.4989" BottomMargin="349.501099" TouchEnable="True" LeftEage="8" RightEage="8" TopEage="11" BottomEage="11" Scale9OriginX="8" Scale9OriginY="11" Scale9Width="67" Scale9Height="48" ShadowOffsetX="2" ShadowOffsetY="-2" ButtonText="" FontSize="24" ctype="ButtonObjectData">
+                <Size Y="70" X="83" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <Position X="673.40448" Y="384.501099" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <CColor A="255" B="255" G="255" R="255" />
+                <NormalFileData Type="PlistSubImage" Path="txt_cn_battle_total_harm_icon.png" Plist="resource/battle/battle.plist" />
+                <PressedFileData Type="PlistSubImage" Path="txt_cn_battle_total_harm_icon.png" Plist="resource/battle/battle.plist" />
+                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+                <TextColor A="255" B="255" G="255" R="255" />
+                <OutlineColor A="255" B="0" G="0" R="255" />
+                <FontResource Type="Normal" Path="fonts/mini.ttf" Plist="" />
+                <ShadowColor A="255" B="110" G="110" R="110" />
+                <Children>
+                  <AbstractNodeData Name="harm_lab" Visible="False" ActionTag="1785658749" Tag="103" RotationSkewX="0" RotationSkewY="0" LeftMargin="4" RightMargin="4" TopMargin="61.200001" BottomMargin="-12.2" FontSize="18" LabelText="---" OutlineEnabled="True" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+                    <Size Y="21" X="75" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <Position X="41.5" Y="-1.7" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <CColor A="255" B="143" G="208" R="234" />
+                    <FontResource Type="Normal" Path="fonts/mini.ttf" Plist="" />
+                    <OutlineColor A="255" B="0" G="0" R="0" />
+                    <ShadowColor A="255" B="110" G="110" R="110" />
+                  </AbstractNodeData>
+                </Children>
+              </AbstractNodeData>
+            </Children>
+          </AbstractNodeData>
+        </Children>
+      </ObjectData>
+    </Content>
+  </Content>
+</GameFile>

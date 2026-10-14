@@ -1,0 +1,139 @@
+
+action1.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+image/attack/0_00000
+  rotate: true
+  xy: 681, 255
+  size: 166, 243
+  orig: 800, 400
+  offset: 65, 64
+  index: -1
+image/attack/0_00003
+  rotate: false
+  xy: 681, 423
+  size: 327, 211
+  orig: 800, 400
+  offset: 65, 64
+  index: -1
+image/attack/0_00004
+  rotate: false
+  xy: 701, 1531
+  size: 547, 222
+  orig: 800, 400
+  offset: 65, 64
+  index: -1
+image/attack/0_00005
+  rotate: false
+  xy: 1374, 1531
+  size: 642, 230
+  orig: 800, 400
+  offset: 65, 66
+  index: -1
+image/attack/0_00006
+  rotate: true
+  xy: 450, 196
+  size: 642, 229
+  orig: 800, 400
+  offset: 65, 65
+  index: -1
+image/attack/0_00007
+  rotate: false
+  xy: 2, 1513
+  size: 660, 238
+  orig: 800, 400
+  offset: 65, 66
+  index: -1
+image/attack/0_00010
+  rotate: true
+  xy: 228, 176
+  size: 662, 220
+  orig: 800, 400
+  offset: 54, 65
+  index: -1
+image/attack/0_00011
+  rotate: false
+  xy: 2, 1753
+  size: 697, 221
+  orig: 800, 400
+  offset: 7, 60
+  index: -1
+image/attack/0_00012
+  rotate: true
+  xy: 229, 840
+  size: 671, 222
+  orig: 800, 400
+  offset: 7, 62
+  index: -1
+image/attack/0_00013
+  rotate: true
+  xy: 2, 840
+  size: 671, 225
+  orig: 800, 400
+  offset: 7, 62
+  index: -1
+image/attack/0_00014
+  rotate: false
+  xy: 1374, 1763
+  size: 671, 211
+  orig: 800, 400
+  offset: 7, 62
+  index: -1
+image/attack/0_00015
+  rotate: false
+  xy: 701, 1755
+  size: 671, 219
+  orig: 800, 400
+  offset: 7, 61
+  index: -1
+image/attack/0_00016
+  rotate: true
+  xy: 2, 167
+  size: 671, 224
+  orig: 800, 400
+  offset: 7, 61
+  index: -1
+image/attack/0_00017
+  rotate: true
+  xy: 453, 849
+  size: 662, 213
+  orig: 800, 400
+  offset: 7, 62
+  index: -1
+image/attack/0_00018
+  rotate: false
+  xy: 668, 1323
+  size: 535, 206
+  orig: 800, 400
+  offset: 7, 64
+  index: -1
+image/attack/0_00019
+  rotate: false
+  xy: 668, 1096
+  size: 515, 225
+  orig: 800, 400
+  offset: 7, 60
+  index: -1
+image/attack/0_00020
+  rotate: false
+  xy: 668, 867
+  size: 445, 227
+  orig: 800, 400
+  offset: 26, 63
+  index: -1
+image/attack/0_00021
+  rotate: false
+  xy: 681, 636
+  size: 338, 229
+  orig: 800, 400
+  offset: 65, 64
+  index: -1
+image/attack/0_00022
+  rotate: true
+  xy: 2, 2
+  size: 163, 245
+  orig: 800, 400
+  offset: 65, 62
+  index: -1

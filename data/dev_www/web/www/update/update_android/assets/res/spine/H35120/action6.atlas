@@ -1,0 +1,62 @@
+
+action6.png
+size: 998,998
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+J0000
+  rotate: true
+  xy: 310, 62
+  size: 313, 323
+  orig: 630, 630
+  offset: 154, 228
+  index: -1
+J0191
+  rotate: true
+  xy: 642, 362
+  size: 312, 324
+  orig: 630, 630
+  offset: 154, 229
+  index: -1
+J0192
+  rotate: true
+  xy: 314, 377
+  size: 311, 326
+  orig: 630, 630
+  offset: 154, 229
+  index: -1
+J0193
+  rotate: false
+  xy: 2, 624
+  size: 310, 372
+  orig: 630, 630
+  offset: 154, 229
+  index: -1
+J0194
+  rotate: false
+  xy: 2, 248
+  size: 306, 374
+  orig: 630, 630
+  offset: 154, 229
+  index: -1
+J0195
+  rotate: true
+  xy: 314, 690
+  size: 306, 374
+  orig: 630, 630
+  offset: 154, 229
+  index: -1
+J0196
+  rotate: false
+  xy: 690, 676
+  size: 306, 320
+  orig: 630, 630
+  offset: 154, 229
+  index: -1
+J0197
+  rotate: true
+  xy: 635, 54
+  size: 306, 319
+  orig: 630, 630
+  offset: 154, 229
+  index: -1

@@ -1,0 +1,90 @@
+
+show.png
+size: 1905,725
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+show/展示待机_00000
+  rotate: true
+  xy: 1416, 486
+  size: 237, 476
+  orig: 550, 660
+  offset: 143, 98
+  index: -1
+show/展示待机_00001
+  rotate: true
+  xy: 479, 488
+  size: 235, 480
+  orig: 550, 660
+  offset: 145, 98
+  index: -1
+show/展示待机_00002
+  rotate: true
+  xy: 962, 246
+  size: 238, 484
+  orig: 550, 660
+  offset: 140, 96
+  index: -1
+show/展示待机_00003
+  rotate: true
+  xy: 936, 4
+  size: 240, 488
+  orig: 550, 660
+  offset: 136, 95
+  index: -1
+show/展示待机_00004
+  rotate: true
+  xy: 477, 248
+  size: 237, 483
+  orig: 550, 660
+  offset: 134, 97
+  index: -1
+show/展示待机_00005
+  rotate: true
+  xy: 961, 487
+  size: 236, 453
+  orig: 550, 660
+  offset: 134, 98
+  index: -1
+show/展示待机_00006
+  rotate: true
+  xy: 1448, 245
+  size: 239, 455
+  orig: 550, 660
+  offset: 134, 98
+  index: -1
+show/展示待机_00007
+  rotate: true
+  xy: 475, 6
+  size: 240, 459
+  orig: 550, 660
+  offset: 135, 98
+  index: -1
+show/展示待机_00008
+  rotate: true
+  xy: 1426, 2
+  size: 241, 462
+  orig: 550, 660
+  offset: 136, 98
+  index: -1
+show/展示待机_00009
+  rotate: true
+  xy: 2, 9
+  size: 239, 471
+  orig: 550, 660
+  offset: 138, 93
+  index: -1
+show/展示待机_00010
+  rotate: true
+  xy: 2, 250
+  size: 237, 473
+  orig: 550, 660
+  offset: 140, 94
+  index: -1
+show/展示待机_00011
+  rotate: true
+  xy: 2, 489
+  size: 234, 475
+  orig: 550, 660
+  offset: 142, 96
+  index: -1

@@ -1,0 +1,48 @@
+
+stand2.png
+size: 686,168
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/stand2/zddj_00000
+  rotate: false
+  xy: 2, 2
+  size: 113, 164
+  orig: 495, 440
+  offset: 47, 37
+  index: -1
+images/stand2/zddj_00001
+  rotate: false
+  xy: 232, 2
+  size: 112, 164
+  orig: 495, 440
+  offset: 48, 37
+  index: -1
+images/stand2/zddj_00002
+  rotate: false
+  xy: 346, 2
+  size: 112, 164
+  orig: 495, 440
+  offset: 48, 37
+  index: -1
+images/stand2/zddj_00003
+  rotate: false
+  xy: 460, 2
+  size: 111, 164
+  orig: 495, 440
+  offset: 48, 37
+  index: -1
+images/stand2/zddj_00004
+  rotate: false
+  xy: 573, 2
+  size: 111, 164
+  orig: 495, 440
+  offset: 48, 37
+  index: -1
+images/stand2/zddj_00005
+  rotate: false
+  xy: 117, 2
+  size: 113, 164
+  orig: 495, 440
+  offset: 47, 37
+  index: -1

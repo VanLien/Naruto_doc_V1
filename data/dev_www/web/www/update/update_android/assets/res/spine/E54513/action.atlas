@@ -1,0 +1,13 @@
+
+action.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/tkgs
+  rotate: false
+  xy: 0, 0
+  size: 360, 320
+  orig: 360, 320
+  offset: 0, 0
+  index: -1

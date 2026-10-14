@@ -1,0 +1,20 @@
+﻿local var_0_0 = ccui.EditBox
+
+function var_0_0.onEditHandler(arg_1_0, arg_1_1)
+	arg_1_0:registerScriptEditBoxHandler(function(arg_2_0, arg_2_1)
+		local var_2_0 = {
+			name = arg_2_0,
+			target = arg_2_1
+		}
+
+		arg_1_1(var_2_0)
+	end)
+
+	return arg_1_0
+end
+
+function var_0_0.removeEditHandler(arg_3_0)
+	arg_3_0:unregisterScriptEditBoxHandler()
+
+	return arg_3_0
+end

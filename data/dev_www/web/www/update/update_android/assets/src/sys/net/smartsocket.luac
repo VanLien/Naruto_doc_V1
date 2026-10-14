@@ -1,0 +1,23 @@
+﻿function OnNetRecv(arg_1_0, arg_1_1, arg_1_2)
+	GameNet:getInstance():Recv(arg_1_0, arg_1_1, arg_1_2)
+end
+
+function OnNetDisconnect(arg_2_0)
+	if GameNet:getInstance() and GameNet:getInstance():getGameNetid() > 0 and (GameNet:getInstance():getGameNetid() ~= arg_2_0 or GameNet:getInstance():isServerDisconnet()) then
+		return
+	end
+
+	GameNet:getInstance():Disconnect(arg_2_0)
+end
+
+function OnNetAsyncConnected(arg_3_0, arg_3_1)
+	if LoginController and LoginController:getInstance() then
+		LoginController:getInstance():openReconnect(false)
+	end
+
+	GameNet:getInstance():Connected(arg_3_0, arg_3_1)
+end
+
+function Send(arg_4_0, arg_4_1, arg_4_2, arg_4_3)
+	return GameNet:getInstance():Send(arg_4_0, arg_4_1, arg_4_2, arg_4_3)
+end

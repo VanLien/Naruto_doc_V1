@@ -1,0 +1,146 @@
+
+action.png
+size: 509,509
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dunbuff_00000
+  rotate: false
+  xy: 299, 340
+  size: 66, 167
+  orig: 461, 461
+  offset: 223, 149
+  index: -1
+dunbuff_00001
+  rotate: false
+  xy: 224, 171
+  size: 68, 167
+  orig: 461, 461
+  offset: 221, 149
+  index: -1
+dunbuff_00002
+  rotate: false
+  xy: 78, 171
+  size: 71, 167
+  orig: 461, 461
+  offset: 218, 149
+  index: -1
+dunbuff_00003
+  rotate: false
+  xy: 153, 340
+  size: 71, 167
+  orig: 461, 461
+  offset: 218, 149
+  index: -1
+dunbuff_00004
+  rotate: false
+  xy: 77, 2
+  size: 71, 167
+  orig: 461, 461
+  offset: 218, 149
+  index: -1
+dunbuff_00005
+  rotate: false
+  xy: 151, 171
+  size: 71, 167
+  orig: 461, 461
+  offset: 218, 149
+  index: -1
+dunbuff_00006
+  rotate: false
+  xy: 78, 340
+  size: 73, 167
+  orig: 461, 461
+  offset: 216, 149
+  index: -1
+dunbuff_00007
+  rotate: false
+  xy: 2, 340
+  size: 74, 167
+  orig: 461, 461
+  offset: 215, 149
+  index: -1
+dunbuff_00008
+  rotate: false
+  xy: 2, 171
+  size: 74, 167
+  orig: 461, 461
+  offset: 215, 149
+  index: -1
+dunbuff_00009
+  rotate: false
+  xy: 354, 2
+  size: 60, 167
+  orig: 461, 461
+  offset: 229, 149
+  index: -1
+dunbuff_00010
+  rotate: false
+  xy: 289, 2
+  size: 63, 167
+  orig: 461, 461
+  offset: 226, 149
+  index: -1
+dunbuff_00011
+  rotate: false
+  xy: 221, 2
+  size: 66, 167
+  orig: 461, 461
+  offset: 223, 149
+  index: -1
+dunbuff_00012
+  rotate: false
+  xy: 150, 2
+  size: 69, 167
+  orig: 461, 461
+  offset: 220, 149
+  index: -1
+dunbuff_00013
+  rotate: false
+  xy: 226, 340
+  size: 71, 167
+  orig: 461, 461
+  offset: 218, 149
+  index: -1
+dunbuff_00014
+  rotate: false
+  xy: 2, 2
+  size: 73, 167
+  orig: 461, 461
+  offset: 216, 149
+  index: -1
+dunbuff_00015
+  rotate: false
+  xy: 426, 171
+  size: 60, 167
+  orig: 461, 461
+  offset: 229, 149
+  index: -1
+dunbuff_00016
+  rotate: false
+  xy: 361, 171
+  size: 63, 167
+  orig: 461, 461
+  offset: 226, 149
+  index: -1
+dunbuff_00017
+  rotate: false
+  xy: 294, 171
+  size: 65, 167
+  orig: 461, 461
+  offset: 224, 149
+  index: -1
+dunbuff_00018
+  rotate: false
+  xy: 433, 340
+  size: 62, 167
+  orig: 461, 461
+  offset: 227, 149
+  index: -1
+dunbuff_00019
+  rotate: false
+  xy: 367, 340
+  size: 64, 167
+  orig: 461, 461
+  offset: 225, 149
+  index: -1

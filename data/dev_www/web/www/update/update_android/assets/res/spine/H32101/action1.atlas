@@ -1,0 +1,139 @@
+
+action1.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action1/10
+  rotate: false
+  xy: 473, 690
+  size: 485, 296
+  orig: 488, 334
+  offset: 1, 19
+  index: -1
+action1/11
+  rotate: true
+  xy: 2, 163
+  size: 487, 296
+  orig: 488, 334
+  offset: 0, 19
+  index: -1
+action1/12
+  rotate: false
+  xy: 960, 690
+  size: 484, 296
+  orig: 488, 334
+  offset: 0, 19
+  index: -1
+action1/14
+  rotate: false
+  xy: 1037, 400
+  size: 414, 288
+  orig: 488, 334
+  offset: 36, 23
+  index: -1
+action1/15
+  rotate: false
+  xy: 300, 34
+  size: 100, 137
+  orig: 488, 334
+  offset: 160, 67
+  index: -1
+action1/2
+  rotate: true
+  xy: 1559, 600
+  size: 88, 158
+  orig: 488, 334
+  offset: 209, 65
+  index: -1
+action1/3
+  rotate: false
+  xy: 1931, 828
+  size: 110, 158
+  orig: 488, 334
+  offset: 175, 65
+  index: -1
+action1/4
+  rotate: false
+  xy: 473, 686
+  size: 2, 2
+  orig: 488, 334
+  offset: 415, 290
+  index: -1
+action1/5
+  rotate: true
+  xy: 688, 298
+  size: 92, 158
+  orig: 488, 334
+  offset: 193, 65
+  index: -1
+action1/6
+  rotate: false
+  xy: 581, 392
+  size: 454, 296
+  orig: 488, 334
+  offset: 24, 19
+  index: -1
+action1/7
+  rotate: false
+  xy: 2, 652
+  size: 469, 334
+  orig: 488, 334
+  offset: 13, 0
+  index: -1
+action1/8
+  rotate: true
+  xy: 300, 173
+  size: 477, 279
+  orig: 488, 334
+  offset: 6, 25
+  index: -1
+action1/9
+  rotate: false
+  xy: 1446, 690
+  size: 483, 296
+  orig: 488, 334
+  offset: 3, 19
+  index: -1
+action1/ptgj_00001
+  rotate: true
+  xy: 848, 340
+  size: 50, 160
+  orig: 495, 440
+  offset: 393, 37
+  index: -1
+action1/ptgj_00002
+  rotate: false
+  xy: 217, 3
+  size: 81, 158
+  orig: 495, 440
+  offset: 377, 38
+  index: -1
+action1/ptgj_00003
+  rotate: false
+  xy: 2, 2
+  size: 114, 159
+  orig: 495, 440
+  offset: 374, 38
+  index: -1
+action1/ptgj_00004
+  rotate: false
+  xy: 1453, 531
+  size: 104, 157
+  orig: 495, 440
+  offset: 387, 38
+  index: -1
+action1/ptgj_00005
+  rotate: false
+  xy: 581, 233
+  size: 105, 157
+  orig: 495, 440
+  offset: 385, 38
+  index: -1
+action1/ptgj_00006
+  rotate: false
+  xy: 118, 3
+  size: 97, 158
+  orig: 495, 440
+  offset: 389, 38
+  index: -1

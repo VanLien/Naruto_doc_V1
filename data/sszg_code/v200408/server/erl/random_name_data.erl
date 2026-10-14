@@ -1,0 +1,243 @@
+-file("src/mod/data/random_name_data.erl", 1).
+
+-module(random_name_data).
+
+-lager_records([]).
+
+-export([list/1, arena_list/1]).
+
+-file("inc/common.hrl", 1).
+
+-file("inc/lib_log.hrl", 1).
+
+-file("inc/common.hrl", 112).
+
+-type p() :: string().
+
+-type z() :: non_neg_integer().
+
+-type srv_id() :: bitstring().
+
+-type role_id() :: {pos_integer(), srv_id()}.
+
+-type guild_id() :: {pos_integer(), srv_id()}.
+
+-type unit_id() :: {pos_integer(), pos_integer()}.
+
+-type pos() :: {pos_integer(), non_neg_integer(),
+		non_neg_integer()}.
+
+-file("src/mod/data/random_name_data.erl", 11).
+
+list(3) ->
+    [lang:get(<<"Abi"/utf8>>), lang:get(<<"Adele"/utf8>>),
+     lang:get(<<"Susan"/utf8>>), lang:get(<<"Sara"/utf8>>),
+     lang:get(<<"Aisa"/utf8>>), lang:get(<<"Ally"/utf8>>),
+     lang:get(<<"Sally"/utf8>>), lang:get(<<"Rose"/utf8>>),
+     lang:get(<<"Poe"/utf8>>), lang:get(<<"Ann"/utf8>>),
+     lang:get(<<"Rosa"/utf8>>), lang:get(<<"Apis"/utf8>>),
+     lang:get(<<"Petty"/utf8>>), lang:get(<<"Aswa"/utf8>>),
+     lang:get(<<"Aunt"/utf8>>), lang:get(<<"Ayako"/utf8>>),
+     lang:get(<<"Nora"/utf8>>), lang:get(<<"Nelly"/utf8>>),
+     lang:get(<<"Nancy"/utf8>>), lang:get(<<"Meg"/utf8>>),
+     lang:get(<<"May"/utf8>>), lang:get(<<"Mary"/utf8>>),
+     lang:get(<<"Maria"/utf8>>), lang:get(<<"Lyly"/utf8>>),
+     lang:get(<<"Lucia"/utf8>>), lang:get(<<"Lena"/utf8>>),
+     lang:get(<<"Kitty"/utf8>>), lang:get(<<"Devon"/utf8>>),
+     lang:get(<<"Joule"/utf8>>), lang:get(<<"Julia"/utf8>>),
+     lang:get(<<"Jones"/utf8>>), lang:get(<<"Jonah"/utf8>>),
+     lang:get(<<"Cocoa"/utf8>>), lang:get(<<"Conis"/utf8>>),
+     lang:get(<<"Joan"/utf8>>), lang:get(<<"Dadan"/utf8>>),
+     lang:get(<<"Daisy"/utf8>>), lang:get(<<"Din"/utf8>>),
+     lang:get(<<"Hutt"/utf8>>), lang:get(<<"Elmy"/utf8>>),
+     lang:get(<<"Ever"/utf8>>), lang:get(<<"Helin"/utf8>>),
+     lang:get(<<"Flare"/utf8>>), lang:get(<<"Gina"/utf8>>),
+     lang:get(<<"Gram"/utf8>>), lang:get(<<"Herb"/utf8>>),
+     lang:get(<<"Hina"/utf8>>), lang:get(<<"Queen"/utf8>>),
+     lang:get(<<"Isa"/utf8>>), lang:get(<<"Fanny"/utf8>>),
+     lang:get(<<"Isoka"/utf8>>), lang:get(<<"Eva"/utf8>>),
+     lang:get(<<"Emily"/utf8>>), lang:get(<<"Elsie"/utf8>>),
+     lang:get(<<"Kasa"/utf8>>), lang:get(<<"Kaya"/utf8>>),
+     lang:get(<<"Keimi"/utf8>>), lang:get(<<"Kiku"/utf8>>),
+     lang:get(<<"Kikyo"/utf8>>), lang:get(<<"Koala"/utf8>>),
+     lang:get(<<"Clara"/utf8>>), lang:get(<<"Koda"/utf8>>),
+     lang:get(<<"Crane"/utf8>>), lang:get(<<"Kuina"/utf8>>),
+     lang:get(<<"Bell"/utf8>>), lang:get(<<"Laki"/utf8>>),
+     lang:get(<<"Lil"/utf8>>), lang:get(<<"Lily"/utf8>>),
+     lang:get(<<"Lina"/utf8>>), lang:get(<<"Lola"/utf8>>),
+     lang:get(<<"Luca"/utf8>>), lang:get(<<"Lulis"/utf8>>),
+     lang:get(<<"Manu"/utf8>>), lang:get(<<"Mao"/utf8>>),
+     lang:get(<<"Aly"/utf8>>), lang:get(<<"Mocha"/utf8>>),
+     lang:get(<<"Moda"/utf8>>), lang:get(<<"Monet"/utf8>>),
+     lang:get(<<"Nami"/utf8>>), lang:get(<<"Vivi"/utf8>>),
+     lang:get(<<"Robin"/utf8>>), lang:get(<<"Nyon"/utf8>>),
+     lang:get(<<"Olive"/utf8>>), lang:get(<<"Okame"/utf8>>),
+     lang:get(<<"Alice"/utf8>>), lang:get(<<"Yule"/utf8>>),
+     lang:get(<<"Tracy"/utf8>>), lang:get(<<"Sophy"/utf8>>),
+     lang:get(<<"Ran"/utf8>>), lang:get(<<"Rika"/utf8>>),
+     lang:get(<<"Sadi"/utf8>>), lang:get(<<"Shion"/utf8>>),
+     lang:get(<<"Sora"/utf8>>), lang:get(<<"Yoko"/utf8>>),
+     lang:get(<<"Yuki"/utf8>>), lang:get(<<"Yu"/utf8>>),
+     lang:get(<<"Agnes"/utf8>>), lang:get(<<"Amy"/utf8>>),
+     lang:get(<<"Irma"/utf8>>), lang:get(<<"Terri"/utf8>>),
+     lang:get(<<"Betsy"/utf8>>), lang:get(<<"Ebony"/utf8>>),
+     lang:get(<<"Carol"/utf8>>), lang:get(<<"Megan"/utf8>>),
+     lang:get(<<"Rita"/utf8>>), lang:get(<<"Pam"/utf8>>),
+     lang:get(<<"Mandy"/utf8>>), lang:get(<<"Ollie"/utf8>>),
+     lang:get(<<"Holly"/utf8>>), lang:get(<<"Ada"/utf8>>),
+     lang:get(<<"Traci"/utf8>>), lang:get(<<"Misty"/utf8>>),
+     lang:get(<<"Toni"/utf8>>), lang:get(<<"Jo"/utf8>>),
+     lang:get(<<"Laura"/utf8>>), lang:get(<<"Luz"/utf8>>),
+     lang:get(<<"Elena"/utf8>>), lang:get(<<"Elsa"/utf8>>),
+     lang:get(<<"Ella"/utf8>>), lang:get(<<"Emma"/utf8>>),
+     lang:get(<<"Darla"/utf8>>), lang:get(<<"Mae"/utf8>>),
+     lang:get(<<"Lee"/utf8>>), lang:get(<<"Lula"/utf8>>),
+     lang:get(<<"Tami"/utf8>>), lang:get(<<"Dora"/utf8>>),
+     lang:get(<<"Marie"/utf8>>), lang:get(<<"Verna"/utf8>>),
+     lang:get(<<"Leigh"/utf8>>), lang:get(<<"Wendy"/utf8>>),
+     lang:get(<<"Kerry"/utf8>>), lang:get(<<"Cora"/utf8>>),
+     lang:get(<<"Stacy"/utf8>>), lang:get(<<"Julie"/utf8>>),
+     lang:get(<<"Mable"/utf8>>), lang:get(<<"Jenna"/utf8>>),
+     lang:get(<<"Eula"/utf8>>), lang:get(<<"Ruth"/utf8>>),
+     lang:get(<<"Debra"/utf8>>), lang:get(<<"Viola"/utf8>>),
+     lang:get(<<"Helen"/utf8>>), lang:get(<<"Lela"/utf8>>),
+     lang:get(<<"Flora"/utf8>>), lang:get(<<"Wilma"/utf8>>),
+     lang:get(<<"Tammy"/utf8>>), lang:get(<<"Dana"/utf8>>),
+     lang:get(<<"Ethel"/utf8>>), lang:get(<<"Ellen"/utf8>>),
+     lang:get(<<"Jan"/utf8>>), lang:get(<<"Mindy"/utf8>>),
+     lang:get(<<"Paula"/utf8>>), lang:get(<<"Carla"/utf8>>),
+     lang:get(<<"Olga"/utf8>>), lang:get(<<"Edna"/utf8>>),
+     lang:get(<<"Delia"/utf8>>), lang:get(<<"Gayle"/utf8>>),
+     lang:get(<<"Patty"/utf8>>), lang:get(<<"April"/utf8>>),
+     lang:get(<<"Jana"/utf8>>), lang:get(<<"Hilda"/utf8>>),
+     lang:get(<<"Erma"/utf8>>), lang:get(<<"Susie"/utf8>>),
+     lang:get(<<"Della"/utf8>>), lang:get(<<"Joy"/utf8>>),
+     lang:get(<<"Linda"/utf8>>), lang:get(<<"Irene"/utf8>>),
+     lang:get(<<"Pearl"/utf8>>), lang:get(<<"Jaime"/utf8>>),
+     lang:get(<<"Anna"/utf8>>), lang:get(<<"Marta"/utf8>>),
+     lang:get(<<"Janet"/utf8>>), lang:get(<<"Kelly"/utf8>>),
+     lang:get(<<"Tanya"/utf8>>), lang:get(<<"Ana"/utf8>>),
+     lang:get(<<"Angel"/utf8>>), lang:get(<<"Amber"/utf8>>),
+     lang:get(<<"Juana"/utf8>>), lang:get(<<"Jill"/utf8>>),
+     lang:get(<<"Leona"/utf8>>), lang:get(<<"Molly"/utf8>>),
+     lang:get(<<"Vicki"/utf8>>), lang:get(<<"Lana"/utf8>>)];
+list(2) ->
+    [lang:get(<<" "/utf8>>), <<" ">>,
+     lang:get(<<" "/utf8>>), lang:get(<<" "/utf8>>)];
+list(1) ->
+    [lang:get(<<"Luffy"/utf8>>), lang:get(<<"Shank"/utf8>>),
+     lang:get(<<"Sanji"/utf8>>), lang:get(<<"Abbot"/utf8>>),
+     lang:get(<<"Usopp"/utf8>>), lang:get(<<"Alick"/utf8>>),
+     lang:get(<<"Bach"/utf8>>), lang:get(<<"Bacon"/utf8>>),
+     lang:get(<<"Krieg"/utf8>>), lang:get(<<"Kuma"/utf8>>),
+     lang:get(<<"Clay"/utf8>>), lang:get(<<"Buggy"/utf8>>),
+     lang:get(<<"Ben"/utf8>>), lang:get(<<"Bert"/utf8>>),
+     lang:get(<<"Carl"/utf8>>), lang:get(<<"Coby"/utf8>>),
+     lang:get(<<"Jango"/utf8>>), lang:get(<<"Andre"/utf8>>),
+     lang:get(<<"Child"/utf8>>), lang:get(<<"Conan"/utf8>>),
+     lang:get(<<"Crane"/utf8>>), lang:get(<<"Buchi"/utf8>>),
+     lang:get(<<"Byron"/utf8>>), lang:get(<<"Croft"/utf8>>),
+     lang:get(<<"Curme"/utf8>>), lang:get(<<"Bones"/utf8>>),
+     lang:get(<<"Devil"/utf8>>), lang:get(<<"Marco"/utf8>>),
+     lang:get(<<"Dewey"/utf8>>), lang:get(<<"McGuy"/utf8>>),
+     lang:get(<<"Merry"/utf8>>), lang:get(<<"Dodd"/utf8>>),
+     lang:get(<<"Donne"/utf8>>), lang:get(<<"Ohm"/utf8>>),
+     lang:get(<<"Odama"/utf8>>), lang:get(<<"Oimo"/utf8>>),
+     lang:get(<<"Patty"/utf8>>), lang:get(<<"Dutt"/utf8>>),
+     lang:get(<<"Pearl"/utf8>>), lang:get(<<"Kohza"/utf8>>),
+     lang:get(<<"Eden"/utf8>>), lang:get(<<"Evan"/utf8>>),
+     lang:get(<<"Gin"/utf8>>), lang:get(<<"Fast"/utf8>>),
+     lang:get(<<"Rob"/utf8>>), lang:get(<<"Ace"/utf8>>),
+     lang:get(<<"Enel"/utf8>>), lang:get(<<"Finn"/utf8>>),
+     lang:get(<<"Flynn"/utf8>>), lang:get(<<"Ford"/utf8>>),
+     lang:get(<<"Fred"/utf8>>), lang:get(<<"Sham"/utf8>>),
+     lang:get(<<"Akibi"/utf8>>), lang:get(<<"Giles"/utf8>>),
+     lang:get(<<"Atmos"/utf8>>), lang:get(<<"Avalo"/utf8>>),
+     lang:get(<<"Basil"/utf8>>), lang:get(<<"Benn"/utf8>>),
+     lang:get(<<"Bepo"/utf8>>), lang:get(<<"Grey"/utf8>>),
+     lang:get(<<"Guy"/utf8>>), lang:get(<<"Gus"/utf8>>),
+     lang:get(<<"Wapol"/utf8>>), lang:get(<<"Hal"/utf8>>),
+     lang:get(<<"Hardy"/utf8>>), lang:get(<<"Chess"/utf8>>),
+     lang:get(<<"Chaka"/utf8>>), lang:get(<<"Choo"/utf8>>),
+     lang:get(<<"Colt"/utf8>>), lang:get(<<"Corgi"/utf8>>),
+     lang:get(<<"Holt"/utf8>>), lang:get(<<"Hope"/utf8>>),
+     lang:get(<<"Doma"/utf8>>), lang:get(<<"Dosun"/utf8>>),
+     lang:get(<<"Drip"/utf8>>), lang:get(<<"Duval"/utf8>>),
+     lang:get(<<"Dorry"/utf8>>), lang:get(<<"Genzo"/utf8>>),
+     lang:get(<<"Hosea"/utf8>>), lang:get(<<"Harry"/utf8>>),
+     lang:get(<<"Hugh"/utf8>>), lang:get(<<"Hume"/utf8>>),
+     lang:get(<<"Ian"/utf8>>), lang:get(<<"Jabra"/utf8>>),
+     lang:get(<<"Hutt"/utf8>>), lang:get(<<"Jerry"/utf8>>),
+     lang:get(<<"Kaku"/utf8>>), lang:get(<<"Job"/utf8>>),
+     lang:get(<<"Joe"/utf8>>), lang:get(<<"Judd"/utf8>>),
+     lang:get(<<"Koza"/utf8>>), lang:get(<<"Zeff"/utf8>>),
+     lang:get(<<"Leigh"/utf8>>), lang:get(<<"Lew"/utf8>>),
+     lang:get(<<"Kuzan"/utf8>>), lang:get(<<"Lake"/utf8>>),
+     lang:get(<<"Largo"/utf8>>), lang:get(<<"Percy"/utf8>>),
+     lang:get(<<"Buck"/utf8>>), lang:get(<<"Hank"/utf8>>),
+     lang:get(<<"Bill"/utf8>>), lang:get(<<"Darin"/utf8>>),
+     lang:get(<<"Sid"/utf8>>), lang:get(<<"Lonny"/utf8>>),
+     lang:get(<<"Mikel"/utf8>>), lang:get(<<"Lamar"/utf8>>),
+     lang:get(<<"Ruben"/utf8>>), lang:get(<<"Zack"/utf8>>),
+     lang:get(<<"Timmy"/utf8>>), lang:get(<<"Long"/utf8>>),
+     lang:get(<<"Arlie"/utf8>>), lang:get(<<"Jamel"/utf8>>),
+     lang:get(<<"Rudy"/utf8>>), lang:get(<<"Allen"/utf8>>),
+     lang:get(<<"Ron"/utf8>>), lang:get(<<"Arron"/utf8>>),
+     lang:get(<<"Dong"/utf8>>), lang:get(<<"Allan"/utf8>>),
+     lang:get(<<"Bud"/utf8>>), lang:get(<<"Stacy"/utf8>>),
+     lang:get(<<"Kip"/utf8>>), lang:get(<<"Emil"/utf8>>),
+     lang:get(<<"Dario"/utf8>>), lang:get(<<"Mike"/utf8>>),
+     lang:get(<<"Dean"/utf8>>), lang:get(<<"Karl"/utf8>>),
+     lang:get(<<"Rusty"/utf8>>), lang:get(<<"Kyle"/utf8>>),
+     lang:get(<<"Chad"/utf8>>), lang:get(<<"Amado"/utf8>>),
+     lang:get(<<"Raul"/utf8>>), lang:get(<<"Pat"/utf8>>),
+     lang:get(<<"Brant"/utf8>>), lang:get(<<"Elias"/utf8>>),
+     lang:get(<<"Shaun"/utf8>>), lang:get(<<"Billy"/utf8>>),
+     lang:get(<<"Danny"/utf8>>), lang:get(<<"Caleb"/utf8>>),
+     lang:get(<<"Tomas"/utf8>>), lang:get(<<"Duane"/utf8>>),
+     lang:get(<<"Perry"/utf8>>), lang:get(<<"Pedro"/utf8>>),
+     lang:get(<<"Mario"/utf8>>), lang:get(<<"Ricky"/utf8>>),
+     lang:get(<<"Clark"/utf8>>), lang:get(<<"Earl"/utf8>>),
+     lang:get(<<"Gary"/utf8>>), lang:get(<<"Cody"/utf8>>),
+     lang:get(<<"Peter"/utf8>>), lang:get(<<"James"/utf8>>),
+     lang:get(<<"Homer"/utf8>>), lang:get(<<"Ellis"/utf8>>),
+     lang:get(<<"Jared"/utf8>>), lang:get(<<"Dale"/utf8>>),
+     lang:get(<<"Jorge"/utf8>>), lang:get(<<"Todd"/utf8>>),
+     lang:get(<<"Loren"/utf8>>), lang:get(<<"Leon"/utf8>>),
+     lang:get(<<"Cecil"/utf8>>), lang:get(<<"Cesar"/utf8>>),
+     lang:get(<<"Clint"/utf8>>), lang:get(<<"Larry"/utf8>>)];
+list(_) -> [].
+
+arena_list(3) ->
+    [lang:get(<<"Clyde"/utf8>>), lang:get(<<"Lynn"/utf8>>),
+     lang:get(<<"Jaime"/utf8>>), lang:get(<<"Scott"/utf8>>),
+     lang:get(<<"Keith"/utf8>>), lang:get(<<"Toby"/utf8>>),
+     lang:get(<<"Omar"/utf8>>), lang:get(<<"Gene"/utf8>>),
+     lang:get(<<"Kent"/utf8>>), lang:get(<<"Jody"/utf8>>),
+     lang:get(<<"Chris"/utf8>>), lang:get(<<"Dana"/utf8>>),
+     lang:get(<<"Jeff"/utf8>>), lang:get(<<"Don"/utf8>>),
+     lang:get(<<"Moses"/utf8>>), lang:get(<<"Shane"/utf8>>),
+     lang:get(<<"Lloyd"/utf8>>), lang:get(<<"Benny"/utf8>>),
+     lang:get(<<"Eric"/utf8>>), lang:get(<<"Juan"/utf8>>),
+     lang:get(<<"Owen"/utf8>>)];
+arena_list(2) ->
+    [lang:get(<<" "/utf8>>), <<" ">>,
+     lang:get(<<" "/utf8>>), lang:get(<<" "/utf8>>)];
+arena_list(1) ->
+    [lang:get(<<"Noah"/utf8>>), lang:get(<<"Terry"/utf8>>),
+     lang:get(<<"Edwin"/utf8>>), lang:get(<<"Leo"/utf8>>),
+     lang:get(<<"Susie"/utf8>>), lang:get(<<"Della"/utf8>>),
+     lang:get(<<"Joy"/utf8>>), lang:get(<<"Linda"/utf8>>),
+     lang:get(<<"Irene"/utf8>>), lang:get(<<"Pearl"/utf8>>),
+     lang:get(<<"Jaime"/utf8>>), lang:get(<<"Anna"/utf8>>),
+     lang:get(<<"Marta"/utf8>>), lang:get(<<"Janet"/utf8>>),
+     lang:get(<<"Kelly"/utf8>>), lang:get(<<"Tanya"/utf8>>),
+     lang:get(<<"Ana"/utf8>>), lang:get(<<"Angel"/utf8>>),
+     lang:get(<<"Amber"/utf8>>), lang:get(<<"Juana"/utf8>>),
+     lang:get(<<"Jill"/utf8>>), lang:get(<<"Leona"/utf8>>),
+     lang:get(<<"Molly"/utf8>>), lang:get(<<"Vicki"/utf8>>),
+     lang:get(<<"Lana"/utf8>>), lang:get(<<"Brook"/utf8>>),
+     lang:get(<<"Frank"/utf8>>)];
+arena_list(_) -> [].
+
+

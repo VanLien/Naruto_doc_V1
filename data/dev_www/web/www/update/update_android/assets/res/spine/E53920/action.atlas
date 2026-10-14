@@ -1,0 +1,264 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1/1
+  rotate: true
+  xy: 947, 135
+  size: 689, 72
+  orig: 785, 136
+  offset: 0, 64
+  index: -1
+1/10
+  rotate: true
+  xy: 140, 37
+  size: 784, 133
+  orig: 785, 136
+  offset: 0, 3
+  index: -1
+1/11
+  rotate: false
+  xy: 514, 1771
+  size: 784, 134
+  orig: 785, 136
+  offset: 0, 2
+  index: -1
+1/12
+  rotate: true
+  xy: 2, 823
+  size: 785, 136
+  orig: 785, 136
+  offset: 0, 0
+  index: -1
+1/13
+  rotate: false
+  xy: 514, 1907
+  size: 785, 136
+  orig: 785, 136
+  offset: 0, 0
+  index: -1
+1/14
+  rotate: true
+  xy: 2, 36
+  size: 785, 136
+  orig: 785, 136
+  offset: 0, 0
+  index: -1
+1/15
+  rotate: true
+  xy: 140, 823
+  size: 785, 136
+  orig: 785, 136
+  offset: 0, 0
+  index: -1
+1/2
+  rotate: true
+  xy: 389, 129
+  size: 694, 77
+  orig: 785, 136
+  offset: 0, 59
+  index: -1
+1/3
+  rotate: false
+  xy: 1300, 1769
+  size: 705, 136
+  orig: 785, 136
+  offset: 0, 0
+  index: -1
+1/4
+  rotate: false
+  xy: 1301, 1907
+  size: 721, 136
+  orig: 785, 136
+  offset: 0, 0
+  index: -1
+1/5
+  rotate: false
+  xy: 1298, 1662
+  size: 737, 105
+  orig: 785, 136
+  offset: 0, 31
+  index: -1
+1/6
+  rotate: true
+  xy: 275, 48
+  size: 773, 112
+  orig: 785, 136
+  offset: 0, 24
+  index: -1
+1/7
+  rotate: true
+  xy: 412, 827
+  size: 781, 119
+  orig: 785, 136
+  offset: 0, 17
+  index: -1
+1/8
+  rotate: false
+  xy: 514, 1643
+  size: 782, 126
+  orig: 785, 136
+  offset: 0, 10
+  index: -1
+1/9
+  rotate: true
+  xy: 278, 825
+  size: 783, 132
+  orig: 785, 136
+  offset: 0, 4
+  index: -1
+dibaotianx/12
+  rotate: false
+  xy: 468, 41
+  size: 477, 372
+  orig: 600, 561
+  offset: 71, 14
+  index: -1
+dibaotianx/13
+  rotate: false
+  xy: 1023, 866
+  size: 498, 366
+  orig: 600, 561
+  offset: 52, 14
+  index: -1
+dibaotianx/14
+  rotate: false
+  xy: 1523, 993
+  size: 503, 364
+  orig: 600, 561
+  offset: 46, 11
+  index: -1
+dibaotianx/15
+  rotate: false
+  xy: 1523, 662
+  size: 520, 329
+  orig: 600, 561
+  offset: 40, 9
+  index: -1
+dibaotianx/16
+  rotate: false
+  xy: 1357, 2
+  size: 536, 324
+  orig: 600, 561
+  offset: 29, 9
+  index: -1
+dibaotianx/17
+  rotate: true
+  xy: 1021, 272
+  size: 552, 334
+  orig: 600, 561
+  offset: 13, 7
+  index: -1
+dibaotianx/18
+  rotate: false
+  xy: 1357, 328
+  size: 543, 332
+  orig: 600, 561
+  offset: 5, 1
+  index: -1
+dibaotianx/19
+  rotate: false
+  xy: 1516, 1359
+  size: 530, 301
+  orig: 600, 561
+  offset: 1, 0
+  index: -1
+dibaotianx/3
+  rotate: false
+  xy: 2, 1610
+  size: 510, 433
+  orig: 600, 561
+  offset: 90, 45
+  index: -1
+dibaotianx/4
+  rotate: false
+  xy: 533, 1234
+  size: 512, 407
+  orig: 600, 561
+  offset: 88, 44
+  index: -1
+dibaotianx/5
+  rotate: false
+  xy: 1047, 1234
+  size: 467, 407
+  orig: 600, 561
+  offset: 100, 40
+  index: -1
+dibaotianx/6
+  rotate: false
+  xy: 468, 415
+  size: 477, 409
+  orig: 600, 561
+  offset: 98, 38
+  index: -1
+dibaotianx/7
+  rotate: false
+  xy: 533, 826
+  size: 488, 406
+  orig: 600, 561
+  offset: 93, 37
+  index: -1
+
+action2.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dibaotianx/1
+  rotate: false
+  xy: 884, 178
+  size: 387, 387
+  orig: 600, 561
+  offset: 160, 174
+  index: -1
+dibaotianx/10
+  rotate: false
+  xy: 2, 463
+  size: 446, 404
+  orig: 600, 561
+  offset: 86, 14
+  index: -1
+dibaotianx/11
+  rotate: true
+  xy: 2, 2
+  size: 459, 381
+  orig: 600, 561
+  offset: 81, 14
+  index: -1
+dibaotianx/2
+  rotate: false
+  xy: 1273, 178
+  size: 387, 387
+  orig: 600, 561
+  offset: 160, 174
+  index: -1
+dibaotianx/20
+  rotate: false
+  xy: 884, 567
+  size: 528, 300
+  orig: 600, 561
+  offset: 0, 0
+  index: -1
+dibaotianx/21
+  rotate: false
+  xy: 1414, 606
+  size: 528, 261
+  orig: 600, 561
+  offset: 0, 39
+  index: -1
+dibaotianx/8
+  rotate: false
+  xy: 385, 54
+  size: 409, 404
+  orig: 600, 561
+  offset: 119, 35
+  index: -1
+dibaotianx/9
+  rotate: false
+  xy: 450, 460
+  size: 432, 407
+  orig: 600, 561
+  offset: 90, 16
+  index: -1

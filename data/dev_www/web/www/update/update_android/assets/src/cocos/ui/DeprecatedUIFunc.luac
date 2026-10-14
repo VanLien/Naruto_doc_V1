@@ -1,0 +1,293 @@
+﻿if ccui == nil then
+	return
+end
+
+local function var_0_0(arg_1_0, arg_1_1)
+	return
+end
+
+local var_0_1 = {
+	setText = function(arg_2_0, arg_2_1)
+		var_0_0("ccui.Text:setText", "ccui.Text:setString")
+
+		return arg_2_0:setString(arg_2_1)
+	end
+}
+
+ccui.Text.setText = var_0_1.setText
+
+function var_0_1.getStringValue(arg_3_0)
+	var_0_0("ccui.Text:getStringValue", "ccui.Text:getString")
+
+	return arg_3_0:getString()
+end
+
+ccui.Text.getStringValue = var_0_1.getStringValue
+
+local var_0_2 = {
+	setStringValue = function(arg_4_0, arg_4_1)
+		var_0_0("ccui.TextAtlas:setStringValue", "ccui.TextAtlas:setString")
+
+		return arg_4_0:setString(arg_4_1)
+	end
+}
+
+ccui.TextAtlas.setStringValue = var_0_2.setStringValue
+
+function var_0_2.getStringValue(arg_5_0)
+	var_0_0("ccui.TextAtlas:getStringValue", "ccui.TextAtlas:getString")
+
+	return arg_5_0:getString()
+end
+
+ccui.TextAtlas.getStringValue = var_0_2.getStringValue
+
+local var_0_3 = {
+	setText = function(arg_6_0, arg_6_1)
+		var_0_0("ccui.TextBMFont:setText", "ccui.TextBMFont:setString")
+
+		return arg_6_0:setString(arg_6_1)
+	end
+}
+
+ccui.TextBMFont.setText = var_0_3.setText
+
+function var_0_3.getStringValue(arg_7_0)
+	var_0_0("ccui.Text:getStringValue", "ccui.TextBMFont:getString")
+
+	return arg_7_0:getString()
+end
+
+ccui.Text.getStringValue = var_0_3.getStringValue
+
+local var_0_4 = {
+	getProgram = function(arg_8_0, arg_8_1)
+		var_0_0("cc.ShaderCache:getProgram", "cc.ShaderCache:getGLProgram")
+
+		return arg_8_0:getGLProgram(arg_8_1)
+	end
+}
+
+cc.ShaderCache.getProgram = var_0_4.getProgram
+
+local var_0_5 = {
+	getLeftInParent = function(arg_9_0)
+		var_0_0("ccui.Widget:getLeftInParent", "ccui.Widget:getLeftBoundary")
+
+		return arg_9_0:getLeftBoundary()
+	end
+}
+
+ccui.Widget.getLeftInParent = var_0_5.getLeftInParent
+
+function var_0_5.getBottomInParent(arg_10_0)
+	var_0_0("ccui.Widget:getBottomInParent", "ccui.Widget:getBottomBoundary")
+
+	return arg_10_0:getBottomBoundary()
+end
+
+ccui.Widget.getBottomInParent = var_0_5.getBottomInParent
+
+function var_0_5.getRightInParent(arg_11_0)
+	var_0_0("ccui.Widget:getRightInParent", "ccui.Widget:getRightBoundary")
+
+	return arg_11_0:getRightBoundary()
+end
+
+ccui.Widget.getRightInParent = var_0_5.getRightInParent
+
+function var_0_5.getTopInParent(arg_12_0)
+	var_0_0("ccui.Widget:getTopInParent", "ccui.Widget:getTopBoundary")
+
+	return arg_12_0:getTopBoundary()
+end
+
+ccui.Widget.getTopInParent = var_0_5.getTopInParent
+
+function var_0_5.getSize(arg_13_0)
+	var_0_0("ccui.Widget:getSize", "ccui.Widget:getContentSize")
+
+	return arg_13_0:getContentSize()
+end
+
+ccui.Widget.getSize = var_0_5.getSize
+
+function var_0_5.setSize(arg_14_0, ...)
+	var_0_0("ccui.Widget:setSize", "ccui.Widget:setContentSize")
+
+	return arg_14_0:setContentSize(...)
+end
+
+ccui.Widget.setSize = var_0_5.setSize
+
+local var_0_6 = {
+	addEventListenerCheckBox = function(arg_15_0, arg_15_1)
+		var_0_0("ccui.CheckBox:addEventListenerCheckBox", "ccui.CheckBox:addEventListener")
+
+		return arg_15_0:addEventListener(arg_15_1)
+	end
+}
+
+ccui.CheckBox.addEventListenerCheckBox = var_0_6.addEventListenerCheckBox
+
+function var_0_6.setSelectedState(arg_16_0, arg_16_1)
+	var_0_0("ccui.CheckBox:setSelectedState", "ccui.CheckBox:setSelected")
+
+	return arg_16_0:setSelected(arg_16_1)
+end
+
+ccui.CheckBox.setSelectedState = var_0_6.setSelectedState
+
+function var_0_6.getSelectedState(arg_17_0)
+	var_0_0("ccui.CheckBox:getSelectedState", "ccui.CheckBox:getSelected")
+
+	return arg_17_0:getSelected()
+end
+
+ccui.CheckBox.getSelectedState = var_0_6.setSelectedState
+
+local var_0_7 = {
+	addEventListenerSlider = function(arg_18_0, arg_18_1)
+		var_0_0("ccui.Slider:addEventListenerSlider", "ccui.Slider:addEventListener")
+
+		return arg_18_0:addEventListener(arg_18_1)
+	end
+}
+
+ccui.Slider.addEventListenerSlider = var_0_7.addEventListenerSlider
+
+local var_0_8 = {
+	addEventListenerTextField = function(arg_19_0, arg_19_1)
+		var_0_0("ccui.TextField:addEventListenerTextField", "ccui.TextField:addEventListener")
+
+		return arg_19_0:addEventListener(arg_19_1)
+	end
+}
+
+ccui.TextField.addEventListenerTextField = var_0_8.addEventListenerTextField
+
+function var_0_8.setText(arg_20_0, arg_20_1)
+	var_0_0("ccui.TextField:setText", "ccui.TextField:setString")
+
+	return arg_20_0:setString(arg_20_1)
+end
+
+ccui.TextField.setText = var_0_8.setText
+
+function var_0_8.getStringValue(arg_21_0)
+	var_0_0("ccui.TextField:getStringValue", "ccui.TextField:getString")
+
+	return arg_21_0:getString()
+end
+
+ccui.TextField.getStringValue = var_0_8.getStringValue
+
+local var_0_9 = {
+	addEventListenerPageView = function(arg_22_0, arg_22_1)
+		var_0_0("ccui.PageView:addEventListenerPageView", "ccui.PageView:addEventListener")
+
+		return arg_22_0:addEventListener(arg_22_1)
+	end
+}
+
+ccui.PageView.addEventListenerPageView = var_0_9.addEventListenerPageView
+
+function var_0_9.addWidgetToPage(arg_23_0, arg_23_1, arg_23_2)
+	var_0_0("ccui.PageView:addWidgetToPage", "ccui.PageView:insertPage")
+
+	return arg_23_0:insertPage(arg_23_1, arg_23_2)
+end
+
+ccui.PageView.addWidgetToPage = var_0_9.addWidgetToPage
+
+function var_0_9.getCurPageIndex(arg_24_0)
+	var_0_0("ccui.PageView:getCurPageIndex", "ccui.PageView:getCurrentPageIndex")
+
+	return arg_24_0:getCurrentPageIndex()
+end
+
+ccui.PageView.getCurPageIndex = var_0_9.getCurPageIndex
+
+function var_0_9.setCurPageIndex(arg_25_0, arg_25_1)
+	var_0_0("ccui.PageView:setCurPageIndex", "ccui.PageView:setCurrentPageIndex")
+
+	return arg_25_0:setCurrentPageIndex(arg_25_1)
+end
+
+ccui.PageView.setCurPageIndex = var_0_9.setCurPageIndex
+
+function var_0_9.getPages(arg_26_0)
+	var_0_0("ccui.PageView:getPages", "ccui.PageView:getItems")
+
+	return arg_26_0:getItems()
+end
+
+ccui.PageView.getPages = var_0_9.getPages
+
+function var_0_9.getPage(arg_27_0, arg_27_1)
+	var_0_0("ccui.PageView:getPage", "ccui.PageView:getItem")
+
+	return arg_27_0:getItem(arg_27_1)
+end
+
+ccui.PageView.getPage = var_0_9.getPage
+
+function var_0_9.setCustomScrollThreshold(arg_28_0)
+	print("Since v3.9, this method has no effect.")
+end
+
+ccui.PageView.setCustomScrollThreshold = var_0_9.setCustomScrollThreshold
+
+function var_0_9.getCustomScrollThreshold(arg_29_0)
+	print("Since v3.9, this method has no effect.")
+end
+
+ccui.PageView.getCustomScrollThreshold = var_0_9.getCustomScrollThreshold
+
+function var_0_9.isUsingCustomScrollThreshold(arg_30_0)
+	print("Since v3.9, this method has no effect.")
+end
+
+ccui.PageView.isUsingCustomScrollThreshold = var_0_9.isUsingCustomScrollThreshold
+
+function var_0_9.setUsingCustomScrollThreshold(arg_31_0)
+	print("Since v3.9, this method has no effect.")
+end
+
+ccui.PageView.setUsingCustomScrollThreshold = var_0_9.setUsingCustomScrollThreshold
+
+local var_0_10 = {
+	addEventListenerScrollView = function(arg_32_0, arg_32_1)
+		var_0_0("ccui.ScrollView:addEventListenerScrollView", "ccui.ScrollView:addEventListener")
+
+		return arg_32_0:addEventListener(arg_32_1)
+	end
+}
+
+ccui.ScrollView.addEventListenerScrollView = var_0_10.addEventListenerScrollView
+
+local var_0_11 = {
+	addEventListenerListView = function(arg_33_0, arg_33_1)
+		var_0_0("ccui.ListView:addEventListenerListView", "ccui.ListView:addEventListener")
+
+		return arg_33_0:addEventListener(arg_33_1)
+	end
+}
+
+ccui.ListView.addEventListenerListView = var_0_11.addEventListenerListView
+
+function var_0_11.requestRefreshView(arg_34_0)
+	var_0_0("ccui.ListView:requestRefreshView", "ccui.ListView:forceDoLayout")
+
+	return arg_34_0:forceDoLayout()
+end
+
+ccui.ListView.requestRefreshView = var_0_11.requestRefreshView
+
+function var_0_11.refreshView(arg_35_0)
+	var_0_0("ccui.ListView:refreshView", "ccui.ListView:refreshView")
+
+	return arg_35_0:forceDoLayout()
+end
+
+ccui.ListView.refreshView = var_0_11.refreshView

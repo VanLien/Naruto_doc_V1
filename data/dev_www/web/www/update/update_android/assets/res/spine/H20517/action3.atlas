@@ -1,0 +1,76 @@
+
+action3.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/B_stand/00000
+  rotate: true
+  xy: 198, 34
+  size: 194, 228
+  orig: 768, 384
+  offset: 171, 98
+  index: -1
+image/B_stand/00001
+  rotate: false
+  xy: 1, 1
+  size: 196, 227
+  orig: 768, 384
+  offset: 171, 98
+  index: -1
+image/B_stand/00002
+  rotate: true
+  xy: 427, 33
+  size: 195, 226
+  orig: 768, 384
+  offset: 173, 98
+  index: -1
+image/B_stand/00003
+  rotate: true
+  xy: 883, 36
+  size: 192, 225
+  orig: 768, 384
+  offset: 176, 98
+  index: -1
+image/B_stand/00004
+  rotate: true
+  xy: 1109, 36
+  size: 192, 225
+  orig: 768, 384
+  offset: 176, 98
+  index: -1
+image/B_stand/00005
+  rotate: true
+  xy: 1563, 39
+  size: 189, 225
+  orig: 768, 384
+  offset: 176, 98
+  index: -1
+image/B_stand/00006
+  rotate: true
+  xy: 1335, 40
+  size: 188, 227
+  orig: 768, 384
+  offset: 175, 98
+  index: -1
+image/B_stand/00007
+  rotate: true
+  xy: 654, 37
+  size: 191, 228
+  orig: 768, 384
+  offset: 173, 98
+  index: -1
+image/action3/00000
+  rotate: false
+  xy: 1922, 40
+  size: 93, 188
+  orig: 768, 384
+  offset: 195, 80
+  index: -1
+image/action3/00001
+  rotate: false
+  xy: 1789, 44
+  size: 132, 184
+  orig: 768, 384
+  offset: 198, 80
+  index: -1

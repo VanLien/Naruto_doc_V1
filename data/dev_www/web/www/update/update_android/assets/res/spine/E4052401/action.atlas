@@ -1,0 +1,83 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hashirama attack/0_00005
+  rotate: false
+  xy: 2, 6
+  size: 339, 283
+  orig: 900, 600
+  offset: 208, 205
+  index: -1
+hashirama attack/0_00007
+  rotate: false
+  xy: 2, 702
+  size: 556, 297
+  orig: 900, 600
+  offset: 208, 158
+  index: -1
+hashirama attack/0_00009
+  rotate: false
+  xy: 2, 487
+  size: 541, 213
+  orig: 900, 600
+  offset: 208, 179
+  index: -1
+hashirama attack/0_00012
+  rotate: false
+  xy: 560, 809
+  size: 499, 190
+  orig: 900, 600
+  offset: 208, 190
+  index: -1
+hashirama attack/0_00015
+  rotate: false
+  xy: 2, 291
+  size: 447, 194
+  orig: 900, 600
+  offset: 208, 188
+  index: -1
+hashirama attack/0_00016
+  rotate: false
+  xy: 545, 388
+  size: 269, 190
+  orig: 900, 600
+  offset: 208, 193
+  index: -1
+hashirama attack_hit/0_00000
+  rotate: false
+  xy: 343, 2
+  size: 192, 287
+  orig: 500, 500
+  offset: 166, 114
+  index: -1
+hashirama attack_hit/0_00001
+  rotate: true
+  xy: 560, 580
+  size: 227, 327
+  orig: 500, 500
+  offset: 150, 93
+  index: -1
+hashirama attack_hit/0_00002
+  rotate: true
+  xy: 1413, 759
+  size: 240, 349
+  orig: 500, 500
+  offset: 144, 81
+  index: -1
+hashirama attack_hit/0_00003
+  rotate: true
+  xy: 1061, 759
+  size: 240, 350
+  orig: 500, 500
+  offset: 140, 79
+  index: -1
+hashirama attack_hit/0_00004
+  rotate: false
+  xy: 1764, 667
+  size: 231, 332
+  orig: 500, 500
+  offset: 142, 84
+  index: -1

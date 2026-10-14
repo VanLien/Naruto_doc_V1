@@ -1,0 +1,179 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/tx/E405133/0_00000
+  rotate: true
+  xy: 1896, 120
+  size: 179, 100
+  orig: 1574, 886
+  offset: 698, 185
+  index: -1
+image/tx/E405133/0_00001
+  rotate: true
+  xy: 1896, 301
+  size: 243, 133
+  orig: 1574, 886
+  offset: 666, 169
+  index: -1
+image/tx/E405133/0_00003
+  rotate: true
+  xy: 1541, 63
+  size: 481, 353
+  orig: 1574, 886
+  offset: 539, 101
+  index: -1
+image/tx/E405133/0_00004
+  rotate: true
+  xy: 801, 2
+  size: 531, 738
+  orig: 1574, 886
+  offset: 489, 68
+  index: -1
+image/tx/E405133/0_00009
+  rotate: true
+  xy: 641, 1338
+  size: 698, 792
+  orig: 1574, 886
+  offset: 322, 48
+  index: -1
+image/tx/E405133/0_00011
+  rotate: true
+  xy: 2, 530
+  size: 698, 797
+  orig: 1574, 886
+  offset: 322, 43
+  index: -1
+image/tx/E405133/0_00016
+  rotate: false
+  xy: 801, 535
+  size: 599, 801
+  orig: 1574, 886
+  offset: 421, 39
+  index: -1
+image/tx/E405133/0_00018
+  rotate: false
+  xy: 1402, 546
+  size: 600, 790
+  orig: 1574, 886
+  offset: 420, 50
+  index: -1
+image/tx/E405133/0_00019
+  rotate: false
+  xy: 2, 1230
+  size: 637, 806
+  orig: 1574, 886
+  offset: 383, 34
+  index: -1
+image/tx/E405133/0_00021
+  rotate: true
+  xy: 1435, 1419
+  size: 617, 585
+  orig: 1574, 886
+  offset: 403, 68
+  index: -1
+image/tx/E405133/0_00022
+  rotate: false
+  xy: 2, 68
+  size: 648, 460
+  orig: 1574, 886
+  offset: 372, 71
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/tx/E405133/0_00002
+  rotate: true
+  xy: 2, 2
+  size: 355, 201
+  orig: 1574, 886
+  offset: 610, 135
+  index: -1
+image/tx/E405133/0_00010
+  rotate: false
+  xy: 2, 359
+  size: 698, 789
+  orig: 1574, 886
+  offset: 322, 51
+  index: -1
+image/tx/E405133/0_00012
+  rotate: false
+  xy: 2, 1150
+  size: 697, 792
+  orig: 1574, 886
+  offset: 323, 48
+  index: -1
+image/tx/E405133/0_00013
+  rotate: false
+  xy: 701, 1152
+  size: 697, 790
+  orig: 1574, 886
+  offset: 323, 50
+  index: -1
+image/tx/E405133/0_00014
+  rotate: false
+  xy: 1400, 1145
+  size: 646, 797
+  orig: 1574, 886
+  offset: 374, 43
+  index: -1
+image/tx/E405133/0_00015
+  rotate: false
+  xy: 702, 358
+  size: 660, 792
+  orig: 1574, 886
+  offset: 360, 48
+  index: -1
+image/tx/E405133/0_00020
+  rotate: false
+  xy: 1364, 360
+  size: 628, 783
+  orig: 1574, 886
+  offset: 392, 57
+  index: -1
+
+action3.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/tx/E405133/0_00005
+  rotate: false
+  xy: 702, 11
+  size: 697, 773
+  orig: 1574, 886
+  offset: 323, 67
+  index: -1
+image/tx/E405133/0_00006
+  rotate: false
+  xy: 2, 781
+  size: 698, 779
+  orig: 1574, 886
+  offset: 322, 61
+  index: -1
+image/tx/E405133/0_00007
+  rotate: false
+  xy: 702, 786
+  size: 698, 774
+  orig: 1574, 886
+  offset: 322, 66
+  index: -1
+image/tx/E405133/0_00008
+  rotate: false
+  xy: 2, 2
+  size: 698, 777
+  orig: 1574, 886
+  offset: 322, 63
+  index: -1
+image/tx/E405133/0_00017
+  rotate: false
+  xy: 1402, 773
+  size: 545, 787
+  orig: 1574, 886
+  offset: 475, 53
+  index: -1

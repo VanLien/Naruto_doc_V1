@@ -1,0 +1,62 @@
+
+hurt.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hashirama hurt/0_00000
+  rotate: true
+  xy: 528, 101
+  size: 97, 194
+  orig: 900, 600
+  offset: 230, 196
+  index: -1
+hashirama hurt/0_00001
+  rotate: false
+  xy: 322, 6
+  size: 101, 192
+  orig: 900, 600
+  offset: 229, 194
+  index: -1
+hashirama hurt/0_00002
+  rotate: true
+  xy: 724, 97
+  size: 101, 190
+  orig: 900, 600
+  offset: 229, 198
+  index: -1
+hashirama hurt/0_00003
+  rotate: false
+  xy: 109, 3
+  size: 104, 195
+  orig: 900, 600
+  offset: 225, 195
+  index: -1
+hashirama hurt/0_00004
+  rotate: false
+  xy: 2, 2
+  size: 105, 196
+  orig: 900, 600
+  offset: 219, 195
+  index: -1
+hashirama hurt/0_00005
+  rotate: false
+  xy: 215, 4
+  size: 105, 194
+  orig: 900, 600
+  offset: 217, 197
+  index: -1
+hashirama hurt/0_00006
+  rotate: false
+  xy: 425, 7
+  size: 101, 191
+  orig: 900, 600
+  offset: 220, 201
+  index: -1
+hashirama hurt/0_00007
+  rotate: true
+  xy: 528, 5
+  size: 94, 190
+  orig: 900, 600
+  offset: 225, 203
+  index: -1

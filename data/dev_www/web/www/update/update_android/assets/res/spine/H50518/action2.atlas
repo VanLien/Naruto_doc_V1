@@ -1,0 +1,125 @@
+
+action2.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/0_00000
+  rotate: false
+  xy: 1405, 542
+  size: 174, 203
+  orig: 1600, 800
+  offset: 565, 279
+  index: -1
+action2/0_00001
+  rotate: true
+  xy: 1193, 551
+  size: 194, 210
+  orig: 1600, 800
+  offset: 569, 272
+  index: -1
+action2/0_00002
+  rotate: false
+  xy: 585, 28
+  size: 188, 199
+  orig: 1600, 800
+  offset: 592, 257
+  index: -1
+action2/0_00003
+  rotate: false
+  xy: 1581, 547
+  size: 188, 210
+  orig: 1600, 800
+  offset: 608, 243
+  index: -1
+action2/0_00004
+  rotate: false
+  xy: 692, 454
+  size: 190, 190
+  orig: 1600, 800
+  offset: 606, 243
+  index: -1
+action2/0_00013
+  rotate: false
+  xy: 351, 2
+  size: 232, 225
+  orig: 1600, 800
+  offset: 579, 263
+  index: -1
+action2/0_00014
+  rotate: false
+  xy: 425, 229
+  size: 247, 222
+  orig: 1600, 800
+  offset: 584, 263
+  index: -1
+action2/0_00015
+  rotate: true
+  xy: 861, 646
+  size: 325, 330
+  orig: 1600, 800
+  offset: 578, 263
+  index: -1
+action2/0_00016
+  rotate: true
+  xy: 516, 668
+  size: 303, 343
+  orig: 1600, 800
+  offset: 546, 264
+  index: -1
+action2/0_00017
+  rotate: false
+  xy: 2, 15
+  size: 347, 325
+  orig: 1600, 800
+  offset: 503, 263
+  index: -1
+action2/0_00018
+  rotate: false
+  xy: 2, 342
+  size: 421, 328
+  orig: 1600, 800
+  offset: 555, 263
+  index: -1
+action2/0_00019
+  rotate: false
+  xy: 2, 672
+  size: 512, 299
+  orig: 1600, 800
+  offset: 563, 253
+  index: -1
+action2/0_00020
+  rotate: false
+  xy: 1193, 747
+  size: 346, 224
+  orig: 1600, 800
+  offset: 560, 257
+  index: -1
+action2/0_00021
+  rotate: false
+  xy: 1541, 759
+  size: 296, 212
+  orig: 1600, 800
+  offset: 569, 272
+  index: -1
+action2/0_00022
+  rotate: false
+  xy: 425, 453
+  size: 265, 213
+  orig: 1600, 800
+  offset: 562, 279
+  index: -1
+action2/0_00023
+  rotate: true
+  xy: 1839, 734
+  size: 237, 203
+  orig: 1600, 800
+  offset: 570, 279
+  index: -1
+action2/0_00024
+  rotate: true
+  xy: 1771, 547
+  size: 185, 206
+  orig: 1600, 800
+  offset: 561, 279
+  index: -1

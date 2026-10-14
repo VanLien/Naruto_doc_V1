@@ -1,0 +1,153 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bowenala_0000
+  rotate: false
+  xy: 2, 1747
+  size: 303, 288
+  orig: 303, 288
+  offset: 0, 0
+  index: -1
+dunbuffa
+  rotate: false
+  xy: 1132, 1656
+  size: 125, 153
+  orig: 125, 153
+  offset: 0, 0
+  index: -1
+dunbuffb
+  rotate: false
+  xy: 1957, 1913
+  size: 78, 122
+  orig: 78, 122
+  offset: 0, 0
+  index: -1
+hongaa_0000
+  rotate: false
+  xy: 2, 13
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+podana
+  rotate: false
+  xy: 1259, 1678
+  size: 131, 131
+  orig: 131, 131
+  offset: 0, 0
+  index: -1
+yan_0000
+  rotate: false
+  xy: 2, 1521
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0001
+  rotate: false
+  xy: 307, 1811
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0002
+  rotate: false
+  xy: 2, 1295
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0003
+  rotate: false
+  xy: 582, 1811
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0004
+  rotate: false
+  xy: 2, 1069
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0005
+  rotate: false
+  xy: 857, 1811
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0006
+  rotate: false
+  xy: 2, 843
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0007
+  rotate: false
+  xy: 1132, 1811
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0008
+  rotate: false
+  xy: 2, 617
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0009
+  rotate: false
+  xy: 1407, 1811
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0010
+  rotate: false
+  xy: 2, 391
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0011
+  rotate: false
+  xy: 1682, 1811
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0012
+  rotate: false
+  xy: 2, 165
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0013
+  rotate: false
+  xy: 307, 1585
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0014
+  rotate: false
+  xy: 582, 1585
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1
+yan_0015
+  rotate: false
+  xy: 857, 1585
+  size: 273, 224
+  orig: 273, 224
+  offset: 0, 0
+  index: -1

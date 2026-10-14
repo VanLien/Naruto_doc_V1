@@ -1,0 +1,118 @@
+
+run.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/kakashi run/0_00000
+  rotate: true
+  xy: 130, 6
+  size: 106, 154
+  orig: 600, 400
+  offset: 109, 87
+  index: -1
+images/kakashi run/0_00001
+  rotate: false
+  xy: 2, 93
+  size: 124, 161
+  orig: 600, 400
+  offset: 101, 90
+  index: -1
+images/kakashi run/0_00002
+  rotate: true
+  xy: 823, 183
+  size: 71, 122
+  orig: 600, 400
+  offset: 141, 98
+  index: -1
+images/kakashi run/0_00003
+  rotate: false
+  xy: 128, 114
+  size: 137, 140
+  orig: 600, 400
+  offset: 107, 98
+  index: -1
+images/kakashi run/0_00004
+  rotate: true
+  xy: 267, 123
+  size: 131, 119
+  orig: 600, 400
+  offset: 108, 108
+  index: -1
+images/kakashi run/0_00005
+  rotate: false
+  xy: 388, 130
+  size: 103, 124
+  orig: 600, 400
+  offset: 109, 100
+  index: -1
+images/kakashi run/0_00006
+  rotate: true
+  xy: 286, 18
+  size: 103, 127
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/kakashi run/0_00007
+  rotate: true
+  xy: 2, 2
+  size: 89, 126
+  orig: 600, 400
+  offset: 123, 97
+  index: -1
+images/obito run/0_00000
+  rotate: false
+  xy: 517, 14
+  size: 100, 117
+  orig: 600, 400
+  offset: 126, 108
+  index: -1
+images/obito run/0_00001
+  rotate: false
+  xy: 415, 7
+  size: 100, 121
+  orig: 600, 400
+  offset: 127, 100
+  index: -1
+images/obito run/0_00002
+  rotate: false
+  xy: 716, 38
+  size: 97, 120
+  orig: 600, 400
+  offset: 131, 98
+  index: -1
+images/obito run/0_00003
+  rotate: false
+  xy: 619, 12
+  size: 95, 123
+  orig: 600, 400
+  offset: 132, 98
+  index: -1
+images/obito run/0_00004
+  rotate: false
+  xy: 595, 137
+  size: 100, 117
+  orig: 600, 400
+  offset: 126, 108
+  index: -1
+images/obito run/0_00005
+  rotate: false
+  xy: 493, 133
+  size: 100, 121
+  orig: 600, 400
+  offset: 127, 100
+  index: -1
+images/obito run/0_00006
+  rotate: false
+  xy: 815, 38
+  size: 96, 120
+  orig: 600, 400
+  offset: 132, 98
+  index: -1
+images/obito run/0_00007
+  rotate: true
+  xy: 697, 160
+  size: 94, 124
+  orig: 600, 400
+  offset: 133, 97
+  index: -1

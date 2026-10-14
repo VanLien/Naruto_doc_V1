@@ -1,0 +1,146 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hashirama action1_hit/0_00000
+  rotate: false
+  xy: 2, 2
+  size: 204, 132
+  orig: 600, 600
+  offset: 198, 110
+  index: -1
+hashirama action1_hit/0_00001
+  rotate: false
+  xy: 281, 522
+  size: 271, 241
+  orig: 600, 600
+  offset: 171, 106
+  index: -1
+hashirama action1_hit/0_00002
+  rotate: true
+  xy: 640, 1029
+  size: 268, 327
+  orig: 600, 600
+  offset: 151, 95
+  index: -1
+hashirama action1_hit/0_00003
+  rotate: false
+  xy: 640, 1299
+  size: 327, 333
+  orig: 600, 600
+  offset: 110, 100
+  index: -1
+hashirama action1_hit/0_00004
+  rotate: true
+  xy: 969, 1054
+  size: 325, 331
+  orig: 600, 600
+  offset: 122, 132
+  index: -1
+hashirama action1_hit/0_00005
+  rotate: false
+  xy: 2, 136
+  size: 301, 337
+  orig: 600, 600
+  offset: 152, 121
+  index: -1
+hashirama action1_hit/0_00006
+  rotate: false
+  xy: 1687, 1672
+  size: 343, 335
+  orig: 600, 600
+  offset: 138, 115
+  index: -1
+hashirama action1_hit/0_00007
+  rotate: false
+  xy: 972, 1673
+  size: 353, 334
+  orig: 600, 600
+  offset: 131, 114
+  index: -1
+hashirama action1_hit/0_00008
+  rotate: false
+  xy: 323, 1273
+  size: 315, 340
+  orig: 600, 600
+  offset: 174, 113
+  index: -1
+hashirama action1_hit/0_00009
+  rotate: true
+  xy: 1327, 1684
+  size: 323, 358
+  orig: 600, 600
+  offset: 166, 119
+  index: -1
+hashirama action1_hit/0_00010
+  rotate: false
+  xy: 323, 1615
+  size: 313, 392
+  orig: 600, 600
+  offset: 181, 115
+  index: -1
+hashirama action1_hit/0_00011
+  rotate: false
+  xy: 2, 1619
+  size: 319, 388
+  orig: 600, 600
+  offset: 182, 117
+  index: -1
+hashirama action1_hit/0_00012
+  rotate: false
+  xy: 2, 1230
+  size: 319, 387
+  orig: 600, 600
+  offset: 182, 118
+  index: -1
+hashirama action1_hit/0_00013
+  rotate: false
+  xy: 2, 851
+  size: 285, 377
+  orig: 600, 600
+  offset: 212, 128
+  index: -1
+hashirama action1_hit/0_00014
+  rotate: false
+  xy: 2, 475
+  size: 277, 374
+  orig: 600, 600
+  offset: 220, 131
+  index: -1
+hashirama action1_hit/0_00015
+  rotate: false
+  xy: 638, 1634
+  size: 332, 373
+  orig: 600, 600
+  offset: 154, 132
+  index: -1
+hashirama action1_hit/0_00016
+  rotate: false
+  xy: 972, 1381
+  size: 336, 290
+  orig: 600, 600
+  offset: 161, 150
+  index: -1
+hashirama action1_hit/0_00017
+  rotate: false
+  xy: 323, 966
+  size: 314, 305
+  orig: 600, 600
+  offset: 179, 136
+  index: -1
+hashirama action1_hit/0_00018
+  rotate: true
+  xy: 305, 209
+  size: 311, 297
+  orig: 600, 600
+  offset: 196, 123
+  index: -1
+hashirama action1_hit/0_00019
+  rotate: false
+  xy: 289, 765
+  size: 317, 199
+  orig: 600, 600
+  offset: 194, 202
+  index: -1

@@ -1,0 +1,139 @@
+
+action2.png
+size: 1587,325
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action1/tsgj0001
+  rotate: true
+  xy: 328, 15
+  size: 161, 168
+  orig: 174, 208
+  offset: 2, 12
+  index: -1
+action1/tsgj0002
+  rotate: true
+  xy: 867, 6
+  size: 162, 169
+  orig: 174, 208
+  offset: 8, 12
+  index: -1
+action1/tsgj0003
+  rotate: true
+  xy: 1038, 5
+  size: 163, 196
+  orig: 174, 208
+  offset: 11, 0
+  index: -1
+action1/tsgj0004
+  rotate: true
+  xy: 1236, 4
+  size: 163, 179
+  orig: 174, 208
+  offset: 11, 13
+  index: -1
+action1/tsgj0005
+  rotate: true
+  xy: 696, 11
+  size: 161, 169
+  orig: 174, 208
+  offset: 11, 13
+  index: -1
+action1/tsgj0006
+  rotate: true
+  xy: 498, 15
+  size: 157, 196
+  orig: 174, 208
+  offset: 10, 12
+  index: -1
+action1/tsgj0007
+  rotate: true
+  xy: 518, 174
+  size: 149, 189
+  orig: 174, 208
+  offset: 9, 5
+  index: -1
+action1/tsgj0008
+  rotate: true
+  xy: 339, 178
+  size: 145, 177
+  orig: 174, 208
+  offset: 10, 12
+  index: -1
+action1/tsgj0009
+  rotate: true
+  xy: 166, 179
+  size: 144, 171
+  orig: 174, 208
+  offset: 9, 12
+  index: -1
+action1/tsgj0010
+  rotate: true
+  xy: 709, 174
+  size: 149, 169
+  orig: 174, 208
+  offset: 4, 13
+  index: -1
+action1/tsgj0011
+  rotate: true
+  xy: 880, 170
+  size: 153, 169
+  orig: 174, 208
+  offset: 0, 13
+  index: -1
+action1/tsgj0012
+  rotate: true
+  xy: 1380, 169
+  size: 154, 169
+  orig: 174, 208
+  offset: 0, 12
+  index: -1
+attack/ptgj0003
+  rotate: false
+  xy: 1051, 170
+  size: 162, 153
+  orig: 550, 224
+  offset: 122, 21
+  index: -1
+attack/ptgj0004
+  rotate: false
+  xy: 1215, 170
+  size: 163, 153
+  orig: 550, 224
+  offset: 128, 21
+  index: -1
+attack/ptgj0005
+  rotate: true
+  xy: 1417, 2
+  size: 165, 168
+  orig: 550, 224
+  offset: 130, 7
+  index: -1
+attack/ptgj0014
+  rotate: true
+  xy: 7, 189
+  size: 134, 157
+  orig: 550, 224
+  offset: 132, 25
+  index: -1
+attack/ptgj0015
+  rotate: false
+  xy: 2, 320
+  size: 3, 3
+  orig: 318, 314
+  offset: 18, 19
+  index: -1
+stand/zddj0001
+  rotate: false
+  xy: 2, 31
+  size: 156, 156
+  orig: 178, 224
+  offset: 2, 14
+  index: -1
+stand/zddj0002
+  rotate: false
+  xy: 160, 20
+  size: 166, 157
+  orig: 178, 224
+  offset: 8, 14
+  index: -1

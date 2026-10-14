@@ -1,0 +1,76 @@
+
+stand2.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/stand/0_00000
+  rotate: true
+  xy: 547, 121
+  size: 133, 182
+  orig: 600, 600
+  offset: 52, 117
+  index: -1
+image/stand/0_00001
+  rotate: false
+  xy: 2, 72
+  size: 160, 182
+  orig: 600, 600
+  offset: 42, 117
+  index: -1
+image/stand/0_00002
+  rotate: true
+  xy: 921, 103
+  size: 151, 170
+  orig: 600, 600
+  offset: 46, 129
+  index: -1
+image/stand/0_00003
+  rotate: true
+  xy: 1093, 104
+  size: 150, 166
+  orig: 600, 600
+  offset: 51, 133
+  index: -1
+image/stand/0_00004
+  rotate: true
+  xy: 1261, 111
+  size: 143, 166
+  orig: 600, 600
+  offset: 52, 133
+  index: -1
+image/stand/0_00005
+  rotate: true
+  xy: 1429, 149
+  size: 105, 168
+  orig: 600, 600
+  offset: 62, 133
+  index: -1
+image/stand/0_00006
+  rotate: true
+  xy: 731, 138
+  size: 116, 188
+  orig: 600, 600
+  offset: 53, 133
+  index: -1
+image/stand/0_00007
+  rotate: true
+  xy: 164, 118
+  size: 136, 194
+  orig: 600, 600
+  offset: 53, 133
+  index: -1
+image/stand/0_00008
+  rotate: true
+  xy: 360, 118
+  size: 136, 185
+  orig: 600, 600
+  offset: 64, 133
+  index: -1
+image/stand/0_00009
+  rotate: true
+  xy: 547, 2
+  size: 117, 179
+  orig: 600, 600
+  offset: 86, 122
+  index: -1

@@ -1,0 +1,1148 @@
+﻿BaseView = BaseView or BaseClass(CommonUI)
+WinType = {
+	Tips = 1,
+	Full = 4,
+	Mini = 2,
+	Big = 3
+}
+CommonButton_Color = {
+	cc.c4b(248, 239, 118, 255),
+	cc.c4b(249, 238, 208, 255),
+	cc.c4b(92, 7, 5, 255),
+	(cc.c4b(92, 7, 5, 255))
+}
+BaseView.winMap = {}
+BaseView.winTipsMap = {}
+
+local var_0_0 = "ui_start"
+local var_0_1 = "ui_end"
+local var_0_2 = "start_frame"
+local var_0_3 = "end_frame"
+
+function BaseView.__init(arg_1_0)
+	arg_1_0.view_tag = ViewMgrTag.WIN_TAG
+	arg_1_0.layout_name = nil
+	arg_1_0.is_full_screen = true
+	arg_1_0.is_use_csb = true
+	arg_1_0.anim_vo_list = {}
+	arg_1_0.is_exist_ui_end = false
+	arg_1_0.load_callback = nil
+	arg_1_0.root_wnd = nil
+	arg_1_0.parent_wnd = nil
+	arg_1_0.is_csb_action = nil
+	arg_1_0.is_before_battle = false
+	arg_1_0.background_path = nil
+	arg_1_0.show_close_btn = true
+	arg_1_0.is_load_finish = false
+	arg_1_0.is_loading = false
+	arg_1_0.is_opening = false
+	arg_1_0.is_visible = false
+	arg_1_0.title_str = ""
+	arg_1_0.tab_info_list = {}
+	arg_1_0.tab_max = 4
+	arg_1_0.open_callback = nil
+	arg_1_0.close_callback = nil
+	arg_1_0.action_callback = nil
+	arg_1_0.win_type = WinType.Full
+	arg_1_0.res_list = {}
+	arg_1_0.is_start_to_load = false
+	arg_1_0.open_params = nil
+	arg_1_0.base_view_event_list = {}
+	arg_1_0.is_show_func_icon = 0
+end
+
+function BaseView.open(arg_2_0, ...)
+	if not tolua.isnull(arg_2_0.root_wnd) then
+		arg_2_0:setCommonUIZOrder(arg_2_0.root_wnd)
+
+		if arg_2_0:getVisible() == false then
+			arg_2_0:setVisible(true)
+		end
+	elseif arg_2_0.is_start_to_load == false then
+		arg_2_0.is_start_to_load = true
+		arg_2_0.open_params = {
+			...
+		}
+
+		if arg_2_0.layout_name == nil and arg_2_0.is_use_csb == true and arg_2_0.is_full_screen == true then
+			if arg_2_0.background_path == nil then
+				arg_2_0.background_path = PathTool.getPlistImgForDownLoad("bigbg", "bigbg_2", true)
+			end
+
+			table.insert(arg_2_0.res_list, {
+				path = arg_2_0.background_path,
+				type = ResourcesType.single
+			})
+		end
+
+		if next(arg_2_0.res_list) == nil then
+			arg_2_0:loadResListCompleted()
+		else
+			if arg_2_0.resources_load == nil then
+				arg_2_0.resources_load = ResourcesLoad.New(true)
+			end
+
+			arg_2_0.resources_load:addAllList(arg_2_0.res_list, function()
+				arg_2_0:loadResListCompleted()
+			end)
+		end
+	end
+end
+
+function BaseView.loadResListCompleted(arg_4_0)
+	arg_4_0:constructBaseView()
+	arg_4_0:playEnterAnimatian()
+	arg_4_0:openCacheView()
+
+	if MAKELIFEBETTER == true and ios_log_report then
+		ios_log_report(arg_4_0.layout_name)
+	end
+end
+
+function BaseView.constructBaseView(arg_5_0)
+	arg_5_0.is_opening = true
+	arg_5_0.is_visible = true
+
+	if arg_5_0:__getRootWnd() then
+		if arg_5_0.open_callback then
+			arg_5_0:open_callback()
+		end
+
+		if not arg_5_0:__getRootWnd():getParent() then
+			arg_5_0:attachParent()
+		end
+
+		arg_5_0:setRootWndVisible(true)
+		arg_5_0:setCommonUIZOrder(arg_5_0.root_wnd)
+	else
+		arg_5_0:openOnlyReal()
+	end
+end
+
+function BaseView.openOnlyReal(arg_6_0)
+	if arg_6_0.is_loading then
+		return
+	end
+
+	arg_6_0.is_loading = true
+
+	arg_6_0:loadFiles()
+end
+
+function BaseView.loadFiles(arg_7_0)
+	if arg_7_0.layout_name then
+		arg_7_0:initLayoutFile(arg_7_0.layout_name)
+	elseif arg_7_0.createRootWnd then
+		arg_7_0:createRootWnd()
+	elseif arg_7_0.tab_info_list and next(arg_7_0.tab_info_list) ~= nil then
+		arg_7_0:initLayoutFile("common/common_window_tab", true)
+	elseif arg_7_0.tab_info_list2 and next(arg_7_0.tab_info_list2) ~= nil then
+		arg_7_0:initLayoutFile("common/common_window_tab2", true)
+	elseif arg_7_0.is_full_screen == true then
+		arg_7_0:initLayoutFile("common/common_window", true)
+	else
+		arg_7_0:initLayoutFile("common/common_window_2", true)
+	end
+
+	if not arg_7_0:__getRootWnd() then
+		return
+	end
+
+	arg_7_0:registerNodeScriptHandler()
+	arg_7_0:attachParent()
+	arg_7_0:__getRootWnd():setVisible(arg_7_0.is_visible)
+	arg_7_0:__getRootWnd():setAnchorPoint(cc.p(0.5, 0.5))
+	arg_7_0:__getRootWnd():setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
+	arg_7_0.is_load_finish = true
+
+	arg_7_0:setCommonUIZOrder(arg_7_0.root_wnd)
+
+	if arg_7_0.load_callback then
+		arg_7_0:load_callback()
+	end
+
+	if arg_7_0.is_opening then
+		if arg_7_0.open_callback then
+			safeCallFunc(function()
+				arg_7_0:open_callback()
+			end)
+		end
+
+		setTextContentList(arg_7_0.root_wnd, arg_7_0.text_name_list)
+
+		if arg_7_0.register_event then
+			arg_7_0:register_event()
+		end
+
+		if arg_7_0.openRootWnd then
+			if arg_7_0.open_params ~= nil and next(arg_7_0.open_params) ~= nil then
+				arg_7_0:openRootWnd(unpack(arg_7_0.open_params))
+			else
+				arg_7_0:openRootWnd()
+			end
+
+			if arg_7_0.insertFunc then
+				arg_7_0:insertFunc()
+			end
+
+			arg_7_0.is_start_to_load = false
+		end
+	end
+
+	arg_7_0.is_loading = false
+end
+
+function BaseView.close(arg_9_0, arg_9_1)
+	if arg_9_0.is_closeing then
+		return
+	end
+
+	arg_9_0.is_closeing = true
+
+	if arg_9_1 ~= nil and type(arg_9_1) == "boolean" then
+		arg_9_0.close_by_other = arg_9_1
+	end
+
+	arg_9_0:closeCacheView()
+
+	if arg_9_0.is_exist_ui_end then
+		arg_9_0:playExitAnimation()
+	else
+		arg_9_0:closeInternal()
+	end
+end
+
+function BaseView.closeInternal(arg_10_0)
+	if arg_10_0.root_wnd and not tolua.isnull(arg_10_0.root_wnd) then
+		arg_10_0.root_wnd:stopAllActions()
+		arg_10_0:setRootWndVisible(false)
+	end
+
+	arg_10_0:__close()
+	GlobalEvent:getInstance():Fire(EventId.CLOSE_BASE_VIEW, arg_10_0)
+end
+
+function BaseView.__close(arg_11_0)
+	if arg_11_0.is_opening and arg_11_0.close_callback then
+		arg_11_0:close_callback()
+	end
+
+	arg_11_0:closeDestroy()
+
+	arg_11_0.is_opening = false
+	arg_11_0.is_closeing = false
+end
+
+function BaseView.openCacheView(arg_12_0)
+	if arg_12_0.win_type ~= WinType.Tips then
+		if #BaseView.winMap >= 12 then
+			local var_12_0 = table.remove(BaseView.winMap, 1)
+
+			if var_12_0 ~= nil then
+				var_12_0:close()
+
+				if var_12_0.next_win ~= nil then
+					var_12_0.next_win.top_win = nil
+				end
+			end
+		end
+
+		table.insert(BaseView.winMap, arg_12_0)
+
+		if #BaseView.winMap > 1 then
+			local var_12_1 = BaseView.winMap[#BaseView.winMap - 1]
+
+			if var_12_1 ~= nil and var_12_1.win_type == WinType.Mini and arg_12_0.win_type ~= WinType.Mini then
+				local var_12_2 = table.remove(BaseView.winMap, #BaseView.winMap - 1)
+
+				if var_12_2 ~= nil then
+					if var_12_2.top_win then
+						var_12_2.top_win.next_win = arg_12_0
+					end
+
+					if var_12_2.close then
+						var_12_2:close()
+					end
+				end
+			end
+
+			if #BaseView.winMap > 0 then
+				local var_12_3 = BaseView.winMap[#BaseView.winMap - 1]
+
+				if var_12_3 and not tolua.isnull(var_12_3.root_wnd) and var_12_3.win_type ~= WinType.Tips and var_12_3:getVisible() == true then
+					arg_12_0.top_win = var_12_3
+					arg_12_0.top_win.next_win = arg_12_0
+
+					if arg_12_0.win_type ~= WinType.Mini and arg_12_0.win_type >= var_12_3.win_type then
+						arg_12_0.top_win:setVisible(false)
+					end
+				end
+			end
+		end
+
+		arg_12_0:needHideMainScene()
+	else
+		table.insert(BaseView.winTipsMap, arg_12_0)
+	end
+end
+
+function BaseView.needHideMainScene(arg_13_0)
+	if arg_13_0.win_type == WinType.Full then
+		delayOnce(function()
+			if arg_13_0.is_visible == true then
+				if arg_13_0:isFunNeedHideBattle() and BattleController:getInstance():isInFight() == true then
+					BattleController:getInstance():handleBattleSceneStatus(false)
+				end
+
+				MainSceneController:getInstance():handleSceneStatus(false)
+
+				if arg_13_0.is_show_func_icon == 1 then
+					arg_13_0:setVisible(true)
+				end
+			end
+		end, 1 / display.DEFAULT_FPS)
+	end
+end
+
+function BaseView.isFunNeedHideBattle(arg_15_0)
+	return true
+end
+
+function BaseView.closeCacheView(arg_16_0)
+	if arg_16_0.win_type ~= WinType.Tips then
+		for iter_16_0, iter_16_1 in ipairs(BaseView.winMap) do
+			if iter_16_1 == arg_16_0 then
+				table.remove(BaseView.winMap, iter_16_0)
+
+				if not arg_16_0.top_win or tolua.isnull(arg_16_0.top_win.root_wnd) or arg_16_0.next_win ~= nil and arg_16_0.next_win.win_type == WinType.Full then
+					-- block empty
+				else
+					if not arg_16_0.close_by_other then
+						if not arg_16_0.top_win.is_before_battle then
+							arg_16_0.top_win:setVisible(true)
+						else
+							arg_16_0.top_win.enter_battle_status = true
+						end
+					end
+
+					arg_16_0.top_win.next_win = nil
+				end
+
+				if arg_16_0.next_win and arg_16_0.top_win then
+					arg_16_0.top_win.next_win = arg_16_0.next_win
+					arg_16_0.next_win.top_win = arg_16_0.top_win
+				end
+
+				break
+			end
+		end
+
+		if #BaseView.winMap == 0 or not arg_16_0:isFullWinExist() then
+			if not BattleController:getInstance():isInFight() and not MainuiController:getInstance():checkIsInDramaUIFight() then
+				MainSceneController:getInstance():handleSceneStatus(true)
+			elseif BattleController:getInstance():isInFight() then
+				BattleController:getInstance():handleBattleSceneStatus(true)
+			end
+		end
+	else
+		for iter_16_2, iter_16_3 in ipairs(BaseView.winTipsMap) do
+			if iter_16_3 == arg_16_0 then
+				table.remove(BaseView.winTipsMap, iter_16_2)
+
+				break
+			end
+		end
+	end
+end
+
+function BaseView.isFullWinExist(arg_17_0)
+	for iter_17_0, iter_17_1 in ipairs(BaseView.winMap) do
+		if iter_17_1.win_type == WinType.Full and iter_17_1.is_before_battle == false then
+			return true
+		end
+	end
+
+	return false
+end
+
+function BaseView.isBigWinExist(arg_18_0)
+	for iter_18_0, iter_18_1 in ipairs(BaseView.winMap) do
+		if iter_18_1.win_type == WinType.Big then
+			return true
+		end
+	end
+
+	return false
+end
+
+function BaseView.closeDestroy(arg_19_0)
+	arg_19_0:release()
+end
+
+function BaseView.__delete(arg_20_0)
+	arg_20_0:release()
+end
+
+function BaseView.deleteMe(arg_21_0)
+	return
+end
+
+function BaseView.releaseMem(arg_22_0)
+	return
+end
+
+function BaseView.setRootWndVisible(arg_23_0, arg_23_1)
+	arg_23_0:setVisible(arg_23_1)
+end
+
+function BaseView.registerNodeScriptHandler(arg_24_0)
+	local function var_24_0(arg_25_0)
+		if arg_25_0 == "enter" then
+			if arg_24_0.onEnter then
+				arg_24_0:onEnter()
+			end
+		elseif arg_25_0 == "exit" and arg_24_0.onExit then
+			arg_24_0:onExit()
+		end
+	end
+
+	arg_24_0:__getRootWnd():registerScriptHandler(var_24_0)
+end
+
+function BaseView.release(arg_26_0)
+	arg_26_0:deleteMe()
+
+	arg_26_0.is_visible = false
+	arg_26_0.is_load_finish = false
+	arg_26_0.is_loading = false
+
+	if arg_26_0.root_wnd and not tolua.isnull(arg_26_0.root_wnd) then
+		arg_26_0.root_wnd:stopAllActions()
+		arg_26_0.root_wnd:removeAllChildren()
+		arg_26_0.root_wnd:removeFromParent()
+	end
+
+	for iter_26_0, iter_26_1 in pairs(arg_26_0.anim_vo_list) do
+		local var_26_0 = iter_26_1[1]
+		local var_26_1 = iter_26_1[2]
+
+		if var_26_0 then
+			var_26_0:release()
+		end
+
+		if var_26_1 then
+			var_26_1:clearFrameEventCallFunc()
+			var_26_1:release()
+		end
+	end
+
+	arg_26_0.anim_vo_list = {}
+
+	if arg_26_0.resources_load ~= nil then
+		arg_26_0.resources_load:DeleteMe()
+
+		arg_26_0.resources_load = nil
+	end
+
+	arg_26_0:removeGlobalEvent()
+	arg_26_0:releaseMem()
+
+	arg_26_0.root_wnd = nil
+end
+
+function BaseView.__setParent(arg_27_0, arg_27_1)
+	arg_27_0.parent_wnd = arg_27_1
+end
+
+function BaseView.__getRootParent(arg_28_0)
+	if not arg_28_0.parent_wnd then
+		arg_28_0.parent_wnd = ViewManager:getInstance():getLayerByTag(arg_28_0.view_tag)
+	end
+
+	return arg_28_0.parent_wnd
+end
+
+function BaseView.__getRootWnd(arg_29_0)
+	return arg_29_0.root_wnd
+end
+
+function BaseView.isOpen(arg_30_0)
+	if not arg_30_0:isLayout() then
+		return false
+	end
+
+	return arg_30_0.is_visible
+end
+
+function BaseView.isLayout(arg_31_0)
+	return arg_31_0.is_load_finish
+end
+
+function BaseView.setVisible(arg_32_0, arg_32_1)
+	arg_32_0.is_visible = arg_32_1
+
+	if arg_32_0.root_wnd == nil or tolua.isnull(arg_32_0.root_wnd) then
+		return
+	end
+
+	arg_32_0.root_wnd:setVisible(arg_32_1)
+end
+
+function BaseView.getVisible(arg_33_0)
+	return arg_33_0.is_visible
+end
+
+function BaseView.openAction(arg_34_0, arg_34_1)
+	if arg_34_1 and arg_34_0.action_callback then
+		arg_34_0.action_callback()
+	end
+end
+
+function BaseView.addChild(arg_35_0, arg_35_1)
+	arg_35_0.root_wnd:addChild(arg_35_1)
+end
+
+function BaseView.removeChild(arg_36_0, arg_36_1)
+	arg_36_0.root_wnd:removeChild(arg_36_1)
+end
+
+function BaseView.removeAllChildren(arg_37_0)
+	arg_37_0.root_wnd:removeAllChildren()
+end
+
+function BaseView.setPosition(arg_38_0, arg_38_1)
+	arg_38_0.root_wnd:setPosition(arg_38_1)
+end
+
+function BaseView.getPosition(arg_39_0)
+	arg_39_0.root_wnd:getPosition()
+end
+
+function BaseView.initLayoutFile(arg_40_0, arg_40_1, arg_40_2)
+	arg_40_0:preLoadLayoutFile()
+	arg_40_0:loadLayoutFile(arg_40_1, arg_40_2)
+	arg_40_0:loadComplete()
+
+	if arg_40_0.BIND_TOUCH_EVENTS then
+		arg_40_0:createResoueceBinding(arg_40_0.BIND_TOUCH_EVENTS)
+	end
+end
+
+function BaseView.createResoueceBinding(arg_41_0, arg_41_1)
+	assert(arg_41_0.root_wnd, "root_wnd should not be null")
+
+	for iter_41_0, iter_41_1 in pairs(arg_41_1) do
+		local var_41_0 = arg_41_0:getChildByName(iter_41_1.widget)
+
+		if var_41_0 then
+			for iter_41_2, iter_41_3 in pairs(iter_41_1.events) do
+				if iter_41_3.event == "click" then
+					arg_41_0:onClicked(var_41_0, handler(arg_41_0, arg_41_0[iter_41_3.hander]))
+				end
+			end
+		end
+	end
+end
+
+function BaseView.onClicked(arg_42_0, arg_42_1, arg_42_2, arg_42_3, arg_42_4)
+	arg_42_1:addTouchEventListener(function(arg_43_0, arg_43_1)
+		local var_43_0 = {
+			target = arg_43_0
+		}
+
+		if arg_43_1 == ccui.TouchEventType.began then
+			var_43_0.name = "began"
+
+			arg_42_1:setScale(1.1)
+
+			if arg_42_3 then
+				arg_42_3(var_43_0)
+			end
+		elseif arg_43_1 == ccui.TouchEventType.moved then
+			var_43_0.name = "moved"
+		elseif arg_43_1 == ccui.TouchEventType.ended then
+			arg_42_0:playButtonSound2()
+
+			var_43_0.name = "ended"
+
+			arg_42_1:setScale(1)
+			arg_42_2(var_43_0)
+		else
+			var_43_0.name = "cancelled"
+
+			arg_42_1:setScale(1)
+
+			if arg_42_4 then
+				arg_42_4(var_43_0)
+			end
+		end
+	end)
+end
+
+function BaseView.getChildByName(arg_44_0, arg_44_1)
+	local var_44_0 = Split(arg_44_1, "/")
+	local var_44_1 = arg_44_0.root_wnd
+
+	if arg_44_0.layout_name == nil and arg_44_0.container then
+		var_44_1 = arg_44_0.container:getChildByName("container")
+	end
+
+	for iter_44_0, iter_44_1 in ipairs(var_44_0) do
+		if not var_44_1 then
+			print("node: " .. nodepath)
+		end
+
+		var_44_1 = var_44_1:getChildByName(iter_44_1)
+	end
+
+	return var_44_1
+end
+
+function BaseView.attachParent(arg_45_0)
+	arg_45_0:__getRootParent():addChild(arg_45_0:__getRootWnd())
+end
+
+function BaseView.preLoadLayoutFile(arg_46_0)
+	return
+end
+
+function BaseView.loadLayoutFile(arg_47_0, arg_47_1, arg_47_2)
+	arg_47_1 = PathTool.getTargetCSB(arg_47_1)
+	arg_47_0.root_wnd = cc.CSLoader:createNode(arg_47_1)
+
+	arg_47_0.root_wnd:retain()
+
+	if arg_47_2 == true then
+		arg_47_0:getObjFromCSB()
+	end
+
+	if arg_47_0.is_csb_action then
+		local var_47_0 = cc.CSLoader:createTimeline(arg_47_1)
+
+		var_47_0:retain()
+
+		arg_47_0.is_exist_ui_end = var_47_0:IsAnimationInfoExists(var_0_1)
+
+		table.insert(arg_47_0.anim_vo_list, {
+			arg_47_0.root_wnd,
+			var_47_0
+		})
+
+		local function var_47_1(arg_48_0)
+			if arg_48_0 == nil then
+				return
+			end
+
+			local var_48_0 = arg_48_0:getEvent()
+
+			if var_48_0 == var_0_2 then
+				arg_47_0:onEnterAnim()
+			elseif var_48_0 == var_0_3 then
+				arg_47_0:onExitAnim()
+				arg_47_0:setVisible(false)
+				delayOnce(function()
+					arg_47_0:closeInternal()
+				end, 1 / display.DEFAULT_FPS)
+			end
+		end
+
+		var_47_0:setFrameEventCallFunc(var_47_1)
+
+		if not tolua.isnull(arg_47_0.root_wnd) then
+			arg_47_0.root_wnd:runAction(var_47_0)
+		end
+	end
+end
+
+function BaseView.playEnterAnimatianByObj(arg_50_0, arg_50_1, arg_50_2)
+	if not tolua.isnull(arg_50_1) then
+		if arg_50_2 == 2 then
+			ActionHelp.itemScaleAction(arg_50_1)
+		else
+			ActionHelp.itemUpAction(arg_50_1)
+		end
+	end
+end
+
+function BaseView.getObjFromCSB(arg_51_0)
+	if arg_51_0.root_wnd == nil then
+		return
+	end
+
+	arg_51_0.background = arg_51_0.root_wnd:getChildByName("background")
+
+	arg_51_0.background:setScale(display.getMaxScale(arg_51_0.root_wnd))
+
+	if arg_51_0.background_path ~= nil then
+		arg_51_0.background:loadTexture(arg_51_0.background_path, LOADTEXT_TYPE)
+	elseif arg_51_0.is_full_screen == true then
+		arg_51_0.background:setVisible(false)
+	end
+
+	local var_51_0 = arg_51_0.root_wnd:getChildByName("image_panel")
+
+	if var_51_0 ~= nil then
+		var_51_0:setPositionY(display.getBottom(arg_51_0.root_wnd))
+	end
+
+	arg_51_0.main_container = arg_51_0.root_wnd:getChildByName("main_container")
+
+	if var_51_0 ~= nil then
+		arg_51_0.main_container:setPositionY(var_51_0:getPositionY() + 85)
+	end
+
+	ActionHelp.itemUpAction(arg_51_0.main_container, 400, 0, 0.2)
+
+	arg_51_0.main_panel = arg_51_0.main_container:getChildByName("main_panel")
+	arg_51_0.container = arg_51_0.main_panel:getChildByName("container")
+
+	if arg_51_0.is_full_screen == false and arg_51_0.background then
+		arg_51_0.background:addTouchEventListener(function(arg_52_0, arg_52_1)
+			if arg_52_1 == ccui.TouchEventType.ended then
+				playCloseSound()
+				arg_51_0:close()
+			end
+		end)
+	end
+
+	arg_51_0.title_bg_1 = arg_51_0.main_panel:getChildByName("Image_2")
+	arg_51_0.title_bg_1_width = arg_51_0.title_bg_1:getContentSize().width
+	arg_51_0.title_bg_1_height = arg_51_0.title_bg_1:getContentSize().height
+
+	local var_51_1 = arg_51_0.main_panel:getChildByName("win_title")
+
+	var_51_1:setString(arg_51_0.title_str)
+
+	arg_51_0.title_label = var_51_1
+
+	moveTextBg(arg_51_0.title_label, arg_51_0.title_bg_1, 50, arg_51_0.title_bg_1_width)
+
+	arg_51_0.close_btn = arg_51_0.main_panel:getChildByName("close_btn")
+
+	arg_51_0.close_btn:setVisible(arg_51_0.show_close_btn)
+
+	if arg_51_0.close_btn then
+		arg_51_0.close_btn:addTouchEventListener(function(arg_53_0, arg_53_1)
+			customClickAction_2(arg_53_0, arg_53_1)
+
+			if arg_53_1 == ccui.TouchEventType.ended then
+				playCloseSound()
+
+				if arg_51_0.beforeClose then
+					arg_51_0:beforeClose()
+				end
+
+				arg_51_0:close()
+			end
+		end)
+	end
+
+	arg_51_0:createTabList2()
+
+	if arg_51_0.tab_info_list and next(arg_51_0.tab_info_list) ~= nil then
+		local var_51_2 = arg_51_0.main_panel:getChildByName("tab_container")
+
+		if arg_51_0.tab_btn_list == nil then
+			arg_51_0.tab_btn_list = {}
+		end
+
+		local var_51_3
+		local var_51_4
+		local var_51_5
+		local var_51_6
+
+		for iter_51_0 = 1, arg_51_0.tab_max do
+			local var_51_7 = var_51_2:getChildByName("tab_btn_" .. iter_51_0)
+
+			if var_51_7 ~= nil then
+				local var_51_8 = var_51_7
+
+				var_51_8:setName("tab_btn_" .. iter_51_0)
+
+				local var_51_9 = var_51_7:getChildByName("tab_tips")
+
+				tab_red_num = var_51_7:getChildByName("red_num")
+				select_bg = var_51_7:getChildByName("select_bg")
+				unselect_bg = var_51_7:getChildByName("unselect_bg")
+
+				if var_51_8 ~= nil then
+					var_51_8.tips = var_51_9
+					var_51_8.red_num = tab_red_num
+					var_51_8.select_bg = select_bg
+					var_51_8.unselect_bg = unselect_bg
+
+					local var_51_10 = arg_51_0.tab_info_list[iter_51_0]
+
+					if var_51_10 ~= nil then
+						var_51_8.notice = var_51_10.notice or ""
+						var_51_8.label = var_51_7:getChildByName("title")
+
+						var_51_8.label:setString(var_51_10.label)
+
+						var_51_8.index = var_51_10.index
+
+						var_51_8.label:setTextColor(cc.c4b(249, 239, 208, 255))
+						var_51_8.label:enableOutline(cc.c4b(92, 39, 5, 255), 2)
+						var_51_8.select_bg:setVisible(false)
+						var_51_8.tips:setVisible(false)
+						var_51_8.red_num:setVisible(false)
+
+						var_51_8.can_touch = var_51_10.status
+
+						if var_51_10.status == false then
+							setChildUnEnabled(true, var_51_8, Config.ColorData.data_color4[1])
+						end
+
+						var_51_8:addTouchEventListener(function(arg_54_0, arg_54_1)
+							if arg_54_1 == ccui.TouchEventType.ended then
+								playTabButtonSound()
+
+								if arg_54_0.can_touch == false then
+									message(arg_54_0.notice)
+								else
+									arg_51_0:setSelecteTab(arg_54_0.index)
+								end
+							end
+						end)
+
+						arg_51_0.tab_btn_list[var_51_10.index] = var_51_8
+					else
+						var_51_8:setVisible(false)
+					end
+				end
+			end
+		end
+	end
+end
+
+function BaseView.createTabList2(arg_55_0)
+	if arg_55_0.tab_info_list2 == nil then
+		return
+	end
+
+	if arg_55_0.tab_btn_list == nil then
+		arg_55_0.tab_btn_list = {}
+	end
+
+	local var_55_0 = arg_55_0.main_panel:getChildByName("tab_container")
+	local var_55_1 = var_55_0:getChildByName("tab_btn_1")
+
+	arg_55_0.tab_btn_list[1] = var_55_1
+
+	local var_55_2 = var_55_1:getContentSize().width
+	local var_55_3 = var_55_2
+	local var_55_4 = #arg_55_0.tab_info_list2
+	local var_55_5
+	local var_55_6
+	local var_55_7, var_55_8 = var_55_1:getPosition()
+	local var_55_9 = 5
+
+	for iter_55_0 = 1, var_55_4 do
+		local var_55_10 = arg_55_0.tab_info_list2[iter_55_0]
+		local var_55_11 = arg_55_0.tab_btn_list[iter_55_0]
+
+		if var_55_11 == nil then
+			var_55_11 = var_55_1:clone()
+
+			var_55_0:addChild(var_55_11)
+			var_55_11:setPosition(var_55_7 + 10, var_55_8)
+
+			var_55_3 = var_55_3 + var_55_2 + var_55_9
+			arg_55_0.tab_btn_list[iter_55_0] = var_55_11
+		end
+
+		var_55_11.tips = var_55_11:getChildByName("tab_tips")
+		var_55_11.red_num = var_55_11:getChildByName("red_num")
+		var_55_11.select_bg = var_55_11:getChildByName("select_bg")
+		var_55_11.unselect_bg = var_55_11:getChildByName("unselect_bg")
+		var_55_11.notice = var_55_10.notice or ""
+		var_55_11.label = var_55_11:getChildByName("title")
+
+		var_55_11.label:setString(var_55_10.label)
+
+		var_55_11.index = var_55_10.index
+		var_55_11.status = var_55_10.status
+
+		var_55_11.select_bg:setVisible(false)
+		var_55_11.tips:setVisible(false)
+		var_55_11.red_num:setVisible(false)
+		var_55_11:setTouchEnabled(var_55_10.status)
+
+		if var_55_10.status == false then
+			setChildUnEnabled(true, var_55_11, Config.ColorData.data_color4[1])
+			var_55_11:setTouchEnabled(true)
+		end
+
+		var_55_11:addTouchEventListener(function(arg_56_0, arg_56_1)
+			if arg_56_1 == ccui.TouchEventType.ended then
+				playTabButtonSound()
+
+				if arg_56_0.status == false then
+					message(arg_56_0.notice)
+				else
+					arg_55_0:setSelecteTab(arg_56_0.index)
+				end
+			end
+		end)
+
+		var_55_7 = var_55_7 + var_55_2 + var_55_9
+	end
+
+	local var_55_12 = math.max(var_55_3, var_55_0:getContentSize().width)
+
+	var_55_0:setScrollBarEnabled(false)
+	var_55_0:setSwallowTouches(false)
+	var_55_0:setInnerContainerSize(cc.size(var_55_12, var_55_0:getContentSize().height))
+end
+
+function BaseView.setTabTips(arg_57_0, arg_57_1, arg_57_2)
+	if not tolua.isnull(arg_57_0.root_wnd) and arg_57_0.tab_btn_list then
+		local var_57_0 = arg_57_0.tab_btn_list[arg_57_2]
+
+		if var_57_0 and var_57_0.tips then
+			var_57_0.tips:setVisible(arg_57_1)
+		end
+	end
+end
+
+function BaseView.setTabTipsII(arg_58_0, arg_58_1, arg_58_2)
+	local var_58_0 = true
+
+	if arg_58_1 <= 0 then
+		var_58_0 = false
+	end
+
+	local var_58_1 = arg_58_0.tab_btn_list[arg_58_2]
+
+	if var_58_1 and var_58_1.tips then
+		var_58_1.tips:setVisible(var_58_0)
+		var_58_1.red_num:setVisible(var_58_0)
+	end
+
+	if arg_58_1 >= 0 then
+		var_58_1.red_num:setString(arg_58_1)
+	end
+end
+
+function BaseView.changeTitleName(arg_59_0, arg_59_1)
+	if arg_59_0.title_label and arg_59_1 ~= nil then
+		arg_59_0.title_label:setString(arg_59_1)
+		moveTextBg(arg_59_0.title_label, arg_59_0.title_bg_1, 50, arg_59_0.title_bg_1_width)
+	end
+end
+
+function BaseView.setTabBtnTouchStatus(arg_60_0, arg_60_1, arg_60_2)
+	local var_60_0 = arg_60_0.tab_btn_list[arg_60_2]
+
+	if var_60_0 then
+		setChildUnEnabled(not arg_60_1, var_60_0, Config.ColorData.data_color4[1])
+
+		var_60_0.can_touch = arg_60_1
+	end
+end
+
+function BaseView.setSelecteTab(arg_61_0, arg_61_1, arg_61_2)
+	if arg_61_0.cur_selected and arg_61_0.cur_selected.index == arg_61_1 then
+		return
+	end
+
+	if arg_61_0.cur_selected ~= nil then
+		if arg_61_0.cur_selected.label then
+			arg_61_0.cur_selected.label:setTextColor(cc.c4b(249, 238, 208, 255))
+			arg_61_0.cur_selected.label:enableOutline(cc.c4b(92, 39, 5, 255), 2)
+		end
+
+		arg_61_0.cur_selected.select_bg:setVisible(false)
+	end
+
+	arg_61_0.cur_selected = arg_61_0.tab_btn_list[arg_61_1]
+
+	if arg_61_0.cur_selected ~= nil then
+		if arg_61_0.cur_selected.label then
+			arg_61_0.cur_selected.label:setTextColor(cc.c4b(248, 239, 118, 255))
+			arg_61_0.cur_selected.label:enableOutline(cc.c4b(92, 39, 5, 255), 2)
+		end
+
+		arg_61_0.cur_selected.select_bg:setVisible(true)
+	end
+
+	if arg_61_0.selectedTabCallBack and arg_61_0.cur_selected ~= nil then
+		arg_61_0:selectedTabCallBack(arg_61_0.cur_selected.index)
+	end
+end
+
+function BaseView.loadComplete(arg_62_0)
+	return
+end
+
+function BaseView.playEnterAnimatian(arg_63_0)
+	if arg_63_0.is_csb_action then
+		for iter_63_0, iter_63_1 in pairs(arg_63_0.anim_vo_list) do
+			local var_63_0 = iter_63_1[1]
+			local var_63_1 = iter_63_1[2]
+
+			if var_63_0 and var_63_1 and var_63_1:IsAnimationInfoExists(var_0_0) then
+				var_63_1:play(var_0_0, false)
+			end
+		end
+	end
+end
+
+function BaseView.playExitAnimation(arg_64_0)
+	if arg_64_0.is_csb_action then
+		for iter_64_0, iter_64_1 in pairs(arg_64_0.anim_vo_list) do
+			local var_64_0 = iter_64_1[1]
+			local var_64_1 = iter_64_1[2]
+
+			if var_64_0 and var_64_1 and var_64_1:IsAnimationInfoExists(var_0_1) then
+				var_64_1:play(var_0_1, false)
+			end
+		end
+	end
+end
+
+function BaseView.onEnterAnim(arg_65_0)
+	return
+end
+
+function BaseView.onExitAnim(arg_66_0)
+	return
+end
+
+function BaseView.playButtonSound(arg_67_0)
+	if AudioManager then
+		AudioManager:getInstance():playEffect(AudioManager.AUDIO_TYPE.COMMON, "c_002")
+	end
+end
+
+function BaseView.checkWinExist()
+	for iter_68_0, iter_68_1 in ipairs(BaseView.winMap) do
+		if iter_68_1.win_type == WinType.Full then
+			return true
+		end
+	end
+
+	return false
+end
+
+function BaseView.closeAllView()
+	local var_69_0 = {}
+
+	if BaseView.winMap ~= nil and next(BaseView.winMap) ~= nil then
+		for iter_69_0, iter_69_1 in ipairs(BaseView.winMap) do
+			table.insert(var_69_0, iter_69_1)
+		end
+	end
+
+	if var_69_0 ~= nil and next(var_69_0) ~= nil then
+		for iter_69_2, iter_69_3 in ipairs(var_69_0) do
+			if iter_69_3.close then
+				iter_69_3:close(true)
+			end
+		end
+	end
+
+	BaseView.winMap = {}
+end
+
+function BaseView.closeAllTipsview()
+	local var_70_0 = {}
+
+	if BaseView.winTipsMap ~= nil and next(BaseView.winTipsMap) ~= nil then
+		for iter_70_0, iter_70_1 in ipairs(BaseView.winTipsMap) do
+			table.insert(var_70_0, iter_70_1)
+		end
+	end
+
+	if var_70_0 ~= nil and next(var_70_0) ~= nil then
+		for iter_70_2, iter_70_3 in ipairs(var_70_0) do
+			if iter_70_3.close then
+				iter_70_3:close(true)
+			end
+		end
+	end
+
+	BaseView.winTipsMap = {}
+end
+
+function BaseView.printWinLog()
+	print("@当前窗口数量: " .. #BaseView.winMap)
+
+	for iter_71_0, iter_71_1 in ipairs(BaseView.winMap) do
+		if iter_71_1.layout_name then
+			print(string.format("@第%s个窗口名字: %s", iter_71_0, iter_71_1.layout_name))
+		end
+
+		if iter_71_1.check_class_name then
+			print(string.format("@第%s个窗口名字: %s", iter_71_0, iter_71_1.check_class_name))
+		end
+	end
+
+	print("@当前tips窗口数量: " .. #BaseView.winTipsMap)
+
+	for iter_71_2, iter_71_3 in ipairs(BaseView.winTipsMap) do
+		if iter_71_3.layout_name then
+			print(string.format("@第%s个tips窗口名字: %s", iter_71_2, iter_71_3.layout_name))
+		end
+	end
+end
+
+function BaseView.closeViewAndTips()
+	BaseView.closeAllView()
+	BaseView.closeAllTipsview()
+end
+
+function BaseView.closeSomeWin()
+	CommonAlert.closeAllWin()
+	TipsManager:getInstance():hideTips()
+	TipsManager:getInstance():showBackPackCompTips(false)
+	ChatController:getInstance():closeChatUseAction()
+	ArenaController:getInstance():openArenaChampionTop3Window()
+	BattleController:getInstance():closeBattleResultWindow()
+	HeroController:getInstance():openEquipTips(false)
+	BattleDramaController:getInstance():openDramHookRewardView(false)
+	LevupgradeController:getInstance():openMainWindow(false)
+	ActionController:getInstance():openFirstChargeView(false)
+	ActionController:getInstance():openActionMainPanel(false)
+	VipController:getInstance():openVipMainWindow(false)
+	WelfareController:getInstance():openMainWindow(false)
+	HallowsController:getInstance():openHallowsTips(false)
+	FriendController:getInstance():openFriendFindWindow(false)
+	FriendController:getInstance():openFriendWindow(false)
+	OnlineGiftController:getInstance():openOnlineGiftView(false)
+	FriendController:getInstance():openFriendCheckPanel(false)
+	Endless_trailController:getInstance():openEndlessBuffView(false, nil, true)
+	PartnersummonController:getInstance():openSummonGainWindow(false)
+	PartnersummonController:getInstance():openSummonGainShowWindow(false)
+end
+
+function BaseView.addGlobalEvent(arg_74_0, arg_74_1, arg_74_2)
+	if arg_74_0.base_view_event_list == nil then
+		return
+	end
+
+	if arg_74_0.base_view_event_list[arg_74_1] == nil then
+		arg_74_0.base_view_event_list[arg_74_1] = GlobalEvent:getInstance():Bind(arg_74_1, function(...)
+			if arg_74_2 and not tolua.isnull(arg_74_0.root_wnd) then
+				local var_75_0 = {
+					...
+				}
+
+				arg_74_2(unpack(var_75_0))
+			end
+		end)
+	end
+end
+
+function BaseView.removeGlobalEvent(arg_76_0)
+	if arg_76_0.base_view_event_list then
+		for iter_76_0, iter_76_1 in pairs(arg_76_0.base_view_event_list) do
+			GlobalEvent:getInstance():UnBind(arg_76_0.base_view_event_list[iter_76_0])
+
+			arg_76_0.base_view_event_list[iter_76_0] = nil
+		end
+	end
+
+	arg_76_0.base_view_event_list = nil
+end

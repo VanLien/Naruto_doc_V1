@@ -1,0 +1,780 @@
+﻿GlobalMessageMgr = GlobalMessageMgr or BaseClass(CommonUI)
+GlobalMessageMgr.is_hide_message = false
+GlobalMessageMgr.Show_Global_Message = "Global_ShowMessage"
+GlobalMessageMgr.Show_Type = {
+	fade_in_out = 2,
+	move_horizontal = 3,
+	fade_vertical = 1
+}
+GlobalMessageMgr.Config = {
+	speed = 100,
+	max_num = 3,
+	delay = 1,
+	max_width = 650,
+	start_height = SCREEN_HEIGHT * 2 / 3,
+	start_width = display.width / 2
+}
+GlobalMessageMgr.Permanent_Start_Height = SCREEN_HEIGHT * 2 / 3 + 150
+GlobalMessageMgr.Permanent_Move_Height = 90
+
+function GlobalMessageMgr.__init(arg_1_0)
+	if GlobalMessageMgr.Instance ~= nil then
+		error("[GlobalMessageMrg] accempt to create singleton twice!")
+	end
+
+	GlobalMessageMgr.Instance = arg_1_0
+	arg_1_0.speed = GlobalMessageMgr.Config.speed
+	arg_1_0.delay = GlobalMessageMgr.Config.delay
+	arg_1_0.per_msg_label = nil
+	arg_1_0.msgs = Array.New()
+	arg_1_0.vertical_array = Array.New()
+	arg_1_0.vertical_array_tmp = {}
+	arg_1_0.item_effect_list = {}
+end
+
+function GlobalMessageMgr.getInstance(arg_2_0)
+	if GlobalMessageMgr.Instance == nil then
+		GlobalMessageMgr.New()
+	end
+
+	return GlobalMessageMgr.Instance
+end
+
+function GlobalMessageMgr.showMoveVertical(arg_3_0, arg_3_1, arg_3_2)
+	local var_3_0 = ViewManager:getInstance():getLayerByTag(ViewMgrTag.MSG_TAG)
+
+	if arg_3_0.vertical_array:GetSize() >= GlobalMessageMgr.Config.max_num then
+		table.insert(arg_3_0.vertical_array_tmp, {
+			"showMoveVertical",
+			{
+				arg_3_1,
+				arg_3_2,
+				delay
+			}
+		})
+
+		if #arg_3_0.vertical_array_tmp > 10 then
+			table.remove(arg_3_0.vertical_array_tmp, 1)
+		end
+
+		return
+	end
+
+	if string.len(arg_3_1) == 0 then
+		return
+	end
+
+	local var_3_1 = ccui.Widget:create()
+
+	var_3_1:setCascadeOpacityEnabled(true)
+	var_3_1:setAnchorPoint(cc.p(0.5, 0))
+	var_3_0:addChild(var_3_1, 10)
+
+	local var_3_2 = createScale9Sprite(PathTool.getResFrame("common", "common_90056"))
+
+	var_3_2:setScale9Enabled(true)
+
+	local var_3_3 = 60
+
+	var_3_1.image = var_3_2
+
+	var_3_1:addChild(var_3_2)
+
+	local var_3_4 = string.format("<div fontcolor=#ffda2f fontsize=24 >%s</div>", arg_3_1)
+	local var_3_5 = arg_3_0:createhorizontalLabel(var_3_4, Config.ColorData.data_color3[1], GlobalMessageMgr.Config.max_width, 24)
+
+	var_3_5:setAnchorPoint(0.5, 0.5)
+	var_3_1:addChild(var_3_5)
+
+	local var_3_6 = var_3_5:getSize()
+	local var_3_7 = GlobalMessageMgr.Config.max_width
+	local var_3_8 = math.max(var_3_6.height + 28, var_3_3)
+	local var_3_9 = cc.size(var_3_7, var_3_8)
+	local var_3_10 = math.max(var_3_6.width + 50, 500)
+
+	var_3_2:setContentSize(cc.size(var_3_10, var_3_8))
+	var_3_1:setContentSize(var_3_9)
+	var_3_2:setPosition(cc.p(var_3_9.width / 2, var_3_9.height / 2))
+	var_3_5:setPosition(cc.p(var_3_9.width / 2, var_3_9.height / 2))
+
+	local function var_3_11()
+		local var_4_0 = arg_3_0.vertical_array:PopFront().item
+
+		doRemoveFromParent(var_4_0)
+
+		if #arg_3_0.vertical_array_tmp > 0 then
+			local var_4_1 = table.remove(arg_3_0.vertical_array_tmp, 1)
+
+			if type(arg_3_0[var_4_1[1]]) == "function" then
+				arg_3_0[var_4_1[1]](arg_3_0, unpack(var_4_1[2]))
+			end
+		end
+	end
+
+	local var_3_12 = 2
+
+	arg_3_0.vertical_array:PushBack({
+		msg = arg_3_1,
+		delay_time = var_3_12,
+		item = var_3_1
+	})
+	arg_3_0:sortPosition()
+	delayRun(var_3_1.image, var_3_12, function()
+		var_3_11()
+	end)
+end
+
+function GlobalMessageMgr.sortPosition(arg_6_0)
+	local var_6_0 = 0
+	local var_6_1 = 0
+	local var_6_2 = arg_6_0.vertical_array:GetSize()
+
+	if var_6_2 > 0 then
+		local var_6_3 = GlobalMessageMgr.Config.start_height
+		local var_6_4 = SCREEN_WIDTH / 2
+		local var_6_5 = arg_6_0.vertical_array:Get(var_6_2 - 1).item:getContentSize().height
+		local var_6_6
+
+		for iter_6_0 = arg_6_0.vertical_array:GetSize(), 1, -1 do
+			local var_6_7 = arg_6_0.vertical_array:Get(iter_6_0 - 1).item
+
+			if tolua.isnull(var_6_7) then
+				return
+			end
+
+			doStopAllActions(var_6_7)
+
+			if var_6_2 == iter_6_0 then
+				var_6_7:setPosition(cc.p(var_6_4, var_6_3))
+
+				var_6_6 = var_6_3 + var_6_7:getContentSize().height
+			else
+				var_6_7:setPosition(cc.p(var_6_4, var_6_6))
+
+				var_6_6 = var_6_6 + var_6_7:getContentSize().height
+			end
+
+			var_6_7.action = var_6_7:runAction(cc.MoveBy:create(0.5, cc.p(0, var_6_5)))
+		end
+	end
+end
+
+function GlobalMessageMgr.showMoveHorizontal(arg_7_0, arg_7_1, arg_7_2)
+	local var_7_0 = ViewManager:getInstance():getLayerByTag(ViewMgrTag.MSG_TAG)
+
+	if tolua.isnull(var_7_0) then
+		return
+	end
+
+	local var_7_1 = display.getTop() - 55 - 160
+	local var_7_2 = cc.size(482, 38)
+
+	if arg_7_0.per_bg_icon == nil then
+		arg_7_0.per_bg_icon = createScale9Sprite(PathTool.getResFrame("common", "common_90056"))
+
+		arg_7_0.per_bg_icon:setScale9Enabled(true)
+		arg_7_0.per_bg_icon:setAnchorPoint(0.5, 1)
+		arg_7_0.per_bg_icon:setContentSize(var_7_2)
+		var_7_0:addChild(arg_7_0.per_bg_icon)
+		arg_7_0.per_bg_icon:setPosition(cc.p(SCREEN_WIDTH / 2, var_7_1))
+
+		arg_7_0.per_bg_contaicer = ccui.Layout:create()
+
+		arg_7_0.per_bg_contaicer:setContentSize(var_7_2)
+		arg_7_0.per_bg_contaicer:setPosition(cc.p(0, 0))
+		arg_7_0.per_bg_contaicer:setClippingEnabled(true)
+		arg_7_0.per_bg_icon:addChild(arg_7_0.per_bg_contaicer)
+	end
+
+	if arg_7_0.msg_save_arr == nil then
+		arg_7_0.msg_save_arr = Array.New()
+	end
+
+	local function var_7_3(arg_8_0, arg_8_1)
+		arg_8_0 = string.gsub(arg_8_0, "fontsize=%d+", "fontsize = 15")
+
+		local var_8_0 = arg_7_0:createhorizontalLabel(arg_8_0, arg_8_1, 3000, 20)
+
+		var_8_0:setAnchorPoint(cc.p(0, 0.5))
+		var_8_0:setPosition(cc.p(0, -var_7_2.height / 2))
+		arg_7_0.per_bg_contaicer:addChild(var_8_0)
+
+		return var_8_0
+	end
+
+	if arg_7_0.msg_save_arr:GetSize() >= 5 then
+		arg_7_0.msg_save_arr:PopFront()
+	end
+
+	arg_7_0.msg_save_arr:PushBack({
+		delay_time = 3,
+		msg = arg_7_1,
+		color = arg_7_2
+	})
+
+	if arg_7_0.has_msg_moveing == true then
+		return
+	end
+
+	local function var_7_4()
+		arg_7_0.has_msg_moveing = false
+
+		if not tolua.isnull(arg_7_0.per_move_msg_word) then
+			doRemoveFromParent(arg_7_0.per_move_msg_word)
+
+			arg_7_0.per_move_msg_word = nil
+		end
+
+		if arg_7_0.msg_save_arr:GetSize() > 0 then
+			arg_7_0.has_msg_moveing = true
+
+			local var_9_0 = arg_7_0.msg_save_arr:PopFront()
+			local var_9_1 = var_7_3(var_9_0.msg, var_9_0.color)
+			local var_9_2 = var_9_0.delay_time or 3
+
+			arg_7_0.per_move_msg_word = var_9_1
+
+			local var_9_3
+			local var_9_4 = var_9_1:getSize()
+
+			if var_9_4.width > var_7_2.width then
+				var_9_1:setPositionX(0)
+
+				local var_9_5 = cc.MoveTo:create(0.1, cc.p(var_9_1:getPositionX(), var_7_2.height / 2))
+				local var_9_6 = cc.MoveTo:create(var_9_2, cc.p(var_7_2.width - var_9_4.width - 5, var_7_2.height / 2))
+				local var_9_7 = cc.DelayTime:create(1)
+
+				var_9_3 = cc.Sequence:create(var_9_5, var_9_7, var_9_6, var_9_7, cc.CallFunc:create(var_7_4))
+			else
+				var_9_1:setPositionX(var_7_2.width / 2 - var_9_4.width / 2)
+
+				local var_9_8 = cc.DelayTime:create(var_9_2)
+				local var_9_9 = cc.MoveTo:create(0.1, cc.p(var_9_1:getPositionX(), var_7_2.height / 2))
+
+				var_9_3 = cc.Sequence:create(var_9_9, var_9_8, cc.CallFunc:create(var_7_4))
+			end
+
+			var_9_1:runAction(var_9_3)
+		else
+			arg_7_0.msg_save_arr = nil
+
+			if arg_7_0.per_bg_icon then
+				doRemoveFromParent(arg_7_0.per_bg_icon)
+
+				arg_7_0.per_bg_icon = nil
+				arg_7_0.per_bg_contaicer = nil
+			end
+		end
+	end
+
+	var_7_4()
+end
+
+function GlobalMessageMgr.showPermanentMsg(arg_10_0, arg_10_1, arg_10_2)
+	if arg_10_1 == true then
+		if not arg_10_0.permanentMsg then
+			local var_10_0 = ViewManager:getInstance():getLayerByTag(ViewMgrTag.MSG_TAG)
+
+			arg_10_0.permanentMsg = ccui.Widget:create()
+
+			arg_10_0.permanentMsg:setCascadeOpacityEnabled(true)
+			arg_10_0.permanentMsg:setAnchorPoint(cc.p(0.5, 0))
+			arg_10_0.permanentMsg:setPosition(cc.p(SCREEN_WIDTH / 2, GlobalMessageMgr.Permanent_Start_Height))
+			arg_10_0.permanentMsg:setOpacity(0)
+			var_10_0:addChild(arg_10_0.permanentMsg, 10)
+
+			local var_10_1 = createScale9Sprite(PathTool.getResFrame("common", "common_90056"))
+
+			var_10_1:setScale9Enabled(true)
+			var_10_1:setContentSize(cc.size(500, 60))
+
+			arg_10_0.permanentMsg.image = var_10_1
+
+			arg_10_0.permanentMsg:addChild(var_10_1)
+
+			local var_10_2 = string.format("<div fontcolor=#ffda2f fontsize=24 >%s</div>", arg_10_2)
+			local var_10_3 = arg_10_0:createhorizontalLabel(var_10_2, Config.ColorData.data_color3[1], GlobalMessageMgr.Config.max_width, 24)
+
+			var_10_3:setAnchorPoint(0.5, 0.5)
+
+			arg_10_0.permanentMsg.label = var_10_3
+
+			arg_10_0.permanentMsg:addChild(var_10_3)
+
+			local var_10_4 = var_10_3:getSize()
+			local var_10_5 = GlobalMessageMgr.Config.max_width
+			local var_10_6 = math.max(var_10_4.height + 20, var_10_1:getContentSize().height)
+			local var_10_7 = cc.size(var_10_5, var_10_6)
+
+			arg_10_0.permanentMsg:setContentSize(var_10_7)
+			var_10_1:setPosition(cc.p(var_10_7.width / 2, var_10_7.height / 2))
+			var_10_3:setPosition(cc.p(var_10_7.width / 2, var_10_7.height / 2))
+		end
+
+		if arg_10_0.permanentMsg and arg_10_0.permanentMsg.label then
+			arg_10_0.permanentMsg:setOpacity(0)
+			arg_10_0.permanentMsg:stopAllActions()
+			arg_10_0.permanentMsg:setPosition(cc.p(SCREEN_WIDTH / 2, GlobalMessageMgr.Permanent_Start_Height))
+
+			local var_10_8 = cc.MoveBy:create(0.4, cc.p(0, GlobalMessageMgr.Permanent_Move_Height))
+			local var_10_9 = cc.FadeIn:create(0.4)
+
+			arg_10_0.permanentMsg:runAction(cc.Spawn:create(var_10_8, var_10_9))
+			arg_10_0.permanentMsg.label:setString(arg_10_2)
+		end
+	elseif arg_10_0.permanentMsg then
+		arg_10_0.permanentMsg:stopAllActions()
+		arg_10_0.permanentMsg:removeAllChildren()
+		arg_10_0.permanentMsg:removeFromParent()
+
+		arg_10_0.permanentMsg = nil
+	end
+end
+
+function GlobalMessageMgr.ItemEffectMove(arg_11_0, arg_11_1, arg_11_2)
+	local var_11_0 = AdventureController:getInstance():getBackBtnPos()
+	local var_11_1 = 1
+	local var_11_2 = cc.p(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
+	if arg_11_2 == 2 then
+		var_11_2 = cc.p(0, 0)
+		var_11_0 = MainuiController:getInstance():getBackPackBtnPos()
+
+		local var_11_3 = -1
+	end
+
+	if not var_11_0 then
+		return
+	end
+
+	local function var_11_4(arg_12_0)
+		if arg_11_0.item_effect_list and next(arg_11_0.item_effect_list or {}) ~= nil and arg_11_0.item_effect_list[arg_12_0] then
+			if arg_11_0.item_effect_list[arg_12_0].item_effect_2 then
+				arg_11_0.item_effect_list[arg_12_0].item_effect_2:runAction(cc.RemoveSelf:create(true))
+
+				arg_11_0.item_effect_list[arg_12_0].item_effect_2 = nil
+			end
+
+			doStopAllActions(arg_11_0.item_effect_list[arg_12_0])
+			arg_11_0.item_effect_list[arg_12_0]:removeAllChildren()
+			arg_11_0.item_effect_list[arg_12_0]:removeFromParent()
+
+			arg_11_0.item_effect_list[arg_12_0] = nil
+		end
+	end
+
+	if var_11_0 and arg_11_1 == true then
+		local var_11_5 = {
+			x = var_11_2.x - var_11_0.x,
+			y = var_11_2.y - var_11_0.y
+		}
+		local var_11_6 = math.atan2(var_11_5.y, var_11_5.x) * 180 / math.pi
+
+		if not arg_11_0.first_effect then
+			local var_11_7 = ViewManager:getInstance():getLayerByTag(ViewMgrTag.MSG_TAG)
+
+			if not tolua.isnull(var_11_7) then
+				arg_11_0.first_effect = createEffectSpine(PathTool.getEffectRes(251), cc.p(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2), cc.p(0.5, 0.5), false, PlayerAction.action)
+
+				var_11_7:addChild(arg_11_0.first_effect)
+
+				local function var_11_8()
+					if arg_11_0.first_effect then
+						arg_11_0.first_effect:runAction(cc.RemoveSelf:create(true))
+
+						arg_11_0.first_effect = nil
+					end
+				end
+
+				arg_11_0.first_effect:registerSpineEventHandler(var_11_8, sp.EventType.ANIMATION_COMPLETE)
+			end
+		end
+
+		if not arg_11_0.item_effect_list[arg_11_2] then
+			local var_11_9 = ccui.Layout:create()
+
+			var_11_9:setCascadeOpacityEnabled(true)
+			var_11_9:setAnchorPoint(cc.p(0.5, 0.5))
+			var_11_9:setPosition(cc.p(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2))
+			ViewManager:getInstance():getLayerByTag(ViewMgrTag.MSG_TAG):addChild(var_11_9)
+
+			arg_11_0.item_effect_list[arg_11_2] = var_11_9
+
+			local var_11_10 = "action2"
+
+			if not tolua.isnull(arg_11_0.item_effect_list[arg_11_2]) then
+				arg_11_0.item_effect_list[arg_11_2].item_effect_2 = createEffectSpine(PathTool.getEffectRes(252), cc.p(0, 0), cc.p(0.5, 0.5), false, PlayerAction.action_1)
+
+				arg_11_0.item_effect_list[arg_11_2].item_effect_2:setRotation(var_11_6)
+				arg_11_0.item_effect_list[arg_11_2]:addChild(arg_11_0.item_effect_list[arg_11_2].item_effect_2)
+			end
+		end
+
+		if arg_11_0.item_effect_list and next(arg_11_0.item_effect_list or {}) ~= nil and arg_11_0.item_effect_list[arg_11_2] then
+			doStopAllActions(arg_11_0.item_effect_list[arg_11_2])
+			arg_11_0.item_effect_list[arg_11_2]:setOpacity(255)
+
+			local var_11_11 = cc.DelayTime:create(0.5)
+			local var_11_12 = cc.MoveTo:create(0.8, cc.p(var_11_0.x, var_11_0.y))
+
+			arg_11_0.item_effect_list[arg_11_2]:runAction(cc.Sequence:create(var_11_12, cc.CallFunc:create(function()
+				arg_11_0.item_effect_list[arg_11_2].item_effect_2:setToSetupPose()
+				arg_11_0.item_effect_list[arg_11_2].item_effect_2:setAnimation(0, PlayerAction.action_2, false)
+			end), cc.DelayTime:create(0.3), cc.CallFunc:create(function()
+				var_11_4(arg_11_2)
+			end)))
+		end
+	else
+		var_11_4(arg_11_2)
+	end
+end
+
+function GlobalMessageMgr.PowerMove(arg_16_0, arg_16_1, arg_16_2, arg_16_3, arg_16_4)
+	local var_16_0 = arg_16_2 or PathTool.getResFrame("common", "txt_cn_common_90002")
+	local var_16_1 = tonumber(arg_16_1) or 0
+	local var_16_2 = tonumber(arg_16_3) or 0
+	local var_16_3 = arg_16_4 or {}
+	local var_16_4 = cc.size(700, 150)
+
+	if not arg_16_0.power_container then
+		arg_16_0.power_container = ccui.Widget:create()
+
+		arg_16_0.power_container:setCascadeOpacityEnabled(true)
+		arg_16_0.power_container:setContentSize(var_16_4)
+		arg_16_0.power_container:setAnchorPoint(cc.p(0.5, 0))
+		arg_16_0.power_container:setPosition(cc.p(SCREEN_WIDTH / 2, 920))
+		ViewManager:getInstance():getLayerByTag(ViewMgrTag.MSG_TAG):addChild(arg_16_0.power_container)
+
+		local var_16_5 = PathTool.getResFrame("mainui", "mainui_1035")
+
+		createSprite(var_16_5, var_16_4.width / 2, var_16_4.height / 2, arg_16_0.power_container, cc.p(0.5, 0.5), LOADTEXT_TYPE_PLIST):setScaleX(1.6)
+
+		local var_16_6 = var_16_3.res_offset_x or 0
+		local var_16_7 = createSprite(var_16_0, 140 + var_16_6, 80, arg_16_0.power_container, cc.p(0, 0.5), LOADTEXT_TYPE_PLIST)
+
+		arg_16_0.power = CommonNum.new(23, arg_16_0.power_container, 0, 0, cc.p(0, 0.5))
+
+		arg_16_0.power:setPosition(cc.p(310, 100))
+
+		arg_16_0.add_num = createLabel(50, cc.c4b(149, 244, 82, 255), cc.c4b(23, 65, 0, 255), 310, 50, "", arg_16_0.power_container, 1, cc.p(0, 0))
+
+		local var_16_8 = PathTool.getEffectRes(179)
+		local var_16_9 = createEffectSpine(var_16_8, cc.p(var_16_4.width / 2, var_16_4.height / 2), cc.p(0.5, 0.5), true, "action")
+
+		arg_16_0.power_container:addChild(var_16_9)
+		playOtherSound("c_levelup")
+
+		local var_16_10 = PathTool.getEffectRes(171)
+		local var_16_11 = createEffectSpine(var_16_10, cc.p(var_16_4.width / 2, var_16_4.height / 2), cc.p(0.5, 0.5), false, "action", function()
+			if effect then
+				effect:runAction(cc.RemoveSelf:create(true))
+
+				effect = nil
+			end
+		end)
+
+		var_16_11:setLocalZOrder(10)
+		arg_16_0.power_container:addChild(var_16_11)
+	end
+
+	doStopAllActions(arg_16_0.power_container)
+
+	if tolua.isnull(arg_16_0.add_num) then
+		return
+	end
+
+	arg_16_0:clearPowerTimer()
+
+	local var_16_12 = 0
+	local var_16_13 = var_16_2
+
+	while var_16_13 > 0 do
+		var_16_12 = var_16_12 + 1
+		var_16_13 = math.floor(var_16_13 / 10)
+	end
+
+	if var_16_12 == 0 then
+		var_16_12 = 1
+	end
+
+	arg_16_0.power:setNum(var_16_2)
+	arg_16_0.add_num:setPositionX(var_16_12 * 26 + 315)
+
+	local var_16_14 = 0
+
+	if not arg_16_0.num_timer then
+		arg_16_0.num_timer = GlobalTimeTicket:getInstance():add(function()
+			var_16_14 = var_16_14 + 1
+
+			local var_18_0 = math.ceil(var_16_14 * (var_16_1 / 10))
+			local var_18_1 = math.min(var_18_0, var_16_1)
+
+			arg_16_0.add_num:setString("+" .. var_18_1)
+
+			if var_18_0 >= var_16_1 then
+				arg_16_0:clearPowerTimer()
+			end
+		end, 0.05, 10)
+	end
+
+	local function var_16_15()
+		arg_16_0:clearPowerTimer()
+
+		if arg_16_0.power and not tolua.isnull(arg_16_0.power) then
+			arg_16_0.power:DeleteMe()
+
+			arg_16_0.power = nil
+		end
+
+		if arg_16_0.power_container and not tolua.isnull(arg_16_0.power_container) then
+			arg_16_0.power_container:removeAllChildren()
+			arg_16_0.power_container:removeFromParent()
+
+			arg_16_0.power_container = nil
+		end
+	end
+
+	arg_16_0.power_container:setOpacity(255)
+
+	local var_16_16 = cc.DelayTime:create(1)
+	local var_16_17 = cc.FadeOut:create(1)
+
+	arg_16_0.power_container:runAction(cc.Sequence:create(var_16_16, var_16_17, cc.CallFunc:create(function()
+		var_16_15()
+	end)))
+end
+
+function GlobalMessageMgr.showPowerMove(arg_21_0, arg_21_1, arg_21_2, arg_21_3, arg_21_4)
+	arg_21_0:PowerMove(arg_21_1, arg_21_2, arg_21_3, arg_21_4)
+end
+
+function GlobalMessageMgr.showArtTextMove(arg_22_0, arg_22_1, arg_22_2)
+	if not arg_22_1 then
+		return
+	end
+
+	local var_22_0 = arg_22_1
+
+	arg_22_2 = arg_22_2 or 0
+
+	local var_22_1 = cc.size(700, 150)
+
+	if not arg_22_0.arttxt_container then
+		arg_22_0.arttxt_container = ccui.Widget:create()
+
+		arg_22_0.arttxt_container:setCascadeOpacityEnabled(true)
+		arg_22_0.arttxt_container:setContentSize(var_22_1)
+		arg_22_0.arttxt_container:setAnchorPoint(cc.p(0.5, 0))
+		arg_22_0.arttxt_container:setPosition(cc.p(SCREEN_WIDTH / 2, 920 + arg_22_2))
+		ViewManager:getInstance():getLayerByTag(ViewMgrTag.MSG_TAG):addChild(arg_22_0.arttxt_container)
+
+		local var_22_2 = PathTool.getResFrame("mainui", "mainui_1035")
+
+		createSprite(var_22_2, var_22_1.width / 2, var_22_1.height / 2, arg_22_0.arttxt_container, cc.p(0.5, 0.5), LOADTEXT_TYPE_PLIST):setScaleX(1.6)
+
+		local var_22_3 = createSprite(var_22_0, var_22_1.width / 2, 80, arg_22_0.arttxt_container, cc.p(0.5, 0.5), LOADTEXT_TYPE_PLIST)
+		local var_22_4 = PathTool.getEffectRes(179)
+		local var_22_5 = createEffectSpine(var_22_4, cc.p(var_22_1.width / 2, var_22_1.height / 2), cc.p(0.5, 0.5), true, "action")
+
+		arg_22_0.arttxt_container:addChild(var_22_5)
+		playOtherSound("c_levelup")
+
+		local var_22_6 = PathTool.getEffectRes(171)
+		local var_22_7 = createEffectSpine(var_22_6, cc.p(var_22_1.width / 2, var_22_1.height / 2), cc.p(0.5, 0.5), false, "action", function()
+			if effect then
+				effect:runAction(cc.RemoveSelf:create(true))
+
+				effect = nil
+			end
+		end)
+
+		var_22_7:setLocalZOrder(10)
+		arg_22_0.arttxt_container:addChild(var_22_7)
+	end
+
+	doStopAllActions(arg_22_0.arttxt_container)
+
+	local function var_22_8()
+		if arg_22_0.arttxt_container and not tolua.isnull(arg_22_0.arttxt_container) then
+			arg_22_0.arttxt_container:removeAllChildren()
+			arg_22_0.arttxt_container:removeFromParent()
+
+			arg_22_0.arttxt_container = nil
+		end
+	end
+
+	arg_22_0.arttxt_container:setOpacity(255)
+
+	local var_22_9 = cc.DelayTime:create(1)
+	local var_22_10 = cc.FadeOut:create(1)
+
+	arg_22_0.arttxt_container:runAction(cc.Sequence:create(var_22_9, var_22_10, cc.CallFunc:create(function()
+		var_22_8()
+	end)))
+end
+
+function GlobalMessageMgr.clearPowerTimer(arg_26_0)
+	if arg_26_0.num_timer then
+		GlobalTimeTicket:getInstance():remove(arg_26_0.num_timer)
+
+		arg_26_0.num_timer = nil
+	end
+end
+
+function GlobalMessageMgr.showAttrMove(arg_27_0, arg_27_1)
+	if not res then
+		local var_27_0 = PathTool.getResFrame("common", "txt_cn_common_90002")
+	end
+
+	if not tonumber(num) then
+		local var_27_1 = 0
+	end
+
+	if not tonumber(old_num) then
+		local var_27_2 = 0
+	end
+
+	local var_27_3 = cc.size(700, 150)
+
+	if not arg_27_0.attr_container then
+		arg_27_0.attr_container = ccui.Widget:create()
+
+		arg_27_0.attr_container:setCascadeOpacityEnabled(true)
+		arg_27_0.attr_container:setContentSize(var_27_3)
+		arg_27_0.attr_container:setAnchorPoint(cc.p(0.5, 0))
+		arg_27_0.attr_container:setPosition(cc.p(SCREEN_WIDTH / 2, 800))
+		ViewManager:getInstance():getLayerByTag(ViewMgrTag.MSG_TAG):addChild(arg_27_0.attr_container)
+
+		local var_27_4 = PathTool.getResFrame("mainui", "mainui_1035")
+		local var_27_5 = createSprite(var_27_4, var_27_3.width / 2, var_27_3.height / 2, arg_27_0.attr_container, cc.p(0.5, 0.5), LOADTEXT_TYPE_PLIST)
+
+		var_27_5:setScaleX(1.6)
+		var_27_5:setScaleY(2)
+	end
+
+	if not arg_27_0.attr_list then
+		arg_27_0.attr_list = {}
+	end
+
+	arg_27_1 = arg_27_1 or {}
+
+	for iter_27_0, iter_27_1 in pairs(arg_27_1) do
+		if not arg_27_0.attr_list[iter_27_0] then
+			arg_27_0.attr_list[iter_27_0] = {}
+
+			local var_27_6 = createLabel(24, cc.c4b(149, 244, 82, 255), cc.c4b(23, 65, 0, 255), 310, 50, "", arg_27_0.attr_container, 2, cc.p(0, 0))
+			local var_27_7 = createLabel(26, cc.c4b(149, 244, 82, 255), cc.c4b(23, 65, 0, 255), 310, 50, "", arg_27_0.attr_container, 2, cc.p(0, 0))
+
+			arg_27_0.attr_list[iter_27_0].name = var_27_6
+			arg_27_0.attr_list[iter_27_0].label = var_27_7
+		end
+	end
+
+	local function var_27_8()
+		if arg_27_0.attr_container and not tolua.isnull(arg_27_0.attr_container) then
+			arg_27_0.attr_container:removeAllChildren()
+			arg_27_0.attr_container:removeFromParent()
+
+			arg_27_0.attr_container = nil
+			arg_27_0.attr_list = {}
+		end
+	end
+
+	arg_27_0.attr_container:stopAllActions()
+
+	local var_27_9 = cc.DelayTime:create(1)
+	local var_27_10 = cc.FadeOut:create(1)
+
+	arg_27_0.attr_container:runAction(cc.Sequence:create(var_27_9, var_27_10, cc.CallFunc:create(function()
+		if arg_27_0.num_load then
+			arg_27_0.num_load:DeleteMe()
+
+			arg_27_0.num_load = nil
+		end
+
+		var_27_8()
+	end)))
+end
+
+function GlobalMessageMgr.createhorizontalLabel(arg_30_0, arg_30_1, arg_30_2, arg_30_3, arg_30_4)
+	local var_30_0 = arg_30_2 or Config.ColorData.data_color3[2]
+	local var_30_1 = createRichLabel(arg_30_4, var_30_0, cc.p(0, 1), cc.p(0, 0), 0, 0, arg_30_3)
+
+	var_30_1:setString(arg_30_1)
+
+	return var_30_1
+end
+
+function GlobalMessageMgr.__delete(arg_31_0)
+	GlobalMessageMgr.Instance = nil
+end
+
+function message(arg_32_0, arg_32_1, arg_32_2, arg_32_3, arg_32_4)
+	if arg_32_0 == nil or arg_32_0 == "" then
+		return
+	end
+
+	if StoryController:getInstance():getModel():isStoryState() then
+		return
+	end
+
+	if arg_32_3 == nil then
+		arg_32_3 = Config.ColorData.data_color3[1]
+	end
+
+	GlobalMessageMgr:getInstance():showMoveVertical(arg_32_0, arg_32_3)
+end
+
+function showRichMsg(arg_33_0, arg_33_1, arg_33_2)
+	if GlobalMessageMgr:getInstance():isHideMessage() then
+		return
+	end
+
+	if StoryController:getInstance():getModel():isStoryState() then
+		return
+	end
+
+	GlobalMessageMgr:getInstance():showMoveVertical(arg_33_0, arg_33_1)
+end
+
+function showAssetsMsg(arg_34_0, arg_34_1, arg_34_2, arg_34_3)
+	if GlobalMessageMgr:getInstance():isHideMessage() then
+		return
+	end
+
+	if StoryController:getInstance():getModel():isStoryState() then
+		return
+	end
+
+	local var_34_0 = WordCensor:getInstance():relapceAssetsTag(arg_34_0)
+
+	GlobalMessageMgr:getInstance():showMoveVertical(var_34_0, arg_34_1)
+end
+
+function message2(arg_35_0, arg_35_1)
+	if GlobalMessageMgr:getInstance():isHideMessage() then
+		return
+	end
+
+	if StoryController:getInstance():getModel():isStoryState() then
+		return
+	end
+
+	if arg_35_1 == nil then
+		arg_35_1 = Config.ColorData.data_color3[1]
+	end
+
+	GlobalMessageMgr:getInstance():showMoveVertical(arg_35_0, arg_35_1)
+end
+
+function showHorizontalMsg(arg_36_0, arg_36_1, arg_36_2, arg_36_3)
+	GlobalMessageMgr:getInstance():showMoveHorizontal(arg_36_0, arg_36_2)
+end
+
+function GlobalMessageMgr.isHideMessage(arg_37_0)
+	return arg_37_0.is_hide_message
+end
+
+function GlobalMessageMgr.setHideMessage(arg_38_0, arg_38_1)
+	arg_38_0.is_hide_message = arg_38_1
+end

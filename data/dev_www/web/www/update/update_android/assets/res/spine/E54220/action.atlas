@@ -1,0 +1,13 @@
+
+action.png
+size: 128,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+obj_360
+  rotate: false
+  xy: 2, 2
+  size: 119, 60
+  orig: 128, 64
+  offset: 6, 3
+  index: -1

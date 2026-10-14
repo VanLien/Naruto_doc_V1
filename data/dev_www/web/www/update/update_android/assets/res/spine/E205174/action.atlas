@@ -1,0 +1,125 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/bawei/1/00000
+  rotate: false
+  xy: 1, 1240
+  size: 433, 368
+  orig: 1024, 1024
+  offset: 224, 319
+  index: -1
+image/bawei/1/00001
+  rotate: false
+  xy: 438, 1628
+  size: 432, 365
+  orig: 1024, 1024
+  offset: 225, 319
+  index: -1
+image/bawei/1/00003
+  rotate: false
+  xy: 1, 1609
+  size: 436, 384
+  orig: 1024, 1024
+  offset: 224, 316
+  index: -1
+image/bawei/2/0001
+  rotate: true
+  xy: 1, 779
+  size: 460, 308
+  orig: 700, 500
+  offset: 117, 98
+  index: -1
+image/bawei/2/0002
+  rotate: false
+  xy: 871, 1685
+  size: 460, 308
+  orig: 700, 500
+  offset: 117, 98
+  index: -1
+image/bawei/2/0003
+  rotate: true
+  xy: 1, 318
+  size: 460, 308
+  orig: 700, 500
+  offset: 117, 98
+  index: -1
+image/bawei/2/0004
+  rotate: false
+  xy: 1332, 1685
+  size: 460, 308
+  orig: 700, 500
+  offset: 117, 98
+  index: -1
+image/bawei/2/0005
+  rotate: false
+  xy: 1, 9
+  size: 460, 308
+  orig: 700, 500
+  offset: 117, 98
+  index: -1
+image/bawei/2/0006
+  rotate: false
+  xy: 310, 462
+  size: 460, 308
+  orig: 700, 500
+  offset: 117, 98
+  index: -1
+image/bawei/2/0007
+  rotate: true
+  xy: 462, 1
+  size: 460, 308
+  orig: 700, 500
+  offset: 117, 98
+  index: -1
+image/bawei/2/0008
+  rotate: false
+  xy: 871, 1376
+  size: 460, 308
+  orig: 700, 500
+  offset: 117, 98
+  index: -1
+image/bawei/2/0009
+  rotate: false
+  xy: 1332, 1403
+  size: 460, 281
+  orig: 700, 500
+  offset: 117, 98
+  index: -1
+image/bawei/2/0010
+  rotate: false
+  xy: 1332, 1121
+  size: 460, 281
+  orig: 700, 500
+  offset: 117, 98
+  index: -1
+image/bawei/2/0011
+  rotate: false
+  xy: 771, 1119
+  size: 460, 256
+  orig: 700, 500
+  offset: 117, 99
+  index: -1
+image/bawei/2/0012
+  rotate: true
+  xy: 1793, 1531
+  size: 462, 251
+  orig: 700, 500
+  offset: 114, 99
+  index: -1
+image/bawei/2/0013
+  rotate: true
+  xy: 310, 771
+  size: 468, 239
+  orig: 700, 500
+  offset: 109, 101
+  index: -1
+image/bawei/2/0014
+  rotate: true
+  xy: 1793, 1181
+  size: 349, 173
+  orig: 700, 500
+  offset: 179, 139
+  index: -1

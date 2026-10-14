@@ -1,0 +1,132 @@
+
+action2.png
+size: 1899,1622
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/1
+  rotate: true
+  xy: 1648, 566
+  size: 271, 231
+  orig: 456, 417
+  offset: 101, 10
+  index: -1
+action2/10
+  rotate: true
+  xy: 1529, 20
+  size: 447, 368
+  orig: 456, 417
+  offset: 1, 10
+  index: -1
+action2/11
+  rotate: false
+  xy: 1351, 839
+  size: 434, 382
+  orig: 456, 417
+  offset: 8, 10
+  index: -1
+action2/12
+  rotate: false
+  xy: 452, 1223
+  size: 438, 397
+  orig: 456, 417
+  offset: 8, 11
+  index: -1
+action2/13
+  rotate: false
+  xy: 2, 1219
+  size: 448, 401
+  orig: 456, 417
+  offset: 8, 10
+  index: -1
+action2/14
+  rotate: false
+  xy: 2, 818
+  size: 442, 399
+  orig: 456, 417
+  offset: 8, 18
+  index: -1
+action2/15
+  rotate: false
+  xy: 892, 1223
+  size: 433, 397
+  orig: 456, 417
+  offset: 8, 20
+  index: -1
+action2/16
+  rotate: false
+  xy: 1327, 1223
+  size: 433, 397
+  orig: 456, 417
+  offset: 8, 20
+  index: -1
+action2/17
+  rotate: false
+  xy: 764, 448
+  size: 433, 396
+  orig: 456, 417
+  offset: 8, 20
+  index: -1
+action2/18
+  rotate: true
+  xy: 768, 13
+  size: 433, 389
+  orig: 456, 417
+  offset: 8, 20
+  index: -1
+action2/2
+  rotate: true
+  xy: 445, 9
+  size: 355, 321
+  orig: 456, 417
+  offset: 50, 0
+  index: -1
+action2/3
+  rotate: false
+  xy: 2, 2
+  size: 441, 361
+  orig: 456, 417
+  offset: 3, 10
+  index: -1
+action2/4
+  rotate: false
+  xy: 903, 846
+  size: 446, 375
+  orig: 456, 417
+  offset: 0, 10
+  index: -1
+action2/5
+  rotate: true
+  xy: 383, 366
+  size: 450, 379
+  orig: 456, 417
+  offset: 0, 10
+  index: -1
+action2/6
+  rotate: true
+  xy: 2, 365
+  size: 451, 379
+  orig: 456, 417
+  offset: 1, 10
+  index: -1
+action2/7
+  rotate: false
+  xy: 452, 846
+  size: 449, 375
+  orig: 456, 417
+  offset: 1, 10
+  index: -1
+action2/8
+  rotate: false
+  xy: 1199, 469
+  size: 447, 368
+  orig: 456, 417
+  offset: 4, 10
+  index: -1
+action2/9
+  rotate: true
+  xy: 1159, 3
+  size: 443, 368
+  orig: 456, 417
+  offset: 8, 10
+  index: -1

@@ -1,0 +1,69 @@
+
+action.png
+size: 1024,1024
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/tx/E405136/10
+  rotate: false
+  xy: 342, 681
+  size: 328, 335
+  orig: 361, 338
+  offset: 33, 3
+  index: -1
+image/tx/E405136/11
+  rotate: true
+  xy: 342, 401
+  size: 278, 328
+  orig: 361, 338
+  offset: 33, 4
+  index: -1
+image/tx/E405136/12
+  rotate: false
+  xy: 612, 116
+  size: 273, 256
+  orig: 361, 338
+  offset: 33, 9
+  index: -1
+image/tx/E405136/13
+  rotate: false
+  xy: 332, 143
+  size: 278, 256
+  orig: 361, 338
+  offset: 33, 9
+  index: -1
+image/tx/E405136/5
+  rotate: false
+  xy: 2, 678
+  size: 338, 338
+  orig: 361, 338
+  offset: 0, 0
+  index: -1
+image/tx/E405136/6
+  rotate: true
+  xy: 672, 374
+  size: 317, 338
+  orig: 361, 338
+  offset: 33, 0
+  index: -1
+image/tx/E405136/7
+  rotate: true
+  xy: 672, 693
+  size: 323, 336
+  orig: 361, 338
+  offset: 33, 2
+  index: -1
+image/tx/E405136/8
+  rotate: false
+  xy: 2, 2
+  size: 326, 336
+  orig: 361, 338
+  offset: 33, 2
+  index: -1
+image/tx/E405136/9
+  rotate: false
+  xy: 2, 340
+  size: 328, 336
+  orig: 361, 338
+  offset: 33, 2
+  index: -1

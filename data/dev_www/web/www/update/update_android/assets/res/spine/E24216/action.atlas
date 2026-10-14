@@ -1,0 +1,13 @@
+
+action.png
+size: 132,152
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+heliu_shu
+  rotate: false
+  xy: 2, 2
+  size: 128, 148
+  orig: 132, 155
+  offset: 4, 5
+  index: -1

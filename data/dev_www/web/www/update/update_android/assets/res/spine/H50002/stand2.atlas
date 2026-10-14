@@ -1,0 +1,48 @@
+
+stand2.png
+size: 409,262
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01
+  rotate: true
+  xy: 263, 149
+  size: 111, 144
+  orig: 400, 400
+  offset: 128, 137
+  index: -1
+02
+  rotate: false
+  xy: 2, 116
+  size: 112, 144
+  orig: 400, 400
+  offset: 128, 137
+  index: -1
+03
+  rotate: true
+  xy: 2, 2
+  size: 112, 144
+  orig: 400, 400
+  offset: 128, 137
+  index: -1
+04
+  rotate: true
+  xy: 116, 149
+  size: 111, 145
+  orig: 400, 400
+  offset: 128, 137
+  index: -1
+05
+  rotate: false
+  xy: 258, 3
+  size: 107, 144
+  orig: 400, 400
+  offset: 129, 137
+  index: -1
+06
+  rotate: false
+  xy: 148, 3
+  size: 108, 144
+  orig: 400, 400
+  offset: 129, 137
+  index: -1

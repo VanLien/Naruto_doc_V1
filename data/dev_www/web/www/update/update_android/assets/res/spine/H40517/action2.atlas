@@ -1,0 +1,139 @@
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+origin/action1_1/0_00000
+  rotate: false
+  xy: 1, 797
+  size: 220, 268
+  orig: 1200, 600
+  offset: 307, 136
+  index: -1
+origin/action1_1/0_00002
+  rotate: false
+  xy: 1, 5
+  size: 193, 269
+  orig: 1200, 600
+  offset: 283, 133
+  index: -1
+origin/action1_1/0_00003
+  rotate: false
+  xy: 1, 275
+  size: 196, 269
+  orig: 1200, 600
+  offset: 284, 133
+  index: -1
+origin/action1_1/0_00004
+  rotate: false
+  xy: 456, 1633
+  size: 232, 269
+  orig: 1200, 600
+  offset: 261, 133
+  index: -1
+origin/action1_1/0_00005
+  rotate: false
+  xy: 1186, 1652
+  size: 238, 250
+  orig: 1200, 600
+  offset: 260, 133
+  index: -1
+origin/action1_1/0_00006
+  rotate: false
+  xy: 689, 1652
+  size: 249, 250
+  orig: 1200, 600
+  offset: 252, 133
+  index: -1
+origin/action1_1/0_00007
+  rotate: false
+  xy: 939, 1652
+  size: 246, 250
+  orig: 1200, 600
+  offset: 254, 133
+  index: -1
+origin/action1_1/0_00008
+  rotate: false
+  xy: 1425, 1652
+  size: 238, 250
+  orig: 1200, 600
+  offset: 255, 133
+  index: -1
+origin/action1_1/0_00009
+  rotate: false
+  xy: 1664, 1652
+  size: 238, 250
+  orig: 1200, 600
+  offset: 253, 133
+  index: -1
+origin/action1_1/0_00010
+  rotate: false
+  xy: 1, 545
+  size: 220, 251
+  orig: 1200, 600
+  offset: 254, 133
+  index: -1
+origin/action1_1/0_00011
+  rotate: false
+  xy: 660, 1363
+  size: 193, 269
+  orig: 1200, 600
+  offset: 284, 133
+  index: -1
+origin/action1_1/0_00012
+  rotate: false
+  xy: 854, 1382
+  size: 193, 269
+  orig: 1200, 600
+  offset: 283, 133
+  index: -1
+origin/action1_1/0_00013
+  rotate: false
+  xy: 456, 1363
+  size: 203, 269
+  orig: 1200, 600
+  offset: 279, 134
+  index: -1
+origin/action1_1/0_00016
+  rotate: false
+  xy: 228, 1076
+  size: 220, 268
+  orig: 1200, 600
+  offset: 307, 136
+  index: -1
+origin/stand_2/0_00000
+  rotate: false
+  xy: 229, 1624
+  size: 226, 278
+  orig: 900, 600
+  offset: 169, 133
+  index: -1
+origin/stand_2/0_00001
+  rotate: false
+  xy: 1, 1066
+  size: 226, 278
+  orig: 900, 600
+  offset: 169, 133
+  index: -1
+origin/stand_2/0_00002
+  rotate: false
+  xy: 229, 1345
+  size: 226, 278
+  orig: 900, 600
+  offset: 169, 133
+  index: -1
+origin/stand_2/0_00008
+  rotate: false
+  xy: 1, 1624
+  size: 227, 278
+  orig: 900, 600
+  offset: 168, 133
+  index: -1
+origin/stand_2/0_00009
+  rotate: false
+  xy: 1, 1345
+  size: 227, 278
+  orig: 900, 600
+  offset: 168, 133
+  index: -1

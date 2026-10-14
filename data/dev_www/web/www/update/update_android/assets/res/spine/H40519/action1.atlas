@@ -1,0 +1,132 @@
+
+action1.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action1/0_00000
+  rotate: true
+  xy: 1338, 145
+  size: 110, 178
+  orig: 900, 600
+  offset: 162, 176
+  index: -1
+action1/0_00001
+  rotate: true
+  xy: 829, 10
+  size: 104, 151
+  orig: 900, 600
+  offset: 157, 175
+  index: -1
+action1/0_00002
+  rotate: true
+  xy: 1707, 153
+  size: 102, 176
+  orig: 900, 600
+  offset: 162, 174
+  index: -1
+action1/0_00003
+  rotate: true
+  xy: 1187, 3
+  size: 126, 148
+  orig: 900, 600
+  offset: 155, 172
+  index: -1
+action1/0_00004
+  rotate: true
+  xy: 1884, 131
+  size: 124, 152
+  orig: 900, 600
+  offset: 156, 171
+  index: -1
+action1/0_00012
+  rotate: true
+  xy: 1489, 17
+  size: 127, 119
+  orig: 900, 600
+  offset: 438, 167
+  index: -1
+action1/0_00013
+  rotate: true
+  xy: 674, 21
+  size: 96, 154
+  orig: 900, 600
+  offset: 441, 167
+  index: -1
+action1/0_00014
+  rotate: true
+  xy: 1171, 130
+  size: 125, 166
+  orig: 900, 600
+  offset: 415, 168
+  index: -1
+action1/0_00015
+  rotate: true
+  xy: 674, 118
+  size: 137, 176
+  orig: 900, 600
+  offset: 396, 175
+  index: -1
+action1/0_00016
+  rotate: true
+  xy: 1338, 2
+  size: 142, 150
+  orig: 900, 600
+  offset: 391, 175
+  index: -1
+action1/0_00017
+  rotate: true
+  xy: 851, 115
+  size: 140, 163
+  orig: 900, 600
+  offset: 389, 173
+  index: -1
+action1/0_00018
+  rotate: false
+  xy: 171, 91
+  size: 165, 164
+  orig: 900, 600
+  offset: 411, 168
+  index: -1
+action1/0_00019
+  rotate: true
+  xy: 1015, 116
+  size: 139, 155
+  orig: 900, 600
+  offset: 475, 175
+  index: -1
+action1/0_00020
+  rotate: true
+  xy: 337, 102
+  size: 153, 170
+  orig: 900, 600
+  offset: 471, 159
+  index: -1
+action1/0_00021
+  rotate: false
+  xy: 508, 99
+  size: 165, 156
+  orig: 900, 600
+  offset: 450, 164
+  index: -1
+action1/0_00022
+  rotate: false
+  xy: 1, 79
+  size: 169, 176
+  orig: 900, 600
+  offset: 456, 166
+  index: -1
+action1/0_00023
+  rotate: true
+  xy: 1517, 159
+  size: 96, 189
+  orig: 900, 600
+  offset: 393, 181
+  index: -1
+action1/0_00029
+  rotate: true
+  xy: 1015, 1
+  size: 114, 171
+  orig: 900, 600
+  offset: 158, 171
+  index: -1

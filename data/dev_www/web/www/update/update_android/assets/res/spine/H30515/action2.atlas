@@ -1,0 +1,244 @@
+
+action2.png
+size: 2048,512
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+action2/0_00000
+  rotate: true
+  xy: 248, 172
+  size: 101, 184
+  orig: 600, 400
+  offset: 105, 100
+  index: -1
+action2/0_00001
+  rotate: true
+  xy: 1484, 278
+  size: 103, 183
+  orig: 600, 400
+  offset: 103, 101
+  index: -1
+action2/0_00002
+  rotate: true
+  xy: 1669, 279
+  size: 106, 184
+  orig: 600, 400
+  offset: 99, 101
+  index: -1
+action2/0_00003
+  rotate: true
+  xy: 1855, 172
+  size: 103, 183
+  orig: 600, 400
+  offset: 100, 101
+  index: -1
+action2/0_00004
+  rotate: true
+  xy: 1300, 278
+  size: 104, 182
+  orig: 600, 400
+  offset: 98, 101
+  index: -1
+action2/0_00005
+  rotate: true
+  xy: 1855, 277
+  size: 108, 182
+  orig: 600, 400
+  offset: 98, 101
+  index: -1
+action2/0_00006
+  rotate: true
+  xy: 1300, 384
+  size: 121, 182
+  orig: 600, 400
+  offset: 97, 101
+  index: -1
+action2/0_00007
+  rotate: false
+  xy: 1172, 325
+  size: 126, 180
+  orig: 600, 400
+  offset: 98, 101
+  index: -1
+action2/0_00008
+  rotate: true
+  xy: 237, 46
+  size: 124, 177
+  orig: 600, 400
+  offset: 101, 101
+  index: -1
+action2/0_00009
+  rotate: true
+  xy: 1484, 383
+  size: 122, 180
+  orig: 600, 400
+  offset: 102, 101
+  index: -1
+action2/0_00010
+  rotate: true
+  xy: 1851, 387
+  size: 118, 181
+  orig: 600, 400
+  offset: 103, 101
+  index: -1
+action2/0_00011
+  rotate: true
+  xy: 883, 166
+  size: 107, 182
+  orig: 600, 400
+  offset: 111, 101
+  index: -1
+action2/0_00012
+  rotate: true
+  xy: 1669, 174
+  size: 103, 184
+  orig: 600, 400
+  offset: 111, 101
+  index: -1
+action2/0_00013
+  rotate: true
+  xy: 511, 174
+  size: 101, 184
+  orig: 600, 400
+  offset: 110, 101
+  index: -1
+action2/0_00014
+  rotate: true
+  xy: 1466, 176
+  size: 100, 183
+  orig: 600, 400
+  offset: 108, 100
+  index: -1
+action2/0_00015
+  rotate: true
+  xy: 697, 171
+  size: 102, 184
+  orig: 600, 400
+  offset: 105, 100
+  index: -1
+action2/0_00016
+  rotate: false
+  xy: 1067, 103
+  size: 103, 183
+  orig: 600, 400
+  offset: 103, 101
+  index: -1
+action2/0_00017
+  rotate: true
+  xy: 1666, 387
+  size: 118, 183
+  orig: 600, 400
+  offset: 99, 102
+  index: -1
+action2/0_00018
+  rotate: true
+  xy: 1282, 170
+  size: 106, 182
+  orig: 600, 400
+  offset: 100, 102
+  index: -1
+action2/0_00019
+  rotate: false
+  xy: 1172, 142
+  size: 108, 181
+  orig: 600, 400
+  offset: 98, 102
+  index: -1
+action2/0_00020
+  rotate: false
+  xy: 2, 2
+  size: 233, 246
+  orig: 600, 400
+  offset: 40, 85
+  index: -1
+action2/0_00021
+  rotate: false
+  xy: 770, 275
+  size: 246, 230
+  orig: 600, 400
+  offset: 44, 101
+  index: -1
+action2/0_00022
+  rotate: false
+  xy: 2, 250
+  size: 244, 255
+  orig: 600, 400
+  offset: 45, 102
+  index: -1
+action2/0_00023
+  rotate: false
+  xy: 511, 277
+  size: 257, 228
+  orig: 600, 400
+  offset: 45, 102
+  index: -1
+action2/0_00024
+  rotate: false
+  xy: 248, 275
+  size: 261, 230
+  orig: 600, 400
+  offset: 49, 101
+  index: -1
+action2/0_00025
+  rotate: false
+  xy: 1018, 288
+  size: 152, 217
+  orig: 600, 400
+  offset: 92, 101
+  index: -1
+action2/0_00026
+  rotate: true
+  xy: 1282, 71
+  size: 97, 182
+  orig: 600, 400
+  offset: 111, 101
+  index: -1
+action2/0_00027
+  rotate: true
+  xy: 1651, 75
+  size: 97, 184
+  orig: 600, 400
+  offset: 111, 101
+  index: -1
+action2/0_00028
+  rotate: true
+  xy: 1837, 72
+  size: 98, 184
+  orig: 600, 400
+  offset: 110, 101
+  index: -1
+action2/0_00029
+  rotate: true
+  xy: 1466, 75
+  size: 99, 183
+  orig: 600, 400
+  offset: 108, 100
+  index: -1
+yw/stand/00026
+  rotate: false
+  xy: 237, 4
+  size: 67, 40
+  orig: 103, 103
+  offset: 4, 29
+  index: -1
+yw/stand/00028
+  rotate: false
+  xy: 434, 233
+  size: 66, 40
+  orig: 103, 103
+  offset: 6, 29
+  index: -1
+yw/stand/00030
+  rotate: false
+  xy: 306, 4
+  size: 65, 40
+  orig: 103, 103
+  offset: 6, 29
+  index: -1
+yw/stand/00032
+  rotate: false
+  xy: 434, 191
+  size: 65, 40
+  orig: 103, 103
+  offset: 6, 29
+  index: -1

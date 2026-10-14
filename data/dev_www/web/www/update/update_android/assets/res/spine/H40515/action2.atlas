@@ -1,0 +1,125 @@
+
+action2.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+image/action3/0_00000
+  rotate: false
+  xy: 1361, 130
+  size: 163, 243
+  orig: 600, 600
+  offset: 145, 129
+  index: -1
+image/action3/0_00001
+  rotate: false
+  xy: 1185, 74
+  size: 174, 248
+  orig: 600, 600
+  offset: 145, 130
+  index: -1
+image/action3/0_00002
+  rotate: false
+  xy: 1724, 408
+  size: 166, 255
+  orig: 600, 600
+  offset: 145, 128
+  index: -1
+image/action3/0_00003
+  rotate: false
+  xy: 1526, 167
+  size: 165, 238
+  orig: 600, 600
+  offset: 145, 129
+  index: -1
+image/action3/0_00004
+  rotate: true
+  xy: 1526, 2
+  size: 163, 227
+  orig: 600, 600
+  offset: 145, 130
+  index: -1
+image/action3/0_00005
+  rotate: false
+  xy: 1354, 375
+  size: 164, 257
+  orig: 600, 600
+  offset: 145, 128
+  index: -1
+image/action3/0_00006
+  rotate: false
+  xy: 774, 22
+  size: 183, 259
+  orig: 600, 600
+  offset: 145, 127
+  index: -1
+image/action3/0_00007
+  rotate: false
+  xy: 1520, 407
+  size: 202, 256
+  orig: 600, 600
+  offset: 145, 125
+  index: -1
+image/action3/0_00008
+  rotate: false
+  xy: 959, 85
+  size: 224, 237
+  orig: 600, 600
+  offset: 145, 127
+  index: -1
+image/action3/0_00009
+  rotate: true
+  xy: 480, 283
+  size: 311, 399
+  orig: 600, 600
+  offset: 132, 49
+  index: -1
+image/action3/0_00010
+  rotate: false
+  xy: 2, 71
+  size: 461, 478
+  orig: 600, 600
+  offset: 56, 45
+  index: -1
+image/action3/0_00011
+  rotate: false
+  xy: 2, 551
+  size: 476, 471
+  orig: 600, 600
+  offset: 53, 51
+  index: -1
+image/action3/0_00012
+  rotate: false
+  xy: 480, 596
+  size: 479, 426
+  orig: 600, 600
+  offset: 56, 82
+  index: -1
+image/action3/0_00013
+  rotate: false
+  xy: 961, 634
+  size: 473, 388
+  orig: 600, 600
+  offset: 66, 114
+  index: -1
+image/action3/0_00014
+  rotate: false
+  xy: 1436, 665
+  size: 455, 357
+  orig: 600, 600
+  offset: 74, 141
+  index: -1
+image/action3/0_00015
+  rotate: false
+  xy: 961, 324
+  size: 391, 308
+  orig: 600, 600
+  offset: 114, 193
+  index: -1
+image/action3/0_00016
+  rotate: false
+  xy: 465, 23
+  size: 307, 258
+  orig: 600, 600
+  offset: 154, 240
+  index: -1

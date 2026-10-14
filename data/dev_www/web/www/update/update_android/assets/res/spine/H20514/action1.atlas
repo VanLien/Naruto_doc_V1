@@ -1,0 +1,181 @@
+
+action1.png
+size: 1951,1075
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/attack/0_00000
+  rotate: false
+  xy: 1553, 46
+  size: 165, 182
+  orig: 700, 600
+  offset: 115, 99
+  index: -1
+images/attack/0_00001
+  rotate: true
+  xy: 1445, 275
+  size: 184, 181
+  orig: 700, 600
+  offset: 106, 117
+  index: -1
+images/attack/0_00002
+  rotate: false
+  xy: 1453, 461
+  size: 208, 216
+  orig: 700, 600
+  offset: 96, 117
+  index: -1
+images/attack/0_00003
+  rotate: true
+  xy: 1720, 47
+  size: 181, 229
+  orig: 700, 600
+  offset: 111, 117
+  index: -1
+images/attack/0_00004
+  rotate: false
+  xy: 1409, 6
+  size: 142, 235
+  orig: 700, 600
+  offset: 147, 117
+  index: -1
+images/attack/0_00005
+  rotate: false
+  xy: 1191, 2
+  size: 216, 239
+  orig: 700, 600
+  offset: 157, 117
+  index: -1
+images/attack/0_00006
+  rotate: false
+  xy: 1664, 827
+  size: 280, 246
+  orig: 700, 600
+  offset: 145, 117
+  index: -1
+images/attack/0_00007
+  rotate: true
+  xy: 1191, 243
+  size: 301, 252
+  orig: 700, 600
+  offset: 137, 117
+  index: -1
+images/attack/0_00008
+  rotate: false
+  xy: 1628, 230
+  size: 305, 229
+  orig: 700, 600
+  offset: 163, 117
+  index: -1
+images/attack/0_00009
+  rotate: true
+  xy: 1664, 481
+  size: 344, 262
+  orig: 700, 600
+  offset: 176, 117
+  index: -1
+images/attack/0_00010
+  rotate: true
+  xy: 1346, 679
+  size: 394, 316
+  orig: 700, 600
+  offset: 179, 117
+  index: -1
+images/attack/0_00011
+  rotate: true
+  xy: 1022, 669
+  size: 404, 322
+  orig: 700, 600
+  offset: 175, 117
+  index: -1
+images/attack/0_00012
+  rotate: true
+  xy: 2, 91
+  size: 406, 378
+  orig: 700, 600
+  offset: 174, 68
+  index: -1
+images/attack/0_00013
+  rotate: true
+  xy: 803, 34
+  size: 503, 386
+  orig: 700, 600
+  offset: 77, 56
+  index: -1
+images/attack/0_00014
+  rotate: true
+  xy: 500, 11
+  size: 520, 301
+  orig: 700, 600
+  offset: 63, 60
+  index: -1
+images/attack/0_00015
+  rotate: true
+  xy: 2, 499
+  size: 574, 317
+  orig: 700, 600
+  offset: 45, 49
+  index: -1
+images/attack/0_00016
+  rotate: true
+  xy: 321, 533
+  size: 540, 334
+  orig: 700, 600
+  offset: 35, 43
+  index: -1
+images/attack/0_00017
+  rotate: true
+  xy: 657, 539
+  size: 534, 363
+  orig: 700, 600
+  offset: 39, 24
+  index: -1
+images/attack/0_00018
+  rotate: true
+  xy: 1188, 546
+  size: 121, 263
+  orig: 700, 600
+  offset: 180, 117
+  index: -1
+images/attack/0_00019
+  rotate: true
+  xy: 1022, 542
+  size: 125, 164
+  orig: 700, 600
+  offset: 180, 117
+  index: -1
+images/attack/0_00020
+  rotate: true
+  xy: 2, 28
+  size: 61, 164
+  orig: 700, 600
+  offset: 180, 117
+  index: -1
+images/attack/0_00021
+  rotate: true
+  xy: 168, 28
+  size: 61, 164
+  orig: 700, 600
+  offset: 180, 117
+  index: -1
+images/attack/0_00022
+  rotate: true
+  xy: 334, 28
+  size: 61, 164
+  orig: 700, 600
+  offset: 180, 117
+  index: -1
+images/attack/0_00023
+  rotate: false
+  xy: 382, 367
+  size: 113, 164
+  orig: 700, 600
+  offset: 150, 117
+  index: -1
+images/attack/0_00024
+  rotate: false
+  xy: 382, 201
+  size: 113, 164
+  orig: 700, 600
+  offset: 150, 117
+  index: -1

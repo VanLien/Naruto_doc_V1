@@ -1,0 +1,76 @@
+
+hurt.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+suolong-hit_0
+  rotate: true
+  xy: 1115, 48
+  size: 133, 178
+  orig: 181, 195
+  offset: 40, 3
+  index: -1
+suolong-hit_10
+  rotate: false
+  xy: 464, 3
+  size: 143, 178
+  orig: 181, 195
+  offset: 6, 0
+  index: -1
+suolong-hit_12
+  rotate: false
+  xy: 160, 2
+  size: 154, 179
+  orig: 181, 195
+  offset: 0, 0
+  index: -1
+suolong-hit_14
+  rotate: false
+  xy: 2, 2
+  size: 156, 179
+  orig: 181, 195
+  offset: 6, 1
+  index: -1
+suolong-hit_16
+  rotate: true
+  xy: 755, 44
+  size: 137, 178
+  orig: 181, 195
+  offset: 33, 3
+  index: -1
+suolong-hit_18
+  rotate: true
+  xy: 1295, 48
+  size: 133, 178
+  orig: 181, 195
+  offset: 40, 3
+  index: -1
+suolong-hit_2
+  rotate: false
+  xy: 609, 8
+  size: 144, 173
+  orig: 181, 195
+  offset: 24, 0
+  index: -1
+suolong-hit_4
+  rotate: true
+  xy: 1475, 56
+  size: 125, 180
+  orig: 181, 195
+  offset: 24, 0
+  index: -1
+suolong-hit_6
+  rotate: true
+  xy: 935, 45
+  size: 136, 178
+  orig: 181, 195
+  offset: 24, 0
+  index: -1
+suolong-hit_8
+  rotate: false
+  xy: 316, 3
+  size: 146, 178
+  orig: 181, 195
+  offset: 14, 0
+  index: -1

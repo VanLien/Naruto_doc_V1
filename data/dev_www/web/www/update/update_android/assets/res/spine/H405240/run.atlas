@@ -1,0 +1,118 @@
+
+run.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hashirama run/0_00000
+  rotate: false
+  xy: 1589, 305
+  size: 188, 145
+  orig: 900, 600
+  offset: 153, 199
+  index: -1
+hashirama run/0_00001
+  rotate: false
+  xy: 790, 156
+  size: 185, 149
+  orig: 900, 600
+  offset: 156, 197
+  index: -1
+hashirama run/0_00002
+  rotate: false
+  xy: 1779, 306
+  size: 187, 144
+  orig: 900, 600
+  offset: 155, 199
+  index: -1
+hashirama run/0_00003
+  rotate: false
+  xy: 410, 166
+  size: 188, 141
+  orig: 900, 600
+  offset: 153, 203
+  index: -1
+hashirama run/0_00004
+  rotate: false
+  xy: 600, 164
+  size: 188, 142
+  orig: 900, 600
+  offset: 152, 206
+  index: -1
+hashirama run/0_00005
+  rotate: false
+  xy: 1398, 303
+  size: 189, 147
+  orig: 900, 600
+  offset: 152, 204
+  index: -1
+hashirama run/0_00006
+  rotate: false
+  xy: 1205, 301
+  size: 191, 149
+  orig: 900, 600
+  offset: 152, 203
+  index: -1
+hashirama run/0_00007
+  rotate: false
+  xy: 1011, 306
+  size: 192, 144
+  orig: 900, 600
+  offset: 149, 206
+  index: -1
+madara run/0_00000
+  rotate: false
+  xy: 812, 307
+  size: 197, 143
+  orig: 900, 600
+  offset: 156, 199
+  index: -1
+madara run/0_00001
+  rotate: false
+  xy: 2, 2
+  size: 197, 149
+  orig: 900, 600
+  offset: 160, 197
+  index: -1
+madara run/0_00002
+  rotate: false
+  xy: 207, 157
+  size: 200, 144
+  orig: 900, 600
+  offset: 158, 199
+  index: -1
+madara run/0_00003
+  rotate: false
+  xy: 410, 309
+  size: 200, 141
+  orig: 900, 600
+  offset: 156, 203
+  index: -1
+madara run/0_00004
+  rotate: false
+  xy: 612, 308
+  size: 198, 142
+  orig: 900, 600
+  offset: 155, 206
+  index: -1
+madara run/0_00005
+  rotate: false
+  xy: 207, 303
+  size: 201, 147
+  orig: 900, 600
+  offset: 155, 204
+  index: -1
+madara run/0_00006
+  rotate: false
+  xy: 2, 301
+  size: 203, 149
+  orig: 900, 600
+  offset: 155, 203
+  index: -1
+madara run/0_00007
+  rotate: false
+  xy: 2, 153
+  size: 203, 146
+  orig: 900, 600
+  offset: 153, 204
+  index: -1

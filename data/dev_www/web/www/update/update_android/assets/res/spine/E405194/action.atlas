@@ -1,0 +1,146 @@
+
+action.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2_tx/0_00000
+  rotate: true
+  xy: 917, 97
+  size: 129, 189
+  orig: 200, 300
+  offset: 40, 40
+  index: -1
+action2_tx/0_00001
+  rotate: true
+  xy: 1282, 80
+  size: 146, 169
+  orig: 200, 300
+  offset: 34, 66
+  index: -1
+action2_tx/0_00002
+  rotate: false
+  xy: 360, 57
+  size: 181, 169
+  orig: 200, 300
+  offset: 5, 71
+  index: -1
+action2_tx/0_00003
+  rotate: false
+  xy: 176, 56
+  size: 183, 170
+  orig: 200, 300
+  offset: 2, 79
+  index: -1
+action2_tx/0_00004
+  rotate: false
+  xy: 1, 45
+  size: 174, 181
+  orig: 200, 300
+  offset: 10, 70
+  index: -1
+action2_tx/0_00005
+  rotate: true
+  xy: 542, 59
+  size: 167, 176
+  orig: 200, 300
+  offset: 14, 80
+  index: -1
+action2_tx/0_00006
+  rotate: true
+  xy: 719, 93
+  size: 133, 197
+  orig: 200, 300
+  offset: 34, 58
+  index: -1
+action2_tx/0_00007
+  rotate: true
+  xy: 1107, 92
+  size: 134, 174
+  orig: 200, 300
+  offset: 38, 71
+  index: -1
+action2_tx/0_00008
+  rotate: true
+  xy: 1452, 103
+  size: 123, 165
+  orig: 200, 300
+  offset: 50, 79
+  index: -1
+action2_tx/0_00009
+  rotate: true
+  xy: 1618, 108
+  size: 118, 133
+  orig: 200, 300
+  offset: 55, 92
+  index: -1
+katsuyu/0_00000
+  rotate: false
+  xy: 1, 23
+  size: 37, 21
+  orig: 98, 122
+  offset: 38, 33
+  index: -1
+katsuyu/0_00001
+  rotate: false
+  xy: 719, 71
+  size: 37, 21
+  orig: 98, 122
+  offset: 38, 33
+  index: -1
+katsuyu/0_00002
+  rotate: false
+  xy: 1452, 81
+  size: 37, 21
+  orig: 98, 122
+  offset: 38, 33
+  index: -1
+katsuyu/0_00003
+  rotate: false
+  xy: 1490, 81
+  size: 36, 21
+  orig: 98, 122
+  offset: 39, 33
+  index: -1
+katsuyu/0_00004
+  rotate: false
+  xy: 1752, 183
+  size: 36, 21
+  orig: 98, 122
+  offset: 39, 33
+  index: -1
+katsuyu/0_00005
+  rotate: false
+  xy: 1790, 205
+  size: 36, 21
+  orig: 98, 122
+  offset: 39, 33
+  index: -1
+katsuyu/0_00006
+  rotate: false
+  xy: 1752, 205
+  size: 37, 21
+  orig: 98, 122
+  offset: 38, 33
+  index: -1
+katsuyu/0_00007
+  rotate: false
+  xy: 1, 1
+  size: 37, 21
+  orig: 98, 122
+  offset: 38, 33
+  index: -1
+katsuyu/0_00008
+  rotate: false
+  xy: 39, 23
+  size: 37, 21
+  orig: 98, 122
+  offset: 38, 33
+  index: -1
+katsuyu/0_00009
+  rotate: false
+  xy: 757, 71
+  size: 37, 21
+  orig: 98, 122
+  offset: 38, 33
+  index: -1

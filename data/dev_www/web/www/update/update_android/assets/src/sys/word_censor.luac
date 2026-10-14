@@ -1,0 +1,327 @@
+﻿TreeNode = TreeNode or BaseClass()
+
+function TreeNode.__init(arg_1_0)
+	arg_1_0.data = {}
+	arg_1_0._isLeaf = nil
+	arg_1_0.isEnd = false
+	arg_1_0.parent = nil
+	arg_1_0.value = nil
+end
+
+function TreeNode.getChild(arg_2_0, arg_2_1)
+	return arg_2_0.data[arg_2_1]
+end
+
+function TreeNode.addChild(arg_3_0, arg_3_1)
+	local var_3_0 = TreeNode.New()
+
+	arg_3_0.data[arg_3_1] = var_3_0
+	var_3_0.value = arg_3_1
+	var_3_0.parent = arg_3_0
+
+	return var_3_0
+end
+
+function TreeNode.getFullWord(arg_4_0)
+	local var_4_0 = arg_4_0.value
+	local var_4_1 = arg_4_0.parent
+
+	while var_4_1 do
+		var_4_0 = string.format("%s%s", var_4_1.value, var_4_0)
+		var_4_1 = var_4_1.parent
+	end
+
+	return var_4_0
+end
+
+function TreeNode.isLeaf(arg_5_0)
+	local var_5_0 = 0
+
+	for iter_5_0, iter_5_1 in pairs(arg_5_0.data) do
+		var_5_0 = var_5_0 + 1
+	end
+
+	arg_5_0._isLeaf = var_5_0 == 0
+
+	return arg_5_0._isLeaf
+end
+
+WordCensor = WordCensor or BaseClass()
+
+function WordCensor.__init(arg_6_0)
+	arg_6_0.word_config = {
+		"@你妹啊",
+		"@你大爷啊",
+		"@我擦",
+		"@你sb啊",
+		"@傻逼",
+		"@顶你的肺啊",
+		"@2b青年",
+		"@两百五"
+	}
+	arg_6_0.treeRoot = arg_6_0:createRootNode(arg_6_0.word_config)
+	WordCensor.Instance = arg_6_0
+end
+
+function WordCensor.getInstance(arg_7_0)
+	if not WordCensor.Instance then
+		WordCensor.New()
+	end
+
+	return WordCensor.Instance
+end
+
+function WordCensor.stringToChars(arg_8_0, arg_8_1)
+	local var_8_0 = {}
+	local var_8_1 = string.len(arg_8_1)
+	local var_8_2 = 1
+
+	while var_8_2 <= var_8_1 do
+		local var_8_3 = string.byte(arg_8_1, var_8_2)
+		local var_8_4 = 1
+
+		if var_8_3 > 0 and var_8_3 <= 127 then
+			var_8_4 = 1
+		elseif var_8_3 >= 192 and var_8_3 <= 223 then
+			var_8_4 = 2
+		elseif var_8_3 >= 224 and var_8_3 <= 239 then
+			var_8_4 = 3
+		elseif var_8_3 >= 240 and var_8_3 <= 247 then
+			var_8_4 = 4
+		end
+
+		local var_8_5 = string.sub(arg_8_1, var_8_2, var_8_2 + var_8_4 - 1)
+
+		var_8_2 = var_8_2 + var_8_4
+
+		table.insert(var_8_0, var_8_5)
+	end
+
+	return var_8_0, var_8_1
+end
+
+function WordCensor.createRootNode(arg_9_0, arg_9_1)
+	local var_9_0 = TreeNode.New()
+
+	var_9_0.value = ""
+
+	local var_9_1 = table.getn(arg_9_1)
+
+	for iter_9_0 = 1, var_9_1 do
+		local var_9_2 = arg_9_1[iter_9_0]
+		local var_9_3 = arg_9_0:stringToChars(var_9_2)
+		local var_9_4 = table.getn(var_9_3)
+		local var_9_5 = var_9_0
+
+		for iter_9_1 = 1, var_9_4 do
+			local var_9_6 = var_9_3[iter_9_1]
+			local var_9_7 = var_9_5:getChild(var_9_6)
+
+			if var_9_7 then
+				var_9_5 = var_9_7
+			else
+				var_9_5 = var_9_5:addChild(var_9_6)
+			end
+		end
+
+		var_9_5.isEnd = true
+	end
+
+	return var_9_0
+end
+
+function WordCensor.getRootNode(arg_10_0)
+	return arg_10_0.treeRoot
+end
+
+function WordCensor.replaceWordCensor(arg_11_0, arg_11_1)
+	local var_11_0
+	local var_11_1
+	local var_11_2
+	local var_11_3
+	local var_11_4 = arg_11_0:getRootNode()
+	local var_11_5 = arg_11_1
+	local var_11_6 = arg_11_0:stringToChars(arg_11_1)
+	local var_11_7 = 1
+	local var_11_8 = 0
+	local var_11_9 = 0
+
+	while var_11_7 <= table.getn(var_11_6) do
+		local var_11_10 = var_11_6[var_11_7]
+		local var_11_11 = var_11_4:getChild(var_11_10)
+
+		if var_11_11 then
+			if var_11_11.isEnd then
+				var_11_2 = var_11_11
+				var_11_8 = var_11_7
+			end
+
+			var_11_9 = var_11_7
+			var_11_4 = var_11_11
+			var_11_7 = var_11_7 + 1
+		else
+			if var_11_2 then
+				local var_11_12 = var_11_2:getFullWord()
+				local var_11_13 = arg_11_0:stringToChars(var_11_12)
+
+				var_11_5 = string.gsub(var_11_5, var_11_12, arg_11_0:getReplaceWord(table.getn(var_11_13)))
+				var_11_7 = var_11_8
+			elseif var_11_4 ~= arg_11_0:getRootNode() then
+				var_11_7 = var_11_9
+			end
+
+			var_11_4 = arg_11_0:getRootNode()
+			var_11_2 = nil
+			var_11_7 = var_11_7 + 1
+		end
+	end
+
+	if var_11_2 then
+		local var_11_14 = var_11_2.getFullWord()
+		local var_11_15 = arg_11_0:stringToChars(var_11_14)
+
+		var_11_5 = string.gsub(var_11_5, var_11_14, arg_11_0:getReplaceWord(table.getn(var_11_15)))
+	end
+
+	return var_11_5
+end
+
+function WordCensor.getReplaceWord(arg_12_0, arg_12_1)
+	local var_12_0 = ""
+
+	for iter_12_0 = 1, arg_12_1 do
+		var_12_0 = string.format("%s%s", var_12_0, "*")
+	end
+
+	return var_12_0
+end
+
+function WordCensor.relpaceChatTag(arg_13_0, arg_13_1)
+	local var_13_0 = 0
+
+	for iter_13_0, iter_13_1 in function()
+		return string.find(arg_13_1, "[<>]", var_13_0)
+	end do
+		local var_13_1 = string.sub(arg_13_1, iter_13_0, iter_13_1)
+
+		arg_13_1 = string.gsub(arg_13_1, var_13_1, "")
+		var_13_0 = iter_13_1 + 1
+	end
+
+	return arg_13_1
+end
+
+function WordCensor.relapceAssetsTag(arg_15_0, arg_15_1)
+	local var_15_0 = 0
+	local var_15_1 = Array.New()
+
+	for iter_15_0, iter_15_1 in function()
+		return string.find(arg_15_1, "(%<assets=)(.-)(%/)(%>)")
+	end do
+		local var_15_2 = string.sub(arg_15_1, iter_15_0, iter_15_1)
+		local var_15_3 = string.sub(var_15_2, 9, -3)
+		local var_15_4
+		local var_15_5 = Config.ItemData.data_get_data(tonumber(var_15_3))
+
+		if var_15_5 then
+			var_15_4 = PathTool.getItemRes(var_15_5.icon, true)
+		end
+
+		if not cc.FileUtils:getInstance():isFileExist(var_15_4) then
+			return arg_15_1
+		end
+
+		arg_15_1 = string.gsub(arg_15_1, var_15_2, "STR___", 1)
+
+		var_15_1:PushBack(string.format("<img src='%s' scale=0.3 />", var_15_4))
+
+		local var_15_6 = iter_15_1 + 1
+	end
+
+	while var_15_1:GetSize() > 0 do
+		arg_15_1 = string.gsub(arg_15_1, "STR___", var_15_1:PopFront(), 1)
+	end
+
+	return arg_15_1
+end
+
+function WordCensor.relapceChatIconTag(arg_17_0, arg_17_1)
+	local var_17_0 = 0
+	local var_17_1 = Array.New()
+
+	for iter_17_0, iter_17_1 in function()
+		return string.find(arg_17_1, "(%<icon=)(.-)(%/)(%>)", var_17_0)
+	end do
+		local var_17_2 = string.sub(arg_17_1, iter_17_0, iter_17_1)
+		local var_17_3 = string.sub(var_17_2, 9, -3)
+		local var_17_4 = PathTool.getChatRes(var_17_3)
+
+		if not cc.FileUtils:getInstance():isFileExist(var_17_4) then
+			return arg_17_1
+		end
+
+		arg_17_1 = string.gsub(arg_17_1, var_17_2, "STR___")
+
+		var_17_1:PushBack(string.format("<img src='%s' scale=0.25 />", var_17_4))
+
+		var_17_0 = iter_17_1 + 1
+	end
+
+	while var_17_1:GetSize() > 0 do
+		arg_17_1 = string.gsub(arg_17_1, "STR___", var_17_1:PopFront(), 1)
+	end
+
+	return arg_17_1
+end
+
+function WordCensor.relapceFaceIconTag(arg_19_0, arg_19_1)
+	local var_19_0 = Config.FaceData.data_biaoqing_length
+	local var_19_1 = 0
+	local var_19_2 = Array.New()
+
+	for iter_19_0, iter_19_1 in function()
+		return string.find(arg_19_1, "(%#)%d+", var_19_1)
+	end do
+		local var_19_3 = string.sub(arg_19_1, iter_19_0, iter_19_1)
+
+		if iter_19_0 > 1 and string.sub(arg_19_1, iter_19_0 - 1, iter_19_0 - 1) == "=" then
+			-- block empty
+		else
+			local var_19_4 = string.sub(var_19_3, 2)
+			local var_19_5 = string.len(var_19_4)
+			local var_19_6 = true
+			local var_19_7 = ""
+
+			while var_19_6 do
+				if var_19_0 < tonumber(var_19_4) then
+					var_19_4 = string.sub(var_19_4, 1, var_19_5 - 1)
+
+					if var_19_5 - 1 == string.len(var_19_4) then
+						var_19_6 = nil
+					end
+				else
+					arg_19_1 = string.gsub(arg_19_1, "#" .. var_19_4, "STR___", 1)
+
+					if Config.FaceData.data_biaoqing[tonumber(var_19_4)] then
+						var_19_2:PushBack(string.format(" <img src='%s'/>", PathTool.getResFrame("faceicon", Config.FaceData.data_biaoqing[tonumber(var_19_4)].name, false, "chat")))
+					end
+
+					var_19_6 = nil
+				end
+			end
+		end
+
+		var_19_1 = iter_19_1 + 1
+	end
+
+	local var_19_8 = var_19_2:GetSize()
+
+	while var_19_2:GetSize() > 0 do
+		arg_19_1 = string.gsub(arg_19_1, "STR___", var_19_2:PopFront(), 1)
+	end
+
+	return {
+		var_19_8,
+		arg_19_1
+	}
+end

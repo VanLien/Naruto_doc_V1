@@ -1,0 +1,17 @@
+﻿if cc.XMLHttpRequest == nil then
+	return
+end
+
+DeprecatedNetworkClass = {} or DeprecatedNetworkClass
+
+local function var_0_0(arg_1_0, arg_1_1)
+	return
+end
+
+function DeprecatedNetworkClass.WebSocket()
+	var_0_0("WebSocket", "cc.WebSocket")
+
+	return cc.WebSocket
+end
+
+_G.WebSocket = DeprecatedNetworkClass.WebSocket()

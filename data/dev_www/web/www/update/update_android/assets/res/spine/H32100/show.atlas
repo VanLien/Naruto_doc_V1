@@ -1,0 +1,48 @@
+
+show.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+126-宇智波鼬-秽土/10000
+  rotate: false
+  xy: 2, 495
+  size: 231, 490
+  orig: 564, 564
+  offset: 159, 19
+  index: -1
+126-宇智波鼬-秽土/10001
+  rotate: false
+  xy: 2, 3
+  size: 231, 490
+  orig: 564, 564
+  offset: 159, 19
+  index: -1
+126-宇智波鼬-秽土/10002
+  rotate: false
+  xy: 235, 494
+  size: 230, 491
+  orig: 564, 564
+  offset: 160, 19
+  index: -1
+126-宇智波鼬-秽土/10003
+  rotate: false
+  xy: 467, 494
+  size: 230, 491
+  orig: 564, 564
+  offset: 160, 19
+  index: -1
+126-宇智波鼬-秽土/10004
+  rotate: false
+  xy: 235, 2
+  size: 229, 490
+  orig: 564, 564
+  offset: 161, 19
+  index: -1
+126-宇智波鼬-秽土/10005
+  rotate: false
+  xy: 699, 495
+  size: 230, 490
+  orig: 564, 564
+  offset: 160, 19
+  index: -1

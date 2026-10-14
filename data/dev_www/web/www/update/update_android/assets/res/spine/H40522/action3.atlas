@@ -1,0 +1,76 @@
+
+action3.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/action3/0_00000
+  rotate: true
+  xy: 333, 236
+  size: 126, 136
+  orig: 1600, 1800
+  offset: 533, 434
+  index: -1
+images/action3/0_00001
+  rotate: false
+  xy: 372, 370
+  size: 122, 140
+  orig: 1600, 1800
+  offset: 533, 434
+  index: -1
+images/action3/0_00002
+  rotate: true
+  xy: 347, 120
+  size: 114, 144
+  orig: 1600, 1800
+  offset: 536, 434
+  index: -1
+images/action3/0_00003
+  rotate: true
+  xy: 178, 30
+  size: 117, 167
+  orig: 1600, 1800
+  offset: 538, 426
+  index: -1
+images/action3/0_00004
+  rotate: true
+  xy: 183, 364
+  size: 146, 187
+  orig: 1600, 1800
+  offset: 533, 425
+  index: -1
+images/action3/0_00005
+  rotate: false
+  xy: 2, 140
+  size: 167, 182
+  orig: 1600, 1800
+  offset: 528, 434
+  index: -1
+images/action3/0_00006
+  rotate: false
+  xy: 2, 324
+  size: 179, 186
+  orig: 1600, 1800
+  offset: 518, 432
+  index: -1
+images/action3/0_00007
+  rotate: true
+  xy: 171, 149
+  size: 173, 160
+  orig: 1600, 1800
+  offset: 519, 428
+  index: -1
+images/action3/0_00008
+  rotate: false
+  xy: 2, 9
+  size: 174, 129
+  orig: 1600, 1800
+  offset: 518, 429
+  index: -1
+images/action3/0_00009
+  rotate: true
+  xy: 347, 2
+  size: 116, 123
+  orig: 1600, 1800
+  offset: 516, 434
+  index: -1

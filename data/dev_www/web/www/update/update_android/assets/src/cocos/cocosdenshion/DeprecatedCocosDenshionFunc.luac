@@ -1,0 +1,25 @@
+﻿if cc.SimpleAudioEngine == nil then
+	return
+end
+
+local function var_0_0(arg_1_0, arg_1_1)
+	return
+end
+
+local var_0_1 = {
+	sharedEngine = function()
+		var_0_0("SimpleAudioEngine:sharedEngine", "SimpleAudioEngine:getInstance")
+
+		return cc.SimpleAudioEngine:getInstance()
+	end
+}
+
+SimpleAudioEngine.sharedEngine = var_0_1.sharedEngine
+
+function var_0_1.playBackgroundMusic(arg_3_0, ...)
+	var_0_0("SimpleAudioEngine:playBackgroundMusic", "SimpleAudioEngine:playMusic")
+
+	return arg_3_0:playMusic(...)
+end
+
+SimpleAudioEngine.playBackgroundMusic = var_0_1.playBackgroundMusic

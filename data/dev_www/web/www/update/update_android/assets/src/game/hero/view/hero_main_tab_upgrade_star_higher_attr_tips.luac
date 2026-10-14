@@ -1,0 +1,92 @@
+--------------------------------
+-- 
+-- @Date:   2020-12-10 16:08:59
+-- @Description:   英雄星级升阶属性tips
+--------------------------------
+local _controller = HeroController:getInstance()
+local _model = HeroController:getInstance():getModel()
+local _string_format = string.format
+local _table_insert = table.insert
+
+HeroMainTabUpgradeStarHigherAttrtips = HeroMainTabUpgradeStarHigherAttrtips or BaseClass(BaseView)
+
+function HeroMainTabUpgradeStarHigherAttrtips:__init()
+    self.is_full_screen = false  
+    self.win_type = WinType.Mini 
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG  
+    self.layout_name = "hero/hero_main_tab_upgrade_star_higher_attr_tips"
+    self.res_list = {
+        { path = PathTool.getPlistImgForDownLoad("tips","tips"), type = ResourcesType.plist },
+    }
+
+    self.plan_data = {}
+end
+
+function HeroMainTabUpgradeStarHigherAttrtips:open_callback()
+	self.background = self.root_wnd:getChildByName("background")
+    self.background:setScale(display.getMaxScale())
+
+    self.main_panel = self.root_wnd:getChildByName("main_panel")
+
+    self.main_panel:getChildByName("title_label"):setString(TI18N("语言_c_4391"))
+
+    self.star_step_attrs = {}
+    for i=1,4 do
+        local model = self.main_panel:getChildByName("img_star_bg_"..i)
+        model.img_starup_star = model:getChildByName("img_starup_star")
+        model.label_index = model:getChildByName("label_index")
+        model.label_index:setString(TI18N("语言_c_1")..i)
+        model.label_attr_des_list = {
+            model:getChildByName("label_attr_des_1"),
+            model:getChildByName("label_attr_des_2"),
+            model:getChildByName("label_attr_des_3")
+        }
+        self.star_step_attrs[i] = model
+    end
+end
+
+function HeroMainTabUpgradeStarHigherAttrtips:_createNewCell(width, height)
+    local cell = HolyequipmentChooseItem.new(width, height)
+    cell:setExtendData(self.hero_vo, self.plan_data)
+    return cell
+end
+
+function HeroMainTabUpgradeStarHigherAttrtips:register_event()
+	registerButtonEventListener(self.background, function()
+		_controller:openHeroMainTabUpgradeStarHigherAttrtips(false)
+	end, true, 2)
+end
+
+function HeroMainTabUpgradeStarHigherAttrtips:openRootWnd(obj)
+    self.hero_vo = obj.hero_vo
+    
+    self:updateStarUpState()
+end
+
+function HeroMainTabUpgradeStarHigherAttrtips:updateStarUpState()
+    for i,v in ipairs(self.star_step_attrs) do 
+        if _model:checkStarStepCompleteByIndex(self.hero_vo, i) then
+            setChildUnEnabled(false, v, cc.c4b(0x9e,0x50,0x1b,0xff))
+        else
+            setChildUnEnabled(true, v, cc.c4b(0x7f,0x7f,0x7f,0xff))
+        end
+        -- v.label_index:setString(i)
+        local key = getNorKey(self.hero_vo.bid, self.hero_vo.star, i)
+        local star_rank_config = Config.PartnerData.data_partner_star_step(key)
+        local attr_show = star_rank_config.attr_show
+        for p,q in ipairs(v.label_attr_des_list) do
+            q:setVisible(attr_show[p] ~= nil)
+            if attr_show[p] then
+                local str = attr_show[p][1]
+                if #attr_show[p] > 1 then
+                    str = string.format(attr_show[p][1], attr_show[p][2])
+                end
+                q:setString(str)
+            end
+        end
+    end
+end
+
+function HeroMainTabUpgradeStarHigherAttrtips:close_callback( )
+	_controller:openHeroMainTabUpgradeStarHigherAttrtips(false)
+end

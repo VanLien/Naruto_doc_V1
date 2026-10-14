@@ -1,0 +1,34 @@
+
+action3.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/11
+  rotate: true
+  xy: 786, 2
+  size: 321, 177
+  orig: 321, 321
+  offset: 0, 67
+  index: -1
+action2/12
+  rotate: false
+  xy: 2, 2
+  size: 298, 321
+  orig: 321, 321
+  offset: 7, 0
+  index: -1
+action2/13
+  rotate: false
+  xy: 302, 22
+  size: 240, 301
+  orig: 321, 321
+  offset: 65, 17
+  index: -1
+action2/14
+  rotate: false
+  xy: 544, 22
+  size: 240, 301
+  orig: 321, 321
+  offset: 65, 17
+  index: -1

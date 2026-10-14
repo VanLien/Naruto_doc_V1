@@ -1,0 +1,48 @@
+
+show.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+10000
+  rotate: false
+  xy: 2, 2
+  size: 181, 398
+  orig: 461, 461
+  offset: 144, 18
+  index: -1
+10001
+  rotate: false
+  xy: 185, 3
+  size: 181, 397
+  orig: 461, 461
+  offset: 144, 18
+  index: -1
+10002
+  rotate: false
+  xy: 734, 3
+  size: 180, 397
+  orig: 461, 461
+  offset: 144, 18
+  index: -1
+10003
+  rotate: false
+  xy: 916, 3
+  size: 180, 397
+  orig: 461, 461
+  offset: 144, 18
+  index: -1
+10004
+  rotate: false
+  xy: 368, 3
+  size: 181, 397
+  orig: 461, 461
+  offset: 144, 18
+  index: -1
+10005
+  rotate: false
+  xy: 551, 3
+  size: 181, 397
+  orig: 461, 461
+  offset: 144, 18
+  index: -1

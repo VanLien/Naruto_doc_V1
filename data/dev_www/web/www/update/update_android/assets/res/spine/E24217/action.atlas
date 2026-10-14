@@ -1,0 +1,27 @@
+
+action.png
+size: 939,372
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+houyun
+  rotate: true
+  xy: 611, 2
+  size: 368, 178
+  orig: 371, 190
+  offset: 0, 5
+  index: -1
+qianyun
+  rotate: false
+  xy: 2, 102
+  size: 607, 268
+  orig: 610, 280
+  offset: 0, 10
+  index: -1
+zhongyun
+  rotate: true
+  xy: 791, 28
+  size: 342, 146
+  orig: 346, 155
+  offset: 4, 3
+  index: -1

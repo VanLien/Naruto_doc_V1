@@ -1,0 +1,202 @@
+--------------------------------------------
+-- 
+-- 
+-- @Date    : 2018-10-16 20:31:31
+-- @description    : 
+		-- 常规赛赛季统计 对战记录 item
+---------------------------------
+GuildnewwarSeasonBattleRecordItem = class("GuildnewwarSeasonBattleRecordItem", function()
+    return ccui.Widget:create()
+end)
+
+GuildnewwarSeasonBattleRecordItem.Width = 628
+GuildnewwarSeasonBattleRecordItem.Height = 288
+
+function GuildnewwarSeasonBattleRecordItem:ctor()
+	self.ctrl = GuildNewwarController:getInstance()
+    self.model = self.ctrl:getModel()
+	self:configUI()
+	self:register_event()
+end
+
+function GuildnewwarSeasonBattleRecordItem:configUI(  )
+	self.size = cc.size(GuildnewwarSeasonBattleRecordItem.Width, GuildnewwarSeasonBattleRecordItem.Height)
+	self:setTouchEnabled(true)
+    self:setAnchorPoint(cc.p(0.5, 0))
+    self:setContentSize(self.size)
+
+	local csbPath = PathTool.getTargetCSB("guildnewwar/guildnewwar_season_battle_record_item")
+    self.root_wnd = cc.CSLoader:createNode(csbPath)
+    self:addChild(self.root_wnd)
+
+    local container = self.root_wnd:getChildByName("container")
+
+    self.result_win = container:getChildByName("result_win")
+    self.result_loss = container:getChildByName("result_loss")
+    self.result_win_x = self.result_win:getPositionX()
+    self.result_loss_x = self.result_loss:getPositionX()
+
+    self.play_btn = container:getChildByName("play_btn")
+    --中间部分
+    self.centre_scroe = container:getChildByName("centre_scroe")
+    self.centre_war_name = container:getChildByName("centre_war_name")
+    self.centre_time = container:getChildByName("centre_time")
+
+    local _getItem = function(prefix)
+        local item = {}
+        item.area_name = container:getChildByName(prefix.."area_name")
+        item.name = container:getChildByName(prefix.."name")
+        item.power_key = container:getChildByName(prefix.."power_key")
+        item.power_key:setString(TI18N("语言_c_1187"))
+        item.power_value = container:getChildByName(prefix.."power_value")
+        item.level_key = container:getChildByName(prefix.."level_key")
+        item.level_key:setString(TI18N("语言_c_73"))
+        item.level_value = container:getChildByName(prefix.."level_value")
+        local pos = cc.p(item.level_value:getPosition())
+        item.level_value:setVisible(false)
+        item.level_value = createRichLabel(20, cc.c3b(152, 85, 33), cc.p(0.5, 0.5), pos, 0, nil, 600)
+        container:addChild(item.level_value)
+        item.cups_key = container:getChildByName(prefix.."cups_key")
+        item.cups_key:setString(TI18N("语言_c_5246"))
+        item.cups_value = container:getChildByName(prefix.."cups_value")
+        local pos = cc.p(item.cups_value:getPosition())
+        item.cups_value:setVisible(false)
+        item.cups_value = createRichLabel(20, cc.c3b(152, 85, 33), cc.p(0.5, 0.5), pos, 0, nil, 600)
+        container:addChild(item.cups_value)
+        item.level_icon = container:getChildByName(prefix.."level_icon")
+        item.level_icon_1 = container:getChildByName(prefix.."level_icon_1")
+        item.head_node = container:getChildByName(prefix.."head_node")
+        local badge_item = GuildBadgeItem.new()
+        item.head_node:addChild(badge_item)
+        badge_item:setClickCallBack(function()
+            -- GuildController:getInstance():openGuildInfoWindow(item.data)
+            GuildController:getInstance():send13509(item.data.gid, item.data.srv_id)
+        end)
+        badge_item:setLevOnRight(prefix ~= "right_")
+        item.badge_item = badge_item
+        return item
+    end
+    self.left_item = _getItem("left_")
+    self.right_item = _getItem("right_")
+end
+
+function GuildnewwarSeasonBattleRecordItem:register_event(  )
+    registerButtonEventListener(self.play_btn, handler(self, self.onClickPlayBtn) ,true, 2)
+end
+
+function GuildnewwarSeasonBattleRecordItem:onClickPlayBtn()
+    if not self.data then return end
+    -- body
+    -- controller:openElitematchFightVedioPanel(true, self.data, self.index)
+end
+
+function GuildnewwarSeasonBattleRecordItem:setData(data)
+    if not data then return end
+    self.data = data
+
+    -- if data.combat_type == BattleConst.Fight_Type.GuildNewWar then
+        self.centre_war_name:setString(TI18N("语言_c_3889"))
+        self.centre_war_name:setTextColor(cc.c4b(0x3a, 0x78, 0xc4, 0xff))
+        self.centre_scroe:setString("")
+    -- else
+    --     self.centre_war_name:setString(TI18N("语言_c_5251"))
+    --     self.centre_war_name:setTextColor(cc.c4b(0xd9, 0x50, 0x14, 0xff))
+    --     local str = string_format("%s:%s", data.win_count, data.lose_count)
+    --     self.centre_scroe:setString(str)
+    -- end
+    local timezone = InviteCodeController:getInstance():getModel():getServerTimeZone()--服务器时区
+    local e_dZoneDiff = (timezone - TimeTool.getTimeZone())*3600
+    local time = TimeTool.getYMDHM(data.time + e_dZoneDiff)
+    self.centre_time:setString(time)
+
+
+    if data.ret == 1 then --左边胜利
+        self.result_win:setPositionX(self.result_win_x)
+        self.result_loss:setPositionX(self.result_loss_x)
+    else --右边胜利了
+        self.result_loss:setPositionX(self.result_win_x)
+        self.result_win:setPositionX(self.result_loss_x)
+    end
+
+    --左右
+    local left_data = {}
+    left_data.avatar = data.a_avatar
+    left_data.avatar_frame = data.a_avatar_frame
+    left_data.dan = data.a_dan
+    left_data.gid = data.a_gid
+    left_data.lev  = data.a_lev 
+    left_data.name = data.a_name
+    left_data.new_cups = data.a_new_cups
+    left_data.new_rank = data.a_new_rank
+    left_data.old_cups = data.a_old_cups
+    left_data.old_rank = data.a_old_rank
+    left_data.power = data.a_power
+    left_data.srv_id = data.a_srv_id
+
+    self.left_item.data = left_data
+    self:initItemInfo(self.left_item, left_data, "left")
+
+    local right_data = {}
+    right_data.avatar = data.b_avatar
+    right_data.avatar_frame = data.b_avatar_frame
+    right_data.dan = data.b_dan
+    right_data.gid = data.b_gid
+    right_data.lev  = data.b_lev 
+    right_data.name = data.b_name
+    right_data.new_cups = data.b_new_cups
+    right_data.new_rank = data.b_new_rank
+    right_data.old_cups = data.b_old_cups
+    right_data.old_rank = data.b_old_rank
+    right_data.power = data.b_power
+    right_data.srv_id = data.b_srv_id
+     self.right_item.data = right_data
+    self:initItemInfo(self.right_item, right_data, "right")
+end
+
+function GuildnewwarSeasonBattleRecordItem:initItemInfo(item, data, direction)
+    local srv_name = getServerName(srv_id)
+    item.area_name:setString(string_format("[%s]", data.srv_id))
+    item.name:setString(data.name)
+    item.power_value:setString(data.power)
+    if data.new_rank > data.old_rank and data.old_rank ~= 0 then
+        item.level_value:setString(string.format(TI18N("%s( <img src=%s visible=true scale=1 /> %s)"), data.new_rank, PathTool.getResFrame("market","market_down"), (data.new_rank - data.old_rank)))
+    elseif data.new_rank < data.old_rank then
+        item.level_value:setString(string.format(TI18N("%s( <img src=%s visible=true scale=1 /> %s)"), data.new_rank, PathTool.getResFrame("market","market_up"), (data.old_rank - data.new_rank)))
+    else
+        item.level_value:setString(string.format(TI18N("%s"), data.new_rank))
+    end
+
+    if data.new_cups > data.old_cups and data.old_cups ~= 0 then
+        item.cups_value:setString(string.format(TI18N("%s( <img src=%s visible=true scale=1 /> %s)"), data.new_cups, PathTool.getResFrame("market","market_up"), (data.new_cups - data.old_cups)))
+    elseif data.new_cups < data.old_cups then
+        item.cups_value:setString(string.format(TI18N("%s( <img src=%s visible=true scale=1 /> %s)"), data.new_cups, PathTool.getResFrame("market","market_down"), (data.old_cups - data.new_cups)))
+    else
+        item.cups_value:setString(string.format(TI18N("%s"), data.new_cups))
+    end
+
+    local config = Config.GuildWarNewData.data_guild_war_level[data.dan]
+    if config then
+        local name = config.little_ico
+        if name == nil or name == "" then
+            name = "icon_iron"
+        end
+        local bg_res = PathTool.getPlistImgForDownLoad("elitematch/elitematch_icon",name, false)
+        item.item_load = loadSpriteTextureFromCDN(item.level_icon , bg_res, ResourcesType.single, item.item_load)
+
+        name = config.little_name_ico
+        if name == nil or name == "" then
+            name = "num_1_1"
+        end
+        local bg_res = PathTool.getPlistImgForDownLoad("elitematch/elitematch_icon",name, false)
+        item.item_load_1 = loadSpriteTextureFromCDN(item.level_icon_1 , bg_res, ResourcesType.single, item.item_load_1)
+    end
+
+    local badge_data = GuildController:getInstance():getModel():getBadgeItemData(data.avatar, data.avatar_frame)
+    badge_data.lev = data.lev
+    item.badge_item:setData(badge_data)
+end
+
+
+function GuildnewwarSeasonBattleRecordItem:DeleteMe(  )
+
+end

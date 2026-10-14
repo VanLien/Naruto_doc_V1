@@ -1,0 +1,48 @@
+
+show.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+122-大筒木羽衣（六道仙人）/00000
+  rotate: false
+  xy: 1550, 1469
+  size: 386, 467
+  orig: 564, 564
+  offset: 93, 27
+  index: -1
+122-大筒木羽衣（六道仙人）/00001
+  rotate: false
+  xy: 776, 1462
+  size: 384, 474
+  orig: 564, 564
+  offset: 93, 24
+  index: -1
+122-大筒木羽衣（六道仙人）/00002
+  rotate: false
+  xy: 2, 968
+  size: 383, 482
+  orig: 564, 564
+  offset: 93, 18
+  index: -1
+122-大筒木羽衣（六道仙人）/00003
+  rotate: false
+  xy: 2, 1452
+  size: 384, 484
+  orig: 564, 564
+  offset: 93, 15
+  index: -1
+122-大筒木羽衣（六道仙人）/00004
+  rotate: false
+  xy: 388, 1456
+  size: 386, 480
+  orig: 564, 564
+  offset: 93, 18
+  index: -1
+122-大筒木羽衣（六道仙人）/00005
+  rotate: false
+  xy: 1162, 1464
+  size: 386, 472
+  orig: 564, 564
+  offset: 93, 24
+  index: -1

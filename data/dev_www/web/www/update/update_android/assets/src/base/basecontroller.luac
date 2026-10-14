@@ -1,0 +1,39 @@
+﻿BaseController = BaseController or BaseClass()
+
+function BaseController.getInstance(arg_1_0)
+	if not arg_1_0.is_init then
+		arg_1_0.is_init = true
+
+		if arg_1_0.config ~= nil then
+			arg_1_0:config()
+		end
+
+		if arg_1_0.registerEvents ~= nil then
+			arg_1_0:registerEvents()
+		end
+
+		if arg_1_0.registerProtocals ~= nil then
+			arg_1_0:registerProtocals()
+		end
+	end
+
+	return arg_1_0
+end
+
+function BaseController.RegisterProtocal(arg_2_0, arg_2_1, arg_2_2)
+	ProtoMgr:getInstance():RegisterCmdCallback(arg_2_1, arg_2_2, arg_2_0)
+end
+
+function BaseController.SendProtocal(arg_3_0, arg_3_1, arg_3_2)
+	if arg_3_1 == nil or arg_3_1 == 0 then
+		Debug.info("@发送失败, 错误的协议号")
+
+		return
+	end
+
+	print("sendprotocal*********", arg_3_1)
+
+	arg_3_2 = arg_3_2 or {}
+
+	Send(arg_3_1, arg_3_2)
+end

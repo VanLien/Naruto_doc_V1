@@ -1,0 +1,34 @@
+
+action4.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action4/0_00000
+  rotate: false
+  xy: 150, 2
+  size: 85, 143
+  orig: 960, 600
+  offset: 196, 184
+  index: -1
+action4/0_00001
+  rotate: true
+  xy: 1, 1
+  size: 89, 148
+  orig: 960, 600
+  offset: 195, 182
+  index: -1
+action4/0_00002
+  rotate: true
+  xy: 114, 146
+  size: 90, 140
+  orig: 960, 600
+  offset: 186, 182
+  index: -1
+action4/0_00003
+  rotate: false
+  xy: 1, 91
+  size: 112, 145
+  orig: 960, 600
+  offset: 226, 186
+  index: -1

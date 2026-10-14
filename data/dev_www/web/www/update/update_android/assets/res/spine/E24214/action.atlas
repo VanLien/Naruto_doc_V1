@@ -1,0 +1,13 @@
+
+action.png
+size: 36,49
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+senlin_shuye
+  rotate: false
+  xy: 3, 3
+  size: 30, 43
+  orig: 37, 51
+  offset: 4, 4
+  index: -1

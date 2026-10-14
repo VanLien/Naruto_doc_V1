@@ -1,0 +1,229 @@
+
+show.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+suolong-idle_0
+  rotate: false
+  xy: 2, 1464
+  size: 384, 536
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_60
+  rotate: false
+  xy: 2, 1464
+  size: 384, 536
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_10
+  rotate: false
+  xy: 774, 1464
+  size: 384, 536
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_12
+  rotate: false
+  xy: 388, 388
+  size: 384, 536
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_14
+  rotate: true
+  xy: 2, 2
+  size: 384, 536
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_16
+  rotate: false
+  xy: 774, 927
+  size: 384, 535
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_18
+  rotate: false
+  xy: 1160, 1465
+  size: 384, 535
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_2
+  rotate: false
+  xy: 2, 926
+  size: 384, 536
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_20
+  rotate: false
+  xy: 1546, 1466
+  size: 384, 534
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_22
+  rotate: false
+  xy: 1546, 931
+  size: 384, 533
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_24
+  rotate: false
+  xy: 1546, 396
+  size: 384, 533
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_26
+  rotate: true
+  xy: 540, 2
+  size: 384, 532
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_28
+  rotate: true
+  xy: 1074, 4
+  size: 384, 531
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_4
+  rotate: false
+  xy: 388, 1464
+  size: 384, 536
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_54
+  rotate: false
+  xy: 1160, 392
+  size: 384, 534
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_56
+  rotate: false
+  xy: 774, 390
+  size: 384, 535
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_58
+  rotate: false
+  xy: 1160, 928
+  size: 384, 535
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_6
+  rotate: false
+  xy: 2, 388
+  size: 384, 536
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_8
+  rotate: false
+  xy: 388, 926
+  size: 384, 536
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+
+show2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+suolong-idle_30
+  rotate: false
+  xy: 388, 1071
+  size: 384, 531
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_32
+  rotate: false
+  xy: 774, 1072
+  size: 384, 530
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_34
+  rotate: false
+  xy: 388, 6
+  size: 384, 530
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_36
+  rotate: false
+  xy: 774, 540
+  size: 384, 530
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_38
+  rotate: false
+  xy: 1160, 1072
+  size: 384, 530
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_40
+  rotate: false
+  xy: 774, 8
+  size: 384, 530
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_42
+  rotate: false
+  xy: 1160, 540
+  size: 384, 530
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_44
+  rotate: false
+  xy: 1546, 1072
+  size: 384, 530
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_46
+  rotate: false
+  xy: 2, 2
+  size: 384, 531
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_48
+  rotate: false
+  xy: 388, 538
+  size: 384, 531
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_50
+  rotate: false
+  xy: 2, 535
+  size: 384, 532
+  orig: 384, 537
+  offset: 0, 0
+  index: -1
+suolong-idle_52
+  rotate: false
+  xy: 2, 1069
+  size: 384, 533
+  orig: 384, 537
+  offset: 0, 0
+  index: -1

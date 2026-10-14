@@ -1,0 +1,179 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+image/skill3/00
+  rotate: false
+  xy: 1812, 1724
+  size: 233, 321
+  orig: 2200, 1610
+  offset: 916, 563
+  index: -1
+image/skill3/04
+  rotate: false
+  xy: 1458, 2
+  size: 540, 848
+  orig: 2200, 1610
+  offset: 623, 405
+  index: -1
+image/skill3/09
+  rotate: true
+  xy: 1458, 852
+  size: 465, 587
+  orig: 2200, 1610
+  offset: 623, 579
+  index: -1
+image/skill3/10
+  rotate: false
+  xy: 2, 965
+  size: 726, 1080
+  orig: 2200, 1610
+  offset: 623, 405
+  index: -1
+image/skill3/11
+  rotate: true
+  xy: 730, 1319
+  size: 726, 1080
+  orig: 2200, 1610
+  offset: 623, 405
+  index: -1
+image/skill3/12
+  rotate: false
+  xy: 730, 237
+  size: 726, 1080
+  orig: 2200, 1610
+  offset: 623, 405
+  index: -1
+image/skill3/17
+  rotate: false
+  xy: 2, 107
+  size: 726, 856
+  orig: 2200, 1610
+  offset: 623, 609
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+image/skill3/01
+  rotate: false
+  xy: 1467, 99
+  size: 332, 426
+  orig: 2200, 1610
+  offset: 802, 557
+  index: -1
+image/skill3/02
+  rotate: false
+  xy: 1506, 527
+  size: 516, 701
+  orig: 2200, 1610
+  offset: 623, 499
+  index: -1
+image/skill3/03
+  rotate: false
+  xy: 1515, 1230
+  size: 518, 790
+  orig: 2200, 1610
+  offset: 623, 422
+  index: -1
+image/skill3/06
+  rotate: true
+  xy: 730, 2
+  size: 562, 735
+  orig: 2200, 1610
+  offset: 623, 518
+  index: -1
+image/skill3/13
+  rotate: false
+  xy: 2, 940
+  size: 726, 1080
+  orig: 2200, 1610
+  offset: 623, 405
+  index: -1
+image/skill3/14
+  rotate: true
+  xy: 730, 566
+  size: 726, 774
+  orig: 2200, 1610
+  offset: 623, 603
+  index: -1
+image/skill3/15
+  rotate: true
+  xy: 730, 1294
+  size: 726, 783
+  orig: 2200, 1610
+  offset: 623, 607
+  index: -1
+image/skill3/16
+  rotate: false
+  xy: 2, 114
+  size: 726, 824
+  orig: 2200, 1610
+  offset: 623, 604
+  index: -1
+
+action3.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+image/skill3/05
+  rotate: false
+  xy: 2, 1196
+  size: 664, 779
+  orig: 2200, 1610
+  offset: 623, 409
+  index: -1
+image/skill3/07
+  rotate: false
+  xy: 1396, 644
+  size: 628, 603
+  orig: 2200, 1610
+  offset: 623, 572
+  index: -1
+image/skill3/08
+  rotate: true
+  xy: 2, 2
+  size: 464, 587
+  orig: 2200, 1610
+  offset: 623, 579
+  index: -1
+image/skill3/18
+  rotate: true
+  xy: 2, 468
+  size: 726, 611
+  orig: 2200, 1610
+  offset: 623, 616
+  index: -1
+image/skill3/19
+  rotate: false
+  xy: 668, 1298
+  size: 726, 677
+  orig: 2200, 1610
+  offset: 623, 598
+  index: -1
+image/skill3/20
+  rotate: true
+  xy: 1396, 1249
+  size: 726, 607
+  orig: 2200, 1610
+  offset: 623, 616
+  index: -1
+image/skill3/21
+  rotate: false
+  xy: 668, 729
+  size: 726, 567
+  orig: 2200, 1610
+  offset: 623, 616
+  index: -1
+image/skill3/22
+  rotate: false
+  xy: 615, 181
+  size: 726, 546
+  orig: 2200, 1610
+  offset: 623, 616
+  index: -1

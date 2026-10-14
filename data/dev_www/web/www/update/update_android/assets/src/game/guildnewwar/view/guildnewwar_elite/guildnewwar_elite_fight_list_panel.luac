@@ -1,0 +1,207 @@
+ -- --------------------------------------------------------------------
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      王者赛录像
+-- <br/> 2019年3月1日
+-- --------------------------------------------------------------------
+GuildnewwarEliteFightListPanel = GuildnewwarEliteFightListPanel or BaseClass(BaseView)
+
+local controller = GuildNewwarController:getInstance()
+local string_format = string.format
+local table_insert = table.insert
+local table_sort = table.sort
+
+
+function GuildnewwarEliteFightListPanel:__init()
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+    self.win_type = WinType.Big   
+    self.is_full_screen = false
+    self.layout_name = "guildnewwar/guildnewwar_elite/guildnewwar_elite_fight_list_panel"
+
+    self.res_list = {
+        { path = PathTool.getPlistImgForDownLoad("vedio","vedio"), type = ResourcesType.plist },
+    }
+
+    --奖励
+    -- self.dic_reward_list = {}
+    self.show_list = {}
+end
+
+function GuildnewwarEliteFightListPanel:open_callback()
+    self.background = self.root_wnd:getChildByName("background")
+    if self.background ~= nil then
+        self.background:setScale(display.getMaxScale())
+    end
+
+    self.main_container = self.root_wnd:getChildByName("main_container")
+    self:playEnterAnimatianByObj(self.main_container, 1)
+    self.main_panel = self.main_container:getChildByName("main_panel")
+
+    self.title = self.main_panel:getChildByName("win_title")
+    self.title:setString(TI18N("语言_c_5371"))
+
+    self.scroll_container = self.main_panel:getChildByName("scroll_container")
+
+    self.close_btn = self.main_panel:getChildByName("close_btn")
+ 
+    self.left_name = self.main_panel:getChildByName("left_name")
+    self.left_srv = self.main_panel:getChildByName("left_srv")
+    self.right_name = self.main_panel:getChildByName("right_name")
+    self.right_srv = self.main_panel:getChildByName("right_srv")
+
+    self.victory_label = self.main_panel:getChildByName("victory_label")
+    self.victory_label:ignoreContentAdaptWithSize(true)
+    self.victory_label:setTextAreaSize(cc.size(650, 0))
+
+    local left_role = self.main_panel:getChildByName("node_left_item")
+    local right_role = self.main_panel:getChildByName("node_right_item")
+    
+    local badge_item = GuildBadgeItem.new()
+    self.left_badge_item = badge_item
+    left_role:addChild(badge_item)
+
+    local badge_item = GuildBadgeItem.new()
+    self.right_badge_item = badge_item
+    right_role:addChild(badge_item)
+end
+
+function GuildnewwarEliteFightListPanel:register_event()
+    registerButtonEventListener(self.background, handler(self, self.onClickBtnClose) ,false, 1)
+    registerButtonEventListener(self.close_btn, handler(self, self.onClickBtnClose) ,true, 2)
+
+    --积分发送改变的时候
+    self:addGlobalEvent(GuildNewwarEvent.GUILDNEWWAR_UPDATE_BATTLE_List_EVENT, function(data)
+        if not data then return end
+        self:setData(data)
+    end)
+end
+
+--关闭
+function GuildnewwarEliteFightListPanel:onClickBtnClose()
+    controller:openGuildnewwarEliteFightListPanel(false)
+end
+
+--@level_id 段位
+function GuildnewwarEliteFightListPanel:openRootWnd(data)
+    local data = data or {}
+    local pk_id = data.pk_id or 0 
+    self.p_type = data.p_type or ""
+    controller:sender14252(pk_id)
+end
+function GuildnewwarEliteFightListPanel:setData(data)
+    self.data = data
+    self.show_list =  data.combat_list
+    self.win_left_num = 0
+    self.win_right_num = 0
+    self.win_name = data.win_name --公会名字
+    self.team_num = data.team_num --剩余队伍数量
+    -- table_sort(self.show_list,function(a, b) return a.order < b.order end)
+    for i, v in ipairs(self.show_list) do
+        if v.ret == 1 then
+            self.win_left_num = self.win_left_num + 1
+        elseif v.ret == 2 then
+            self.win_right_num = self.win_right_num + 1
+        end
+    end
+    self:updateList()
+    self:updateGuildInfo()
+end
+
+function GuildnewwarEliteFightListPanel:updateGuildInfo()
+    local badge_data = GuildController:getInstance():getModel():getBadgeItemData(self.data.a_avatar, self.data.b_avatar_frame)
+    badge_data.lev = self.data.a_lev or 1
+    self.left_badge_item:setData(badge_data)
+
+    local badge_data = GuildController:getInstance():getModel():getBadgeItemData(self.data.a_avatar, self.data.b_avatar_frame)
+    badge_data.lev = self.data.a_lev or 1
+    self.right_badge_item:setData(badge_data)
+
+    -- self.left_name:setString(self.data.a_name)
+    self.left_srv:setString(string_format("%s",transformNameByServ(self.data.a_name, self.data.a_srv_id)))
+    -- self.right_name:setString(self.data.b_name)
+    self.right_srv:setString(string_format("%s",transformNameByServ(self.data.b_name, self.data.b_srv_id)))
+
+    if self.data.win_name and self.data.win_name ~= "" then
+        if self.team_num == 0 then
+            self.victory_label:setString(LangStringFormat(TI18N("语言_c_5409"), self.data.win_name))
+        else
+            self.victory_label:setString(LangStringFormat(TI18N("语言_c_5355"), self.data.win_name, self.team_num))
+        end
+        self.victory_label:setVisible(true)
+    else
+        self.victory_label:setVisible(false)
+    end
+    -- local main_data = GuildNewwarController:getInstance():getModel():getMainData()
+    -- if main_data.step_status ~= GuildNewwarConst.guessing_set_status_type.set_status_battle then
+    --     self.victory_label:setVisible(false)
+    -- end
+end
+
+function GuildnewwarEliteFightListPanel:updateList()
+    if self.item_scrollview == nil then
+        local scroll_view_size = self.scroll_container:getContentSize()
+        local setting = {
+            start_x = 0,                     -- 第一个单元的X起点
+            space_x = 0,                     -- x方向的间隔
+            start_y = 0,                     -- 第一个单元的Y起点
+            space_y = 0,                     -- y方向的间隔
+            item_width = 615,                -- 单元的尺寸width
+            item_height = 150,               -- 单元的尺寸height
+            row = 1,                         -- 行数，作用于水平滚动类型
+            col = 1,                         -- 列数，作用于垂直滚动类型
+            once_num = 1,                    -- 每次创建的数量
+        }
+        self.item_scrollview = CommonScrollViewSingleLayout.new(self.scroll_container, cc.p(0,0) , ScrollViewDir.vertical, ScrollViewStartPos.top, scroll_view_size, setting, cc.p(0, 0))
+
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.createNewCell), ScrollViewFuncType.CreateNewCell) --创建cell
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.numberOfCells), ScrollViewFuncType.NumberOfCells) --获取数量
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.updateCellByIndex), ScrollViewFuncType.UpdateCellByIndex) --更新cell
+    end
+    
+    self.item_scrollview:reloadData()
+
+    if #self.show_list == 0 then
+        commonShowEmptyIcon(self.scroll_container, true, {text = TI18N("语言_c_130")})
+    else
+        commonShowEmptyIcon(self.scroll_container, false)
+    end
+end
+
+
+--创建cell 
+--@width 是setting.item_width
+--@height 是setting.item_height
+function GuildnewwarEliteFightListPanel:createNewCell(width, height)
+   local cell = GuildnewwarEliteFightListItem.new(width, height)
+   -- cell:setActionRankCommonType(self.holiday_bid, self.type)
+    -- cell:addCallBack(function() self:onCellTouched(cell) end)
+    return cell
+end
+--获取数据数量
+function GuildnewwarEliteFightListPanel:numberOfCells()
+    if not self.show_list then return 0 end
+    return #self.show_list
+end
+--更新cell(拖动的时候.刷新数据时候会执行次方法)
+--cell :createNewCell的返回的对象
+--index :数据的索引
+function GuildnewwarEliteFightListPanel:updateCellByIndex(cell, index)
+    cell.index = index
+    local cell_data = self.show_list[index]
+    if not cell_data then return end
+    cell:setData(cell_data, self.p_type)
+end
+
+
+function GuildnewwarEliteFightListPanel:close_callback()
+    if self.item_scrollview then
+        self.item_scrollview:DeleteMe()
+    end
+    self.item_scrollview = nil
+    GlobalEvent:getInstance():Fire(VedioEvent.OpenCollectViewEvent, false)
+    if self.p_type and self.p_type == "guess" then
+        GlobalEvent:getInstance():Fire(BarrageEvent.HandleBarrageType, true, BarrageConst.type.arenapeakchampion)
+    end
+    controller:openGuildnewwarEliteFightListPanel(false)
+end

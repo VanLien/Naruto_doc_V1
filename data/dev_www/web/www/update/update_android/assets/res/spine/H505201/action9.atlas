@@ -1,0 +1,90 @@
+
+action9.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/stand/00000
+  rotate: false
+  xy: 240, 2
+  size: 118, 194
+  orig: 768, 384
+  offset: 203, 83
+  index: -1
+image/stand/00001
+  rotate: false
+  xy: 359, 2
+  size: 117, 194
+  orig: 768, 384
+  offset: 204, 83
+  index: -1
+image/stand/00002
+  rotate: true
+  xy: 1182, 80
+  size: 116, 193
+  orig: 768, 384
+  offset: 204, 83
+  index: -1
+image/stand/00003
+  rotate: true
+  xy: 1570, 81
+  size: 115, 192
+  orig: 768, 384
+  offset: 204, 83
+  index: -1
+image/stand/00004
+  rotate: true
+  xy: 1763, 81
+  size: 115, 192
+  orig: 768, 384
+  offset: 204, 83
+  index: -1
+image/stand/00005
+  rotate: true
+  xy: 1376, 81
+  size: 115, 193
+  orig: 768, 384
+  offset: 205, 83
+  index: -1
+image/stand/00006
+  rotate: false
+  xy: 477, 2
+  size: 116, 194
+  orig: 768, 384
+  offset: 205, 83
+  index: -1
+image/stand/00007
+  rotate: true
+  xy: 594, 81
+  size: 115, 195
+  orig: 768, 384
+  offset: 206, 83
+  index: -1
+image/stand/00008
+  rotate: true
+  xy: 790, 81
+  size: 115, 195
+  orig: 768, 384
+  offset: 206, 83
+  index: -1
+image/stand/00009
+  rotate: true
+  xy: 986, 81
+  size: 115, 195
+  orig: 768, 384
+  offset: 206, 83
+  index: -1
+image/stand/00010
+  rotate: false
+  xy: 121, 1
+  size: 118, 195
+  orig: 768, 384
+  offset: 204, 83
+  index: -1
+image/stand/00011
+  rotate: false
+  xy: 1, 1
+  size: 119, 195
+  orig: 768, 384
+  offset: 203, 83
+  index: -1

@@ -1,0 +1,76 @@
+
+stand2.png
+size: 1024,512
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/2/stand1/00000
+  rotate: false
+  xy: 580, 161
+  size: 148, 266
+  orig: 661, 474
+  offset: 116, 88
+  index: -1
+image/2/stand1/00001
+  rotate: true
+  xy: 2, 2
+  size: 140, 256
+  orig: 661, 474
+  offset: 124, 95
+  index: -1
+image/2/stand1/00002
+  rotate: true
+  xy: 260, 3
+  size: 140, 260
+  orig: 661, 474
+  offset: 122, 92
+  index: -1
+image/2/stand1/00003
+  rotate: false
+  xy: 435, 153
+  size: 143, 274
+  orig: 661, 474
+  offset: 118, 88
+  index: -1
+image/2/stand1/00004
+  rotate: false
+  xy: 296, 146
+  size: 137, 281
+  orig: 661, 474
+  offset: 124, 87
+  index: -1
+image/2/stand1/00005
+  rotate: false
+  xy: 149, 145
+  size: 145, 282
+  orig: 661, 474
+  offset: 116, 85
+  index: -1
+image/2/stand1/00006
+  rotate: false
+  xy: 2, 144
+  size: 145, 283
+  orig: 661, 474
+  offset: 117, 85
+  index: -1
+image/2/stand1/00007
+  rotate: true
+  xy: 730, 294
+  size: 133, 278
+  orig: 661, 474
+  offset: 124, 89
+  index: -1
+image/2/stand1/00008
+  rotate: true
+  xy: 730, 170
+  size: 122, 273
+  orig: 661, 474
+  offset: 127, 87
+  index: -1
+image/2/stand1/00009
+  rotate: true
+  xy: 730, 48
+  size: 120, 271
+  orig: 661, 474
+  offset: 128, 87
+  index: -1

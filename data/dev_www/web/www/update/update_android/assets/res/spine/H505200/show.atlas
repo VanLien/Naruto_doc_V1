@@ -1,0 +1,348 @@
+
+show.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/show2/limbo/1/00000
+  rotate: false
+  xy: 1857, 1761
+  size: 162, 286
+  orig: 819, 819
+  offset: 200, 285
+  index: -1
+image/show2/limbo/1/00001
+  rotate: false
+  xy: 1857, 1474
+  size: 162, 286
+  orig: 819, 819
+  offset: 200, 285
+  index: -1
+image/show2/limbo/1/00002
+  rotate: true
+  xy: 463, 797
+  size: 162, 286
+  orig: 819, 819
+  offset: 200, 285
+  index: -1
+image/show2/limbo/1/00003
+  rotate: true
+  xy: 1381, 161
+  size: 161, 286
+  orig: 819, 819
+  offset: 201, 285
+  index: -1
+image/show2/limbo/1/00006
+  rotate: true
+  xy: 917, 1
+  size: 159, 286
+  orig: 819, 819
+  offset: 202, 285
+  index: -1
+image/show2/limbo/1/00007
+  rotate: true
+  xy: 1204, 1
+  size: 159, 286
+  orig: 819, 819
+  offset: 202, 285
+  index: -1
+image/show2/limbo/1/00010
+  rotate: true
+  xy: 1668, 161
+  size: 161, 286
+  orig: 819, 819
+  offset: 201, 285
+  index: -1
+image/show2/limbo/1/00011
+  rotate: true
+  xy: 750, 797
+  size: 162, 286
+  orig: 819, 819
+  offset: 200, 285
+  index: -1
+image/show2/limbo/2/00004
+  rotate: true
+  xy: 272, 2
+  size: 145, 270
+  orig: 819, 819
+  offset: 460, 303
+  index: -1
+image/show2/limbo/2/00005
+  rotate: true
+  xy: 1491, 15
+  size: 145, 270
+  orig: 819, 819
+  offset: 460, 303
+  index: -1
+image/show2/limbo/2/00006
+  rotate: true
+  xy: 1, 1
+  size: 146, 270
+  orig: 819, 819
+  offset: 459, 303
+  index: -1
+image/show2/limbo/2/00007
+  rotate: true
+  xy: 1762, 15
+  size: 145, 269
+  orig: 819, 819
+  offset: 459, 303
+  index: -1
+image/show2/limbo/2/00009
+  rotate: true
+  xy: 543, 2
+  size: 145, 270
+  orig: 819, 819
+  offset: 459, 303
+  index: -1
+image/show2/man/00000
+  rotate: false
+  xy: 460, 148
+  size: 456, 633
+  orig: 819, 819
+  offset: 216, 150
+  index: -1
+image/show2/man/00001
+  rotate: true
+  xy: 464, 960
+  size: 456, 633
+  orig: 819, 819
+  offset: 214, 150
+  index: -1
+image/show2/man/00002
+  rotate: false
+  xy: 1, 148
+  size: 458, 633
+  orig: 819, 819
+  offset: 211, 150
+  index: -1
+image/show2/man/00003
+  rotate: false
+  xy: 1, 1415
+  size: 462, 632
+  orig: 819, 819
+  offset: 207, 150
+  index: -1
+image/show2/man/00004
+  rotate: false
+  xy: 464, 1417
+  size: 463, 630
+  orig: 819, 819
+  offset: 204, 150
+  index: -1
+image/show2/man/00005
+  rotate: false
+  xy: 1098, 788
+  size: 462, 628
+  orig: 819, 819
+  offset: 203, 150
+  index: -1
+image/show2/man/00006
+  rotate: true
+  xy: 1381, 323
+  size: 461, 625
+  orig: 819, 819
+  offset: 204, 150
+  index: -1
+image/show2/man/00007
+  rotate: false
+  xy: 917, 161
+  size: 463, 626
+  orig: 819, 819
+  offset: 205, 150
+  index: -1
+image/show2/man/00008
+  rotate: false
+  xy: 1392, 1419
+  size: 464, 628
+  orig: 819, 819
+  offset: 208, 150
+  index: -1
+image/show2/man/00009
+  rotate: false
+  xy: 928, 1417
+  size: 463, 630
+  orig: 819, 819
+  offset: 212, 150
+  index: -1
+image/show2/man/00010
+  rotate: false
+  xy: 1, 782
+  size: 461, 632
+  orig: 819, 819
+  offset: 215, 150
+  index: -1
+image/show2/man/00011
+  rotate: false
+  xy: 1561, 785
+  size: 458, 633
+  orig: 819, 819
+  offset: 217, 150
+  index: -1
+
+show2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/show2/limbo/1/00004
+  rotate: true
+  xy: 1, 1
+  size: 160, 286
+  orig: 819, 819
+  offset: 201, 285
+  index: -1
+image/show2/limbo/1/00005
+  rotate: false
+  xy: 1855, 1667
+  size: 160, 286
+  orig: 819, 819
+  offset: 201, 285
+  index: -1
+image/show2/limbo/1/00008
+  rotate: true
+  xy: 288, 1
+  size: 160, 286
+  orig: 819, 819
+  offset: 201, 285
+  index: -1
+image/show2/limbo/1/00009
+  rotate: true
+  xy: 575, 6
+  size: 160, 286
+  orig: 819, 819
+  offset: 201, 285
+  index: -1
+image/show2/limbo/2/00000
+  rotate: true
+  xy: 927, 474
+  size: 143, 270
+  orig: 819, 819
+  offset: 460, 303
+  index: -1
+image/show2/limbo/2/00001
+  rotate: true
+  xy: 1198, 474
+  size: 143, 269
+  orig: 819, 819
+  offset: 460, 303
+  index: -1
+image/show2/limbo/2/00002
+  rotate: false
+  xy: 1358, 204
+  size: 143, 269
+  orig: 819, 819
+  offset: 461, 303
+  index: -1
+image/show2/limbo/2/00003
+  rotate: false
+  xy: 1070, 203
+  size: 143, 270
+  orig: 819, 819
+  offset: 461, 303
+  index: -1
+image/show2/limbo/2/00008
+  rotate: false
+  xy: 1855, 1397
+  size: 145, 269
+  orig: 819, 819
+  offset: 459, 303
+  index: -1
+image/show2/limbo/2/00010
+  rotate: false
+  xy: 925, 203
+  size: 144, 270
+  orig: 819, 819
+  offset: 459, 303
+  index: -1
+image/show2/limbo/2/00011
+  rotate: false
+  xy: 1214, 203
+  size: 143, 270
+  orig: 819, 819
+  offset: 460, 303
+  index: -1
+image/show2/moon/00000
+  rotate: false
+  xy: 928, 618
+  size: 459, 443
+  orig: 1000, 1000
+  offset: 259, 480
+  index: -1
+image/show2/moon/00001
+  rotate: false
+  xy: 464, 167
+  size: 460, 444
+  orig: 1000, 1000
+  offset: 259, 479
+  index: -1
+image/show2/moon/00002
+  rotate: false
+  xy: 1393, 1508
+  size: 461, 445
+  orig: 1000, 1000
+  offset: 258, 479
+  index: -1
+image/show2/moon/00003
+  rotate: false
+  xy: 1, 609
+  size: 462, 446
+  orig: 1000, 1000
+  offset: 258, 478
+  index: -1
+image/show2/moon/00004
+  rotate: false
+  xy: 465, 1058
+  size: 462, 446
+  orig: 1000, 1000
+  offset: 258, 478
+  index: -1
+image/show2/moon/00005
+  rotate: false
+  xy: 1, 1056
+  size: 463, 448
+  orig: 1000, 1000
+  offset: 257, 477
+  index: -1
+image/show2/moon/00006
+  rotate: false
+  xy: 1, 1505
+  size: 464, 448
+  orig: 1000, 1000
+  offset: 257, 477
+  index: -1
+image/show2/moon/00007
+  rotate: false
+  xy: 466, 1505
+  size: 463, 448
+  orig: 1000, 1000
+  offset: 257, 477
+  index: -1
+image/show2/moon/00008
+  rotate: false
+  xy: 930, 1507
+  size: 462, 446
+  orig: 1000, 1000
+  offset: 258, 478
+  index: -1
+image/show2/moon/00009
+  rotate: false
+  xy: 1, 162
+  size: 462, 446
+  orig: 1000, 1000
+  offset: 258, 478
+  index: -1
+image/show2/moon/00010
+  rotate: false
+  xy: 465, 612
+  size: 461, 445
+  orig: 1000, 1000
+  offset: 258, 479
+  index: -1
+image/show2/moon/00011
+  rotate: false
+  xy: 930, 1062
+  size: 460, 444
+  orig: 1000, 1000
+  offset: 259, 479
+  index: -1

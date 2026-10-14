@@ -1,0 +1,69 @@
+
+action.png
+size: 606,607
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+buff/longbuff_0000
+  rotate: false
+  xy: 0, 0
+  size: 200, 195
+  orig: 660, 660
+  offset: 247, 329
+  index: -1
+buff/longbuff_0001
+  rotate: false
+  xy: 207, 409
+  size: 199, 198
+  orig: 660, 660
+  offset: 247, 326
+  index: -1
+buff/longbuff_0002
+  rotate: false
+  xy: 408, 410
+  size: 198, 197
+  orig: 660, 660
+  offset: 247, 322
+  index: -1
+buff/longbuff_0003
+  rotate: false
+  xy: 0, 197
+  size: 199, 204
+  orig: 660, 660
+  offset: 246, 319
+  index: -1
+buff/longbuff_0004
+  rotate: false
+  xy: 0, 403
+  size: 205, 204
+  orig: 660, 660
+  offset: 240, 320
+  index: -1
+buff/longbuff_0005
+  rotate: true
+  xy: 398, 209
+  size: 198, 195
+  orig: 660, 660
+  offset: 247, 325
+  index: -1
+buff/longbuff_0006
+  rotate: true
+  xy: 202, 0
+  size: 199, 192
+  orig: 660, 660
+  offset: 246, 329
+  index: -1
+buff/longbuff_0007
+  rotate: false
+  xy: 398, 15
+  size: 198, 192
+  orig: 660, 660
+  offset: 246, 331
+  index: -1
+buff/longbuff_0008
+  rotate: true
+  xy: 201, 201
+  size: 200, 195
+  orig: 660, 660
+  offset: 247, 329
+  index: -1

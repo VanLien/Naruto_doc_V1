@@ -1,0 +1,131 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+E305152/0_00000
+  rotate: true
+  xy: 1829, 112
+  size: 316, 172
+  orig: 1400, 1000
+  offset: 396, 333
+  index: -1
+E305152/0_00002
+  rotate: true
+  xy: 1520, 2
+  size: 374, 307
+  orig: 1400, 1000
+  offset: 364, 334
+  index: -1
+E305152/0_00003
+  rotate: true
+  xy: 1687, 430
+  size: 368, 297
+  orig: 1400, 1000
+  offset: 355, 344
+  index: -1
+E305152/0_00005
+  rotate: false
+  xy: 698, 850
+  size: 617, 581
+  orig: 1400, 1000
+  offset: 271, 338
+  index: -1
+E305152/0_00006
+  rotate: false
+  xy: 698, 1433
+  size: 686, 595
+  orig: 1400, 1000
+  offset: 228, 327
+  index: -1
+E305152/0_00007
+  rotate: false
+  xy: 2, 1429
+  size: 694, 599
+  orig: 1400, 1000
+  offset: 253, 328
+  index: -1
+E305152/0_00008
+  rotate: true
+  xy: 1386, 1310
+  size: 718, 545
+  orig: 1400, 1000
+  offset: 265, 350
+  index: -1
+E305152/0_00009
+  rotate: false
+  xy: 1317, 800
+  size: 581, 508
+  orig: 1400, 1000
+  offset: 245, 288
+  index: -1
+E305152/0_00010
+  rotate: false
+  xy: 597, 375
+  size: 580, 473
+  orig: 1400, 1000
+  offset: 247, 290
+  index: -1
+E305152/0_00011
+  rotate: false
+  xy: 2, 10
+  size: 573, 471
+  orig: 1400, 1000
+  offset: 244, 300
+  index: -1
+E305152/0_00012
+  rotate: false
+  xy: 2, 483
+  size: 593, 473
+  orig: 1400, 1000
+  offset: 239, 310
+  index: -1
+E305152/0_00013
+  rotate: false
+  xy: 2, 958
+  size: 602, 469
+  orig: 1400, 1000
+  offset: 245, 327
+  index: -1
+E305152/0_00014
+  rotate: false
+  xy: 1179, 378
+  size: 506, 420
+  orig: 1400, 1000
+  offset: 269, 376
+  index: -1
+E305152/0_00015
+  rotate: false
+  xy: 577, 13
+  size: 477, 360
+  orig: 1400, 1000
+  offset: 291, 409
+  index: -1
+E305152/0_00016
+  rotate: false
+  xy: 1056, 28
+  size: 462, 345
+  orig: 1400, 1000
+  offset: 302, 432
+  index: -1
+
+action2.png
+size: 1024,512
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+E305152/0_00001
+  rotate: false
+  xy: 2, 2
+  size: 355, 291
+  orig: 1400, 1000
+  offset: 377, 334
+  index: -1
+E305152/0_00004
+  rotate: false
+  xy: 359, 9
+  size: 329, 284
+  orig: 1400, 1000
+  offset: 367, 363
+  index: -1

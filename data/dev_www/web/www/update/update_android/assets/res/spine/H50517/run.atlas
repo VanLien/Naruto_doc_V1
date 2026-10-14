@@ -1,0 +1,118 @@
+
+run.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+origin/run_1/0_00000
+  rotate: false
+  xy: 1709, 262
+  size: 238, 234
+  orig: 900, 600
+  offset: 152, 143
+  index: -1
+origin/run_1/0_00001
+  rotate: false
+  xy: 1471, 259
+  size: 236, 237
+  orig: 900, 600
+  offset: 155, 135
+  index: -1
+origin/run_1/0_00002
+  rotate: true
+  xy: 980, 35
+  size: 219, 235
+  orig: 900, 600
+  offset: 173, 135
+  index: -1
+origin/run_1/0_00003
+  rotate: true
+  xy: 489, 28
+  size: 224, 238
+  orig: 900, 600
+  offset: 166, 136
+  index: -1
+origin/run_1/0_00004
+  rotate: false
+  xy: 1471, 23
+  size: 238, 234
+  orig: 900, 600
+  offset: 152, 143
+  index: -1
+origin/run_1/0_00005
+  rotate: false
+  xy: 1711, 23
+  size: 232, 237
+  orig: 900, 600
+  offset: 159, 136
+  index: -1
+origin/run_1/0_00006
+  rotate: true
+  xy: 1217, 34
+  size: 218, 234
+  orig: 900, 600
+  offset: 174, 136
+  index: -1
+origin/run_1/0_00007
+  rotate: true
+  xy: 734, 29
+  size: 224, 236
+  orig: 900, 600
+  offset: 167, 137
+  index: -1
+origin/run_2/0_00000
+  rotate: false
+  xy: 2, 2
+  size: 242, 245
+  orig: 900, 600
+  offset: 127, 147
+  index: -1
+origin/run_2/0_00001
+  rotate: false
+  xy: 489, 254
+  size: 243, 242
+  orig: 900, 600
+  offset: 125, 147
+  index: -1
+origin/run_2/0_00002
+  rotate: true
+  xy: 980, 256
+  size: 240, 244
+  orig: 900, 600
+  offset: 126, 144
+  index: -1
+origin/run_2/0_00003
+  rotate: false
+  xy: 246, 2
+  size: 240, 246
+  orig: 900, 600
+  offset: 128, 143
+  index: -1
+origin/run_2/0_00004
+  rotate: true
+  xy: 734, 255
+  size: 241, 244
+  orig: 900, 600
+  offset: 128, 148
+  index: -1
+origin/run_2/0_00005
+  rotate: false
+  xy: 1226, 254
+  size: 243, 242
+  orig: 900, 600
+  offset: 125, 147
+  index: -1
+origin/run_2/0_00006
+  rotate: false
+  xy: 246, 250
+  size: 241, 246
+  orig: 900, 600
+  offset: 126, 142
+  index: -1
+origin/run_2/0_00007
+  rotate: false
+  xy: 2, 249
+  size: 242, 247
+  orig: 900, 600
+  offset: 126, 142
+  index: -1

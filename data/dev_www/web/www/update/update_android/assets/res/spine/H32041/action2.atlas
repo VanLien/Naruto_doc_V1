@@ -1,0 +1,139 @@
+
+action2.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/1
+  rotate: false
+  xy: 1895, 177
+  size: 116, 116
+  orig: 280, 301
+  offset: 93, 6
+  index: -1
+action2/10
+  rotate: false
+  xy: 1341, 251
+  size: 190, 259
+  orig: 280, 301
+  offset: 32, 9
+  index: -1
+action2/11
+  rotate: true
+  xy: 2, 16
+  size: 192, 265
+  orig: 280, 301
+  offset: 32, 9
+  index: -1
+action2/12
+  rotate: false
+  xy: 1151, 239
+  size: 188, 271
+  orig: 280, 301
+  offset: 35, 9
+  index: -1
+action2/13
+  rotate: true
+  xy: 269, 76
+  size: 132, 203
+  orig: 280, 301
+  offset: 91, 9
+  index: -1
+action2/2
+  rotate: true
+  xy: 474, 94
+  size: 114, 182
+  orig: 280, 301
+  offset: 89, 10
+  index: -1
+action2/3
+  rotate: false
+  xy: 2, 210
+  size: 280, 300
+  orig: 280, 301
+  offset: 0, 1
+  index: -1
+action2/4
+  rotate: false
+  xy: 284, 210
+  size: 280, 300
+  orig: 280, 301
+  offset: 0, 1
+  index: -1
+action2/5
+  rotate: true
+  xy: 848, 232
+  size: 278, 301
+  orig: 280, 301
+  offset: 1, 0
+  index: -1
+action2/6
+  rotate: false
+  xy: 566, 210
+  size: 280, 300
+  orig: 280, 301
+  offset: 0, 1
+  index: -1
+action2/7
+  rotate: true
+  xy: 848, 2
+  size: 228, 296
+  orig: 280, 301
+  offset: 18, 1
+  index: -1
+action2/8
+  rotate: false
+  xy: 1731, 295
+  size: 215, 215
+  orig: 280, 301
+  offset: 0, 9
+  index: -1
+action2/9
+  rotate: false
+  xy: 1533, 270
+  size: 196, 240
+  orig: 280, 301
+  offset: 20, 9
+  index: -1
+stand/1
+  rotate: true
+  xy: 474, 13
+  size: 79, 161
+  orig: 80, 162
+  offset: 1, 0
+  index: -1
+stand/2
+  rotate: false
+  xy: 1948, 348
+  size: 79, 162
+  orig: 80, 162
+  offset: 0, 0
+  index: -1
+stand/3
+  rotate: true
+  xy: 658, 49
+  size: 78, 162
+  orig: 80, 162
+  offset: 0, 0
+  index: -1
+stand/4
+  rotate: true
+  xy: 1731, 215
+  size: 78, 162
+  orig: 80, 162
+  offset: 0, 0
+  index: -1
+stand/5
+  rotate: true
+  xy: 658, 129
+  size: 79, 162
+  orig: 80, 162
+  offset: 0, 0
+  index: -1
+stand/6
+  rotate: true
+  xy: 1533, 189
+  size: 79, 162
+  orig: 80, 162
+  offset: 1, 0
+  index: -1

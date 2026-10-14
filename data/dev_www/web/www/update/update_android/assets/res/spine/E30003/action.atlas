@@ -1,0 +1,76 @@
+
+action.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+houfa
+  rotate: false
+  xy: 275, 50
+  size: 185, 201
+  orig: 185, 201
+  offset: 0, 0
+  index: -1
+qianfa
+  rotate: false
+  xy: 462, 81
+  size: 141, 170
+  orig: 141, 170
+  offset: 0, 0
+  index: -1
+shenti
+  rotate: true
+  xy: 2, 44
+  size: 207, 271
+  orig: 207, 271
+  offset: 0, 0
+  index: -1
+tou
+  rotate: false
+  xy: 605, 103
+  size: 105, 148
+  orig: 105, 148
+  offset: 0, 0
+  index: -1
+youbiyan
+  rotate: false
+  xy: 35, 17
+  size: 30, 25
+  orig: 30, 25
+  offset: 0, 0
+  index: -1
+youdabi
+  rotate: false
+  xy: 821, 126
+  size: 114, 125
+  orig: 114, 125
+  offset: 0, 0
+  index: -1
+youshou
+  rotate: true
+  xy: 462, 2
+  size: 77, 118
+  orig: 77, 118
+  offset: 0, 0
+  index: -1
+zuobi
+  rotate: true
+  xy: 937, 150
+  size: 101, 85
+  orig: 101, 85
+  offset: 0, 0
+  index: -1
+zuobiyan
+  rotate: false
+  xy: 2, 14
+  size: 31, 28
+  orig: 31, 28
+  offset: 0, 0
+  index: -1
+zuoshou
+  rotate: false
+  xy: 712, 112
+  size: 107, 139
+  orig: 107, 139
+  offset: 0, 0
+  index: -1

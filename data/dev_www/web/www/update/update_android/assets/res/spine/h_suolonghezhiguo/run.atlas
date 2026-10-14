@@ -1,0 +1,83 @@
+
+run.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+suolong-run_0
+  rotate: true
+  xy: 173, 5
+  size: 113, 154
+  orig: 136, 175
+  offset: 17, 0
+  index: -1
+suolong-run_20
+  rotate: true
+  xy: 173, 5
+  size: 113, 154
+  orig: 136, 175
+  offset: 17, 0
+  index: -1
+suolong-run_10
+  rotate: true
+  xy: 173, 120
+  size: 127, 158
+  orig: 136, 175
+  offset: 3, 0
+  index: -1
+suolong-run_12
+  rotate: true
+  xy: 333, 122
+  size: 125, 149
+  orig: 136, 175
+  offset: 7, 2
+  index: -1
+suolong-run_14
+  rotate: true
+  xy: 484, 2
+  size: 119, 150
+  orig: 136, 175
+  offset: 12, 5
+  index: -1
+suolong-run_16
+  rotate: false
+  xy: 813, 92
+  size: 121, 155
+  orig: 136, 175
+  offset: 9, 5
+  index: -1
+suolong-run_18
+  rotate: true
+  xy: 653, 123
+  size: 124, 158
+  orig: 136, 175
+  offset: 6, 2
+  index: -1
+suolong-run_2
+  rotate: true
+  xy: 333, 15
+  size: 105, 149
+  orig: 136, 175
+  offset: 27, 2
+  index: -1
+suolong-run_4
+  rotate: true
+  xy: 2, 3
+  size: 112, 152
+  orig: 136, 175
+  offset: 19, 5
+  index: -1
+suolong-run_6
+  rotate: true
+  xy: 484, 123
+  size: 124, 167
+  orig: 136, 175
+  offset: 6, 5
+  index: -1
+suolong-run_8
+  rotate: true
+  xy: 2, 117
+  size: 130, 169
+  orig: 136, 175
+  offset: 0, 2
+  index: -1

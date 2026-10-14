@@ -1,0 +1,180 @@
+-- --------------------------------------------------------------------
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      組織戰 双方阵容战斗信息 对战详情
+-- <br/> 2019年11月19日
+-- --------------------------------------------------------------------
+GuildnewwarEliteFightInfoPanel = GuildnewwarEliteFightInfoPanel or BaseClass(BaseView)
+
+local controller = GuildNewwarController:getInstance()
+local model = controller:getModel()
+local string_format = string.format
+local table_insert = table.insert
+local table_sort = table.sort
+
+
+function GuildnewwarEliteFightInfoPanel:__init()
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+    self.win_type = WinType.Big   
+    self.is_full_screen = false
+    self.layout_name = "guildnewwar/guildnewwar_elite/guildnewwar_elite_fight_info_panel"
+
+    self.res_list = {
+        { path = PathTool.getPlistImgForDownLoad("vedio","vedio"), type = ResourcesType.plist },
+    }
+
+    --奖励
+    -- self.dic_reward_list = {}
+    self.show_list = {}
+end
+
+function GuildnewwarEliteFightInfoPanel:open_callback()
+    self.background = self.root_wnd:getChildByName("background")
+    if self.background ~= nil then
+        self.background:setScale(display.getMaxScale())
+    end
+
+    self.main_container = self.root_wnd:getChildByName("main_container")
+    self:playEnterAnimatianByObj(self.main_container, 1)
+    self.main_panel = self.main_container:getChildByName("main_panel")
+
+    self.title = self.main_panel:getChildByName("win_title")
+    self.title:setString(TI18N("语言_c_541"))
+
+    self.scroll_container = self.main_panel:getChildByName("scroll_container")
+
+    self.close_btn = self.main_panel:getChildByName("close_btn")
+    self.bottom_label = self.main_panel:getChildByName("bottom_label")
+    self.bottom_label:setString(TI18N("语言_c_5370"))
+
+    self.left_name = self.main_panel:getChildByName("left_name")
+    self.left_srv = self.main_panel:getChildByName("left_srv")
+    self.right_name = self.main_panel:getChildByName("right_name")
+    self.right_srv = self.main_panel:getChildByName("right_srv")
+
+    local left_role = self.main_panel:getChildByName("node_left_item")
+    local right_role = self.main_panel:getChildByName("node_right_item")
+    
+    local badge_item = GuildBadgeItem.new()
+    self.left_badge_item = badge_item
+    left_role:addChild(badge_item)
+
+    local badge_item = GuildBadgeItem.new()
+    self.right_badge_item = badge_item
+    right_role:addChild(badge_item)
+end
+
+function GuildnewwarEliteFightInfoPanel:register_event()
+    registerButtonEventListener(self.background, handler(self, self.onClickBtnClose) ,false, 1)
+    registerButtonEventListener(self.close_btn, handler(self, self.onClickBtnClose) ,true, 2)
+
+
+    self:addGlobalEvent(GuildNewwarEvent.GUILDNEWWAR_UPDATE_BATTLE_DATA_EVENT, function(data)
+        if not data then return end
+        self:setData(data)
+    end)
+end
+
+--关闭
+function GuildnewwarEliteFightInfoPanel:onClickBtnClose()
+    controller:openGuildnewwarEliteFightInfoPanel(false)
+end
+
+function GuildnewwarEliteFightInfoPanel:openRootWnd(setting)
+    controller:sender14251()
+end
+function GuildnewwarEliteFightInfoPanel:setData(data)
+    self.data = data
+    self.show_list = {}
+    local left_num = #data.a_team_list
+    local right_num = #data.b_team_list
+    local num = 5--math.max(left_num, right_num)
+    for i=1,num do
+        self.show_list[#self.show_list + 1] = {a_team = data.a_team_list[i], b_team = data.b_team_list[i]}
+    end
+    self:updateList()
+    self:updateGuildInfo()
+end
+
+function GuildnewwarEliteFightInfoPanel:updateGuildInfo()
+    local badge_data = GuildController:getInstance():getModel():getBadgeItemData(self.data.a_avatar, self.data.b_avatar_frame)
+    badge_data.lev = self.data.a_lev or 1
+    self.left_badge_item:setData(badge_data)
+
+    local badge_data = GuildController:getInstance():getModel():getBadgeItemData(self.data.a_avatar, self.data.b_avatar_frame)
+    badge_data.lev = self.data.a_lev or 1
+    self.right_badge_item:setData(badge_data)
+
+    self.left_name:setString(self.data.a_name)
+    self.left_srv:setString(string_format("%s",transformNameByServ(self.data.a_name, self.data.a_srv_id)))
+    self.right_name:setString(self.data.b_name)
+    self.right_srv:setString(string_format("%s",transformNameByServ(self.data.b_name, self.data.b_srv_id)))
+end
+
+function GuildnewwarEliteFightInfoPanel:updateList()
+    if self.item_scrollview == nil then
+        local scroll_view_size = self.scroll_container:getContentSize()
+        local setting = {
+            start_x = 0,                     -- 第一个单元的X起点
+            space_x = 0,                     -- x方向的间隔
+            start_y = 0,                     -- 第一个单元的Y起点
+            space_y = 0,                     -- y方向的间隔
+            item_width = 600,                -- 单元的尺寸width
+            item_height = 276,               -- 单元的尺寸height
+            row = 1,                         -- 行数，作用于水平滚动类型
+            col = 1,                         -- 列数，作用于垂直滚动类型
+            once_num = 1,                    -- 每次创建的数量
+        }
+        self.item_scrollview = CommonScrollViewSingleLayout.new(self.scroll_container, cc.p(0,0) , ScrollViewDir.vertical, ScrollViewStartPos.top, scroll_view_size, setting, cc.p(0, 0))
+
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.createNewCell), ScrollViewFuncType.CreateNewCell) --创建cell
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.numberOfCells), ScrollViewFuncType.NumberOfCells) --获取数量
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.updateCellByIndex), ScrollViewFuncType.UpdateCellByIndex) --更新cell
+    end
+    
+    self.item_scrollview:reloadData()
+
+    if #self.show_list == 0 then
+        commonShowEmptyIcon(self.scroll_container, true, {text = TI18N("语言_c_130")})
+    else
+        commonShowEmptyIcon(self.scroll_container, false)
+    end
+end
+
+
+--创建cell 
+--@width 是setting.item_width
+--@height 是setting.item_height
+function GuildnewwarEliteFightInfoPanel:createNewCell(width, height)
+   local cell = GuildnewwarEliteFightInfoItem.new(width, height)
+   -- cell:setActionRankCommonType(self.holiday_bid, self.type)
+    -- cell:addCallBack(function() self:onCellTouched(cell) end)
+    return cell
+end
+--获取数据数量
+function GuildnewwarEliteFightInfoPanel:numberOfCells()
+    if not self.show_list then return 0 end
+    return #self.show_list
+end
+--更新cell(拖动的时候.刷新数据时候会执行次方法)
+--cell :createNewCell的返回的对象
+--index :数据的索引
+function GuildnewwarEliteFightInfoPanel:updateCellByIndex(cell, index)
+    cell.index = index
+    local cell_data = self.show_list[index]
+    if not cell_data then return end
+
+    cell:setData(cell_data)
+    
+end
+
+
+function GuildnewwarEliteFightInfoPanel:close_callback()
+    if self.item_scrollview then
+        self.item_scrollview:DeleteMe()
+    end
+    self.item_scrollview = nil
+
+    controller:openGuildnewwarEliteFightInfoPanel(false)
+end

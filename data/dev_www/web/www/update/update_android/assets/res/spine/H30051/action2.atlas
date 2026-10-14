@@ -1,0 +1,146 @@
+
+action2.png
+size: 1493,474
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+0_00000
+  rotate: true
+  xy: 690, 3
+  size: 226, 110
+  orig: 400, 300
+  offset: 50, 77
+  index: -1
+0_00001
+  rotate: true
+  xy: 940, 6
+  size: 223, 117
+  orig: 400, 300
+  offset: 49, 77
+  index: -1
+0_00002
+  rotate: true
+  xy: 1370, 26
+  size: 222, 121
+  orig: 400, 300
+  offset: 46, 77
+  index: -1
+0_00003
+  rotate: true
+  xy: 563, 2
+  size: 221, 125
+  orig: 400, 300
+  offset: 44, 77
+  index: -1
+0_00004
+  rotate: true
+  xy: 1293, 250
+  size: 222, 134
+  orig: 400, 300
+  offset: 43, 77
+  index: -1
+0_00005
+  rotate: true
+  xy: 802, 4
+  size: 225, 136
+  orig: 400, 300
+  offset: 44, 77
+  index: -1
+0_00006
+  rotate: true
+  xy: 1153, 240
+  size: 232, 138
+  orig: 400, 300
+  offset: 43, 77
+  index: -1
+0_00007
+  rotate: true
+  xy: 718, 231
+  size: 241, 140
+  orig: 400, 300
+  offset: 42, 77
+  index: -1
+0_00008
+  rotate: true
+  xy: 159, 218
+  size: 254, 139
+  orig: 400, 300
+  offset: 40, 77
+  index: -1
+0_00009
+  rotate: true
+  xy: 431, 225
+  size: 247, 138
+  orig: 400, 300
+  offset: 40, 77
+  index: -1
+0_00010
+  rotate: true
+  xy: 300, 224
+  size: 248, 129
+  orig: 400, 300
+  offset: 54, 77
+  index: -1
+0_00011
+  rotate: true
+  xy: 2, 218
+  size: 254, 155
+  orig: 400, 300
+  offset: 60, 73
+  index: -1
+0_00012
+  rotate: false
+  xy: 159, 58
+  size: 247, 158
+  orig: 400, 300
+  offset: 66, 69
+  index: -1
+0_00013
+  rotate: true
+  xy: 1000, 233
+  size: 239, 151
+  orig: 400, 300
+  offset: 74, 71
+  index: -1
+0_00014
+  rotate: true
+  xy: 1059, 2
+  size: 229, 156
+  orig: 400, 300
+  offset: 83, 72
+  index: -1
+0_00015
+  rotate: true
+  xy: 408, 2
+  size: 220, 153
+  orig: 400, 300
+  offset: 89, 77
+  index: -1
+0_00016
+  rotate: true
+  xy: 2, 3
+  size: 213, 155
+  orig: 400, 300
+  offset: 95, 77
+  index: -1
+0_00017
+  rotate: true
+  xy: 1217, 10
+  size: 228, 151
+  orig: 400, 300
+  offset: 77, 77
+  index: -1
+0_00018
+  rotate: true
+  xy: 571, 231
+  size: 241, 145
+  orig: 400, 300
+  offset: 58, 77
+  index: -1
+0_00019
+  rotate: true
+  xy: 860, 231
+  size: 241, 138
+  orig: 400, 300
+  offset: 40, 77
+  index: -1

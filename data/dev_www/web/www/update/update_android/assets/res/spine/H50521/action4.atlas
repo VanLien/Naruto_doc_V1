@@ -1,0 +1,419 @@
+
+action4.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/kakashi stand/0_00000
+  rotate: true
+  xy: 606, 210
+  size: 98, 152
+  orig: 600, 400
+  offset: 94, 88
+  index: -1
+images/kakashi stand/0_00001
+  rotate: true
+  xy: 1409, 422
+  size: 109, 160
+  orig: 600, 400
+  offset: 89, 89
+  index: -1
+images/kakashi stand/0_00002
+  rotate: false
+  xy: 1996, 880
+  size: 49, 142
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/kakashi stand/0_00003
+  rotate: true
+  xy: 589, 100
+  size: 108, 147
+  orig: 600, 400
+  offset: 92, 92
+  index: -1
+images/kakashi stand/0_00004
+  rotate: false
+  xy: 1996, 736
+  size: 49, 142
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/kakashi stand/0_00005
+  rotate: true
+  xy: 861, 192
+  size: 102, 144
+  orig: 600, 400
+  offset: 95, 96
+  index: -1
+images/kakashi stand/0_00006
+  rotate: true
+  xy: 1613, 533
+  size: 49, 142
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/kakashi stand/0_00007
+  rotate: true
+  xy: 861, 104
+  size: 86, 142
+  orig: 600, 400
+  offset: 104, 98
+  index: -1
+images/kakashi stand/0_00008
+  rotate: true
+  xy: 1746, 586
+  size: 49, 142
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/kakashi stand/0_00009
+  rotate: true
+  xy: 1890, 586
+  size: 49, 142
+  orig: 600, 400
+  offset: 121, 98
+  index: -1
+images/obito action2/0_00000
+  rotate: true
+  xy: 1757, 530
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito action2/0_00001
+  rotate: true
+  xy: 1898, 530
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito action2/0_00002
+  rotate: true
+  xy: 207, 10
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito action2/0_00003
+  rotate: true
+  xy: 1241, 364
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito action2/0_00004
+  rotate: true
+  xy: 1571, 378
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito action2/0_00005
+  rotate: true
+  xy: 1055, 350
+  size: 54, 139
+  orig: 600, 400
+  offset: 126, 98
+  index: -1
+images/obito action2/0_00006
+  rotate: true
+  xy: 1712, 372
+  size: 60, 132
+  orig: 600, 400
+  offset: 136, 98
+  index: -1
+images/obito action2/0_00007
+  rotate: false
+  xy: 1126, 33
+  size: 106, 101
+  orig: 600, 400
+  offset: 158, 98
+  index: -1
+images/obito action2/0_00008
+  rotate: false
+  xy: 1144, 191
+  size: 106, 101
+  orig: 600, 400
+  offset: 158, 98
+  index: -1
+images/obito attack/0_00000
+  rotate: true
+  xy: 1017, 294
+  size: 54, 139
+  orig: 1000, 400
+  offset: 326, 98
+  index: -1
+images/obito attack/0_00001
+  rotate: true
+  xy: 1846, 357
+  size: 73, 138
+  orig: 1000, 400
+  offset: 362, 98
+  index: -1
+images/obito attack/0_00002
+  rotate: true
+  xy: 1691, 316
+  size: 54, 138
+  orig: 1000, 400
+  offset: 362, 98
+  index: -1
+images/obito attack/0_00003
+  rotate: true
+  xy: 1409, 355
+  size: 65, 139
+  orig: 1000, 400
+  offset: 353, 98
+  index: -1
+images/obito attack/0_00004
+  rotate: true
+  xy: 1550, 317
+  size: 59, 139
+  orig: 1000, 400
+  offset: 358, 98
+  index: -1
+images/obito attack/0_00005
+  rotate: false
+  xy: 606, 468
+  size: 254, 159
+  orig: 1000, 400
+  offset: 352, 98
+  index: -1
+images/obito attack/0_00006
+  rotate: true
+  xy: 2, 51
+  size: 484, 203
+  orig: 1000, 400
+  offset: 343, 90
+  index: -1
+images/obito attack/0_00007
+  rotate: false
+  xy: 2, 821
+  size: 522, 201
+  orig: 1000, 400
+  offset: 342, 90
+  index: -1
+images/obito attack/0_00008
+  rotate: true
+  xy: 207, 66
+  size: 469, 212
+  orig: 1000, 400
+  offset: 348, 83
+  index: -1
+images/obito attack/0_00009
+  rotate: false
+  xy: 526, 856
+  size: 469, 166
+  orig: 1000, 400
+  offset: 381, 98
+  index: -1
+images/obito attack/0_00010
+  rotate: true
+  xy: 1571, 434
+  size: 97, 136
+  orig: 1000, 400
+  offset: 385, 98
+  index: -1
+images/obito attack/0_00011
+  rotate: true
+  xy: 589, 2
+  size: 96, 136
+  orig: 1000, 400
+  offset: 389, 98
+  index: -1
+images/obito attack/0_00012
+  rotate: true
+  xy: 1709, 434
+  size: 94, 136
+  orig: 1000, 400
+  offset: 391, 98
+  index: -1
+images/obito attack/0_00013
+  rotate: true
+  xy: 727, 2
+  size: 96, 136
+  orig: 1000, 400
+  offset: 389, 98
+  index: -1
+images/obito attack/0_00014
+  rotate: true
+  xy: 1847, 432
+  size: 96, 136
+  orig: 1000, 400
+  offset: 387, 98
+  index: -1
+images/obito attack/0_00015
+  rotate: true
+  xy: 865, 5
+  size: 97, 136
+  orig: 1000, 400
+  offset: 385, 98
+  index: -1
+images/obito attack/0_00016
+  rotate: true
+  xy: 1007, 196
+  size: 96, 135
+  orig: 1000, 400
+  offset: 384, 98
+  index: -1
+images/obito attack/0_00017
+  rotate: false
+  xy: 433, 683
+  size: 91, 136
+  orig: 1000, 400
+  offset: 381, 98
+  index: -1
+images/obito attack/0_00018
+  rotate: true
+  xy: 1831, 286
+  size: 69, 135
+  orig: 1000, 400
+  offset: 385, 98
+  index: -1
+images/obito attack/0_00019
+  rotate: true
+  xy: 1007, 136
+  size: 58, 130
+  orig: 1000, 400
+  offset: 383, 98
+  index: -1
+images/obito attack/0_00020
+  rotate: false
+  xy: 760, 158
+  size: 99, 150
+  orig: 1000, 400
+  offset: 368, 98
+  index: -1
+images/obito attack/0_00021
+  rotate: true
+  xy: 861, 296
+  size: 101, 154
+  orig: 1000, 400
+  offset: 368, 98
+  index: -1
+images/obito attack/0_00022
+  rotate: true
+  xy: 1241, 420
+  size: 111, 166
+  orig: 1000, 400
+  offset: 369, 98
+  index: -1
+images/obito attack/0_00023
+  rotate: false
+  xy: 1613, 584
+  size: 131, 176
+  orig: 1000, 400
+  offset: 359, 97
+  index: -1
+images/obito attack/0_00024
+  rotate: false
+  xy: 421, 65
+  size: 166, 193
+  orig: 1000, 400
+  offset: 333, 97
+  index: -1
+images/obito attack/0_00025
+  rotate: true
+  xy: 862, 399
+  size: 159, 191
+  orig: 1000, 400
+  offset: 337, 97
+  index: -1
+images/obito attack/0_00026
+  rotate: true
+  xy: 1055, 406
+  size: 152, 184
+  orig: 1000, 400
+  offset: 339, 98
+  index: -1
+images/obito attack/0_00027
+  rotate: false
+  xy: 606, 310
+  size: 253, 156
+  orig: 1000, 400
+  offset: 378, 97
+  index: -1
+images/obito attack/0_00028
+  rotate: true
+  xy: 421, 260
+  size: 275, 183
+  orig: 1000, 400
+  offset: 385, 71
+  index: -1
+images/obito attack/0_00029
+  rotate: false
+  xy: 1263, 533
+  size: 348, 227
+  orig: 1000, 400
+  offset: 386, 62
+  index: -1
+images/obito attack/0_00030
+  rotate: false
+  xy: 1390, 762
+  size: 371, 260
+  orig: 1000, 400
+  offset: 387, 41
+  index: -1
+images/obito attack/0_00031
+  rotate: false
+  xy: 2, 537
+  size: 429, 282
+  orig: 1000, 400
+  offset: 387, 32
+  index: -1
+images/obito attack/0_00032
+  rotate: false
+  xy: 997, 762
+  size: 391, 260
+  orig: 1000, 400
+  offset: 387, 56
+  index: -1
+images/obito attack/0_00033
+  rotate: true
+  xy: 1763, 637
+  size: 385, 231
+  orig: 1000, 400
+  offset: 386, 83
+  index: -1
+images/obito attack/0_00034
+  rotate: false
+  xy: 526, 629
+  size: 374, 225
+  orig: 1000, 400
+  offset: 386, 95
+  index: -1
+images/obito attack/0_00035
+  rotate: false
+  xy: 902, 560
+  size: 359, 200
+  orig: 1000, 400
+  offset: 384, 96
+  index: -1
+images/obito attack/0_00036
+  rotate: false
+  xy: 1005, 33
+  size: 119, 101
+  orig: 1000, 400
+  offset: 383, 97
+  index: -1
+images/obito attack/0_00037
+  rotate: false
+  xy: 1252, 249
+  size: 114, 113
+  orig: 1000, 400
+  offset: 375, 98
+  index: -1
+images/obito attack/0_00038
+  rotate: true
+  xy: 433, 537
+  size: 90, 127
+  orig: 1000, 400
+  offset: 368, 98
+  index: -1
+images/obito attack/0_00039
+  rotate: true
+  xy: 2, 8
+  size: 41, 136
+  orig: 1000, 400
+  offset: 350, 98
+  index: -1

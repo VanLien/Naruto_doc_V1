@@ -1,0 +1,90 @@
+
+action9.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+stand/2
+  rotate: false
+  xy: 2, 175
+  size: 178, 165
+  orig: 201, 172
+  offset: 1, 1
+  index: -1
+stand/3
+  rotate: false
+  xy: 2, 5
+  size: 173, 168
+  orig: 201, 172
+  offset: 4, 4
+  index: -1
+stand/4
+  rotate: false
+  xy: 2, 342
+  size: 190, 160
+  orig: 201, 172
+  offset: 1, 6
+  index: -1
+stand/5
+  rotate: false
+  xy: 194, 346
+  size: 183, 156
+  orig: 201, 172
+  offset: 18, 6
+  index: -1
+stand/6
+  rotate: true
+  xy: 177, 2
+  size: 171, 156
+  orig: 201, 172
+  offset: 24, 3
+  index: -1
+stand/7
+  rotate: false
+  xy: 194, 187
+  size: 181, 157
+  orig: 201, 172
+  offset: 8, 0
+  index: -1
+stand/99 (1)
+  rotate: false
+  xy: 377, 180
+  size: 63, 154
+  orig: 160, 181
+  offset: 44, 14
+  index: -1
+stand/99 (2)
+  rotate: false
+  xy: 377, 180
+  size: 63, 154
+  orig: 160, 181
+  offset: 44, 14
+  index: -1
+stand/99 (3)
+  rotate: false
+  xy: 377, 180
+  size: 63, 154
+  orig: 160, 181
+  offset: 44, 14
+  index: -1
+stand/99 (4)
+  rotate: false
+  xy: 442, 180
+  size: 63, 154
+  orig: 160, 181
+  offset: 44, 14
+  index: -1
+stand/99 (5)
+  rotate: false
+  xy: 442, 180
+  size: 63, 154
+  orig: 160, 181
+  offset: 44, 14
+  index: -1
+stand/99 (6)
+  rotate: false
+  xy: 379, 336
+  size: 126, 166
+  orig: 160, 181
+  offset: 21, 2
+  index: -1

@@ -1,0 +1,103 @@
+-- --------------------------------------------------------------------
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      组织战 传奇赛 奖励详情
+-- <br/> 2019年3月1日
+-- --------------------------------------------------------------------
+GuildnewwarEliteDetailedRewardPanel = GuildnewwarEliteDetailedRewardPanel or BaseClass(BaseView)
+
+local controller = GuildNewwarController:getInstance()
+local string_format = string.format
+local table_insert = table.insert
+local table_sort = table.sort
+
+
+function GuildnewwarEliteDetailedRewardPanel:__init()
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+    self.win_type = WinType.Mini   
+    self.is_full_screen = false
+    self.layout_name = "guildnewwar/guildnewwar_elite/guildnewwar_elite_detailed_reward_panel"
+
+    self.res_list = {
+     -- { path = PathTool.getPlistImgForDownLoad("form","form"), type = ResourcesType.plist },
+    }
+
+    --奖励
+    self.dic_reward_list = {}
+    self.show_list = {}
+    self.item_list = {}
+end
+
+function GuildnewwarEliteDetailedRewardPanel:open_callback()
+    self.background = self.root_wnd:getChildByName("background")
+    if self.background ~= nil then
+        self.background:setScale(display.getMaxScale())
+    end
+
+    self.main_container = self.root_wnd:getChildByName("main_container")
+    self:playEnterAnimatianByObj(self.main_container, 1)
+
+    self.title = self.main_container:getChildByName("win_title")
+    self.title:setString(TI18N("语言_c_5368"))
+
+    self.bottom_label = self.main_container:getChildByName("bottom_label")
+    self.bottom_label:setString(TI18N("语言_c_5369"))
+
+    self.pos_reward_list = {}
+    for i = 1, 3 do
+        local obj = {}
+        local panel_item = self.main_container:getChildByName("panel_item_"..i)
+        obj.label_name = panel_item:getChildByName("label_name")
+        obj.scroll_reward = panel_item:getChildByName("scroll_reward")
+        obj.scroll_reward:setScrollBarEnabled(false)
+        self.pos_reward_list[#self.pos_reward_list + 1] = obj
+    end
+
+    self.setting = {}
+    self.setting.scale = 0.8
+    self.setting.max_count = 5
+    self.setting.space_x = 25
+end
+
+function GuildnewwarEliteDetailedRewardPanel:register_event()
+    registerButtonEventListener(self.background, handler(self, self.onClickBtnClose) ,false, 1)
+end
+
+--关闭
+function GuildnewwarEliteDetailedRewardPanel:onClickBtnClose()
+    GuildNewwarController:getInstance():openGuildnewwarEliteDetailedRewardPanel(false)
+end
+
+function GuildnewwarEliteDetailedRewardPanel:openRootWnd(data)
+    self:initData(data)
+    self:updateList()
+end
+
+function GuildnewwarEliteDetailedRewardPanel:initData(data)
+    self.list_data = {
+        {name = TI18N("语言_gui_01_1"), reward = data.items1}, 
+        {name = TI18N("语言_gui_01_2"), reward = data.items2}, 
+        {name = TI18N("语言_gui_01_3"), reward = data.items3}
+    }
+end
+
+function GuildnewwarEliteDetailedRewardPanel:updateList()
+    for i, v in ipairs(self.pos_reward_list) do
+        local data = self.list_data[i]
+        local reward = data.reward
+        self.item_list[i] = commonShowSingleRowItemList(v.scroll_reward, self.item_list[i], reward, self.setting)
+        v.label_name:setString(data.name)
+    end
+end
+
+function GuildnewwarEliteDetailedRewardPanel:close_callback()
+    if self.item_list then
+        for i,v in ipairs(self.item_list) do
+            for p,q in ipairs(v) do
+                q:DeleteMe()
+            end
+        end
+    end
+    GuildNewwarController:getInstance():openGuildnewwarEliteDetailedRewardPanel(false)
+end

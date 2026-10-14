@@ -1,0 +1,139 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/E505156/0_00006
+  rotate: false
+  xy: 1626, 2
+  size: 321, 211
+  orig: 675, 450
+  offset: 231, 98
+  index: -1
+image/E505156/0_00007
+  rotate: true
+  xy: 287, 592
+  size: 424, 270
+  orig: 675, 450
+  offset: 175, 80
+  index: -1
+image/E505156/0_00008
+  rotate: true
+  xy: 558, 158
+  size: 432, 263
+  orig: 675, 450
+  offset: 163, 91
+  index: -1
+image/E505156/0_00009
+  rotate: true
+  xy: 2, 564
+  size: 452, 283
+  orig: 675, 450
+  offset: 153, 90
+  index: -1
+image/E505156/0_00010
+  rotate: true
+  xy: 2, 99
+  size: 463, 276
+  orig: 675, 450
+  offset: 145, 101
+  index: -1
+image/E505156/0_00011
+  rotate: true
+  xy: 280, 134
+  size: 428, 276
+  orig: 675, 450
+  offset: 142, 102
+  index: -1
+image/E505156/0_00012
+  rotate: true
+  xy: 559, 667
+  size: 349, 254
+  orig: 675, 450
+  offset: 192, 103
+  index: -1
+image/E505156/0_00013
+  rotate: false
+  xy: 1653, 489
+  size: 283, 252
+  orig: 675, 450
+  offset: 255, 105
+  index: -1
+image/E505156/0_00014
+  rotate: false
+  xy: 1371, 482
+  size: 280, 259
+  orig: 675, 450
+  offset: 256, 105
+  index: -1
+image/E505156/0_00015
+  rotate: true
+  xy: 1360, 198
+  size: 276, 264
+  orig: 675, 450
+  offset: 258, 107
+  index: -1
+image/E505156/0_00016
+  rotate: false
+  xy: 1093, 476
+  size: 276, 265
+  orig: 675, 450
+  offset: 258, 107
+  index: -1
+image/E505156/0_00017
+  rotate: true
+  xy: 1092, 189
+  size: 275, 266
+  orig: 675, 450
+  offset: 259, 107
+  index: -1
+image/E505156/0_00018
+  rotate: true
+  xy: 823, 190
+  size: 274, 267
+  orig: 675, 450
+  offset: 260, 107
+  index: -1
+image/E505156/0_00019
+  rotate: true
+  xy: 823, 466
+  size: 274, 268
+  orig: 675, 450
+  offset: 260, 107
+  index: -1
+image/E505156/0_00020
+  rotate: true
+  xy: 815, 742
+  size: 274, 269
+  orig: 675, 450
+  offset: 261, 107
+  index: -1
+image/E505156/0_00021
+  rotate: true
+  xy: 1086, 743
+  size: 273, 268
+  orig: 675, 450
+  offset: 261, 107
+  index: -1
+image/E505156/0_00022
+  rotate: true
+  xy: 1356, 743
+  size: 273, 267
+  orig: 675, 450
+  offset: 261, 108
+  index: -1
+image/E505156/0_00023
+  rotate: true
+  xy: 1625, 743
+  size: 273, 266
+  orig: 675, 450
+  offset: 261, 108
+  index: -1
+image/E505156/0_00024
+  rotate: false
+  xy: 1626, 215
+  size: 273, 265
+  orig: 675, 450
+  offset: 261, 108
+  index: -1

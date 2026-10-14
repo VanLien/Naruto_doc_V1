@@ -1,0 +1,145 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+luoxuanwan/000003
+  rotate: true
+  xy: 1096, 154
+  size: 1037, 502
+  orig: 1388, 825
+  offset: 252, 72
+  index: -1
+luoxuanwan/000005
+  rotate: true
+  xy: 554, 527
+  size: 966, 540
+  orig: 1388, 825
+  offset: 323, 55
+  index: -1
+luoxuanwan/000009
+  rotate: false
+  xy: 2, 1495
+  size: 1092, 550
+  orig: 1388, 825
+  offset: 197, 72
+  index: -1
+luoxuanwan/000017
+  rotate: true
+  xy: 2, 401
+  size: 1092, 550
+  orig: 1388, 825
+  offset: 197, 72
+  index: -1
+luoxuanwan/000019
+  rotate: true
+  xy: 1096, 1193
+  size: 852, 562
+  orig: 1388, 825
+  offset: 379, 42
+  index: -1
+luoxuanwan/000023
+  rotate: true
+  xy: 1600, 538
+  size: 653, 410
+  orig: 1388, 825
+  offset: 613, 153
+  index: -1
+luoxuanwan/000029
+  rotate: false
+  xy: 2, 2
+  size: 667, 397
+  orig: 1388, 825
+  offset: 641, 185
+  index: -1
+luoxuanwan/000031
+  rotate: true
+  xy: 1660, 1426
+  size: 619, 385
+  orig: 1388, 825
+  offset: 663, 193
+  index: -1
+luoxuanwan/000033
+  rotate: true
+  xy: 671, 83
+  size: 442, 370
+  orig: 1388, 825
+  offset: 811, 194
+  index: -1
+luoxuanwan/000035
+  rotate: true
+  xy: 1660, 1277
+  size: 147, 250
+  orig: 1388, 825
+  offset: 1010, 256
+  index: -1
+luoxuanwan/000037
+  rotate: false
+  xy: 1912, 1252
+  size: 67, 172
+  orig: 1388, 825
+  offset: 1087, 287
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+luoxuanwan/000000
+  rotate: false
+  xy: 2, 2
+  size: 465, 451
+  orig: 1388, 825
+  offset: 630, 171
+  index: -1
+luoxuanwan/000007
+  rotate: false
+  xy: 991, 1494
+  size: 998, 515
+  orig: 1388, 825
+  offset: 229, 93
+  index: -1
+luoxuanwan/000011
+  rotate: false
+  xy: 2, 1460
+  size: 987, 549
+  orig: 1388, 825
+  offset: 302, 72
+  index: -1
+luoxuanwan/000013
+  rotate: true
+  xy: 2, 455
+  size: 1003, 513
+  orig: 1388, 825
+  offset: 249, 71
+  index: -1
+luoxuanwan/000015
+  rotate: true
+  xy: 517, 492
+  size: 966, 544
+  orig: 1388, 825
+  offset: 323, 45
+  index: -1
+luoxuanwan/000021
+  rotate: false
+  xy: 1063, 400
+  size: 623, 349
+  orig: 1388, 825
+  offset: 605, 188
+  index: -1
+luoxuanwan/000025
+  rotate: false
+  xy: 1063, 751
+  size: 641, 373
+  orig: 1388, 825
+  offset: 671, 191
+  index: -1
+luoxuanwan/000027
+  rotate: false
+  xy: 1063, 1126
+  size: 674, 366
+  orig: 1388, 825
+  offset: 647, 188
+  index: -1

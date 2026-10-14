@@ -1,0 +1,47 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+madara action3_susanoo/tx/0_00009
+  rotate: false
+  xy: 2, 1396
+  size: 1377, 639
+  orig: 2800, 1500
+  offset: 265, 452
+  index: -1
+madara action3_susanoo/tx/0_00010
+  rotate: false
+  xy: 2, 749
+  size: 1490, 645
+  orig: 2800, 1500
+  offset: 466, 440
+  index: -1
+madara action3_susanoo/tx/0_00011
+  rotate: false
+  xy: 2, 2
+  size: 1626, 745
+  orig: 2800, 1500
+  offset: 643, 344
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+madara action3_susanoo/tx/0_00012
+  rotate: false
+  xy: 2, 839
+  size: 1749, 811
+  orig: 2800, 1500
+  offset: 738, 277
+  index: -1
+madara action3_susanoo/tx/0_00013
+  rotate: false
+  xy: 2, 2
+  size: 1417, 835
+  orig: 2800, 1500
+  offset: 1168, 249
+  index: -1

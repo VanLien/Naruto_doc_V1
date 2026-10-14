@@ -1,0 +1,13 @@
+
+action.png
+size: 128,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fortunebag_3
+  rotate: false
+  xy: 2, 2
+  size: 84, 85
+  orig: 84, 85
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,1036 @@
+-- --------------------------------------------------------------------
+-- 这里填写简要说明(必填),
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      组织战 入口
+-- <br/>Create: 2021年6月
+GuildnewwarGateWindow = GuildnewwarGateWindow or BaseClass(BaseView)
+
+local controller = GuildNewwarController:getInstance()
+local model = controller:getModel()
+local string_format = string.format
+local table_sort = table.sort
+local select_zone_id = 0
+local GateType = {
+    [1] = {name = TI18N("语言_c_3889")},
+    [2] = {name = TI18N("语言_c_5251")}
+}
+
+function GuildnewwarGateWindow:__init()
+    self.win_type = WinType.Full
+    self.is_full_screen = true
+    self.res_list = {
+        {path = PathTool.getPlistImgForDownLoad("elitetournamen", "elitetournamen"), type = ResourcesType.plist},
+        {path = PathTool.getPlistImgForDownLoad("guildwar", "guildwar"), type = ResourcesType.plist},
+    }
+    self.layout_name = "guildnewwar/guildnewwar_gate_window"
+
+    self.tab_list = {}
+    self.is_shrink = true --赛区是否显示
+    self.is_in_shrink = false --赛区收缩状态
+    self.select_zone_id = 1
+end
+
+function GuildnewwarGateWindow:open_callback(  )
+    self.background = self.root_wnd:getChildByName("background")
+    local scale = display.getMaxScale() or 1
+    self.background:setScale(scale)
+    self:setBackgroundImg("elitetournamen_10020") 
+
+    self.container = self.root_wnd:getChildByName("container")
+    self:playEnterAnimatianByObj(self.container, 1)
+    self.container_size = self.container:getContentSize()
+    self.close_btn = self.container:getChildByName("close_btn")
+
+    self.panel_common = self.container:getChildByName("panel_common") --常规赛
+    --按钮
+    self.rank_btn = self.panel_common:getChildByName("rank_btn")
+    self.rank_btn:getChildByName("label"):setChangeScaleOffWidth(-1000)
+    self.rank_btn:getChildByName("label"):setString(TI18N("语言_c_271"))
+    setTextMaxWidth(self.rank_btn:getChildByName("label"), 100, -8)
+    -- self.rank_btn:getChildByName("label"):setString(transformTextToShort(TI18N("语言_c_271"),8))
+	-- addEvt2showAllTextTips(self.rank_btn:getChildByName("label"),TI18N("语言_c_271"),8)
+
+    self.elite_btn = self.panel_common:getChildByName("elite_btn")
+    self.elite_btn:getChildByName("label"):setChangeScaleOffWidth(-1000)
+    self.elite_btn:getChildByName("label"):setString(TI18N("语言_c_2596"))
+    setTextMaxWidth(self.elite_btn:getChildByName("label"), 100, -8)
+    -- self.elite_btn:getChildByName("label"):setString(transformTextToShort(TI18N("语言_c_2596"),8))
+	-- addEvt2showAllTextTips(self.elite_btn:getChildByName("label"),TI18N("语言_c_2596"),8)
+    self.award_box_btn = self.panel_common:getChildByName("award_box_btn")
+    self.award_box_btn:getChildByName("label"):setChangeScaleOffWidth(-1000)
+    self.award_box_btn:getChildByName("label"):setString(TI18N("语言_c_3803"))
+    setTextMaxWidth(self.award_box_btn:getChildByName("label"), 100, -8)
+    -- self.award_box_btn:getChildByName("label"):setString(transformTextToShort(TI18N("语言_c_3803"),8))
+	-- addEvt2showAllTextTips(self.award_box_btn:getChildByName("label"),TI18N("语言_c_3803"),8)
+
+    self.match_btn = self.panel_common:getChildByName("match_btn")
+    self.match_btn:getChildByName("label"):setString(TI18N("语言_c_1095"))
+
+    self.panel_touch = self.panel_common:getChildByName("panel_touch")
+    self.panel_touch:setSwallowTouches(false)
+    self.panel_touch:setVisible(false)
+
+    local panel_middle = self.panel_common:getChildByName("panel_middle")
+    -- 公会信息
+    self.panel_info = panel_middle:getChildByName("panel_info")
+    self.panel_info.level_txt_icon = self.panel_info:getChildByName("level_txt_icon")
+    self.panel_info.btn_message = self.panel_info:getChildByName("btn_message")
+    self.panel_info.label_name = self.panel_info:getChildByName("label_name")
+    self.panel_info.label_name:setTouchEnabled(true)
+    self.panel_info.label_name:setString(transformTextToShort(TI18N("语言_c_944"),15))
+	addEvt2showAllTextTips(self.panel_info.label_name,TI18N("语言_c_944"),15)
+    self.panel_info.label_name_val = self.panel_info:getChildByName("label_name_val")
+    self.panel_info.label_cups = self.panel_info:getChildByName("label_cups")
+    self.panel_info.label_cups:setTouchEnabled(true)
+    self.panel_info.label_cups:setString(transformTextToShort(TI18N("语言_c_5246"),15))
+	addEvt2showAllTextTips(self.panel_info.label_cups,TI18N("语言_c_5246"),15)
+    self.panel_info.label_cups_val = self.panel_info:getChildByName("label_cups_val")
+    self.panel_info.label_devote = self.panel_info:getChildByName("label_devote")
+    self.panel_info.label_devote:setTouchEnabled(true)
+    self.panel_info.label_devote:setString(transformTextToShort(TI18N("语言_c_5253"),15))
+	addEvt2showAllTextTips(self.panel_info.label_devote,TI18N("语言_c_5253"),15)
+    self.panel_info.label_devote_val = self.panel_info:getChildByName("label_devote_val")
+    self.panel_info.label_win_rate = self.panel_info:getChildByName("label_win_rate")
+    self.panel_info.label_win_rate:setTouchEnabled(true)
+    self.panel_info.label_win_rate:setString(transformTextToShort(TI18N("语言_c_5438"),15))
+	addEvt2showAllTextTips(self.panel_info.label_win_rate,TI18N("语言_c_5438"),15)
+    self.panel_info.label_win_rate_val = self.panel_info:getChildByName("label_win_rate_val")
+    self.panel_info.label_win_streak = self.panel_info:getChildByName("label_win_streak")
+    self.panel_info.label_win_streak:setTouchEnabled(true)
+    self.panel_info.label_win_streak:setString(transformTextToShort(TI18N("语言_c_5254"),15))
+	addEvt2showAllTextTips(self.panel_info.label_win_streak,TI18N("语言_c_5254"),15)
+    self.panel_info.label_win_streak_val = self.panel_info:getChildByName("label_win_streak_val")
+
+    self.panel_info.node_rank = self.panel_info:getChildByName("node_rank")
+    --段位进度 奖励
+    self.panel_progress = panel_middle:getChildByName("panel_progress")
+    local current_tips = self.panel_progress:getChildByName("current_tips")
+    self.panel_progress.current_tips = createRichLabel(20, cc.c4b(0xf3,0xa6,0x03,0xff), cc.p(0.5,0.5), cc.p(current_tips:getPosition()), nil, nil, 540)
+    self.panel_progress:addChild(self.panel_progress.current_tips)
+    current_tips:removeFromParent()
+    self.panel_progress.progress_bar = self.panel_progress:getChildByName("progress_bar")
+    self.panel_progress.progress_bar:setScale9Enabled(true)
+    self.panel_progress.label_progress = self.panel_progress:getChildByName("label_progress")
+    self.panel_progress.item_scrollview = self.panel_progress:getChildByName("item_scrollview")
+    self.panel_progress.item_scrollview:setScrollBarEnabled(false)
+    self.panel_progress.item_scrollview:setSwallowTouches(false)
+    
+    --赛区排名
+    self.panel_rank = self.container:getChildByName("panel_rank")
+    self.rule_btn = self.panel_rank :getChildByName("rule_btn")
+    self.image_title_bg = self.panel_rank:getChildByName("image_title_bg")
+    self.image_title_bg.label_title = self.image_title_bg:getChildByName("label_title")
+    self.image_title_bg.label_title:setString(TI18N("语言_c_5258"))
+
+    self.match_key = self.panel_rank:getChildByName("label_key_1")
+    self.match_key:setString(TI18N("语言_c_551"))
+    self.time_key = self.panel_rank:getChildByName("label_key_2")
+    self.time_key:setString(TI18N("语言_c_552"))
+    self.condition_key = self.panel_rank:getChildByName("label_key_3")
+    self.condition_key:setString(TI18N("语言_c_553"))
+
+    self.match_value = createRichLabel(22, cc.c4b(0x0e,0xa8,0x0e,0xff), cc.p(0, 1), cc.p(156,self.match_key:getPositionY() + 15),-0,nil,1000)
+    self.time_value = createRichLabel(22, cc.c4b(0xf9,0xee,0xd0,0xff), cc.p(0, 1), cc.p(156,self.time_key:getPositionY() + 15),-0,nil,1000)
+    self.condition_value = createRichLabel(22, cc.c4b(0xf9,0xee,0xd0,0xff), cc.p(0, 1), cc.p(156,self.condition_key:getPositionY() + 15),-0,nil,500)
+    self.panel_rank:addChild(self.match_value)
+    self.panel_rank:addChild(self.time_value)
+    self.panel_rank:addChild(self.condition_value)
+
+    self.panel_title = self.container:getChildByName("panel_title") --赛区
+    self.image_right = self.panel_title:getChildByName("image_right")
+    self.image_right.flipStatus = false
+    self.label_division_title = self.panel_title:getChildByName("label_division_title")
+    local panel_division_root = self.panel_title:getChildByName("panel_division_root")
+    self.panel_division = panel_division_root:getChildByName("panel_division") --赛区列表
+    self.panel_division:setCascadeOpacityEnabled(true)
+    self.panel_division:setVisible(false)
+    local scroll_view_size = self.panel_division:getContentSize()
+    local setting = {
+        item_class = GuildnewwarDivisionItem,      -- 单元类
+        start_x = 0,                  -- 第一个单元的X起点
+        space_x = 0,                    -- x方向的间隔
+        start_y = 0,                    -- 第一个单元的Y起点
+        space_y = 0,                   -- y方向的间隔
+        item_width = 248,               -- 单元的尺寸width
+        item_height = 60,              -- 单元的尺寸height
+        row = 1,                        -- 行数，作用于水平滚动类型
+        col = 1,                         -- 列数，作用于垂直滚动类型
+    }
+    self.division_scrollview = CommonScrollViewLayout.new(self.panel_division, cc.p(0,0) , ScrollViewDir.vertical, ScrollViewStartPos.top, scroll_view_size, setting)
+    self.division_scrollview:setCascadeOpacityEnabled(true)
+
+    -- 页签
+    self.tab_container = self.container:getChildByName("tab_container")
+    for i=1,2 do
+        local tab_btn = self.tab_container:getChildByName("tab_btn_"..i)
+        if tab_btn then
+            local object = {}
+            object.select_bg = tab_btn:getChildByName('select_bg')
+            object.select_bg:setVisible(true)
+            -- object.unselect_bg = tab_btn:getChildByName('unselect_bg')
+            object.label = tab_btn:getChildByName('label')
+            object.label:setString(GateType[i].name)
+            object.label:getVirtualRenderer():setLineSpacing(-10)
+            object.tab_btn = tab_btn
+            object.index = i
+            self.tab_list[i] = object
+        end
+    end
+    --精英赛
+    self.panel_elite = self.container:getChildByName("panel_elite")
+    self.panel_elite:setVisible(false)
+
+    self.rankingreward_btn = self.panel_elite:getChildByName("rankingreward_btn")
+    self.rankingreward_btn:getChildByName("label"):setChangeScaleOffWidth(-1000)
+    self.rankingreward_btn:getChildByName("label"):setString(TI18N("语言_c_264"))
+    setTextMaxWidth(self.rankingreward_btn:getChildByName("label"), 100, -8)
+    -- self.rankingreward_btn:getChildByName("label"):setString(transformTextToShort(TI18N("语言_c_264"),8))
+	-- addEvt2showAllTextTips(self.rankingreward_btn:getChildByName("label"),TI18N("语言_c_264"),8)
+    self.rank_list_btn = self.panel_elite:getChildByName("rank_list_btn")
+    self.rank_list_btn:getChildByName("label"):setChangeScaleOffWidth(-1000)
+    self.rank_list_btn:getChildByName("label"):setString(TI18N("语言_c_271"))
+    setTextMaxWidth(self.rank_list_btn:getChildByName("label"), 100, -8)
+    -- self.rank_list_btn:getChildByName("label"):setString(transformTextToShort(TI18N("语言_c_271"),8))
+	-- addEvt2showAllTextTips(self.rank_list_btn:getChildByName("label"),TI18N("语言_c_271"),8)
+    self.plan_btn = self.panel_elite:getChildByName("plan_btn")
+    self.plan_btn:getChildByName("label"):setChangeScaleOffWidth(-1000)
+    self.plan_btn:getChildByName("label"):setString(TI18N("语言_c_5255"))
+    setTextMaxWidth(self.plan_btn:getChildByName("label"), 100, -8)
+    -- self.plan_btn:getChildByName("label"):setString(transformTextToShort(TI18N("语言_c_5255"),8))
+	-- addEvt2showAllTextTips(self.plan_btn:getChildByName("label"),TI18N("语言_c_5255"),8)
+    self.luckydraw_btn = self.panel_elite:getChildByName("luckydraw_btn")
+    self.luckydraw_btn:getChildByName("label"):setChangeScaleOffWidth(-1000)
+    self.luckydraw_btn:getChildByName("label"):setString(TI18N("语言_c_5256"))
+    setTextMaxWidth(self.luckydraw_btn:getChildByName("label"), 100, -8)
+    -- self.luckydraw_btn:getChildByName("label"):setString(transformTextToShort(TI18N("语言_c_5256"),8))
+	-- addEvt2showAllTextTips(self.luckydraw_btn:getChildByName("label"),TI18N("语言_c_5256"),8)
+    self.elitematch_btn = self.panel_elite:getChildByName("elitematch_btn")
+    self.elitematch_btn:getChildByName("label"):setString(TI18N("语言_c_550"))
+    self.form_btn = self.panel_elite:getChildByName("form_btn")
+    self.form_btn:getChildByName("label"):setString(TI18N("语言_c_5257"))
+
+    self.top_rank_list = {}
+    for i=1,8 do
+        local object = {}
+        local node_badge = self.panel_elite:getChildByName("node_badge_"..i)
+        local badge_item = GuildBadgeItem.new()
+        node_badge:addChild(badge_item)
+        node_badge.badge_item = badge_item
+        object.node_badge = node_badge
+        badge_item:setClickCallBack(function(data)
+            if node_badge.data then
+                GuildController:getInstance():send13509(node_badge.data.gid, node_badge.data.srv_id)
+            end
+        end)
+        object.label_guild_name = self.panel_elite:getChildByName("label_guild_name_"..i)
+        object.label_guild_power = self.panel_elite:getChildByName("label_guild_power_"..i)
+        object.sp_empty = self.panel_elite:getChildByName("sp_empty_"..i)
+        self.top_rank_list[i] = object
+    end
+
+    self:adaptationScreen()
+end
+
+--段位iconspine
+function GuildnewwarGateWindow:playLevelSpine(status, config)
+    if status == false then
+        if self.level_spine then
+            self.level_spine:clearTracks()
+            self.level_spine:removeFromParent()
+            self.level_spine = nil
+        end
+    else
+        if not config then return end
+        if self.level_spine_record == nil or self.level_spine_record ~= config.ico then
+            self.level_spine_record = config.ico
+            self:playLevelSpine(false)
+            self.level_spine = createEffectSpine(config.ico, cc.p(0, 0), cc.p(0.5, 0.5), true, PlayerAction.action)
+            -- self.level_spine = createEffectSpine("E24177", cc.p(0, 0), cc.p(0.5, 0.5), true, PlayerAction.action)
+            self.panel_info.node_rank:addChild(self.level_spine, 1)
+        end
+    end
+end
+
+--设置适配屏幕
+function GuildnewwarGateWindow:adaptationScreen()
+    --对应主窗口.四面对应xy位置 ..相对位置是self.main_container左下角(0,0)
+    local top_y = display.getTop(self.container)
+    local bottom_y = display.getBottom(self.container)
+    local left_x = display.getLeft(self.container)
+    local right_x = display.getRight(self.container)
+
+    local tab_y = self.panel_title:getPositionY()
+    self.panel_title:setPositionY(top_y - (self.container_size.height - tab_y))
+
+    local tab_y = self.tab_container:getPositionY()
+    self.tab_container:setPositionY(top_y - (self.container_size.height - tab_y))
+
+    local close_btn_y = self.close_btn:getPositionY()
+    self.close_btn:setPositionY(bottom_y + close_btn_y)
+end
+
+
+function GuildnewwarGateWindow:register_event(  )
+    registerButtonEventListener(self.close_btn, handler(self, self.onClickCloseBtn), true, 2)
+
+    registerButtonEventListener(self.image_right, handler(self, self.onClickLookDivisionBtn), true, 2)
+
+    registerButtonEventListener(self.rank_btn, handler(self, self.onClickRankBtn), true, 2)
+    registerButtonEventListener(self.elite_btn, handler(self, self.onClickEliteBtn), true, 2)
+    registerButtonEventListener(self.award_box_btn, handler(self, self.onClickAwardBoxBtn), true, 2)
+    registerButtonEventListener(self.match_btn, handler(self, self.onClickMatchBtn), true, 2)
+    registerButtonEventListener(self.rule_btn, handler(self, self.onClickRuleBtn), true, 2)
+    registerButtonEventListener(self.panel_info.btn_message, handler(self, self.onClickMessageBtn), true, 2)
+
+    registerButtonEventListener(self.panel_touch, function()
+        self.panel_touch:setVisible(false)
+        self:shrinkInfoContainer()
+    end, true)
+
+    --精英
+    registerButtonEventListener(self.rankingreward_btn, handler(self, self.onClickRankingAwardBtn), true, 2)
+    registerButtonEventListener(self.rank_list_btn, handler(self, self.onClickRankListBtn), true, 2)
+    registerButtonEventListener(self.plan_btn, handler(self, self.onClickPlanBtn), true, 2)
+    registerButtonEventListener(self.luckydraw_btn, handler(self, self.onClickLuckyDrawBtn), true, 2)
+    registerButtonEventListener(self.elitematch_btn, handler(self, self.onClickElitematch), true, 2)
+    registerButtonEventListener(self.form_btn, handler(self, self.onClickFormBtn), true, REGISTER_BUTTON_SOUND_BUTTON_TYPY)
+
+
+    for k, object in pairs(self.tab_list) do
+        if object.tab_btn then
+            object.tab_btn:addTouchEventListener(function(sender, event_type)
+                if event_type == ccui.TouchEventType.ended then
+                    playTabButtonSound()
+                    self:changeSelectedTab(object.index)
+                end
+            end)
+        end
+    end
+
+    -- 红点更新
+    if self.update_red_status_event == nil then
+        self.update_red_status_event = GlobalEvent:getInstance():Bind(GuildNewwarEvent.UpdateGuildWarRedStatusEvent, function(redtype, status)
+            self:updateMainRedStatus(redtype, status)
+        end)
+    end
+
+    
+    self:addGlobalEvent(GuildNewwarEvent.GUILDNEWWAR_SELECT_DIVISION, function(data)
+        --确认选择的赛区
+        self:updateCurSeason(data)
+        self:shrinkInfoContainer()
+    end)
+    --联盟战状态 赛季数据更新
+    self:addGlobalEvent(GuildNewwarEvent.UpdateGuildWarStatusEvent, function(data)
+        self:updateNormalInfo()
+        self:updateSeasonInfo()
+    end)
+    --精英赛 信息
+    self:addGlobalEvent(GuildNewwarEvent.GUILDNEWWAR_MAIN_EVENT, function(data)
+        if self.match_type == GuildNewwarConst.BattleType.elite then
+            self:updateSeasonInfo()
+        end
+    end)
+
+    --8强
+    self:addGlobalEvent(GuildNewwarEvent.GUILDNEWWAR_UPDATE_Main_Rank, function(data)
+        self:update8Rank(data)
+    end)
+
+    self:addGlobalEvent(GuildNewwarEvent.GUILDNEWWAR_ALL_RED_POINT_EVENT, function(data)
+        self:updateLegendMarkRedStatus()
+        self:updateLegendMyMatchRedStatus()
+        self:updateLegendGoMatchRedStatus()
+    end)
+
+    self:addGlobalEvent(BackpackEvent.ADD_GOODS, function(bag_code,temp_list)
+        self:updateTurnTableRed(temp_list)
+    end)
+    self:addGlobalEvent(BackpackEvent.DELETE_GOODS, function(bag_code,temp_list)
+        self:updateTurnTableRed(temp_list)
+    end)
+    self:addGlobalEvent(BackpackEvent.MODIFY_GOODS_NUM, function(bag_code,temp_list)
+        self:updateTurnTableRed(temp_list)
+    end)
+    
+end
+
+--常规赛红点
+function GuildnewwarGateWindow:updateMainRedStatus( redtype, status )
+    local box_btn_status = model:checkRedIsShowByRedType(GuildConst.red_index.guildnewwar_box)
+    addRedPointToNodeByStatus(self.award_box_btn, box_btn_status, -5, -5)
+    box_btn_status = box_btn_status or model:checkRedIsShowByRedType(GuildConst.red_index.guildnewwar_match)
+    box_btn_status = box_btn_status or model:checkRedIsShowByRedType(GuildConst.red_index.guildnewwar_count)
+    addRedPointToNodeByStatus(self.tab_list[1].tab_btn, box_btn_status, -135, -5)
+    addRedPointToNodeByStatus(self.match_btn, box_btn_status, 0, 1.9)
+end
+
+--精英赛 页签红点
+function GuildnewwarGateWindow:updateLegendMarkRedStatus()
+    local box_btn_status = model:checkPeakChampionTotalRedPoint()
+    addRedPointToNodeByStatus(self.tab_list[2].tab_btn, box_btn_status, -5, -5)
+end
+--赛程安排red
+function GuildnewwarGateWindow:updateLegendMyMatchRedStatus()
+    local box_btn_status = model:getMyMatchRedPoint()
+    addRedPointToNodeByStatus(self.plan_btn, box_btn_status)
+end
+--进入大赛red
+function GuildnewwarGateWindow:updateLegendGoMatchRedStatus()
+    local box_btn_status = model:getMatchStageRedPoint()
+    addRedPointToNodeByStatus(self.elitematch_btn, box_btn_status)
+end
+
+--抽奖
+function GuildnewwarGateWindow:updateTurnTableRed()
+    local box_btn_status = model:checkLegendTurnTable()
+    addRedPointToNodeByStatus(self.luckydraw_btn, box_btn_status)
+end
+
+function GuildnewwarGateWindow:onClickLookDivisionBtn()
+    self:shrinkInfoContainer()
+end
+
+-- 关闭
+function GuildnewwarGateWindow:onClickCloseBtn(  )
+    controller:openGuildnewwarGateWindow(false)
+end
+--------------常规赛
+-- 打开规则说明
+function GuildnewwarGateWindow:onClickRuleBtn(  )
+    if self.match_type == GuildNewwarConst.BattleType.elite then
+        MainuiController:getInstance():openCommonExplainView(true, Config.GuildSagaChampionData.data_explain)
+    else
+        MainuiController:getInstance():openCommonExplainView(true, Config.GuildWarNewData.data_explain)
+    end
+end
+-- 打开赛季统计
+function GuildnewwarGateWindow:onClickMessageBtn(  )
+    controller:openGuildnewwarSeasonStatisticsPanel(true)
+end
+-- 打开段位排行榜
+function GuildnewwarGateWindow:onClickRankBtn(  )
+    controller:openGuildnewwarSeasonRankWindow(true, {zone_id = self.select_zone_id})
+end
+-- 打开段位奖励
+function GuildnewwarGateWindow:onClickEliteBtn(  )
+    controller:openGuildNewWarRankAwardPreview(true)
+end
+-- 打开战果宝箱
+function GuildnewwarGateWindow:onClickAwardBoxBtn(  )
+    controller:openAwardBoxWindow(true)
+end
+-- 打开常规赛开战
+function GuildnewwarGateWindow:onClickMatchBtn(  )
+    MainuiController:getInstance():requestOpenBattleRelevanceWindow(BattleConst.Fight_Type.GuildNewWar)
+end
+--------------精英赛
+-- 打开精英排行榜
+function GuildnewwarGateWindow:onClickRankListBtn(  )
+    controller:openGuildnewwarSeasonRankWindow(true, {zone_id = self.select_zone_id})
+end
+-- 打开排行奖励
+function GuildnewwarGateWindow:onClickRankingAwardBtn(  )
+    controller:openGuildNewwarEliteRankAwardPreview(true)
+end
+-- 打开赛程安排
+function GuildnewwarGateWindow:onClickPlanBtn(  )
+    local main_data = model:getMainData()
+    if not main_data then return end
+    if model.my_match_redpoint then
+        controller:sender27731(1)
+        model:setMyMatchRedPoint(false)
+    end
+    controller:openGuildnewwarElitePlanPanel(true)
+end
+-- 打开幸运抽奖
+function GuildnewwarGateWindow:onClickLuckyDrawBtn(  )
+    controller:openGuildnewwarTurntablePanel(true)
+end
+-- 打开传奇赛
+function GuildnewwarGateWindow:onClickElitematch(  )
+    controller:openGuildnewwarEliteGuessingWindow(true)
+end
+-- 布阵
+function GuildnewwarGateWindow:onClickFormBtn(  )
+    controller:openGuildnewwarEliteTeamListPanel(true)
+end
+
+--==============================--
+--desc:收缩赛区面板
+--@return 
+--==============================--
+function GuildnewwarGateWindow:shrinkInfoContainer()
+	if not self.panel_division then
+		return
+	end
+    if self.is_in_shrink == true then return end
+    self.is_in_shrink = true
+
+    self.is_shrink = not self.is_shrink
+    self.image_right:setFlippedY(self.is_shrink)
+    self.panel_division:setVisible(true)
+
+    local len = 587.5
+    local move_by_1 = nil
+    local fade_1 = nil
+    local scaleY = 1
+    local posx = self.panel_division:getPositionX()
+    if self.is_shrink == true then
+        move_by_1 = cc.MoveTo:create(0.6, cc.p(posx, 300))
+		fade_1 = cc.FadeOut:create(0.6)
+    else
+        move_by_1 = cc.MoveTo:create(0.6, cc.p(posx, 90))
+		fade_1 = cc.FadeIn:create(0.1)
+		scaleY = -1
+	end
+
+    local call_fun_1 = cc.CallFunc:create(function()
+        self.is_in_shrink = false
+        if self.is_shrink == true then
+            self.panel_division:setVisible(false)
+        end
+        self.panel_touch:setVisible(not self.is_shrink)
+	end)
+	local ease_out = cc.EaseBackOut:create(move_by_1)
+
+    self.panel_division:runAction(cc.Sequence:create(cc.Spawn:create(ease_out, fade_1), call_fun_1)) 
+    if not self.is_shrink then
+        local season_data = GuildNewwarController:getInstance():getModel():getSeasonData()
+        local list = {}
+        if season_data then
+            for i=1,season_data.max_zone_id do
+                list[#list + 1] = {zone_id = i}
+            end
+        end
+        self.division_scrollview:setData(list)
+    end
+end
+
+--------------精英赛
+
+-- 切换标签页
+function GuildnewwarGateWindow:changeSelectedTab(index, not_check)
+    if not not_check and self.tab_object ~= nil and self.tab_object.index == index then return end
+    -- if index == ElitematchConst.MatchType.eKingMatch then
+    --     message("敬请期待")
+    --     return
+    -- end
+    if self.tab_object then
+        self.tab_object.select_bg:setVisible(true)
+        -- self.tab_object.label:setTextColor(cc.c4b(0xcf, 0xb5, 0x93, 0xff))
+        self.tab_object = nil
+    end
+    self.match_type = index
+    self.tab_object = self.tab_list[index]
+    if self.tab_object then
+        self.tab_object.select_bg:setVisible(false)
+        -- self.tab_object.label:setTextColor(cc.c4b(0xff, 0xed, 0xd6, 0xff))
+    end
+    if index == ElitematchConst.MatchType.eNormalMatch then --常规赛
+        self:setBackgroundImg("elitetournamen_10020")
+        self.panel_common:setVisible(true)
+        self.panel_elite:setVisible(false)
+        self:updateNormalInfo()
+    elseif index == ElitematchConst.MatchType.eKingMatch then --王者赛
+        self:setBackgroundImg("elitetournamen_10021")
+        self.panel_common:setVisible(false)
+        self.panel_elite:setVisible(true)
+        self:updateKingInfo()
+    end
+    self:updateSeasonInfo()
+end
+
+function GuildnewwarGateWindow:setBackgroundImg(bg_name)
+    -- local bg_res = PathTool.getPlistImgForDownLoad("bigbg/elitematch", bg_name, true)
+    -- if self.record_bg_res ~= bg_res then
+    --     self.record_bg_res = bg_res
+    --     self.item_load_bg = loadImageTextureFromCDN(self.background, bg_res, ResourcesType.single, self.item_load_bg) 
+    -- end
+    self.background:loadTexture(bg_name..".png", ResourcesType.plist)
+end
+
+function GuildnewwarGateWindow:openRootWnd( setting )
+    local setting = setting or {}
+    self.match_type = setting.g_type or GuildNewwarConst.BattleType.nomal
+    self:setData()
+    self:updateMainRedStatus()
+
+    -- 拉取精英賽
+    local main_data = model:getMainData()
+    self:updateLegendMarkRedStatus()
+    self:updateLegendMyMatchRedStatus()
+    self:updateLegendGoMatchRedStatus()
+    self:updateTurnTableRed()
+
+    controller:sender14240()
+    controller:sender14241() --个人信息
+    -- controller:sender27714(0,1,8)
+end
+
+function GuildnewwarGateWindow:setData()
+    self:changeSelectedTab(self.match_type or 1, true)
+end
+
+function GuildnewwarGateWindow:updateTimeInfo()
+    if not self.scdata then return end
+
+
+    local config = Config.ArenaEliteData.data_zone_fun(self.scdata.zone_id)
+
+    local zone_name = ""
+    if config then 
+        zone_name = string_format(TI18N("语言_c_3877"), config.name)
+    end
+
+    local server_time = GameNet:getInstance():getTime()
+    local start_time = TimeTool.getMD2(self.scdata.start_time)
+    local end_time = TimeTool.getMD2(self.scdata.end_time- 10)
+    self.match_time:setString(string_format(TI18N("语言_c_3878"), self.scdata.period, zone_name, start_time, end_time))
+    
+    if self.scdata.state == 1 then
+        self.match_time_str1 = TI18N("语言_c_3879")
+        self.match_time_str2 = TI18N("语言_c_3880")
+    elseif self.scdata.state == 2 then
+        self.match_time_str1 = TI18N("语言_c_3881")
+        self.match_time_str2 = TI18N("语言_c_3882")
+    elseif self.scdata.state == 3 then
+        self.match_time_str1 = TI18N("语言_c_3883")
+        self.match_time_str2 = TI18N("语言_c_3884")
+    else
+        return
+    end
+    self:setLessTime(self.scdata.state_time)
+end
+
+--更新常规赛
+function GuildnewwarGateWindow:updateNormalInfo()
+    local guild_info = GuildController:getInstance():getModel():getMyGuildInfo()
+    local season_data = GuildNewwarController:getInstance():getModel():getSeasonData()
+    if not season_data then return end
+    local guild_name = guild_info and guild_info.name or "--"
+    self.panel_info.label_name_val:setString(guild_name)
+    self.panel_info.label_cups_val:setString(season_data.cups or 0)
+    self.panel_info.label_devote_val:setString(season_data.name or "--")
+    if season_data.all == 0 then
+        self.panel_info.label_win_rate_val:setString("0%")
+    else
+        self.panel_info.label_win_rate_val:setString(math.floor(season_data.win/season_data.all*100 + 0.5).."%" or "--")
+    end
+    self.panel_info.label_win_streak_val:setString(season_data.win_streak)
+
+    local level = season_data.dan
+    local config = Config.GuildWarNewData.data_guild_war_level[level]
+    if config then
+        self:playLevelSpine(true, config)
+        local bg_res = PathTool.getPlistImgForDownLoad("elitematch/elitematch_icon",config.name_ico, false)
+        if self.record_txt_res ~= bg_res then
+            self.record_txt_res = bg_res
+            self.item_load1 = loadSpriteTextureFromCDN(self.panel_info.level_txt_icon, bg_res, ResourcesType.single, self.item_load1) 
+        end
+    end
+    local next_config = Config.GuildWarNewData.data_guild_war_level[level + 1]
+    if next_config then
+        self.panel_progress.current_tips:setString(string_format(TI18N("语言_c_5364"),next_config.name))
+        local percent = (season_data.cups - config.base_exp)/config.need_exp*100
+        self.panel_progress.progress_bar:setPercent(math.min(percent, 100))
+        self.panel_progress.label_progress:setString((season_data.cups - config.base_exp).."/"..config.need_exp)
+    else
+        --最高段位
+        next_config = {}
+        self.panel_progress.current_tips:setString(string_format("<div fontcolor=#ffffff outline=2,#000000>%s</div>",TI18N("语言_c_5365")))
+        local percent = 100
+        self.panel_progress.progress_bar:setPercent(math.min(percent, 100))
+        self.panel_progress.label_progress:setString(TI18N("语言_c_5383"))
+    end
+
+    --奖励数据
+    local lev_award= next_config.lev_award or {}
+    local setting = {}
+    setting.scale = 0.8
+    setting.max_count = 4
+    setting.is_center = true
+    self.item_list = commonShowSingleRowItemList(self.panel_progress.item_scrollview, self.item_list, lev_award, setting)
+end
+
+--更新精英赛
+function GuildnewwarGateWindow:updateKingInfo()
+    -- local rank8_list = model:getMatchData8(self.select_zone_id) 
+    -- if rank8_list then
+    --     self:update8Rank()
+    -- else
+    --     controller:sender14253(self.select_zone_id)
+    -- end
+    controller:sender14253(self.select_zone_id)
+end
+
+function GuildnewwarGateWindow:update8Rank(list)
+    if not self.top_rank_list then
+        return 
+    end
+    local rank8_list = list or {} -- model:getMatchData8(self.select_zone_id) 
+    for i, v in ipairs(self.top_rank_list) do
+        local data = rank8_list[i]
+        if data then 
+            local badge_data = GuildController:getInstance():getModel():getBadgeItemData(data.avatar, data.avatar_frame)
+            badge_data.lev = data.lev
+            v.node_badge.badge_item:setData(badge_data)
+            v.node_badge.data = data
+            v.label_guild_name:setString(data.name)
+            v.label_guild_power:setString(data.power)
+            v.sp_empty:setVisible(false)
+            v.node_badge:setVisible(true)
+        else
+            v.sp_empty:setVisible(true)
+            v.node_badge:setVisible(false)
+            v.label_guild_name:setString(TI18N("语言_c_1891"))
+            v.label_guild_power:setString(0)
+        end
+    end
+end
+
+--刷新赛季信息 排名 赛程  时间  条件
+function GuildnewwarGateWindow:updateSeasonInfo()
+    local str_kind = {
+        [1] = {
+            match_title = TI18N("语言_c_551"),
+            time_title = TI18N("语言_c_5261"),
+            condition_title = TI18N("语言_c_5263"),
+            match_str = TI18N("语言_c_5259"),
+            time_str = TI18N("03.29-0.4.23(距离常规赛结束剩余16天2小时)"),
+            condition_str = TI18N("语言_c_5249"),
+        },
+        [2] = {   
+            match_title = TI18N("语言_c_551"),
+            time_title = TI18N("语言_c_5261"),
+            condition_title = TI18N("语言_c_5262"), 
+            match_str = TI18N("传奇赛未开启"),
+            time_str = TI18N("03.29-0.4.23(距离下次开启16天2小时)"),
+            condition_str = TI18N("语言_c_5395"),
+        }
+    }
+    if self.match_type == GuildNewwarConst.BattleType.nomal then
+        local season_data = GuildNewwarController:getInstance():getModel():getSeasonData()
+        if not season_data then
+            self.image_title_bg.label_title:setString(TI18N("--"))
+            self.match_key:setString(str_kind[self.match_type].match_title)
+            self.match_value:setString("--")
+            self.time_key:setString(str_kind[self.match_type].time_title)
+            self.time_value:setString("--")
+            self.condition_key:setString(str_kind[self.match_type].condition_title)
+            self.condition_value:setString("--")
+            self:adaptLabelValue()
+            return 
+        end
+        self.image_title_bg.label_title:setString(TI18N("语言_c_5258")..season_data.zone_rank)
+        self.match_key:setString(str_kind[self.match_type].match_title)
+        self.time_key:setString(str_kind[self.match_type].time_title)
+        self.condition_key:setString(str_kind[self.match_type].condition_title)
+
+        season_data.season_start_time = season_data.season_start_time == 0 and GameNet:getInstance():getTime() or season_data.season_start_time
+        season_data.season_end_time = season_data.season_end_time == 0 and GameNet:getInstance():getTime() or season_data.season_end_time
+        local nowtime = GameNet:getInstance():getTime()
+        local timezone = InviteCodeController:getInstance():getModel():getServerTimeZone()--服务器时区
+        local is_open = season_data.season_end_time > nowtime and season_data.season_start_time < nowtime
+
+        local y = TimeTool.xsdate("%Y",season_data.season_start_time,timezone)
+        local m = TimeTool.xsdate("%m",season_data.season_start_time,timezone)
+        local d = TimeTool.xsdate("%d",season_data.season_start_time,timezone)
+        local start_str = y.."."..m.."."..d--string.format(TI18N("语言_c_4763"),y,m,d)
+        local y = TimeTool.xsdate("%Y",season_data.season_end_time,timezone)
+        local m = TimeTool.xsdate("%m",season_data.season_end_time,timezone)
+        local d = TimeTool.xsdate("%d",season_data.season_end_time,timezone)
+        local end_str = y.."."..m.."."..d--string.format(TI18N("语言_c_4763"),y,m,d)
+        if is_open then
+            self.match_value:setString(TI18N("语言_c_5259"))
+            local dis_time = season_data.season_end_time - nowtime
+            local y = os.date("%Y", dis_time)--TimeTool.xsdate("%Y",season_data.season_end_time,timezone)
+            local m = os.date("%m", dis_time)--TimeTool.xsdate("%m",season_data.season_end_time,timezone)
+            local d = os.date("%d", dis_time)--TimeTool.xsdate("%d",season_data.season_end_time,timezone)
+            -- local other_time_str = string.format(TI18N("(语言_c_5366)"),m,d)
+            -- self.time_value:setString(start_str.." - "..end_str..other_time_str)
+            self:refreshSurplusTime(  )
+        else
+            self.match_value:setString(TI18N("语言_c_5260"))
+            local dis_time = season_data.season_start_time - nowtime
+            local y = os.date("%Y", dis_time)--TimeTool.xsdate("%Y",season_data.season_end_time,timezone)
+            local m = os.date("%m", dis_time)--TimeTool.xsdate("%m",season_data.season_end_time,timezone)
+            local d = os.date("%d", dis_time)--TimeTool.xsdate("%d",season_data.season_end_time,timezone)
+            local other_time_str = ""--string.format(TI18N("(距离下次开启剩余%s天%s小时)"),m,d)
+            self.time_value:setString(start_str.."-"..end_str..other_time_str)
+            self:openGuildWarSurplusTimer(false)
+        end
+        self.condition_value:setString(str_kind[self.match_type].condition_str)
+    else
+        local main_data = model:getMainData()
+        if not main_data then
+            self.image_title_bg.label_title:setString(TI18N("--"))
+            self.match_key:setString(str_kind[self.match_type].match_title)
+            self.match_value:setString("--")
+            self.time_key:setString(str_kind[self.match_type].time_title)
+            self.time_value:setString("--")
+            self.condition_key:setString(str_kind[self.match_type].condition_title)
+            self.condition_value:setString("--")
+            self:adaptLabelValue()
+            return
+        end
+        local nowtime = GameNet:getInstance():getTime()
+        local timezone = InviteCodeController:getInstance():getModel():getServerTimeZone()--服务器时区
+        local is_open = main_data.start_time < nowtime and main_data.end_time > nowtime
+
+        local y = TimeTool.xsdate("%Y",main_data.start_time,timezone)
+        local m = TimeTool.xsdate("%m",main_data.start_time,timezone)
+        local d = TimeTool.xsdate("%d",main_data.start_time,timezone)
+        local start_str = y.."."..m.."."..d--string.format(TI18N("语言_c_4763"),y,m,d)
+        local y = TimeTool.xsdate("%Y",main_data.end_time,timezone)
+        local m = TimeTool.xsdate("%m",main_data.end_time,timezone)
+        local d = TimeTool.xsdate("%d",main_data.end_time,timezone)
+        local end_str = y.."."..m.."."..d--string.format(TI18N("语言_c_4763"),y,m,d)
+        if is_open then
+            local str, str1 = model:getMacthText(main_data.step, main_data.step_status)
+            local match_str = str or ""
+            if str1 then
+                match_str = match_str.." "..str1--string_format("<div fontcolor=#f1e2c7 outline=2,#5c2705>%s</div>", match_str) .. string_format("<div fontcolor=#52f559>%s</div>", str1)
+            end
+            self.match_value:setString(match_str)
+            -- self.match_value:setString(TI18N("语言_c_5396"))
+            local dis_time = main_data.end_time - nowtime
+            local y = os.date("%Y", dis_time)
+            local m = os.date("%m", dis_time)
+            local d = os.date("%d", dis_time)
+            -- local other_time_str = string.format(TI18N("(语言_c_5366)"),m,d)
+            -- self.time_value:setString(start_str.." - "..end_str..other_time_str)
+            if main_data.is_open == 2 then --公会数据量不足
+                self.match_value:setString(TI18N("语言_c_5354"))--(str_kind[self.match_type].time_title..TI18N("（组织数量不足64，未开赛）"))
+            end
+            self:refreshSurplusTime()
+        else
+            self.match_value:setString(TI18N("语言_c_5397"))
+            local dis_time = main_data.start_time - nowtime
+            local y = os.date("%Y", dis_time)
+            local m = os.date("%m", dis_time)
+            local d = os.date("%d", dis_time)
+            local other_time_str = ""--string.format(TI18N("(距离下次开启剩余%s天%s小时)"),m,d)
+            self.time_value:setString(start_str.."-"..end_str..other_time_str)
+            self:openGuildWarSurplusTimer(false)
+        end
+        self.condition_key:setString(str_kind[self.match_type].condition_title)
+        self.condition_value:setString(str_kind[self.match_type].condition_str)
+    end
+    self:adaptLabelValue()
+    self:updateCurSeason()
+end
+
+function GuildnewwarGateWindow:adaptLabelValue()
+    local pos_x = self.match_key:getPositionX() + self.match_key:getContentSize().width + 20
+    pos_x = math.max(pos_x, self.time_key:getPositionX() + self.time_key:getContentSize().width + 20)
+    pos_x = math.max(pos_x, self.condition_key:getPositionX() + self.condition_key:getContentSize().width + 20)
+    local max_width = 720 - pos_x - 6
+    self.match_value:setMaxWidth(max_width, false)
+    self.time_value:setMaxWidth(max_width, false)
+    self.condition_value:setMaxWidth(max_width, false)
+    local str = self.condition_value:getString()
+    self.condition_value:setString("")
+    self.condition_value:setString(str)
+    local str = self.time_value:getString()
+    self.time_value:setString("")
+    self.time_value:setString(str)
+    local str = self.match_value:getString()
+    self.match_value:setString("")
+    self.match_value:setString(str)
+    self.match_value:setPositionX(pos_x)
+    self.time_value:setPositionX(pos_x)
+    self.condition_value:setPositionX(pos_x)
+end
+
+function GuildnewwarGateWindow:getGuildWarSurplusTime()
+    if self.match_type == GuildNewwarConst.BattleType.nomal then
+        local season_data = GuildNewwarController:getInstance():getModel():getSeasonData()
+        if not season_data then
+            return 0
+        end
+        local nowtime = GameNet:getInstance():getTime()
+        local is_open = season_data.season_end_time > nowtime and season_data.season_start_time < nowtime
+        return season_data.season_end_time - nowtime
+    else
+        local main_data = model:getMainData()
+        if not main_data then
+            return 0
+        end
+        local nowtime = GameNet:getInstance():getTime()
+        local is_open = main_data.start_time > nowtime and main_data.end_time < nowtime
+        return main_data.end_time - nowtime
+    end
+end
+
+function GuildnewwarGateWindow:getTargetTimeStr()
+    local timezone = InviteCodeController:getInstance():getModel():getServerTimeZone()--服务器时区
+    if self.match_type == GuildNewwarConst.BattleType.nomal then
+        local season_data = GuildNewwarController:getInstance():getModel():getSeasonData()
+        if not season_data then
+            return ""
+        end
+        local y = TimeTool.xsdate("%Y",season_data.season_start_time,timezone)
+        local m = TimeTool.xsdate("%m",season_data.season_start_time,timezone)
+        local d = TimeTool.xsdate("%d",season_data.season_start_time,timezone)
+        local start_str = y.."."..m.."."..d--string.format(TI18N("语言_c_4763"),y,m,d)
+        local y = TimeTool.xsdate("%Y",season_data.season_end_time,timezone)
+        local m = TimeTool.xsdate("%m",season_data.season_end_time,timezone)
+        local d = TimeTool.xsdate("%d",season_data.season_end_time,timezone)
+        local end_str = y.."."..m.."."..d--string.format(TI18N("语言_c_4763"),y,m,d)
+        return start_str.."-"..end_str
+    else
+        local main_data = model:getMainData()
+        if not main_data then
+            return ""
+        end
+        local y = TimeTool.xsdate("%Y",main_data.start_time,timezone)
+        local m = TimeTool.xsdate("%m",main_data.start_time,timezone)
+        local d = TimeTool.xsdate("%d",main_data.start_time,timezone)
+        local start_str = y.."."..m.."."..d--string.format(TI18N("语言_c_4763"),y,m,d)
+        local y = TimeTool.xsdate("%Y",main_data.end_time,timezone)
+        local m = TimeTool.xsdate("%m",main_data.end_time,timezone)
+        local d = TimeTool.xsdate("%d",main_data.end_time,timezone)
+        local end_str = y.."."..m.."."..d--string.format(TI18N("语言_c_4763"),y,m,d)
+        return start_str.."-"..end_str
+    end
+end
+
+-- 剩余时间显示
+function GuildnewwarGateWindow:refreshSurplusTime(  )
+	self.surplusTime = self:getGuildWarSurplusTime()
+    if self.surplusTime < 0 then
+        self.surplusTime = 0
+    end
+    local str = self:getTargetTimeStr()
+	self.time_value:setString(str.."("..string.format(TI18N("语言_c_536"), TimeTool.GetTimeFormatDay2(self.surplusTime))..")")
+	self:openGuildWarSurplusTimer(true)
+end
+
+-- 活动剩余时间倒计时
+function GuildnewwarGateWindow:openGuildWarSurplusTimer( status )
+	if status == true then
+		if self.guildwar_timer == nil then
+            self.guildwar_timer = GlobalTimeTicket:getInstance():add(function()
+                self.surplusTime = self.surplusTime - 1
+                if self.surplusTime >= 0 then
+                    local str = self:getTargetTimeStr()
+                    self.time_value:setString(str.."("..string.format(TI18N("语言_c_536"), TimeTool.GetTimeFormatDay2(self.surplusTime))..")")
+                else
+                	self.surplusTime = 0
+                	GlobalTimeTicket:getInstance():remove(self.guildwar_timer)
+            		self.guildwar_timer = nil
+                end
+            end, 1)
+        end
+	else
+		if self.guildwar_timer ~= nil then
+            GlobalTimeTicket:getInstance():remove(self.guildwar_timer)
+            self.guildwar_timer = nil
+        end
+	end
+end
+
+function GuildnewwarGateWindow:updateCurSeason(t_season_data)
+    local season_data = t_season_data or GuildNewwarController:getInstance():getModel():getSeasonData()
+    if season_data then
+        if self.select_zone_id ~= season_data.zone_id then
+            self.select_zone_id = season_data.zone_id
+            if t_season_data then
+                self:updateKingInfo()
+            end
+        end
+        select_zone_id = season_data.zone_id
+        self.label_division_title:setString(string_format(TI18N("语言_c_558"), season_data.zone_id))
+    end
+end
+
+--@percent 百分比
+--@label 进度条中间文字描述
+--@is_blue 是否 ture:蓝条
+function GuildnewwarGateWindow:showProgressbar()
+end
+
+function GuildnewwarGateWindow:close_callback(  )
+    self:openGuildWarSurplusTimer(false)
+    if self.item_load_bg then
+        self.item_load_bg:DeleteMe()
+    end
+    self.item_load_bg = nil
+
+    if self.item_list then
+        for i,v in ipairs(self.item_list) do
+            v:DeleteMe()
+        end
+    end
+    for i, v in ipairs(self.top_rank_list) do
+        if v.node_badge and v.node_badge.badge_item then
+            v.node_badge.badge_item:DeleteMe()
+        end
+    end
+    self.top_rank_list = nil
+
+    if self.update_red_status_event ~= nil then
+        GlobalEvent:getInstance():UnBind(self.update_red_status_event)
+        self.update_red_status_event = nil
+    end
+
+    controller:openGuildnewwarGateWindow(false)
+end
+
+-------------------------------------- item -----------------------------
+GuildnewwarDivisionItem = class("GuildnewwarDivisionItem", function()
+    return ccui.Widget:create()
+end)
+
+function GuildnewwarDivisionItem:ctor()
+	self:configUI()
+	self:register_event()
+end
+
+function GuildnewwarDivisionItem:configUI( )
+	self:setTouchEnabled(false)
+	self:setAnchorPoint(cc.p(0, 0))
+
+	local csbPath = PathTool.getTargetCSB("guildnewwar/guildnewwar_division_item")
+    self.root_wnd = cc.CSLoader:createNode(csbPath)
+    self:addChild(self.root_wnd)
+    self:setCascadeOpacityEnabled(true)
+	self.size = self.root_wnd:getContentSize()
+    self:setContentSize(self.size)
+    self:setTouchEnabled(true)
+    
+    self.container = self.root_wnd:getChildByName("container")
+    self.image_mark = self.container:getChildByName("image_mark")
+    self.label_title = self.container:getChildByName("label_title")
+    self.panel_select = self.container:getChildByName("panel_select")
+end
+
+function GuildnewwarDivisionItem:register_event(  )
+    self:setTouchEnabled(true)
+    registerButtonEventListener(self, handler(self, self.onClickItem), false, 2)
+end
+
+function GuildnewwarDivisionItem:onClickItem()
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_SELECT_DIVISION, self.data, nil, nil, nil, nil, nil, true)
+end
+
+function GuildnewwarDivisionItem:setData(data)
+    self.data = data
+    local select_srv = select_zone_id
+    local season_data = GuildNewwarController:getInstance():getModel():getSeasonData()
+    self.image_mark:setVisible(season_data.zone_id == data.zone_id)
+    self.panel_select:setVisible(select_srv == data.zone_id)
+    self.label_title:setString(string_format(TI18N("语言_c_558"), data.zone_id))
+end
+
+function GuildnewwarDivisionItem:getData()
+    return self.data
+end
+
+function GuildnewwarDivisionItem:DeleteMe(  )
+	self:removeAllChildren()
+    self:removeFromParent()
+end

@@ -1,0 +1,48 @@
+
+stand2.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+zddj_00000
+  rotate: false
+  xy: 162, 2
+  size: 157, 141
+  orig: 495, 440
+  offset: 65, 33
+  index: -1
+zddj_00001
+  rotate: false
+  xy: 321, 2
+  size: 157, 141
+  orig: 495, 440
+  offset: 65, 33
+  index: -1
+zddj_00002
+  rotate: false
+  xy: 480, 2
+  size: 157, 141
+  orig: 495, 440
+  offset: 65, 33
+  index: -1
+zddj_00003
+  rotate: false
+  xy: 798, 3
+  size: 157, 140
+  orig: 495, 440
+  offset: 65, 33
+  index: -1
+zddj_00004
+  rotate: false
+  xy: 2, 2
+  size: 158, 141
+  orig: 495, 440
+  offset: 65, 33
+  index: -1
+zddj_00005
+  rotate: false
+  xy: 639, 2
+  size: 157, 141
+  orig: 495, 440
+  offset: 65, 33
+  index: -1

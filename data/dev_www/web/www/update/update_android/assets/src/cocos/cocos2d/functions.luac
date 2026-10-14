@@ -1,0 +1,944 @@
+﻿function printLog(arg_1_0, arg_1_1, ...)
+	local var_1_0 = {
+		"[",
+		string.upper(tostring(arg_1_0)),
+		"] ",
+		string.format(tostring(arg_1_1), ...)
+	}
+
+	print(table.concat(var_1_0))
+end
+
+function printError(arg_2_0, ...)
+	printLog("ERR", arg_2_0, ...)
+	print(debug.traceback("", 2))
+end
+
+function printInfo(arg_3_0, ...)
+	if type(DEBUG) ~= "number" or DEBUG < 2 then
+		return
+	end
+
+	printLog("INFO", arg_3_0, ...)
+end
+
+local function var_0_0(arg_4_0)
+	if type(arg_4_0) == "string" then
+		arg_4_0 = "\"" .. arg_4_0 .. "\""
+	end
+
+	return tostring(arg_4_0)
+end
+
+function dump(arg_5_0, arg_5_1, arg_5_2)
+	if type(arg_5_2) ~= "number" then
+		arg_5_2 = 3
+	end
+
+	local var_5_0 = {}
+	local var_5_1 = {}
+	local var_5_2 = string.split(debug.traceback("", 2), "\n")
+
+	print("dump from: " .. string.trim(var_5_2[3]))
+
+	local function var_5_3(arg_6_0, arg_6_1, arg_6_2, arg_6_3, arg_6_4)
+		arg_6_1 = arg_6_1 or "<var>"
+
+		local var_6_0 = ""
+
+		if type(arg_6_4) == "number" then
+			var_6_0 = string.rep(" ", arg_6_4 - string.len(var_0_0(arg_6_1)))
+		end
+
+		if type(arg_6_0) ~= "table" then
+			var_5_1[#var_5_1 + 1] = string.format("%s%s%s = %s", arg_6_2, var_0_0(arg_6_1), var_6_0, var_0_0(arg_6_0))
+		elseif var_5_0[tostring(arg_6_0)] then
+			var_5_1[#var_5_1 + 1] = string.format("%s%s%s = *REF*", arg_6_2, var_0_0(arg_6_1), var_6_0)
+		else
+			var_5_0[tostring(arg_6_0)] = true
+
+			if arg_6_3 > arg_5_2 then
+				var_5_1[#var_5_1 + 1] = string.format("%s%s = *MAX NESTING*", arg_6_2, var_0_0(arg_6_1))
+			else
+				var_5_1[#var_5_1 + 1] = string.format("%s%s = {", arg_6_2, var_0_0(arg_6_1))
+
+				local var_6_1 = arg_6_2 .. "    "
+				local var_6_2 = {}
+				local var_6_3 = 0
+				local var_6_4 = {}
+
+				for iter_6_0, iter_6_1 in pairs(arg_6_0) do
+					var_6_2[#var_6_2 + 1] = iter_6_0
+
+					local var_6_5 = var_0_0(iter_6_0)
+					local var_6_6 = string.len(var_6_5)
+
+					if var_6_3 < var_6_6 then
+						var_6_3 = var_6_6
+					end
+
+					var_6_4[iter_6_0] = iter_6_1
+				end
+
+				table.sort(var_6_2, function(arg_7_0, arg_7_1)
+					if type(arg_7_0) == "number" and type(arg_7_1) == "number" then
+						return arg_7_0 < arg_7_1
+					else
+						return tostring(arg_7_0) < tostring(arg_7_1)
+					end
+				end)
+
+				for iter_6_2, iter_6_3 in ipairs(var_6_2) do
+					var_5_3(var_6_4[iter_6_3], iter_6_3, var_6_1, arg_6_3 + 1, var_6_3)
+				end
+
+				var_5_1[#var_5_1 + 1] = string.format("%s}", arg_6_2)
+			end
+		end
+	end
+
+	var_5_3(arg_5_0, arg_5_1, "- ", 1)
+
+	for iter_5_0, iter_5_1 in ipairs(var_5_1) do
+		print(iter_5_1)
+	end
+end
+
+function vardump(arg_8_0, arg_8_1)
+	local var_8_0 = {}
+	local var_8_1 = {}
+
+	local function var_8_2(arg_9_0)
+		if type(arg_9_0) == "string" then
+			arg_9_0 = "\"" .. arg_9_0 .. "\""
+		elseif type(arg_9_0) == "number" then
+			return string.format("%0.18g", arg_9_0)
+		end
+
+		return tostring(arg_9_0)
+	end
+
+	local function var_8_3(arg_10_0, arg_10_1, arg_10_2, arg_10_3)
+		arg_10_1 = arg_10_1 or "<var>"
+
+		local var_10_0 = ""
+
+		if arg_10_3 > 1 then
+			var_10_0 = ","
+		end
+
+		if type(arg_10_0) ~= "table" then
+			if type(arg_10_1) == "string" then
+				var_8_1[#var_8_1 + 1] = string.format("%s%s = %s%s", arg_10_2, arg_10_1, var_8_2(arg_10_0), var_10_0)
+			elseif type(arg_10_1) == "number" then
+				var_8_1[#var_8_1 + 1] = string.format("%s[%s] = %s%s", arg_10_2, arg_10_1, var_8_2(arg_10_0), var_10_0)
+			else
+				var_8_1[#var_8_1 + 1] = string.format("%s%s%s", arg_10_2, var_8_2(arg_10_0), var_10_0)
+			end
+		elseif not var_8_0[arg_10_0] then
+			var_8_0[arg_10_0] = true
+
+			if type(arg_10_1) == "string" then
+				var_8_1[#var_8_1 + 1] = string.format("%s%s = {", arg_10_2, arg_10_1)
+			else
+				var_8_1[#var_8_1 + 1] = string.format("%s[%s] = {", arg_10_2, arg_10_1)
+			end
+
+			local var_10_1 = arg_10_2 .. "    "
+			local var_10_2 = {}
+			local var_10_3 = {}
+
+			for iter_10_0, iter_10_1 in pairs(arg_10_0) do
+				var_10_2[#var_10_2 + 1] = iter_10_0
+				var_10_3[iter_10_0] = iter_10_1
+			end
+
+			table.sort(var_10_2, function(arg_11_0, arg_11_1)
+				if type(arg_11_0) == "number" and type(arg_11_1) == "number" then
+					return arg_11_0 < arg_11_1
+				else
+					return tostring(arg_11_0) < tostring(arg_11_1)
+				end
+			end)
+
+			for iter_10_2, iter_10_3 in ipairs(var_10_2) do
+				var_8_3(var_10_3[iter_10_3], iter_10_3, var_10_1, arg_10_3 + 1)
+			end
+
+			var_8_1[#var_8_1 + 1] = string.format("%s}%s", arg_10_2, var_10_0)
+		end
+	end
+
+	var_8_3(arg_8_0, arg_8_1, "", 1)
+
+	return table.concat(var_8_1, "\n")
+end
+
+DUMP_IGNORE_KEY = {}
+DUMP_IGNORE_KEY.getSuperClassName = true
+DUMP_IGNORE_KEY.getClassName = true
+DUMP_IGNORE_KEY.getSuperClass = true
+DUMP_IGNORE_KEY.__ctype = true
+DUMP_IGNORE_KEY.new = true
+DUMP_IGNORE_KEY.isInstance = true
+DUMP_IGNORE_KEY.ctor = true
+DUMP_IGNORE_KEY.__index = true
+DUMP_IGNORE_KEY.__cname = true
+DUMP_IGNORE_KEY.class = true
+DUMP_IGNORE_KEY.dataMgr = true
+
+function dumpTable(arg_12_0, arg_12_1, arg_12_2, arg_12_3, arg_12_4, arg_12_5)
+	arg_12_3 = arg_12_3 or "  "
+
+	if type(arg_12_0) ~= "table" then
+		return arg_12_3 .. (arg_12_2 or "") .. " = " .. tostring(arg_12_0) .. "\n"
+	end
+
+	local var_12_0 = {
+		mxl = 0
+	}
+	local var_12_1 = {}
+	local var_12_2
+
+	arg_12_4, arg_12_5 = arg_12_4 or 1, arg_12_5 or {}
+	arg_12_5[arg_12_0] = arg_12_2 or "."
+	arg_12_2 = arg_12_2 or ""
+
+	for iter_12_0, iter_12_1 in pairs(arg_12_0) do
+		if type(iter_12_1) == "table" then
+			if arg_12_5[iter_12_1] then
+				table.insert(var_12_1, "[" .. arg_12_5[iter_12_1] .. "]")
+
+				local var_12_3 = arg_12_3:rep(arg_12_4) .. tostring(iter_12_0)
+
+				table.insert(var_12_0, var_12_3)
+
+				var_12_0.mxl = math.max(#var_12_3, var_12_0.mxl)
+			else
+				arg_12_5[iter_12_1] = arg_12_2 .. "." .. tostring(iter_12_0)
+
+				table.insert(var_12_1, dumpTable(iter_12_1, arg_12_1, arg_12_5[iter_12_1], arg_12_3, arg_12_4 + 1, arg_12_5))
+
+				local var_12_4 = arg_12_3:rep(arg_12_4) .. tostring(iter_12_0)
+
+				table.insert(var_12_0, var_12_4)
+
+				var_12_0.mxl = math.max(#var_12_4, var_12_0.mxl)
+			end
+		else
+			if type(iter_12_1) == "string" then
+				table.insert(var_12_1, (("%q"):format(iter_12_1):gsub("\\\n", "\\n"):gsub("\\r\\n", "\\n")))
+			else
+				table.insert(var_12_1, tostring(iter_12_1))
+			end
+
+			local var_12_5 = arg_12_3:rep(arg_12_4) .. tostring(iter_12_0)
+
+			table.insert(var_12_0, var_12_5)
+
+			var_12_0.mxl = math.max(#var_12_5, var_12_0.mxl)
+		end
+	end
+
+	local var_12_6 = var_12_0.mxl
+
+	for iter_12_2, iter_12_3 in ipairs(var_12_0) do
+		if arg_12_1 then
+			local var_12_7 = cctrim(iter_12_3)
+
+			if not DUMP_IGNORE_KEY[var_12_7] then
+				var_12_1[iter_12_2] = iter_12_3 .. (" "):rep(var_12_6 - #iter_12_3) .. " = " .. var_12_1[iter_12_2] .. "\n"
+			else
+				var_12_1[iter_12_2] = ""
+			end
+		else
+			var_12_1[iter_12_2] = iter_12_3 .. (" "):rep(var_12_6 - #iter_12_3) .. " = " .. var_12_1[iter_12_2] .. "\n"
+		end
+	end
+
+	return "{\n" .. table.concat(var_12_1) .. arg_12_3:rep(arg_12_4 - 1) .. "}"
+end
+
+function cctrim(arg_13_0)
+	return (arg_13_0:gsub("^%s*(.-)%s*$", "%1"))
+end
+
+function ccdump(arg_14_0, arg_14_1)
+	if arg_14_1 then
+		print("准备dump:" .. arg_14_1)
+	end
+
+	local var_14_0 = dumpTable(arg_14_0, true)
+
+	print(var_14_0)
+end
+
+function printf(arg_15_0, ...)
+	print(string.format(tostring(arg_15_0), ...))
+end
+
+function checknumber(arg_16_0, arg_16_1)
+	return tonumber(arg_16_0, arg_16_1) or 0
+end
+
+function checkint(arg_17_0)
+	return math.round(checknumber(arg_17_0))
+end
+
+function checkbool(arg_18_0)
+	return arg_18_0 ~= nil and arg_18_0 ~= false
+end
+
+function checktable(arg_19_0)
+	if type(arg_19_0) ~= "table" then
+		arg_19_0 = {}
+	end
+
+	return arg_19_0
+end
+
+function isset(arg_20_0, arg_20_1)
+	local var_20_0 = type(arg_20_0)
+
+	return (var_20_0 == "table" or var_20_0 == "userdata") and arg_20_0[arg_20_1] ~= nil
+end
+
+local var_0_1
+
+local function var_0_2(arg_21_0, arg_21_1)
+	if type(arg_21_0) == "userdata" then
+		local var_21_0 = tolua.getpeer(arg_21_0)
+
+		if not var_21_0 then
+			var_21_0 = {}
+
+			tolua.setpeer(arg_21_0, var_21_0)
+		end
+
+		var_0_2(var_21_0, arg_21_1)
+	else
+		local var_21_1 = getmetatable(arg_21_0) or {}
+
+		if not var_21_1.__index then
+			var_21_1.__index = arg_21_1
+
+			setmetatable(arg_21_0, var_21_1)
+		elseif var_21_1.__index ~= arg_21_1 then
+			var_0_2(var_21_1, arg_21_1)
+		end
+	end
+end
+
+setmetatableindex = var_0_2
+
+function clone(arg_22_0)
+	local var_22_0 = {}
+
+	local function var_22_1(arg_23_0)
+		if type(arg_23_0) ~= "table" then
+			return arg_23_0
+		elseif var_22_0[arg_23_0] then
+			return var_22_0[arg_23_0]
+		end
+
+		local var_23_0 = {}
+
+		var_22_0[arg_23_0] = var_23_0
+
+		for iter_23_0, iter_23_1 in pairs(arg_23_0) do
+			var_23_0[var_22_1(iter_23_0)] = var_22_1(iter_23_1)
+		end
+
+		return setmetatable(var_23_0, getmetatable(arg_23_0))
+	end
+
+	return var_22_1(arg_22_0)
+end
+
+function class(arg_24_0, ...)
+	local var_24_0 = {
+		__cname = arg_24_0
+	}
+	local var_24_1 = {
+		...
+	}
+
+	for iter_24_0, iter_24_1 in ipairs(var_24_1) do
+		local var_24_2 = type(iter_24_1)
+
+		assert(var_24_2 == "nil" or var_24_2 == "table" or var_24_2 == "function", string.format("class() - create class \"%s\" with invalid super class type \"%s\"", arg_24_0, var_24_2))
+
+		if var_24_2 == "function" then
+			assert(var_24_0.__create == nil, string.format("class() - create class \"%s\" with more than one creating function", arg_24_0))
+
+			var_24_0.__create = iter_24_1
+		elseif var_24_2 == "table" then
+			if iter_24_1[".isclass"] then
+				assert(var_24_0.__create == nil, string.format("class() - create class \"%s\" with more than one creating function or native class", arg_24_0))
+
+				function var_24_0.__create()
+					return iter_24_1:create()
+				end
+			else
+				var_24_0.__supers = var_24_0.__supers or {}
+				var_24_0.__supers[#var_24_0.__supers + 1] = iter_24_1
+
+				if not var_24_0.super then
+					var_24_0.super = iter_24_1
+				end
+			end
+		else
+			error(string.format("class() - create class \"%s\" with invalid super type", arg_24_0), 0)
+		end
+	end
+
+	var_24_0.__index = var_24_0
+
+	if not var_24_0.__supers or #var_24_0.__supers == 1 then
+		setmetatable(var_24_0, {
+			__index = var_24_0.super
+		})
+	else
+		setmetatable(var_24_0, {
+			__index = function(arg_26_0, arg_26_1)
+				local var_26_0 = var_24_0.__supers
+
+				for iter_26_0 = 1, #var_26_0 do
+					local var_26_1 = var_26_0[iter_26_0]
+
+					if var_26_1[arg_26_1] then
+						return var_26_1[arg_26_1]
+					end
+				end
+			end
+		})
+	end
+
+	if not var_24_0.ctor then
+		function var_24_0.ctor()
+			return
+		end
+	end
+
+	function var_24_0.new(...)
+		local var_28_0
+
+		if var_24_0.__create then
+			var_28_0 = var_24_0.__create(...)
+		else
+			var_28_0 = {}
+		end
+
+		setmetatableindex(var_28_0, var_24_0)
+
+		var_28_0.class = var_24_0
+
+		var_28_0:ctor(...)
+
+		return var_28_0
+	end
+
+	function var_24_0.create(arg_29_0, ...)
+		return var_24_0.new(...)
+	end
+
+	return var_24_0
+end
+
+local var_0_3
+
+local function var_0_4(arg_30_0, arg_30_1)
+	local var_30_0 = rawget(arg_30_0, "__index")
+
+	if type(var_30_0) == "table" and rawget(var_30_0, "__cname") == arg_30_1 then
+		return true
+	end
+
+	if rawget(arg_30_0, "__cname") == arg_30_1 then
+		return true
+	end
+
+	local var_30_1 = rawget(arg_30_0, "__supers")
+
+	if not var_30_1 then
+		return false
+	end
+
+	for iter_30_0, iter_30_1 in ipairs(var_30_1) do
+		if var_0_4(iter_30_1, arg_30_1) then
+			return true
+		end
+	end
+
+	return false
+end
+
+function iskindof(arg_31_0, arg_31_1)
+	local var_31_0 = type(arg_31_0)
+
+	if var_31_0 ~= "table" and var_31_0 ~= "userdata" then
+		return false
+	end
+
+	local var_31_1
+
+	if var_31_0 == "userdata" then
+		if tolua.iskindof(arg_31_0, arg_31_1) then
+			return true
+		end
+
+		var_31_1 = tolua.getpeer(arg_31_0)
+	else
+		var_31_1 = getmetatable(arg_31_0)
+	end
+
+	if var_31_1 then
+		return var_0_4(var_31_1, arg_31_1)
+	end
+
+	return false
+end
+
+function import(arg_32_0, arg_32_1)
+	local var_32_0
+	local var_32_1 = arg_32_0
+	local var_32_2 = 1
+
+	while true do
+		if string.byte(arg_32_0, var_32_2) ~= 46 then
+			var_32_1 = string.sub(arg_32_0, var_32_2)
+
+			if var_32_0 and #var_32_0 > 0 then
+				var_32_1 = table.concat(var_32_0, ".") .. "." .. var_32_1
+			end
+
+			break
+		end
+
+		var_32_2 = var_32_2 + 1
+
+		if not var_32_0 then
+			if not arg_32_1 then
+				local var_32_3, var_32_4 = debug.getlocal(3, 1)
+
+				arg_32_1 = var_32_4
+			end
+
+			var_32_0 = string.split(arg_32_1, ".")
+		end
+
+		table.remove(var_32_0, #var_32_0)
+	end
+
+	return require(var_32_1)
+end
+
+function handler(arg_33_0, arg_33_1)
+	return function(...)
+		return arg_33_1(arg_33_0, ...)
+	end
+end
+
+function math.newrandomseed()
+	local var_35_0, var_35_1 = pcall(function()
+		return require("socket")
+	end)
+
+	if var_35_0 then
+		math.randomseed(var_35_1.gettime() * 1000)
+	else
+		math.randomseed(os.time())
+	end
+
+	math.random()
+	math.random()
+	math.random()
+	math.random()
+end
+
+function math.round(arg_37_0)
+	arg_37_0 = checknumber(arg_37_0)
+
+	return math.floor(arg_37_0 + 0.5)
+end
+
+local var_0_5 = math.pi / 180
+
+function math.angle2radian(arg_38_0)
+	return arg_38_0 * var_0_5
+end
+
+local var_0_6 = math.pi * 180
+
+function math.radian2angle(arg_39_0)
+	return arg_39_0 / var_0_6
+end
+
+function io.exists(arg_40_0)
+	local var_40_0 = io.open(arg_40_0, "r")
+
+	if var_40_0 then
+		io.close(var_40_0)
+
+		return true
+	end
+
+	return false
+end
+
+function io.readfile(arg_41_0)
+	local var_41_0 = io.open(arg_41_0, "r")
+
+	if var_41_0 then
+		local var_41_1 = var_41_0:read("*a")
+
+		io.close(var_41_0)
+
+		return var_41_1
+	end
+
+	return nil
+end
+
+function io.writefile(arg_42_0, arg_42_1, arg_42_2)
+	arg_42_2 = arg_42_2 or "w+b"
+
+	local var_42_0 = io.open(arg_42_0, arg_42_2)
+
+	if var_42_0 then
+		if var_42_0:write(arg_42_1) == nil then
+			return false
+		end
+
+		io.close(var_42_0)
+
+		return true
+	else
+		return false
+	end
+end
+
+function io.pathinfo(arg_43_0)
+	local var_43_0 = string.len(arg_43_0)
+	local var_43_1 = var_43_0 + 1
+
+	while var_43_0 > 0 do
+		local var_43_2 = string.byte(arg_43_0, var_43_0)
+
+		if var_43_2 == 46 then
+			var_43_1 = var_43_0
+		elseif var_43_2 == 47 then
+			break
+		end
+
+		var_43_0 = var_43_0 - 1
+	end
+
+	local var_43_3 = string.sub(arg_43_0, 1, var_43_0)
+	local var_43_4 = string.sub(arg_43_0, var_43_0 + 1)
+	local var_43_5 = var_43_1 - var_43_0
+	local var_43_6 = string.sub(var_43_4, 1, var_43_5 - 1)
+	local var_43_7 = string.sub(var_43_4, var_43_5)
+
+	return {
+		dirname = var_43_3,
+		filename = var_43_4,
+		basename = var_43_6,
+		extname = var_43_7
+	}
+end
+
+function io.filesize(arg_44_0)
+	local var_44_0 = false
+	local var_44_1 = io.open(arg_44_0, "r")
+
+	if var_44_1 then
+		local var_44_2 = var_44_1:seek()
+
+		var_44_0 = var_44_1:seek("end")
+
+		var_44_1:seek("set", var_44_2)
+		io.close(var_44_1)
+	end
+
+	return var_44_0
+end
+
+function table.nums(arg_45_0)
+	local var_45_0 = 0
+
+	for iter_45_0, iter_45_1 in pairs(arg_45_0) do
+		var_45_0 = var_45_0 + 1
+	end
+
+	return var_45_0
+end
+
+function table.keys(arg_46_0)
+	local var_46_0 = {}
+
+	for iter_46_0, iter_46_1 in pairs(arg_46_0) do
+		var_46_0[#var_46_0 + 1] = iter_46_0
+	end
+
+	return var_46_0
+end
+
+function table.values(arg_47_0)
+	local var_47_0 = {}
+
+	for iter_47_0, iter_47_1 in pairs(arg_47_0) do
+		var_47_0[#var_47_0 + 1] = iter_47_1
+	end
+
+	return var_47_0
+end
+
+function table.merge(arg_48_0, arg_48_1)
+	for iter_48_0, iter_48_1 in pairs(arg_48_1) do
+		arg_48_0[iter_48_0] = iter_48_1
+	end
+end
+
+function table.insertto(arg_49_0, arg_49_1, arg_49_2)
+	arg_49_2 = checkint(arg_49_2)
+
+	if arg_49_2 <= 0 then
+		arg_49_2 = #arg_49_0 + 1
+	end
+
+	local var_49_0 = #arg_49_1
+
+	for iter_49_0 = 0, var_49_0 - 1 do
+		arg_49_0[iter_49_0 + arg_49_2] = arg_49_1[iter_49_0 + 1]
+	end
+end
+
+function table.indexof(arg_50_0, arg_50_1, arg_50_2)
+	for iter_50_0 = arg_50_2 or 1, #arg_50_0 do
+		if arg_50_0[iter_50_0] == arg_50_1 then
+			return iter_50_0
+		end
+	end
+
+	return false
+end
+
+function table.keyof(arg_51_0, arg_51_1)
+	for iter_51_0, iter_51_1 in pairs(arg_51_0) do
+		if iter_51_1 == arg_51_1 then
+			return iter_51_0
+		end
+	end
+
+	return nil
+end
+
+function table.removebyvalue(arg_52_0, arg_52_1, arg_52_2)
+	local var_52_0 = 0
+	local var_52_1 = 1
+	local var_52_2 = #arg_52_0
+
+	while var_52_1 <= var_52_2 do
+		if arg_52_0[var_52_1] == arg_52_1 then
+			table.remove(arg_52_0, var_52_1)
+
+			var_52_0 = var_52_0 + 1
+			var_52_1 = var_52_1 - 1
+			var_52_2 = var_52_2 - 1
+
+			if not arg_52_2 then
+				break
+			end
+		end
+
+		var_52_1 = var_52_1 + 1
+	end
+
+	return var_52_0
+end
+
+function table.map(arg_53_0, arg_53_1)
+	for iter_53_0, iter_53_1 in pairs(arg_53_0) do
+		arg_53_0[iter_53_0] = arg_53_1(iter_53_1, iter_53_0)
+	end
+end
+
+function table.walk(arg_54_0, arg_54_1)
+	for iter_54_0, iter_54_1 in pairs(arg_54_0) do
+		arg_54_1(iter_54_1, iter_54_0)
+	end
+end
+
+function table.filter(arg_55_0, arg_55_1)
+	for iter_55_0, iter_55_1 in pairs(arg_55_0) do
+		if not arg_55_1(iter_55_1, iter_55_0) then
+			arg_55_0[iter_55_0] = nil
+		end
+	end
+end
+
+function table.unique(arg_56_0, arg_56_1)
+	local var_56_0 = {}
+	local var_56_1 = {}
+	local var_56_2 = 1
+
+	for iter_56_0, iter_56_1 in pairs(arg_56_0) do
+		if not var_56_0[iter_56_1] then
+			if arg_56_1 then
+				var_56_1[var_56_2] = iter_56_1
+				var_56_2 = var_56_2 + 1
+			else
+				var_56_1[iter_56_0] = iter_56_1
+			end
+
+			var_56_0[iter_56_1] = true
+		end
+	end
+
+	return var_56_1
+end
+
+string._htmlspecialchars_set = {}
+string._htmlspecialchars_set["&"] = "&amp;"
+string._htmlspecialchars_set["\""] = "&quot;"
+string._htmlspecialchars_set["'"] = "&#039;"
+string._htmlspecialchars_set["<"] = "&lt;"
+string._htmlspecialchars_set[">"] = "&gt;"
+
+function string.htmlspecialchars(arg_57_0)
+	for iter_57_0, iter_57_1 in pairs(string._htmlspecialchars_set) do
+		arg_57_0 = string.gsub(arg_57_0, iter_57_0, iter_57_1)
+	end
+
+	return arg_57_0
+end
+
+function string.restorehtmlspecialchars(arg_58_0)
+	for iter_58_0, iter_58_1 in pairs(string._htmlspecialchars_set) do
+		arg_58_0 = string.gsub(arg_58_0, iter_58_1, iter_58_0)
+	end
+
+	return arg_58_0
+end
+
+function string.nl2br(arg_59_0)
+	return string.gsub(arg_59_0, "\n", "<br />")
+end
+
+function string.text2html(arg_60_0)
+	arg_60_0 = string.gsub(arg_60_0, "\t", "    ")
+	arg_60_0 = string.htmlspecialchars(arg_60_0)
+	arg_60_0 = string.gsub(arg_60_0, " ", "&nbsp;")
+	arg_60_0 = string.nl2br(arg_60_0)
+
+	return arg_60_0
+end
+
+function string.split(arg_61_0, arg_61_1)
+	arg_61_0 = tostring(arg_61_0)
+	arg_61_1 = tostring(arg_61_1)
+
+	if arg_61_1 == "" then
+		return false
+	end
+
+	local var_61_0 = 0
+	local var_61_1 = {}
+
+	for iter_61_0, iter_61_1 in function()
+		return string.find(arg_61_0, arg_61_1, var_61_0, true)
+	end do
+		table.insert(var_61_1, string.sub(arg_61_0, var_61_0, iter_61_0 - 1))
+
+		var_61_0 = iter_61_1 + 1
+	end
+
+	table.insert(var_61_1, string.sub(arg_61_0, var_61_0))
+
+	return var_61_1
+end
+
+function string.ltrim(arg_63_0)
+	return string.gsub(arg_63_0, "^[ \t\n\r]+", "")
+end
+
+function string.rtrim(arg_64_0)
+	return string.gsub(arg_64_0, "[ \t\n\r]+$", "")
+end
+
+function string.trim(arg_65_0)
+	arg_65_0 = string.gsub(arg_65_0, "^[ \t\n\r]+", "")
+
+	return string.gsub(arg_65_0, "[ \t\n\r]+$", "")
+end
+
+function string.ucfirst(arg_66_0)
+	return string.upper(string.sub(arg_66_0, 1, 1)) .. string.sub(arg_66_0, 2)
+end
+
+local function var_0_7(arg_67_0)
+	return "%" .. string.format("%02X", string.byte(arg_67_0))
+end
+
+function string.urlencode(arg_68_0)
+	arg_68_0 = string.gsub(tostring(arg_68_0), "\n", "\r\n")
+	arg_68_0 = string.gsub(arg_68_0, "([^%w%.%- ])", var_0_7)
+
+	return string.gsub(arg_68_0, " ", "+")
+end
+
+function string.urldecode(arg_69_0)
+	arg_69_0 = string.gsub(arg_69_0, "+", " ")
+	arg_69_0 = string.gsub(arg_69_0, "%%(%x%x)", function(arg_70_0)
+		return string.char(checknumber(arg_70_0, 16))
+	end)
+	arg_69_0 = string.gsub(arg_69_0, "\r\n", "\n")
+
+	return arg_69_0
+end
+
+function string.utf8len(arg_71_0)
+	local var_71_0 = string.len(arg_71_0)
+	local var_71_1 = 0
+	local var_71_2 = {
+		0,
+		192,
+		224,
+		240,
+		248,
+		252
+	}
+
+	while var_71_0 ~= 0 do
+		local var_71_3 = string.byte(arg_71_0, -var_71_0)
+		local var_71_4 = #var_71_2
+
+		while var_71_2[var_71_4] do
+			if var_71_3 >= var_71_2[var_71_4] then
+				var_71_0 = var_71_0 - var_71_4
+
+				break
+			end
+
+			var_71_4 = var_71_4 - 1
+		end
+
+		var_71_1 = var_71_1 + 1
+	end
+
+	return var_71_1
+end
+
+function string.formatnumberthousands(arg_72_0)
+	local var_72_0 = tostring(checknumber(arg_72_0))
+	local var_72_1
+
+	repeat
+		local var_72_2
+
+		var_72_0, var_72_2 = string.gsub(var_72_0, "^(-?%d+)(%d%d%d)", "%1,%2")
+	until var_72_2 == 0
+
+	return var_72_0
+end

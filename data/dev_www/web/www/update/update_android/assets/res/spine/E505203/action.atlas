@@ -1,0 +1,166 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+E505203/1
+  rotate: false
+  xy: 1212, 885
+  size: 487, 412
+  orig: 635, 416
+  offset: 66, 4
+  index: -1
+E505203/1/2
+  rotate: true
+  xy: 1753, 511
+  size: 373, 225
+  orig: 461, 281
+  offset: 58, 23
+  index: -1
+E505203/1/3
+  rotate: true
+  xy: 1411, 171
+  size: 387, 246
+  orig: 461, 281
+  offset: 53, 23
+  index: -1
+E505203/1/4
+  rotate: true
+  xy: 1700, 885
+  size: 412, 236
+  orig: 461, 281
+  offset: 43, 21
+  index: -1
+E505203/16
+  rotate: false
+  xy: 939, 177
+  size: 471, 381
+  orig: 635, 416
+  offset: 57, 0
+  index: -1
+E505203/3
+  rotate: false
+  xy: 1203, 1298
+  size: 603, 367
+  orig: 635, 416
+  offset: 17, 0
+  index: -1
+E505203/5
+  rotate: false
+  xy: 1203, 1666
+  size: 633, 372
+  orig: 635, 416
+  offset: 2, 0
+  index: -1
+E505203/7
+  rotate: true
+  xy: 562, 1
+  size: 451, 376
+  orig: 635, 416
+  offset: 84, 0
+  index: -1
+E505203/9
+  rotate: true
+  xy: 1658, 38
+  size: 472, 378
+  orig: 635, 416
+  offset: 74, 0
+  index: -1
+action1/yunshi/00001
+  rotate: false
+  xy: 577, 453
+  size: 314, 589
+  orig: 960, 960
+  offset: 332, 260
+  index: -1
+action1/yunshi/00003
+  rotate: false
+  xy: 892, 637
+  size: 319, 583
+  orig: 960, 960
+  offset: 333, 263
+  index: -1
+action1/yunshi/00005
+  rotate: true
+  xy: 1212, 559
+  size: 325, 540
+  orig: 960, 960
+  offset: 327, 258
+  index: -1
+action1/yunshi/00007
+  rotate: true
+  xy: 642, 1221
+  size: 329, 554
+  orig: 960, 960
+  offset: 325, 263
+  index: -1
+action1/yunshiluodi/00000
+  rotate: false
+  xy: 1, 12
+  size: 560, 513
+  orig: 1920, 1920
+  offset: 915, 723
+  index: -1
+action1/yunshiluodi/00002
+  rotate: false
+  xy: 642, 1551
+  size: 560, 487
+  orig: 1920, 1920
+  offset: 915, 684
+  index: -1
+action1/yunshiluodi/00004
+  rotate: false
+  xy: 1, 526
+  size: 575, 516
+  orig: 1920, 1920
+  offset: 915, 692
+  index: -1
+action1/yunshiluodi/00006
+  rotate: false
+  xy: 1, 1043
+  size: 622, 504
+  orig: 1920, 1920
+  offset: 890, 705
+  index: -1
+action1/yunshiluodi/00008
+  rotate: false
+  xy: 1, 1548
+  size: 640, 490
+  orig: 1920, 1920
+  offset: 872, 719
+  index: -1
+
+action2.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+E505203/11
+  rotate: false
+  xy: 1250, 16
+  size: 387, 369
+  orig: 635, 416
+  offset: 123, 11
+  index: -1
+E505203/13
+  rotate: false
+  xy: 446, 1
+  size: 399, 384
+  orig: 635, 416
+  offset: 116, 11
+  index: -1
+E505203/14
+  rotate: false
+  xy: 846, 12
+  size: 403, 373
+  orig: 635, 416
+  offset: 117, 11
+  index: -1
+E505203/15
+  rotate: false
+  xy: 1, 5
+  size: 444, 380
+  orig: 635, 416
+  offset: 83, 0
+  index: -1

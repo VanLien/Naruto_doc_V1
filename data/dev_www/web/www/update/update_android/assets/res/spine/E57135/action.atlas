@@ -1,0 +1,118 @@
+
+action.png
+size: 1745,578
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+chongpingheiseshitou2_00
+  rotate: false
+  xy: 1577, 47
+  size: 20, 27
+  orig: 42, 46
+  offset: 8, 10
+  index: -1
+chongpingheiseshitou_00
+  rotate: false
+  xy: 1701, 100
+  size: 44, 35
+  orig: 70, 72
+  offset: 17, 16
+  index: -1
+diLie
+  rotate: false
+  xy: 1282, 275
+  size: 338, 145
+  orig: 338, 145
+  offset: 0, 0
+  index: -1
+fangkuai_05
+  rotate: false
+  xy: 1599, 137
+  size: 136, 136
+  orig: 136, 136
+  offset: 0, 0
+  index: -1
+guangyun
+  rotate: false
+  xy: 1282, 51
+  size: 222, 222
+  orig: 288, 288
+  offset: 66, 0
+  index: -1
+liangselizi_10
+  rotate: false
+  xy: 1282, 0
+  size: 34, 49
+  orig: 34, 49
+  offset: 0, 0
+  index: -1
+suikuailizi_06
+  rotate: false
+  xy: 1282, 0
+  size: 34, 49
+  orig: 34, 49
+  offset: 0, 0
+  index: -1
+yanjingdaxingguang_56
+  rotate: false
+  xy: 1282, 422
+  size: 408, 156
+  orig: 427, 157
+  offset: 13, 0
+  index: -1
+zhakailizi_00
+  rotate: false
+  xy: 1692, 511
+  size: 41, 67
+  orig: 41, 74
+  offset: 0, 0
+  index: -1
+zhakaishitou3_00
+  rotate: false
+  xy: 1622, 275
+  size: 39, 38
+  orig: 40, 51
+  offset: 0, 8
+  index: -1
+zhakaishitou_06
+  rotate: true
+  xy: 1506, 16
+  size: 58, 69
+  orig: 93, 100
+  offset: 19, 12
+  index: -1
+zhengyanguang_65
+  rotate: false
+  xy: 1599, 35
+  size: 100, 100
+  orig: 120, 120
+  offset: 10, 10
+  index: -1
+zhengyanguangxiao_66
+  rotate: true
+  xy: 1622, 315
+  size: 105, 101
+  orig: 120, 120
+  offset: 10, 11
+  index: -1
+zhuanchangBG_04
+  rotate: true
+  xy: 0, 2
+  size: 576, 1280
+  orig: 576, 1280
+  offset: 0, 0
+  index: -1
+zhuanchangheidi_77
+  rotate: false
+  xy: 1692, 469
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+zuanchangguang_45
+  rotate: false
+  xy: 1506, 76
+  size: 91, 197
+  orig: 160, 200
+  offset: 34, 2
+  index: -1

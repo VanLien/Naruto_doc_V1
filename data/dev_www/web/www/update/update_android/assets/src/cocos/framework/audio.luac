@@ -1,0 +1,140 @@
+﻿local var_0_0 = {}
+local var_0_1 = cc.SimpleAudioEngine:getInstance()
+
+function var_0_0.getMusicVolume()
+	return (var_0_1:getMusicVolume())
+end
+
+function var_0_0.setMusicVolume(arg_2_0)
+	arg_2_0 = checknumber(arg_2_0)
+
+	var_0_1:setMusicVolume(arg_2_0)
+end
+
+function var_0_0.preloadMusic(arg_3_0)
+	assert(arg_3_0, "audio.preloadMusic() - invalid filename")
+	var_0_1:preloadMusic(arg_3_0)
+end
+
+function var_0_0.playMusic(arg_4_0, arg_4_1)
+	assert(arg_4_0, "audio.playMusic() - invalid filename")
+
+	if type(arg_4_1) ~= "boolean" then
+		arg_4_1 = true
+	end
+
+	var_0_0.stopMusic()
+	var_0_1:playMusic(arg_4_0, arg_4_1)
+end
+
+function var_0_0.stopMusic(arg_5_0)
+	arg_5_0 = checkbool(arg_5_0)
+
+	var_0_1:stopMusic(arg_5_0)
+end
+
+function var_0_0.pauseMusic()
+	var_0_1:pauseMusic()
+end
+
+function var_0_0.resumeMusic()
+	var_0_1:resumeMusic()
+end
+
+function var_0_0.rewindMusic()
+	var_0_1:rewindMusic()
+end
+
+function var_0_0.isMusicPlaying()
+	return (var_0_1:isMusicPlaying())
+end
+
+function var_0_0.getSoundsVolume()
+	return (var_0_1:getEffectsVolume())
+end
+
+function var_0_0.setSoundsVolume(arg_11_0)
+	arg_11_0 = checknumber(arg_11_0)
+
+	var_0_1:setEffectsVolume(arg_11_0)
+end
+
+function var_0_0.playSound(arg_12_0, arg_12_1)
+	if not arg_12_0 then
+		printError("audio.playSound() - invalid filename")
+
+		return
+	end
+
+	if type(arg_12_1) ~= "boolean" then
+		arg_12_1 = false
+	end
+
+	return var_0_1:playEffect(arg_12_0, arg_12_1)
+end
+
+function var_0_0.pauseSound(arg_13_0)
+	if not arg_13_0 then
+		printError("audio.pauseSound() - invalid handle")
+
+		return
+	end
+
+	var_0_1:pauseEffect(arg_13_0)
+end
+
+function var_0_0.pauseAllSounds()
+	var_0_1:pauseAllEffects()
+end
+
+function var_0_0.resumeSound(arg_15_0)
+	if not arg_15_0 then
+		printError("audio.resumeSound() - invalid handle")
+
+		return
+	end
+
+	var_0_1:resumeEffect(arg_15_0)
+end
+
+function var_0_0.resumeAllSounds()
+	var_0_1:resumeAllEffects()
+end
+
+function var_0_0.stopSound(arg_17_0)
+	if not arg_17_0 then
+		printError("audio.stopSound() - invalid handle")
+
+		return
+	end
+
+	var_0_1:stopEffect(arg_17_0)
+end
+
+function var_0_0.stopAllSounds()
+	var_0_1:stopAllEffects()
+end
+
+var_0_0.stopAllEffects = var_0_0.stopAllSounds
+
+function var_0_0.preloadSound(arg_19_0)
+	if not arg_19_0 then
+		printError("audio.preloadSound() - invalid filename")
+
+		return
+	end
+
+	var_0_1:preloadEffect(arg_19_0)
+end
+
+function var_0_0.unloadSound(arg_20_0)
+	if not arg_20_0 then
+		printError("audio.unloadSound() - invalid filename")
+
+		return
+	end
+
+	var_0_1:unloadEffect(arg_20_0)
+end
+
+return var_0_0

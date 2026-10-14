@@ -1,0 +1,272 @@
+
+action.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect2/1
+  rotate: false
+  xy: 2, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/2
+  rotate: false
+  xy: 2, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/3
+  rotate: false
+  xy: 504, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/4
+  rotate: false
+  xy: 504, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+
+action2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect2/5
+  rotate: false
+  xy: 2, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/6
+  rotate: false
+  xy: 2, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/7
+  rotate: false
+  xy: 504, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/8
+  rotate: false
+  xy: 504, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+
+action3.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect2/10
+  rotate: false
+  xy: 2, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/11
+  rotate: false
+  xy: 504, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/12
+  rotate: false
+  xy: 504, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/9
+  rotate: false
+  xy: 2, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+
+action4.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect2/13
+  rotate: false
+  xy: 2, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/14
+  rotate: false
+  xy: 2, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/15
+  rotate: false
+  xy: 504, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/16
+  rotate: false
+  xy: 504, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+
+action5.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect2/17
+  rotate: false
+  xy: 2, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/18
+  rotate: false
+  xy: 2, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/19
+  rotate: false
+  xy: 504, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/20
+  rotate: false
+  xy: 504, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+
+action6.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect2/21
+  rotate: false
+  xy: 2, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/22
+  rotate: false
+  xy: 2, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/23
+  rotate: false
+  xy: 504, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/24
+  rotate: false
+  xy: 504, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+
+action7.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect2/25
+  rotate: false
+  xy: 2, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/26
+  rotate: false
+  xy: 2, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/27
+  rotate: false
+  xy: 504, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/28
+  rotate: false
+  xy: 504, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+
+action8.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect2/29
+  rotate: false
+  xy: 2, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/30
+  rotate: false
+  xy: 2, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/31
+  rotate: false
+  xy: 504, 364
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1
+effect2/32
+  rotate: false
+  xy: 504, 2
+  size: 500, 360
+  orig: 500, 360
+  offset: 0, 0
+  index: -1

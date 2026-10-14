@@ -1,0 +1,330 @@
+﻿IS_NEW_VERSION = nil
+AUDIO_RECORD_TYPE = 10
+AUDIO_RECORD_FILE = "zsyz"
+AUDIO_WAV_FILE_ENCODE_OUT = "zsyz_encode_out.wav"
+AUDIO_WAV_FILE_DECODE_IN = "zsyz_decode_in.wav"
+
+function getChatFileName(arg_1_0)
+	if AUDIO_RECORD_TYPE == 10 then
+		return string.format("%s%s", string.gsub(arg_1_0, "-", "_"), ".wav")
+	else
+		return string.format("%s%s", string.gsub(arg_1_0, "-", "_"), ".mp3")
+	end
+end
+
+function callSpeexEncode(arg_2_0, arg_2_1)
+	arg_2_0 = arg_2_0 or PathTool.getVoicePath(getChatFileName(AUDIO_RECORD_FILE))
+	arg_2_1 = arg_2_1 or PathTool.getVoicePath(AUDIO_WAV_FILE_ENCODE_OUT)
+
+	print("speex_encode=====", arg_2_0, arg_2_1)
+
+	return cc.CCGameLib:getInstance():speex_encode(arg_2_0, arg_2_1)
+end
+
+function callSpeexDecode(arg_3_0, arg_3_1)
+	if PLATFORM == cc.PLATFORM_OS_WINDOWS or PLATFORM == cc.PLATFORM_OS_MAC then
+		return
+	end
+
+	arg_3_0 = arg_3_0 or PathTool.getVoicePath(AUDIO_WAV_FILE_DECODE_IN)
+
+	print("speex_decode=====", arg_3_0, arg_3_1)
+	cc.CCGameLib:getInstance():speex_decode(arg_3_0, arg_3_1)
+end
+
+function callSpeechInit()
+	if not _callSpeechInit then
+		_callSpeechInit = true
+
+		print("callSpeechInit====")
+		sdkCallFunc("speechInit", "", 0, 0, "")
+	end
+end
+
+function callSpeechRecognizeDo(arg_5_0, arg_5_1)
+	callSpeechRecognize(arg_5_0, readBinaryFile(PathTool.getVoicePath(AUDIO_RECORD_FILE .. ".wav")))
+
+	_speech_recognize_fun = arg_5_1
+end
+
+function callSpeechRecognizeFile(arg_6_0, arg_6_1)
+	callSpeechInit()
+	sdkCallFunc("speechRecognize", arg_6_1, 0, 0, arg_6_0)
+end
+
+function callSpeechRecognize(arg_7_0, arg_7_1, arg_7_2)
+	if PLATFORM == cc.PLATFORM_OS_WINDOWS then
+		return
+	end
+
+	callSpeechInit()
+
+	arg_7_2 = arg_7_2 or string.len(arg_7_1)
+
+	print("speechRecognize=====>>>", arg_7_0, arg_7_2)
+	cc.GameDevice:speechRecognize(arg_7_0, arg_7_1, arg_7_2)
+end
+
+function callBackSpeech(arg_8_0, arg_8_1)
+	print("callBackSpeech=====", arg_8_0, arg_8_1)
+
+	if _speech_recognize_fun and arg_8_0 == 0 then
+		_speech_recognize_fun(arg_8_1)
+	end
+
+	_speech_recognize_fun = nil
+end
+
+function callAudioInit(arg_9_0, arg_9_1, arg_9_2)
+	arg_9_0 = arg_9_0 or PathTool.getVoicePath(ChatHelp.formatFileName(AUDIO_RECORD_FILE))
+	arg_9_1 = arg_9_1 or 16000
+
+	if not _callAudioInit then
+		_callAudioInit = true
+
+		print("callAudioInit=====", arg_9_0, arg_9_1)
+		sdkCallFunc("audioInit", arg_9_0, arg_9_1, 2, "")
+		delayOnce(function()
+			sdkCallFunc("audioStart", "", 0, 0, "")
+		end, 0.1)
+		delayOnce(function()
+			sdkCallFunc("audioStop", "", 0, 0, "")
+			delayOnce(function()
+				AudioManager:getInstance():playMusic(AudioManager.AUDIO_TYPE.SCENE, "s_001", true)
+			end, 0.1)
+		end, 0.2)
+	elseif arg_9_2 then
+		sdkCallFunc("audioInit", arg_9_0, arg_9_1, 0, "")
+	end
+end
+
+function callAudioStart()
+	print("callAudioStart=====")
+
+	if AUDIO_RECORD_TYPE == 10 then
+		if sdkCallFunc("audioStart", "", 0, 0, "") ~= 1 then
+			print("@录音开始失败")
+
+			__audio_record_err = (__audio_record_err or 0) + 1
+
+			if __audio_record_err > 2 then
+				callAudioInit(nil, nil, true)
+			end
+		else
+			__audio_record_err = 0
+		end
+	else
+		cc.FmodexManager:startRecord(AUDIO_RECORD_FILE, AUDIO_RECORD_TYPE)
+	end
+end
+
+function callAudioStop()
+	print("callAudioStop=====")
+
+	if AUDIO_RECORD_TYPE == 10 then
+		sdkCallFunc("audioStop", "", 0, 0, "")
+	else
+		cc.FmodexManager:stopRecord()
+	end
+end
+
+function callAudioSetVolume(arg_15_0)
+	print("callAudioSetVolume=====", arg_15_0)
+
+	local var_15_0 = SysEnv:getInstance():getBool(SysEnv.keys.voice_is_open, true)
+
+	print("---------voice_open--callfunction---", var_15_0)
+
+	if var_15_0 then
+		sdkCallFunc("audioSetVolume", "", arg_15_0, 0, "")
+	else
+		sdkCallFunc("audioSetVolume", "", 0, 0, "")
+	end
+end
+
+function callAudioGetVolume()
+	print("callAudioGetVolume=====")
+
+	return sdkCallFunc("audioGetVolume", "", 0, 0, "")
+end
+
+function callAudioIsRecording()
+	print("callAudioIsRecording=====")
+
+	return sdkCallFunc("audioIsRecording", "", 0, 0, "") == 1
+end
+
+function callWebcamTakePhoto(arg_18_0, arg_18_1)
+	if CAN_USE_CAMERA == true then
+		arg_18_0 = arg_18_0 or PathTool.getPhotoPath()
+		arg_18_1 = arg_18_1 or "photo.jpg"
+
+		if IS_IOS_PLATFORM == true then
+			sdkCallFunc("webcam", arg_18_0, 3, 0, arg_18_1)
+		elseif callFunc("checkcamera") == "true" then
+			sdkCallFunc("webcam", arg_18_0, 3, 0, arg_18_1)
+		else
+			message(TI18N("语言_c_4182"))
+		end
+	elseif IS_IOS_PLATFORM == true then
+		message(TI18N("语言_c_1031"))
+	else
+		message(TI18N("语言_c_1033"))
+	end
+end
+
+function callWebcamOpenPhotoGallery(arg_19_0, arg_19_1)
+	if CAN_USE_CAMERA == true then
+		arg_19_0 = arg_19_0 or PathTool.getPhotoPath()
+		arg_19_1 = arg_19_1 or "photo.jpg"
+
+		if IS_IOS_PLATFORM == true then
+			sdkCallFunc("webcam", arg_19_0, 4, 0, arg_19_1)
+		elseif callFunc("checkcamera") == "true" then
+			sdkCallFunc("webcam", arg_19_0, 4, 0, arg_19_1)
+		else
+			message(TI18N("语言_c_4182"))
+		end
+	elseif IS_IOS_PLATFORM == true then
+		message(TI18N("语言_c_1031"))
+	else
+		message(TI18N("语言_c_1033"))
+	end
+end
+
+function saveImageToPhoto(arg_20_0, arg_20_1)
+	sdkCallFunc("savePhoto", arg_20_0, arg_20_1)
+end
+
+function callBackWebcam(arg_21_0, arg_21_1)
+	if arg_21_0 ~= 0 then
+		message("Successfully save photo to album")
+	else
+		MainuiController:getInstance():updateCustomHeadImg(arg_21_1)
+	end
+end
+
+function OnPhotoReceive(arg_22_0, arg_22_1)
+	print(arg_22_0, arg_22_1)
+
+	if arg_22_0 == 1 then
+		MainuiController:getInstance():updateCustomHeadImg(msg)
+	end
+end
+
+function cosDownloadImageCallback(arg_23_0, arg_23_1)
+	return
+end
+
+function cosUploadImageCallback(arg_24_0, arg_24_1)
+	if arg_24_0 == 0 then
+		if PLATFORM_NAME == "release2" then
+			CommonAlert.show(string.format(TI18N("语言_c_4455"), arg_24_1), TI18N("语言_c_63"))
+		else
+			message(TI18N("语言_c_4183"))
+		end
+	else
+		RoleController:getInstance():tellServerCustomSuccess()
+	end
+end
+
+function callIDFA()
+	return callFunc("idfa")
+end
+
+function getBindPhone()
+	return callFunc("getBindPhone")
+end
+
+function bindPhone(arg_27_0, arg_27_1, arg_27_2)
+	if arg_27_0 == nil or arg_27_0 == "" then
+		return
+	end
+
+	__bind_phone_back_func = arg_27_2
+
+	callFunc("bindPhone", arg_27_0, 0, 0, arg_27_1)
+end
+
+function bindPhoneBack(arg_28_0, arg_28_1)
+	if __bind_phone_back_func then
+		__bind_phone_back_func(arg_28_0, arg_28_1)
+
+		__bind_phone_back_func = nil
+	end
+end
+
+function showRealNameWindow()
+	callFunc("realNameVerify")
+end
+
+function queryRealNameInfo()
+	return callFunc("queryRealName")
+end
+
+function sdkBackRealName(arg_31_0, arg_31_1)
+	if arg_31_0 <= 0 then
+		arg_31_0 = 0
+		DO_NOT_REALNAME_STATUS = true
+	else
+		DO_NOT_REALNAME_STATUS = false
+		OPEN_SDK_VISITIOR_WINDOW = false
+		NEED_OPEN_OPEN_SDK_VISITIOR_WINDOW = false
+	end
+
+	RoleController:getInstance():sender10395(arg_31_0)
+end
+
+function wxShareText(arg_32_0, arg_32_1)
+	callFunc("wx_share_text", arg_32_0, arg_32_1 or 1)
+end
+
+function wxSharePhoto(arg_33_0, arg_33_1, arg_33_2, arg_33_3, arg_33_4, arg_33_5)
+	arg_33_3 = arg_33_3 or arg_33_2
+
+	local var_33_0 = table.concat({
+		arg_33_0,
+		arg_33_1,
+		arg_33_2,
+		arg_33_3
+	}, "#")
+
+	callFunc("wx_share_photo", var_33_0, arg_33_4 or 1, arg_33_5 or 200)
+end
+
+function wxShareUrl(arg_34_0, arg_34_1, arg_34_2, arg_34_3, arg_34_4, arg_34_5)
+	local var_34_0 = table.concat({
+		arg_34_0,
+		arg_34_1,
+		arg_34_2,
+		arg_34_3
+	}, "#")
+
+	callFunc("wx_share_url", var_34_0, arg_34_4 or 1, arg_34_5 or 200)
+end
+
+function wxShareBack(arg_35_0, arg_35_1)
+	game_print("wxShareBack===>", arg_35_0, arg_35_1)
+	message(arg_35_1)
+
+	if arg_35_0 == 0 then
+		PartnersummonController:getInstance():send23203()
+	end
+end
+
+function callFunc(arg_36_0, arg_36_1, arg_36_2, arg_36_3, arg_36_4)
+	if not cc.GameDevice.callFunc then
+		return ""
+	end
+
+	if arg_36_0 == nil or arg_36_0 == "" then
+		return ""
+	end
+
+	arg_36_1 = arg_36_1 or ""
+	arg_36_2 = arg_36_2 or 0
+	arg_36_3 = arg_36_3 or 0
+	arg_36_4 = arg_36_4 or ""
+
+	return cc.GameDevice:callFunc(arg_36_0, arg_36_1, arg_36_2, arg_36_3, arg_36_4)
+end

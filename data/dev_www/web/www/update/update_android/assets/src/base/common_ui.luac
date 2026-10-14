@@ -1,0 +1,27 @@
+﻿CommonUI = CommonUI or BaseClass()
+CommonUI.__ZOrder = 0
+CommonUI.close_panel = "CommonUI_close_panel"
+CommonUI.close_cur_panel = "CommonUI_close_cur_panel"
+CommonUI.close_all_panel = "CommonUI_close_all_panel"
+
+function CommonUI.__init(arg_1_0)
+	return
+end
+
+function CommonUI.setCommonUIZOrder(arg_2_0, arg_2_1)
+	CommonUI.__ZOrder = CommonUI.__ZOrder + 1
+
+	arg_2_1:setLocalZOrder(CommonUI.__ZOrder)
+end
+
+function CommonUI.getCommonUIZOrder(arg_3_0)
+	return CommonUI.__ZOrder
+end
+
+function CommonUI.open(arg_4_0)
+	return
+end
+
+function CommonUI.__delete(arg_5_0)
+	return
+end

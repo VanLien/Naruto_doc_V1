@@ -1,0 +1,262 @@
+-- --------------------------------------------------------------------
+-- 
+-- 
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      联盟战 布阵
+-- <br/>Create: 2020-03-19
+-- --------------------------------------------------------------------
+GuildnewwarEliteTeamListPanel = GuildnewwarEliteTeamListPanel or BaseClass(BaseView)
+
+local controller = GuildNewwarController:getInstance()
+local model = controller:getModel()
+local string_format = string.format
+local table_insert = table.insert
+
+function GuildnewwarEliteTeamListPanel:__init()
+    self.win_type = WinType.Big
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+    self.res_list = {
+        
+    }
+    self.layout_name = "guildnewwar/guildnewwar_elite/guildnewwar_elite_team_list_panel"
+end
+
+function GuildnewwarEliteTeamListPanel:open_callback(  )
+    self.background = self.root_wnd:getChildByName("background")
+    if self.background ~= nil then
+        self.background:setScale(display.getMaxScale())
+    end
+    self.main_container = self.root_wnd:getChildByName("main_container")
+    self:playEnterAnimatianByObj(self.main_container, 1)
+    
+    self.title = self.main_container:getChildByName("win_title")
+    self.title:setString(TI18N("语言_c_5374"))
+    self.close_btn = self.main_container:getChildByName("close_btn")
+
+    self.list_panel = self.main_container:getChildByName("list_panel")
+
+    self.mem_icon = self.main_container:getChildByName("mem_icon")
+    self.mem_label = self.main_container:getChildByName("mem_label")
+
+    self.label_des = self.main_container:getChildByName("label_des")
+    setTextMaxWidth(self.label_des, 640)
+    self.label_des:setString(TI18N("语言_c_5375"))
+    self.form_btn = self.main_container:getChildByName("form_btn")
+    self.form_btn:getChildByName("label"):setString(TI18N("语言_c_5376"))
+end
+
+function GuildnewwarEliteTeamListPanel:register_event(  )
+    registerButtonEventListener(self.background, function() self:onClosedBtn() end,false, 2)
+    registerButtonEventListener(self.close_btn, function() self:onClosedBtn() end ,true, 2)
+    registerButtonEventListener(self.form_btn, function() self:onClickFormBtn() end ,true, 2)
+
+    self:addGlobalEvent(GuildNewwarEvent.GUILDNEWWAR_TEAM_LIST_EVENT, function(data)
+        if not data or next(data) == nil then return end
+        self:updateRankList(data)
+    end)
+end
+
+function GuildnewwarEliteTeamListPanel:onClickFormBtn() --PartnerConst.Fun_Form.ArenapeakchampionDef
+    HeroController:getInstance():openFormGoFightPanel(true, PartnerConst.Fun_Form.GuildNewWarLegend, {}, HeroConst.FormShowType.eFormSave)
+    -- controller:openGuildnewwarEliteTeamListPanel(false)
+end
+
+--关闭
+function GuildnewwarEliteTeamListPanel:onClosedBtn()
+    controller:openGuildnewwarEliteTeamListPanel(false)
+end
+
+--刷新列表
+function GuildnewwarEliteTeamListPanel:updateRankList(data)
+    if self.list_scrollview == nil then
+        local scroll_view_size = self.list_panel:getContentSize()
+        local setting = {
+            item_class = GuildnewwarEliteTeamListItem,      -- 单元类
+            start_x = 0,                  -- 第一个单元的X起点
+            space_x = 0,                    -- x方向的间隔
+            start_y = 0,                    -- 第一个单元的Y起点
+            space_y = 0,                   -- y方向的间隔
+            item_width = 612,               -- 单元的尺寸width
+            item_height = 150,              -- 单元的尺寸height
+            row = 1,                        -- 行数，作用于水平滚动类型
+            col = 1,                         -- 列数，作用于垂直滚动类型
+        }
+        self.list_scrollview = CommonScrollViewLayout.new(self.list_panel, cc.p(0,0) , ScrollViewDir.vertical, ScrollViewStartPos.top, scroll_view_size, setting)
+        self.list_scrollview:setBounceEnabled(false)
+    end
+    self.show_list = data
+    table.sort(self.show_list, function(a, b) return a.power > b.power end)
+    self.list_scrollview:setData(self.show_list)
+
+    self.mem_label:setString(#self.show_list.."/"..30)
+end
+
+function GuildnewwarEliteTeamListPanel:openRootWnd()
+    -- self:updateRankList()
+    controller:sender14234()
+end
+
+function GuildnewwarEliteTeamListPanel:close_callback()
+    controller:openGuildnewwarEliteTeamListPanel(false)
+end
+
+------------------------------@ item
+GuildnewwarEliteTeamListItem = class("GuildnewwarEliteTeamListItem",function()
+    return ccui.Layout:create()
+end)
+
+function GuildnewwarEliteTeamListItem:ctor()
+    local csbPath = PathTool.getTargetCSB("guildnewwar/guildnewwar_elite/guildnewwar_elite_team_list_item")
+    self.root_wnd = cc.CSLoader:createNode(csbPath)
+    self.size = self.root_wnd:getContentSize()
+    self:setAnchorPoint(cc.p(0.5, 0.5))
+    self:setContentSize(self.size)
+    self:setTouchEnabled(true)
+    self.root_wnd:setAnchorPoint(0.5, 0.5)
+    self.root_wnd:setPosition(self.size.width * 0.5, self.size.height * 0.5)
+    self:addChild(self.root_wnd)
+
+    local main_container = self.root_wnd:getChildByName("main_container")
+    local start_x = 55
+    self.num_bg = main_container:getChildByName("num_bg")
+    self.team_name = main_container:getChildByName("team_name")
+    self.team_name:setString(TI18N("语言_c_4827") .. 1)
+    self.halo_btn = main_container:getChildByName("halo_btn")
+    self.formation_type = 1 -- 阵法类型(默认为锋矢阵)
+    self.form_icon = main_container:getChildByName("form_icon")    
+    self.power_txt = main_container:getChildByName("power_txt")
+    -- self.hallows_id = 0 -- 神器id
+    -- self.hallow_item = BackPackItem.new(false, true, false, 0.6)
+    -- self.hallow_item:addCallBack(function (  )
+    --     self:onClickHallowBtn(self.hallows_id, i)
+    -- end)
+    -- self.hallow_item:showAddIcon(true)
+    -- self.hallow_item:setPosition(cc.p(590, 58))
+    -- main_container:addChild(self.hallow_item)
+    self.hero_item_list = {}
+    -- self.item_rect_list = {} -- 记录一下item的区域
+    for k=1,5 do
+        local hero_item = HeroExhibitionItem.new(0.7, true, nil, false)
+        local pos_x = start_x+(k-1)*(HeroExhibitionItem.Width*0.7+8)
+        local pos_y = 52
+        hero_item:setPosition(cc.p(pos_x, pos_y))
+        main_container:addChild(hero_item)
+        table_insert(self.hero_item_list, hero_item)
+    end
+    self.head_name = main_container:getChildByName("head_name")
+    self.node_head = main_container:getChildByName("node_head")
+    if not self.role_head then
+        self.role_head = PlayerHead.new(PlayerHead.type.circle)
+        self.node_head:addChild(self.role_head)
+    end
+	-- head:setPosition(60, 60)
+	-- head:setHeadRes(evt_config.face)
+    self:registerEvent()
+end 
+
+function GuildnewwarEliteTeamListItem:registerEvent()
+    --这里弹公会信息面板
+	-- self:addTouchEventListener(function(sender, event_type)
+	-- 	customClickAction_2(sender,event_type)
+	-- 	if event_type == ccui.TouchEventType.ended then
+    --         self.touch_end = sender:getTouchEndPosition()
+    --         local is_click = true
+    --         if self.touch_began ~= nil then
+    --             is_click =
+    --                 math.abs(self.touch_end.x - self.touch_began.x) <= 10 and
+    --                 math.abs(self.touch_end.y - self.touch_began.y) <= 10
+    --         end
+    --         if is_click == true then
+    --             playButtonSound2()
+    --             -- GuildController:getInstance():openGuildInfoWindow(true)
+    --         end
+    --     elseif event_type == ccui.TouchEventType.began then
+    --         self.touch_began = sender:getTouchBeganPosition()
+	-- 	end
+    -- end)
+end
+
+function GuildnewwarEliteTeamListItem:addCallBack(call_back)
+    self.call_back = call_back
+end
+
+function GuildnewwarEliteTeamListItem:setData(data)
+    self.formation_type = data.formation_type
+    self.head_name:setString(data.name)
+    if data._index > 30 then
+        self.team_name:setString(TI18N("语言_c_5394"))
+        self.team_name:setTextColor(cc.c3b(255, 237, 214))
+        setChildUnEnabled(true, self.num_bg)
+    else
+        self.team_name:setString(TI18N("语言_c_4827") .. data._index)
+        self.team_name:setTextColor(cc.c3b(255, 237, 214))
+        setChildUnEnabled(false, self.num_bg)
+    end
+    self.power_txt:setString(data.power)
+    self.role_head:setHeadRes(data.face, false, LOADTEXT_TYPE, data.face_file, data.face_update_time)
+    self.role_head:setLev(data.lev)
+    local avatar_bid = data.avatar_bid
+    local vo = Config.AvatarData.data_avatar[avatar_bid]
+    if vo then
+        local res_id = vo.res_id or 1
+        local res = PathTool.getTargetRes("headcircle", "txt_cn_headcircle_" .. res_id, false, false)
+        self.role_head:showBg(res, nil, false, vo.offy)
+    end
+
+    local res = PathTool.getResFrame("form", "form_icon_"..self.formation_type)
+    loadSpriteTexture(self.form_icon, res, LOADTEXT_TYPE_PLIST)
+    self:calculateCampHaloType(data.defense)
+    local function getFormPosData(index)
+        local config = Config.FormationData.data_form_data[self.formation_type]
+        local t_pos = config.pos[index][2]
+        for k, v in pairs(data.defense) do
+            if v.pos == index then
+                return v
+            end
+        end
+        return {}
+    end
+    for i, v in ipairs(self.hero_item_list) do
+        local data = getFormPosData(i)-- data.defense[i] or {}
+        v:setData(data)
+    end
+end
+
+--计算阵型icon
+function GuildnewwarEliteTeamListItem:calculateCampHaloType(form_list)
+    if not form_list then return end
+    local dic_camp = {}
+    for i,v in pairs(form_list) do
+        local config = Config.PartnerData.data_partner_base[v.bid]
+        if config.camp_type ~= nil then
+            if dic_camp[config.camp_type] == nil then
+                dic_camp[config.camp_type] = 1
+            else
+                dic_camp[config.camp_type] = dic_camp[config.camp_type] + 1
+            end
+        end
+    end
+
+    self.halo_form_id_list = BattleController:getInstance():getModel():getFormIdListByCamp(dic_camp)
+    local halo_icon_config, alien_effect = BattleController:getInstance():getModel():getCampIconConfigByIds(clone(self.halo_form_id_list))
+    if halo_icon_config then
+        local halo_res = PathTool.getCampGroupIcon(halo_icon_config.icon)
+        self.halo_icon_load = loadImageTextureFromCDN(self.halo_btn, halo_res, ResourcesType.single, self.halo_icon_load)
+        addCountForCampIcon(self.halo_btn, halo_icon_config.nums)
+        -- self.halo_label:setString("")
+        -- self:updateEffect(true, halo_res, alien_effect)
+    else
+        local halo_res = PathTool.getCampGroupIcon(1000)
+        self.halo_icon_load = loadImageTextureFromCDN(self.halo_btn, halo_res, ResourcesType.single, self.halo_icon_load)
+        addCountForCampIcon(self.halo_btn)
+        -- self.halo_label:setString(TI18N("语言_c_3170"))
+        -- self:updateEffect(false, halo_res)
+    end
+end
+
+function GuildnewwarEliteTeamListItem:DeleteMe()
+    self:removeAllChildren()
+    self:removeFromParent()
+end

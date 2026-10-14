@@ -1,0 +1,166 @@
+
+hurt.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+luo-hit_0
+  rotate: true
+  xy: 262, 235
+  size: 100, 153
+  orig: 171, 153
+  offset: 44, 0
+  index: -1
+luo-hit_18
+  rotate: true
+  xy: 262, 235
+  size: 100, 153
+  orig: 171, 153
+  offset: 44, 0
+  index: -1
+luo-hit_11
+  rotate: false
+  xy: 131, 156
+  size: 114, 150
+  orig: 171, 153
+  offset: 11, 2
+  index: -1
+luo-hit_13
+  rotate: false
+  xy: 2, 2
+  size: 123, 152
+  orig: 171, 153
+  offset: 1, 0
+  index: -1
+luo-hit_14
+  rotate: true
+  xy: 262, 337
+  size: 121, 152
+  orig: 171, 153
+  offset: 3, 0
+  index: -1
+luo-hit_16
+  rotate: false
+  xy: 127, 2
+  size: 101, 152
+  orig: 171, 153
+  offset: 24, 0
+  index: -1
+luo-hit_2
+  rotate: true
+  xy: 230, 10
+  size: 111, 146
+  orig: 171, 153
+  offset: 43, 0
+  index: -1
+luo-hit_4
+  rotate: false
+  xy: 133, 310
+  size: 127, 148
+  orig: 171, 153
+  offset: 40, 0
+  index: -1
+luo-hit_6
+  rotate: false
+  xy: 2, 308
+  size: 129, 150
+  orig: 171, 153
+  offset: 38, 0
+  index: -1
+luo-hit_7
+  rotate: false
+  xy: 2, 156
+  size: 127, 150
+  orig: 171, 153
+  offset: 35, 1
+  index: -1
+luo-hit_9
+  rotate: true
+  xy: 247, 123
+  size: 110, 147
+  orig: 171, 153
+  offset: 25, 5
+  index: -1
+
+hurt.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+luo-hit_0
+  rotate: true
+  xy: 262, 235
+  size: 100, 153
+  orig: 171, 153
+  offset: 44, 0
+  index: -1
+luo-hit_18
+  rotate: true
+  xy: 262, 235
+  size: 100, 153
+  orig: 171, 153
+  offset: 44, 0
+  index: -1
+luo-hit_11
+  rotate: false
+  xy: 131, 156
+  size: 114, 150
+  orig: 171, 153
+  offset: 11, 2
+  index: -1
+luo-hit_13
+  rotate: false
+  xy: 2, 2
+  size: 123, 152
+  orig: 171, 153
+  offset: 1, 0
+  index: -1
+luo-hit_14
+  rotate: true
+  xy: 262, 337
+  size: 121, 152
+  orig: 171, 153
+  offset: 3, 0
+  index: -1
+luo-hit_16
+  rotate: false
+  xy: 127, 2
+  size: 101, 152
+  orig: 171, 153
+  offset: 24, 0
+  index: -1
+luo-hit_2
+  rotate: true
+  xy: 230, 10
+  size: 111, 146
+  orig: 171, 153
+  offset: 43, 0
+  index: -1
+luo-hit_4
+  rotate: false
+  xy: 133, 310
+  size: 127, 148
+  orig: 171, 153
+  offset: 40, 0
+  index: -1
+luo-hit_6
+  rotate: false
+  xy: 2, 308
+  size: 129, 150
+  orig: 171, 153
+  offset: 38, 0
+  index: -1
+luo-hit_7
+  rotate: false
+  xy: 2, 156
+  size: 127, 150
+  orig: 171, 153
+  offset: 35, 1
+  index: -1
+luo-hit_9
+  rotate: true
+  xy: 247, 123
+  size: 110, 147
+  orig: 171, 153
+  offset: 25, 5
+  index: -1

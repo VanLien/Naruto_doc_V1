@@ -1,0 +1,123 @@
+﻿cc.loaded_packages = {}
+
+local var_0_0 = cc.loaded_packages
+
+function cc.register(arg_1_0, arg_1_1)
+	cc.loaded_packages[arg_1_0] = arg_1_1
+end
+
+function cc.load(...)
+	local var_2_0 = {
+		...
+	}
+
+	assert(#var_2_0 > 0, "cc.load() - invalid package names")
+
+	local var_2_1 = {}
+
+	for iter_2_0, iter_2_1 in ipairs(var_2_0) do
+		assert(type(iter_2_1) == "string", string.format("cc.load() - invalid package name \"%s\"", tostring(iter_2_1)))
+
+		if not var_0_0[iter_2_1] then
+			local var_2_2 = string.format("packages.%s.init", iter_2_1)
+			local var_2_3 = require(var_2_2)
+
+			assert(var_2_3, string.format("cc.load() - package class \"%s\" load failed", var_2_2))
+
+			var_0_0[iter_2_1] = var_2_3
+
+			if DEBUG > 1 then
+				printInfo("cc.load() - load module \"packages.%s.init\"", iter_2_1)
+			end
+		end
+
+		var_2_1[#var_2_1 + 1] = var_0_0[iter_2_1]
+	end
+
+	return unpack(var_2_1)
+end
+
+local var_0_1 = cc.load
+local var_0_2
+
+local function var_0_3(arg_3_0, ...)
+	local var_3_0 = type(arg_3_0)
+
+	assert(var_3_0 == "table" or var_3_0 == "userdata", string.format("cc.bind() - invalid target, expected is object, actual is %s", var_3_0))
+
+	local var_3_1 = {
+		...
+	}
+
+	assert(#var_3_1 > 0, "cc.bind() - package names expected")
+	var_0_1(...)
+
+	if not arg_3_0.components_ then
+		arg_3_0.components_ = {}
+	end
+
+	for iter_3_0, iter_3_1 in ipairs(var_3_1) do
+		assert(type(iter_3_1) == "string" and iter_3_1 ~= "", string.format("cc.bind() - invalid package name \"%s\"", iter_3_1))
+
+		if not arg_3_0.components_[iter_3_1] then
+			local var_3_2 = var_0_0[iter_3_1]
+
+			for iter_3_2, iter_3_3 in ipairs(var_3_2.depends or {}) do
+				if not arg_3_0.components_[iter_3_3] then
+					var_0_3(arg_3_0, iter_3_3)
+				end
+			end
+
+			local var_3_3 = var_3_2:create()
+
+			arg_3_0.components_[iter_3_1] = var_3_3
+
+			var_3_3:bind(arg_3_0)
+		end
+	end
+
+	return arg_3_0
+end
+
+cc.bind = var_0_3
+
+function cc.unbind(arg_4_0, ...)
+	if not arg_4_0.components_ then
+		return
+	end
+
+	local var_4_0 = {
+		...
+	}
+
+	assert(#var_4_0 > 0, "cc.unbind() - invalid package names")
+
+	for iter_4_0, iter_4_1 in ipairs(var_4_0) do
+		assert(type(iter_4_1) == "string" and iter_4_1 ~= "", string.format("cc.unbind() - invalid package name \"%s\"", iter_4_1))
+
+		local var_4_1 = arg_4_0.components_[iter_4_1]
+
+		assert(var_4_1, string.format("cc.unbind() - component \"%s\" not found", tostring(iter_4_1)))
+		var_4_1:unbind(arg_4_0)
+
+		arg_4_0.components_[iter_4_1] = nil
+	end
+
+	return arg_4_0
+end
+
+function cc.setmethods(arg_5_0, arg_5_1, arg_5_2)
+	for iter_5_0, iter_5_1 in ipairs(arg_5_2) do
+		local var_5_0 = arg_5_1[iter_5_1]
+
+		arg_5_0[iter_5_1] = function(arg_6_0, ...)
+			return var_5_0(arg_5_1, ...)
+		end
+	end
+end
+
+function cc.unsetmethods(arg_7_0, arg_7_1)
+	for iter_7_0, iter_7_1 in ipairs(arg_7_1) do
+		arg_7_0[iter_7_1] = nil
+	end
+end

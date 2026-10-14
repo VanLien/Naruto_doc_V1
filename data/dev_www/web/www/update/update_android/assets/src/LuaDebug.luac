@@ -1,0 +1,1836 @@
+﻿local var_0_0 = debug.sethook
+local var_0_1
+local var_0_2
+local var_0_3 = require
+local var_0_4
+local var_0_5
+
+if loadstring then
+	var_0_5 = loadstring
+else
+	var_0_5 = load
+end
+
+local var_0_6 = {}
+local var_0_7
+
+if LuaDebugTool then
+	var_0_7 = LuaDebugTool
+elseif CS and CS.LuaDebugTool then
+	var_0_7 = CS.LuaDebugTool
+end
+
+local var_0_8 = var_0_7
+local var_0_9 = var_0_5
+local var_0_10 = debug.getinfo
+
+local function var_0_11()
+	local var_1_0 = _G
+	local var_1_1 = require("string")
+	local var_1_2 = require("math")
+	local var_1_3 = require("socket.core")
+	local var_1_4 = var_1_3
+
+	function var_1_4.connect4(arg_2_0, arg_2_1, arg_2_2, arg_2_3)
+		return var_1_3.connect(arg_2_0, arg_2_1, arg_2_2, arg_2_3, "inet")
+	end
+
+	function var_1_4.connect6(arg_3_0, arg_3_1, arg_3_2, arg_3_3)
+		return var_1_3.connect(arg_3_0, arg_3_1, arg_3_2, arg_3_3, "inet6")
+	end
+
+	if not var_1_4.connect then
+		function var_1_4.connect(arg_4_0, arg_4_1, arg_4_2, arg_4_3)
+			local var_4_0, var_4_1 = var_1_3.tcp()
+
+			if not var_4_0 then
+				return nil, var_4_1
+			end
+
+			if arg_4_2 then
+				local var_4_2, var_4_3 = var_4_0:bind(arg_4_2, arg_4_3, -1)
+
+				if not var_4_2 then
+					return nil, var_4_3
+				end
+			end
+
+			local var_4_4, var_4_5 = var_4_0:connect(arg_4_0, arg_4_1)
+
+			if not var_4_4 then
+				return nil, var_4_5
+			end
+
+			return var_4_0
+		end
+	end
+
+	function var_1_4.bind(arg_5_0, arg_5_1, arg_5_2)
+		if arg_5_0 == "*" then
+			arg_5_0 = "0.0.0.0"
+		end
+
+		local var_5_0, var_5_1 = var_1_3.dns.getaddrinfo(arg_5_0)
+
+		if not var_5_0 then
+			return nil, var_5_1
+		end
+
+		local var_5_2
+		local var_5_3
+		local var_5_4 = "no info on address"
+
+		for iter_5_0, iter_5_1 in var_1_0.ipairs(var_5_0) do
+			if iter_5_1.family == "inet" then
+				var_5_2, var_5_4 = var_1_3.tcp4()
+			else
+				var_5_2, var_5_4 = var_1_3.tcp6()
+			end
+
+			if not var_5_2 then
+				return nil, var_5_4
+			end
+
+			var_5_2:setoption("reuseaddr", true)
+
+			local var_5_5, var_5_6 = var_5_2:bind(iter_5_1.addr, arg_5_1)
+
+			var_5_4 = var_5_6
+
+			if not var_5_5 then
+				var_5_2:close()
+			else
+				local var_5_7, var_5_8 = var_5_2:listen(arg_5_2)
+
+				var_5_4 = var_5_8
+
+				if not var_5_7 then
+					var_5_2:close()
+				else
+					return var_5_2
+				end
+			end
+		end
+
+		return nil, var_5_4
+	end
+
+	var_1_4.try = var_1_4.newtry()
+
+	function var_1_4.choose(arg_6_0)
+		return function(arg_7_0, arg_7_1, arg_7_2)
+			if var_1_0.type(arg_7_0) ~= "string" then
+				arg_7_0, arg_7_1, arg_7_2 = "default", arg_7_0, arg_7_1
+			end
+
+			local var_7_0 = arg_6_0[arg_7_0 or "nil"]
+
+			if not var_7_0 then
+				var_1_0.error("unknown key (" .. var_1_0.tostring(arg_7_0) .. ")", 3)
+			else
+				return var_7_0(arg_7_1, arg_7_2)
+			end
+		end
+	end
+
+	local var_1_5 = {}
+	local var_1_6 = {}
+
+	var_1_4.sourcet = var_1_5
+	var_1_4.sinkt = var_1_6
+	var_1_4.BLOCKSIZE = 2048
+	var_1_6["close-when-done"] = function(arg_8_0)
+		return var_1_0.setmetatable({
+			getfd = function()
+				return arg_8_0:getfd()
+			end,
+			dirty = function()
+				return arg_8_0:dirty()
+			end
+		}, {
+			__call = function(arg_11_0, arg_11_1, arg_11_2)
+				if not arg_11_1 then
+					arg_8_0:close()
+
+					return 1
+				else
+					return arg_8_0:send(arg_11_1)
+				end
+			end
+		})
+	end
+	var_1_6["keep-open"] = function(arg_12_0)
+		return var_1_0.setmetatable({
+			getfd = function()
+				return arg_12_0:getfd()
+			end,
+			dirty = function()
+				return arg_12_0:dirty()
+			end
+		}, {
+			__call = function(arg_15_0, arg_15_1, arg_15_2)
+				if arg_15_1 then
+					return arg_12_0:send(arg_15_1)
+				else
+					return 1
+				end
+			end
+		})
+	end
+	var_1_6.default = var_1_6["keep-open"]
+	var_1_4.sink = var_1_4.choose(var_1_6)
+	var_1_5["by-length"] = function(arg_16_0, arg_16_1)
+		return var_1_0.setmetatable({
+			getfd = function()
+				return arg_16_0:getfd()
+			end,
+			dirty = function()
+				return arg_16_0:dirty()
+			end
+		}, {
+			__call = function()
+				if arg_16_1 <= 0 then
+					return nil
+				end
+
+				local var_19_0 = var_1_2.min(var_1_3.BLOCKSIZE, arg_16_1)
+				local var_19_1, var_19_2 = arg_16_0:receive(var_19_0)
+
+				if var_19_2 then
+					return nil, var_19_2
+				end
+
+				arg_16_1 = arg_16_1 - var_1_1.len(var_19_1)
+
+				return var_19_1
+			end
+		})
+	end
+	var_1_5["until-closed"] = function(arg_20_0)
+		local var_20_0
+
+		return var_1_0.setmetatable({
+			getfd = function()
+				return arg_20_0:getfd()
+			end,
+			dirty = function()
+				return arg_20_0:dirty()
+			end
+		}, {
+			__call = function()
+				if var_20_0 then
+					return nil
+				end
+
+				local var_23_0, var_23_1, var_23_2 = arg_20_0:receive(var_1_3.BLOCKSIZE)
+
+				if not var_23_1 then
+					return var_23_0
+				elseif var_23_1 == "closed" then
+					arg_20_0:close()
+
+					var_20_0 = 1
+
+					return var_23_2
+				else
+					return nil, var_23_1
+				end
+			end
+		})
+	end
+	var_1_5.default = var_1_5["until-closed"]
+	var_1_4.source = var_1_4.choose(var_1_5)
+
+	return var_1_4
+end
+
+local function var_0_12()
+	local var_24_0 = require("math")
+	local var_24_1 = require("string")
+	local var_24_2 = require("table")
+	local var_24_3
+	local var_24_4 = {}
+	local var_24_5 = {}
+
+	var_24_4.EMPTY_ARRAY = {}
+	var_24_4.EMPTY_OBJECT = {}
+
+	local var_24_6
+	local var_24_7
+	local var_24_8
+	local var_24_9
+	local var_24_10
+	local var_24_11
+	local var_24_12
+	local var_24_13
+	local var_24_14
+	local var_24_15
+
+	function var_24_4.encode(arg_25_0)
+		if arg_25_0 == nil then
+			return "null"
+		end
+
+		local var_25_0 = type(arg_25_0)
+
+		if var_25_0 == "string" then
+			return "\"" .. var_24_5.encodeString(arg_25_0) .. "\""
+		end
+
+		if var_25_0 == "number" or var_25_0 == "boolean" then
+			return tostring(arg_25_0)
+		end
+
+		if var_25_0 == "table" then
+			local var_25_1 = {}
+			local var_25_2, var_25_3 = var_24_14(arg_25_0)
+
+			if var_25_2 then
+				for iter_25_0 = 1, var_25_3 do
+					var_24_2.insert(var_25_1, var_24_4.encode(arg_25_0[iter_25_0]))
+				end
+			else
+				for iter_25_1, iter_25_2 in pairs(arg_25_0) do
+					if var_24_15(iter_25_1) and var_24_15(iter_25_2) then
+						var_24_2.insert(var_25_1, "\"" .. var_24_5.encodeString(iter_25_1) .. "\":" .. var_24_4.encode(iter_25_2))
+					end
+				end
+			end
+
+			if var_25_2 then
+				return "[" .. var_24_2.concat(var_25_1, ",") .. "]"
+			else
+				return "{" .. var_24_2.concat(var_25_1, ",") .. "}"
+			end
+		end
+
+		if var_25_0 == "function" and arg_25_0 == var_24_4.null then
+			return "null"
+		end
+
+		assert(false, "encode attempt to encode unsupported type " .. var_25_0 .. ":" .. tostring(arg_25_0))
+	end
+
+	function var_24_4.decode(arg_26_0, arg_26_1)
+		arg_26_1 = arg_26_1 and arg_26_1 or 1
+		arg_26_1 = var_24_12(arg_26_0, arg_26_1)
+
+		assert(arg_26_1 <= var_24_1.len(arg_26_0), "Unterminated JSON encoded object found at position in [" .. arg_26_0 .. "]")
+
+		local var_26_0 = var_24_1.sub(arg_26_0, arg_26_1, arg_26_1)
+
+		if var_26_0 == "{" then
+			return var_24_10(arg_26_0, arg_26_1)
+		end
+
+		if var_26_0 == "[" then
+			return var_24_6(arg_26_0, arg_26_1)
+		end
+
+		if var_24_1.find("+-0123456789.e", var_26_0, 1, true) then
+			return var_24_9(arg_26_0, arg_26_1)
+		end
+
+		if var_26_0 == "\"" or var_26_0 == "'" then
+			return var_24_11(arg_26_0, arg_26_1)
+		end
+
+		if var_24_1.sub(arg_26_0, arg_26_1, arg_26_1 + 1) == "/*" then
+			return var_24_4.decode(arg_26_0, var_24_7(arg_26_0, arg_26_1))
+		end
+
+		return var_24_8(arg_26_0, arg_26_1)
+	end
+
+	function var_24_4.null()
+		return var_24_4.null
+	end
+
+	function var_24_6(arg_28_0, arg_28_1)
+		local var_28_0 = {}
+		local var_28_1 = var_24_1.len(arg_28_0)
+
+		assert(var_24_1.sub(arg_28_0, arg_28_1, arg_28_1) == "[", "decode_scanArray called but array does not start at position " .. arg_28_1 .. " in string:\n" .. arg_28_0)
+
+		arg_28_1 = arg_28_1 + 1
+
+		repeat
+			arg_28_1 = var_24_12(arg_28_0, arg_28_1)
+
+			assert(arg_28_1 <= var_28_1, "JSON String ended unexpectedly scanning array.")
+
+			local var_28_2 = var_24_1.sub(arg_28_0, arg_28_1, arg_28_1)
+
+			if var_28_2 == "]" then
+				return var_28_0, arg_28_1 + 1
+			end
+
+			if var_28_2 == "," then
+				arg_28_1 = var_24_12(arg_28_0, arg_28_1 + 1)
+			end
+
+			assert(arg_28_1 <= var_28_1, "JSON String ended unexpectedly scanning array.")
+
+			var_24_3, arg_28_1 = var_24_4.decode(arg_28_0, arg_28_1)
+
+			var_24_2.insert(var_28_0, var_24_3)
+		until false
+	end
+
+	function var_24_7(arg_29_0, arg_29_1)
+		assert(var_24_1.sub(arg_29_0, arg_29_1, arg_29_1 + 1) == "/*", "decode_scanComment called but comment does not start at position " .. arg_29_1)
+
+		local var_29_0 = var_24_1.find(arg_29_0, "*/", arg_29_1 + 2)
+
+		assert(var_29_0 ~= nil, "Unterminated comment in string at " .. arg_29_1)
+
+		return var_29_0 + 2
+	end
+
+	function var_24_8(arg_30_0, arg_30_1)
+		local var_30_0 = {
+			["false"] = false,
+			["true"] = true
+		}
+		local var_30_1 = {
+			"true",
+			"false",
+			"null"
+		}
+
+		for iter_30_0, iter_30_1 in pairs(var_30_1) do
+			if var_24_1.sub(arg_30_0, arg_30_1, arg_30_1 + var_24_1.len(iter_30_1) - 1) == iter_30_1 then
+				return var_30_0[iter_30_1], arg_30_1 + var_24_1.len(iter_30_1)
+			end
+		end
+
+		assert(nil, "Failed to scan constant from string " .. arg_30_0 .. " at starting position " .. arg_30_1)
+	end
+
+	function var_24_9(arg_31_0, arg_31_1)
+		local var_31_0 = arg_31_1 + 1
+		local var_31_1 = var_24_1.len(arg_31_0)
+		local var_31_2 = "+-0123456789.e"
+
+		while var_24_1.find(var_31_2, var_24_1.sub(arg_31_0, var_31_0, var_31_0), 1, true) and var_31_0 <= var_31_1 do
+			var_31_0 = var_31_0 + 1
+		end
+
+		local var_31_3 = "return " .. var_24_1.sub(arg_31_0, arg_31_1, var_31_0 - 1)
+		local var_31_4 = var_0_9(var_31_3)
+
+		assert(var_31_4, "Failed to scan number [ " .. var_31_3 .. "] in JSON string at position " .. arg_31_1 .. " : " .. var_31_0)
+
+		return var_31_4(), var_31_0
+	end
+
+	function var_24_10(arg_32_0, arg_32_1)
+		local var_32_0 = {}
+		local var_32_1 = var_24_1.len(arg_32_0)
+		local var_32_2
+		local var_32_3
+
+		assert(var_24_1.sub(arg_32_0, arg_32_1, arg_32_1) == "{", "decode_scanObject called but object does not start at position " .. arg_32_1 .. " in string:\n" .. arg_32_0)
+
+		arg_32_1 = arg_32_1 + 1
+
+		repeat
+			arg_32_1 = var_24_12(arg_32_0, arg_32_1)
+
+			assert(arg_32_1 <= var_32_1, "JSON string ended unexpectedly while scanning object.")
+
+			local var_32_4 = var_24_1.sub(arg_32_0, arg_32_1, arg_32_1)
+
+			if var_32_4 == "}" then
+				return var_32_0, arg_32_1 + 1
+			end
+
+			if var_32_4 == "," then
+				arg_32_1 = var_24_12(arg_32_0, arg_32_1 + 1)
+			end
+
+			assert(arg_32_1 <= var_32_1, "JSON string ended unexpectedly scanning object.")
+
+			local var_32_5
+
+			var_32_5, arg_32_1 = var_24_4.decode(arg_32_0, arg_32_1)
+
+			assert(arg_32_1 <= var_32_1, "JSON string ended unexpectedly searching for value of key " .. var_32_5)
+
+			arg_32_1 = var_24_12(arg_32_0, arg_32_1)
+
+			assert(arg_32_1 <= var_32_1, "JSON string ended unexpectedly searching for value of key " .. var_32_5)
+			assert(var_24_1.sub(arg_32_0, arg_32_1, arg_32_1) == ":", "JSON object key-value assignment mal-formed at " .. arg_32_1)
+
+			arg_32_1 = var_24_12(arg_32_0, arg_32_1 + 1)
+
+			assert(arg_32_1 <= var_32_1, "JSON string ended unexpectedly searching for value of key " .. var_32_5)
+
+			var_32_0[var_32_5], arg_32_1 = var_24_4.decode(arg_32_0, arg_32_1)
+		until false
+	end
+
+	local var_24_16 = {
+		["\\n"] = "\n",
+		["\\t"] = "\t",
+		["\\f"] = "\f",
+		["\\r"] = "\r",
+		["\\b"] = "\b"
+	}
+
+	setmetatable(var_24_16, {
+		__index = function(arg_33_0, arg_33_1)
+			return var_24_1.sub(arg_33_1, 2)
+		end
+	})
+
+	function var_24_11(arg_34_0, arg_34_1)
+		assert(arg_34_1, "decode_scanString(..) called without start position")
+
+		local var_34_0 = var_24_1.sub(arg_34_0, arg_34_1, arg_34_1)
+
+		assert(var_34_0 == "\"" or var_34_0 == "'", "decode_scanString called for a non-string")
+
+		local var_34_1 = {}
+		local var_34_2 = arg_34_1
+		local var_34_3 = arg_34_1
+
+		while var_24_1.find(arg_34_0, var_34_0, var_34_3 + 1) ~= var_34_3 + 1 do
+			local var_34_4 = var_34_3
+			local var_34_5
+
+			var_34_5, var_34_3 = var_24_1.find(arg_34_0, "\\.", var_34_3 + 1)
+
+			local var_34_6, var_34_7 = var_24_1.find(arg_34_0, var_34_0, var_34_4 + 1)
+
+			if not var_34_5 or var_34_6 < var_34_5 then
+				var_34_5, var_34_3 = var_34_6, var_34_7 - 1
+			end
+
+			var_24_2.insert(var_34_1, var_24_1.sub(arg_34_0, var_34_4 + 1, var_34_5 - 1))
+
+			if var_24_1.sub(arg_34_0, var_34_5, var_34_3) == "\\u" then
+				local var_34_8 = var_24_1.sub(arg_34_0, var_34_3 + 1, var_34_3 + 4)
+
+				var_34_3 = var_34_3 + 4
+
+				local var_34_9 = tonumber(var_34_8, 16)
+
+				assert(var_34_9, "String decoding failed: bad Unicode escape " .. var_34_8 .. " at position " .. var_34_5 .. " : " .. var_34_3)
+
+				local var_34_10
+
+				if var_34_9 < 128 then
+					var_34_10 = var_24_1.char(var_34_9 % 128)
+				elseif var_34_9 < 2048 then
+					var_34_10 = var_24_1.char(192 + var_24_0.floor(var_34_9 / 64) % 32, 128 + var_34_9 % 64)
+				else
+					var_34_10 = var_24_1.char(224 + var_24_0.floor(var_34_9 / 4096) % 16, 128 + var_24_0.floor(var_34_9 / 64) % 64, 128 + var_34_9 % 64)
+				end
+
+				var_24_2.insert(var_34_1, var_34_10)
+			else
+				var_24_2.insert(var_34_1, var_24_16[var_24_1.sub(arg_34_0, var_34_5, var_34_3)])
+			end
+		end
+
+		var_24_2.insert(var_34_1, var_24_1.sub(var_34_3, var_34_3 + 1))
+		assert(var_24_1.find(arg_34_0, var_34_0, var_34_3 + 1), "String decoding failed: missing closing " .. var_34_0 .. " at position " .. var_34_3 .. "(for string at position " .. arg_34_1 .. ")")
+
+		return var_24_2.concat(var_34_1, ""), var_34_3 + 2
+	end
+
+	function var_24_12(arg_35_0, arg_35_1)
+		local var_35_0 = " \n\r\t"
+		local var_35_1 = var_24_1.len(arg_35_0)
+
+		while var_24_1.find(var_35_0, var_24_1.sub(arg_35_0, arg_35_1, arg_35_1), 1, true) and arg_35_1 <= var_35_1 do
+			arg_35_1 = arg_35_1 + 1
+		end
+
+		return arg_35_1
+	end
+
+	local var_24_17 = {
+		["\f"] = "\\f",
+		["\b"] = "\\b",
+		["\n"] = "\\n",
+		["\r"] = "\\r",
+		["\t"] = "\\t",
+		["\\"] = "\\\\",
+		["/"] = "\\/",
+		["\""] = "\\\""
+	}
+
+	function var_24_5.encodeString(arg_36_0)
+		return tostring(arg_36_0):gsub(".", function(arg_37_0)
+			return var_24_17[arg_37_0]
+		end)
+	end
+
+	function var_24_14(arg_38_0)
+		if arg_38_0 == var_24_4.EMPTY_ARRAY then
+			return true, 0
+		end
+
+		if arg_38_0 == var_24_4.EMPTY_OBJECT then
+			return false
+		end
+
+		local var_38_0 = 0
+
+		for iter_38_0, iter_38_1 in pairs(arg_38_0) do
+			if type(iter_38_0) == "number" and var_24_0.floor(iter_38_0) == iter_38_0 and iter_38_0 >= 1 then
+				if not var_24_15(iter_38_1) then
+					return false
+				end
+
+				var_38_0 = var_24_0.max(var_38_0, iter_38_0)
+			elseif iter_38_0 == "n" then
+				if iter_38_1 ~= (arg_38_0.n or #arg_38_0) then
+					return false
+				end
+			elseif var_24_15(iter_38_1) then
+				return false
+			end
+		end
+
+		return true, var_38_0
+	end
+
+	function var_24_15(arg_39_0)
+		local var_39_0 = type(arg_39_0)
+
+		return var_39_0 == "string" or var_39_0 == "boolean" or var_39_0 == "number" or var_39_0 == "nil" or var_39_0 == "table" or var_39_0 == "function" and arg_39_0 == var_24_4.null
+	end
+
+	return var_24_4
+end
+
+local var_0_13 = print
+local var_0_14
+local var_0_15
+local var_0_16 = var_0_12()
+
+LuaDebugger = {
+	StepIn = false,
+	isHook = true,
+	runLineCount = 0,
+	isDebugPrint = true,
+	hookType = "lrc",
+	StepOut = false,
+	Run = true,
+	DebugLuaFie = "",
+	StepNext = false,
+	version = "1.0.3",
+	isProntToConsole = 1,
+	fileMaps = {},
+	breakInfos = {},
+	pathCachePaths = {}
+}
+LuaDebugger.event = {
+	C2S_StepOutResponse = 13,
+	S2C_StepOutRequest = 12,
+	C2S_StepInResponse = 11,
+	C2S_NextResponseOver = 9,
+	S2C_ReqVar = 5,
+	C2S_DebugXpCall = 20,
+	C2S_LuaPrint = 14,
+	S2C_SetBreakPoints = 1,
+	C2S_NextResponse = 8,
+	S2C_DebugClose = 21,
+	C2S_ReqVar = 6,
+	S2C_NextRequest = 7,
+	C2S_LoadLuaScript = 18,
+	C2S_SetBreakPoints = 2,
+	S2C_LoadLuaScript = 16,
+	S2C_StepInRequest = 10,
+	C2S_HITBreakPoint = 4,
+	S2C_RUN = 3,
+	C2S_SetSocketName = 17
+}
+
+function print(...)
+	if LuaDebugger.isProntToConsole == 1 or LuaDebugger.isProntToConsole == 3 then
+		var_0_13(...)
+	end
+
+	if (LuaDebugger.isProntToConsole == 1 or LuaDebugger.isProntToConsole == 2) and var_0_14 then
+		local var_40_0 = {
+			...
+		}
+		local var_40_1 = ""
+
+		for iter_40_0, iter_40_1 in pairs(var_40_0) do
+			var_40_1 = var_40_1 .. tostring(iter_40_1) .. "\t"
+		end
+
+		local var_40_2 = {
+			event = LuaDebugger.event.C2S_LuaPrint,
+			data = {
+				msg = var_0_6.encode(var_40_1)
+			}
+		}
+		local var_40_3 = var_0_16.encode(var_40_2)
+
+		var_0_14:send(var_40_3 .. "__debugger_k0204__")
+	end
+end
+
+local var_0_17
+
+local function var_0_18(arg_41_0, arg_41_1)
+	arg_41_0 = tostring(arg_41_0)
+	arg_41_1 = tostring(arg_41_1)
+
+	if arg_41_1 == "" then
+		return false
+	end
+
+	local var_41_0 = 0
+	local var_41_1 = {}
+
+	for iter_41_0, iter_41_1 in function()
+		return string.find(arg_41_0, arg_41_1, var_41_0, true)
+	end do
+		table.insert(var_41_1, string.sub(arg_41_0, var_41_0, iter_41_0 - 1))
+
+		var_41_0 = iter_41_1 + 1
+	end
+
+	table.insert(var_41_1, string.sub(arg_41_0, var_41_0))
+
+	return var_41_1
+end
+
+local function var_0_19(arg_43_0)
+	arg_43_0 = string.gsub(arg_43_0, "^[ \t\n\r]+", "")
+
+	return string.gsub(arg_43_0, "[ \t\n\r]+$", "")
+end
+
+local function var_0_20(arg_44_0, arg_44_1, arg_44_2)
+	if type(arg_44_2) ~= "number" then
+		arg_44_2 = 3
+	end
+
+	local var_44_0 = {}
+	local var_44_1 = {}
+
+	local function var_44_2(arg_45_0)
+		if type(arg_45_0) == "string" then
+			arg_45_0 = "\"" .. arg_45_0 .. "\""
+		end
+
+		return tostring(arg_45_0)
+	end
+
+	local var_44_3 = var_0_18(debug.traceback("", 2), "\n")
+
+	print("dump from: " .. var_0_19(var_44_3[3]))
+
+	local function var_44_4(arg_46_0, arg_46_1, arg_46_2, arg_46_3, arg_46_4)
+		arg_46_1 = arg_46_1 or "<var>"
+		spc = ""
+
+		if type(arg_46_4) == "number" then
+			spc = string.rep(" ", arg_46_4 - string.len(var_44_2(arg_46_1)))
+		end
+
+		if type(arg_46_0) ~= "table" then
+			var_44_1[#var_44_1 + 1] = string.format("%s%s%s = %s", arg_46_2, var_44_2(arg_46_1), spc, var_44_2(arg_46_0))
+		elseif var_44_0[arg_46_0] then
+			var_44_1[#var_44_1 + 1] = string.format("%s%s%s = *REF*", arg_46_2, arg_46_1, spc)
+		else
+			var_44_0[arg_46_0] = true
+
+			if arg_46_3 > arg_44_2 then
+				var_44_1[#var_44_1 + 1] = string.format("%s%s = *MAX NESTING*", arg_46_2, arg_46_1)
+			else
+				var_44_1[#var_44_1 + 1] = string.format("%s%s = {", arg_46_2, var_44_2(arg_46_1))
+
+				local var_46_0 = arg_46_2 .. "    "
+				local var_46_1 = {}
+				local var_46_2 = 0
+				local var_46_3 = {}
+
+				for iter_46_0, iter_46_1 in pairs(arg_46_0) do
+					var_46_1[#var_46_1 + 1] = iter_46_0
+
+					local var_46_4 = var_44_2(iter_46_0)
+					local var_46_5 = string.len(var_46_4)
+
+					if var_46_2 < var_46_5 then
+						var_46_2 = var_46_5
+					end
+
+					var_46_3[iter_46_0] = iter_46_1
+				end
+
+				table.sort(var_46_1, function(arg_47_0, arg_47_1)
+					if type(arg_47_0) == "number" and type(arg_47_1) == "number" then
+						return arg_47_0 < arg_47_1
+					else
+						return tostring(arg_47_0) < tostring(arg_47_1)
+					end
+				end)
+
+				for iter_46_2, iter_46_3 in ipairs(var_46_1) do
+					var_44_4(var_46_3[iter_46_3], iter_46_3, var_46_0, arg_46_3 + 1, var_46_2)
+				end
+
+				var_44_1[#var_44_1 + 1] = string.format("%s}", arg_46_2)
+			end
+		end
+	end
+
+	var_44_4(arg_44_0, arg_44_1, "- ", 1)
+
+	for iter_44_0, iter_44_1 in ipairs(var_44_1) do
+		print(iter_44_1)
+	end
+end
+
+local function var_0_21(arg_48_0, arg_48_1)
+	local var_48_0 = type(arg_48_1)
+	local var_48_1 = ""
+
+	if var_48_0 ~= "table" then
+		var_48_1 = tostring(arg_48_1)
+		var_48_1 = var_0_6.encode(var_48_1)
+	end
+
+	return {
+		name = arg_48_0,
+		valueType = var_48_0,
+		valueStr = var_48_1
+	}
+end
+
+local function var_0_22(arg_49_0)
+	local var_49_0 = 1
+	local var_49_1 = {}
+
+	while true do
+		local var_49_2, var_49_3 = debug.getlocal(arg_49_0, var_49_0)
+
+		if not var_49_2 then
+			break
+		end
+
+		if var_49_2 ~= "(*temporary)" then
+			var_49_1[var_49_2] = var_49_3
+		end
+
+		var_49_0 = var_49_0 + 1
+	end
+
+	local var_49_4 = var_0_10(arg_49_0, "f").func
+	local var_49_5 = 1
+	local var_49_6 = {}
+
+	while var_49_4 do
+		local var_49_7, var_49_8 = debug.getupvalue(var_49_4, var_49_5)
+
+		if not var_49_7 then
+			break
+		end
+
+		var_49_6[var_49_7] = var_49_8
+		var_49_5 = var_49_5 + 1
+	end
+
+	return {
+		locals = var_49_1,
+		ups = var_49_6
+	}
+end
+
+local function var_0_23(arg_50_0, arg_50_1)
+	local var_50_0 = {}
+	local var_50_1 = {}
+	local var_50_2 = {}
+	local var_50_3 = {}
+	local var_50_4 = 0
+
+	for iter_50_0 = arg_50_0, 100 do
+		local var_50_5 = var_0_10(iter_50_0)
+		local var_50_6 = true
+
+		if iter_50_0 == arg_50_0 then
+			local var_50_7 = var_50_5.source
+
+			if var_50_7:find(LuaDebugger.DebugLuaFie) then
+				return
+			end
+
+			if var_50_7 == "=[C]" then
+				var_50_6 = false
+			end
+		end
+
+		if not var_50_5 then
+			break
+		end
+
+		if var_50_6 then
+			local var_50_8 = var_50_5.source
+			local var_50_9 = {
+				src = var_50_8,
+				scoreName = var_50_5.name,
+				currentline = var_50_5.currentline,
+				linedefined = var_50_5.linedefined,
+				what = var_50_5.what,
+				nameWhat = var_50_5.namewhat
+			}
+			local var_50_10 = iter_50_0
+			local var_50_11 = var_0_22(iter_50_0 + 1)
+
+			table.insert(var_50_1, var_50_9)
+			table.insert(var_50_2, var_50_11)
+			table.insert(var_50_3, var_50_5.func)
+		end
+
+		if var_50_5.what == "main" then
+			break
+		end
+	end
+
+	local var_50_12 = {
+		stack = var_50_1,
+		vars = var_50_2,
+		funcs = var_50_3
+	}
+
+	return {
+		stack = var_50_12.stack,
+		vars = var_50_12.vars,
+		funcs = var_50_12.funcs,
+		event = arg_50_1
+	}
+end
+
+local var_0_24
+
+local function var_0_25()
+	if not jit then
+		if _VERSION then
+			print("当前lua版本为: " .. _VERSION .. " 请使用 -----LuaDebug.lua----- 进行调试!")
+		else
+			print("当前为lua版本,请使用-----LuaDebug.lua-----进行调试!")
+		end
+	end
+
+	if var_0_15 then
+		local var_51_0, var_51_1 = var_0_15:receive()
+
+		if var_51_0 then
+			local var_51_2 = var_0_16.decode(var_51_0)
+
+			if var_51_2.event == LuaDebugger.event.S2C_SetBreakPoints then
+				var_0_24(var_51_2.data)
+			elseif var_51_2.event == LuaDebugger.event.S2C_LoadLuaScript then
+				print("获取数据")
+				var_0_4(var_51_2.data, false)
+			end
+		end
+	end
+end
+
+local function var_0_26(arg_52_0)
+	local var_52_0 = 0
+	local var_52_1 = {}
+
+	for iter_52_0, iter_52_1 in function()
+		return string.find(arg_52_0, "/", var_52_0, true)
+	end do
+		table.insert(var_52_1, string.sub(arg_52_0, var_52_0, iter_52_0 - 1))
+
+		var_52_0 = iter_52_1 + 1
+	end
+
+	table.insert(var_52_1, string.sub(arg_52_0, var_52_0))
+
+	return var_52_1
+end
+
+function var_0_24(arg_54_0)
+	local var_54_0 = LuaDebugger.breakInfos
+
+	for iter_54_0, iter_54_1 in ipairs(arg_54_0) do
+		local var_54_1 = var_54_0[iter_54_1.fileName]
+
+		if not var_54_1 then
+			var_54_0[iter_54_1.fileName] = {}
+			var_54_1 = var_54_0[iter_54_1.fileName]
+		end
+
+		if not iter_54_1.lines or #iter_54_1.lines == 0 then
+			var_54_1[iter_54_1.serverPath] = nil
+		else
+			local var_54_2 = {}
+
+			for iter_54_2, iter_54_3 in ipairs(iter_54_1.lines) do
+				var_54_2[iter_54_3] = true
+			end
+
+			var_54_1[iter_54_1.serverPath] = {
+				pathNames = var_0_26(iter_54_1.serverPath),
+				lines = var_54_2
+			}
+		end
+
+		local var_54_3 = 0
+
+		for iter_54_4, iter_54_5 in pairs(var_54_1) do
+			var_54_3 = var_54_3 + 1
+		end
+
+		if var_54_3 == 0 then
+			var_54_0[iter_54_1.fileName] = nil
+		end
+	end
+
+	var_0_20(var_54_0, "breakInfos", 6)
+
+	local var_54_4 = false
+
+	for iter_54_6, iter_54_7 in pairs(var_54_0) do
+		var_54_4 = true
+
+		break
+	end
+
+	if var_54_4 then
+		if not LuaDebugger.isHook then
+			debug.sethook(var_0_17, "lrc")
+		end
+
+		LuaDebugger.isHook = true
+	else
+		if LuaDebugger.isHook then
+			debug.sethook()
+		end
+
+		LuaDebugger.isHook = false
+	end
+end
+
+local function var_0_27(arg_55_0)
+	return LuaDebugger.breakInfos[arg_55_0]
+end
+
+local function var_0_28(arg_56_0, arg_56_1)
+	local var_56_0 = LuaDebugger.breakInfos[arg_56_0]
+
+	if var_56_0 then
+		local var_56_1 = false
+
+		for iter_56_0, iter_56_1 in pairs(var_56_0) do
+			local var_56_2 = iter_56_1.lines
+
+			if var_56_2 and var_56_2[arg_56_1] then
+				var_56_1 = true
+
+				break
+			end
+		end
+
+		if not var_56_1 then
+			return
+		end
+
+		local var_56_3 = var_0_10(3).source:gsub("\\", "/")
+
+		if var_56_3:find("@") == 1 then
+			var_56_3 = var_56_3:sub(2)
+		end
+
+		if not var_56_3:find("%.lua") then
+			var_56_3 = var_56_3 .. ".lua"
+		end
+
+		local var_56_4 = var_0_26(var_56_3)
+		local var_56_5 = true
+		local var_56_6 = {}
+
+		for iter_56_2, iter_56_3 in pairs(var_56_0) do
+			local var_56_7 = iter_56_3.lines
+			local var_56_8 = iter_56_3.pathNames
+
+			if var_56_7 and var_56_7[arg_56_1] then
+				var_56_6[iter_56_2] = 0
+
+				local var_56_9 = #var_56_4
+				local var_56_10 = #var_56_8
+
+				repeat
+					if var_56_8[var_56_10] ~= var_56_4[var_56_9] then
+						local var_56_11 = false
+
+						break
+					else
+						var_56_6[iter_56_2] = var_56_6[iter_56_2] + 1
+					end
+
+					var_56_10 = var_56_10 - 1
+					var_56_9 = var_56_9 - 1
+				until var_56_10 <= 0 or var_56_9 <= 0
+			end
+		end
+
+		local var_56_12 = ""
+		local var_56_13 = 0
+
+		for iter_56_4, iter_56_5 in pairs(var_56_6) do
+			if var_56_13 < iter_56_5 then
+				var_56_13 = iter_56_5
+				var_56_12 = iter_56_4
+			end
+		end
+
+		if (#var_56_4 == 1 or #var_56_4 > 1 and var_56_13 > 1) and var_56_12 ~= "" then
+			return var_56_12
+		end
+	end
+
+	return false
+end
+
+local var_0_29 = "192.168.1.102"
+local var_0_30 = 7003
+
+local function var_0_31(arg_57_0, arg_57_1, arg_57_2)
+	local var_57_0 = {
+		event = arg_57_1,
+		data = arg_57_2
+	}
+	local var_57_1 = var_0_16.encode(var_57_0)
+
+	arg_57_0:send(var_57_1 .. "__debugger_k0204__")
+end
+
+function var_0_4(arg_58_0, arg_58_1)
+	local function var_58_0()
+		local var_59_0 = arg_58_0.luastr
+
+		if arg_58_1 then
+			local var_59_1 = {
+				_G = _G
+			}
+			local var_59_2 = arg_58_0.frameId + 1
+			local var_59_3 = LuaDebugger.currentDebuggerData.funcs[var_59_2]
+			local var_59_4 = LuaDebugger.currentDebuggerData.vars[var_59_2]
+			local var_59_5 = var_59_4.locals
+			local var_59_6 = var_59_4.ups
+
+			for iter_59_0, iter_59_1 in pairs(var_59_6) do
+				var_59_1[iter_59_0] = iter_59_1
+			end
+
+			for iter_59_2, iter_59_3 in pairs(var_59_5) do
+				var_59_1[iter_59_2] = iter_59_3
+			end
+
+			setmetatable(var_59_1, {
+				__index = _G
+			})
+
+			local var_59_7 = var_0_9(var_59_0)
+
+			setfenv(var_59_7, var_59_1)
+			var_59_7()
+		else
+			var_0_9(var_59_0)()
+		end
+	end
+
+	local var_58_1, var_58_2 = xpcall(var_58_0, function(arg_60_0)
+		print(arg_60_0)
+	end)
+
+	if var_58_1 then
+		var_0_31(var_0_14, LuaDebugger.event.C2S_LoadLuaScript, {
+			msg = "执行代码成功"
+		})
+
+		if arg_58_1 then
+			var_0_31(var_0_14, LuaDebugger.event.C2S_HITBreakPoint, LuaDebugger.currentDebuggerData.stack)
+		end
+	else
+		var_0_31(var_0_14, LuaDebugger.event.C2S_LoadLuaScript, {
+			msg = "加载代码失败"
+		})
+	end
+end
+
+local function var_0_32(arg_61_0)
+	local var_61_0 = 0
+	local var_61_1 = ""
+
+	for iter_61_0, iter_61_1 in function()
+		return string.find(arg_61_0, "/", var_61_0, true)
+	end do
+		var_61_0 = iter_61_1 + 1
+	end
+
+	return (string.sub(arg_61_0, var_61_0))
+end
+
+local function var_0_33(arg_63_0)
+	if LuaDebugger.pathCachePaths[arg_63_0] then
+		return LuaDebugger.pathCachePaths[arg_63_0]
+	end
+
+	local var_63_0 = arg_63_0:gsub("\\", "/")
+
+	if var_63_0:find("@") == 1 then
+		var_63_0 = var_63_0:sub(2)
+	end
+
+	if not var_63_0:find("%.lua") then
+		var_63_0 = var_63_0 .. ".lua"
+	end
+
+	local var_63_1 = var_0_32(var_63_0)
+
+	LuaDebugger.pathCachePaths[arg_63_0] = var_63_1
+
+	return var_63_1
+end
+
+local function var_0_34(arg_64_0, arg_64_1, arg_64_2, arg_64_3)
+	local var_64_0 = var_0_8.getUserDataInfo(arg_64_1)
+	local var_64_1 = {}
+
+	if tolua then
+		local var_64_2 = tolua.getpeer(vars)
+
+		if var_64_2 then
+			for iter_64_0, iter_64_1 in pairs(var_64_2) do
+				local var_64_3 = var_0_21(iter_64_0, iter_64_1)
+
+				table.insert(var_64_1, var_64_3)
+			end
+		end
+	end
+
+	for iter_64_2 = 1, var_64_0.Count do
+		local var_64_4 = var_64_0[iter_64_2 - 1]
+		local var_64_5 = {
+			name = var_64_4.name,
+			valueType = var_64_4.valueType,
+			valueStr = var_0_6.encode(var_64_4.valueStr),
+			isValue = var_64_4.isValue
+		}
+
+		table.insert(var_64_1, var_64_5)
+	end
+
+	var_0_31(arg_64_0, LuaDebugger.event.C2S_ReqVar, {
+		isComplete = 1,
+		variablesReference = arg_64_2,
+		debugSpeedIndex = arg_64_3,
+		vars = var_64_1
+	})
+end
+
+local function var_0_35(arg_65_0, arg_65_1)
+	local var_65_0 = arg_65_0.variablesReference
+	local var_65_1 = arg_65_0.debugSpeedIndex
+	local var_65_2 = {}
+
+	local function var_65_3()
+		local var_66_0 = arg_65_0.frameId
+		local var_66_1 = arg_65_0.type
+		local var_66_2 = arg_65_0.keys
+		local var_66_3
+
+		if var_66_1 == 1 then
+			var_66_3 = LuaDebugger.currentDebuggerData.vars[var_66_0 + 1]
+			var_66_3 = var_66_3.locals
+		elseif var_66_1 == 2 then
+			var_66_3 = LuaDebugger.currentDebuggerData.vars[var_66_0 + 1]
+			var_66_3 = var_66_3.ups
+		elseif var_66_1 == 3 then
+			var_66_3 = _G
+		end
+
+		for iter_66_0, iter_66_1 in ipairs(var_66_2) do
+			if string.sub(iter_66_1, 1, 1) == "[" then
+				local var_66_4 = string.len(iter_66_1)
+
+				if string.sub(iter_66_1, var_66_4, var_66_4) == "]" then
+					iter_66_1 = string.sub(iter_66_1, 2, var_66_4 - 1)
+				end
+
+				var_66_3 = var_66_3[iter_66_1]
+			else
+				var_66_3 = var_66_3[iter_66_1]
+			end
+
+			if type(var_66_3) == "userdata" and tolua ~= nil and var_0_8 == nil then
+				var_66_3 = tolua.getpeer(var_66_3)
+			end
+
+			if var_66_3 == nil then
+				break
+			end
+		end
+
+		if type(var_66_3) == "userdata" then
+			if var_0_8 then
+				var_0_34(arg_65_1, var_66_3, var_65_0, var_65_1)
+
+				return
+			elseif tolua == nil then
+				var_0_31(arg_65_1, LuaDebugger.event.C2S_ReqVar, {
+					isComplete = 1,
+					variablesReference = var_65_0,
+					debugSpeedIndex = var_65_1,
+					vars = var_65_2
+				})
+
+				return
+			end
+		end
+
+		local var_66_5 = 0
+
+		if var_66_3 ~= nil then
+			for iter_66_2, iter_66_3 in pairs(var_66_3) do
+				local var_66_6 = var_0_21(iter_66_2, iter_66_3)
+
+				table.insert(var_65_2, var_66_6)
+
+				if #var_65_2 > 10 then
+					var_0_31(arg_65_1, LuaDebugger.event.C2S_ReqVar, {
+						isComplete = 0,
+						variablesReference = var_65_0,
+						debugSpeedIndex = var_65_1,
+						vars = var_65_2
+					})
+
+					var_65_2 = {}
+				end
+			end
+		end
+
+		var_0_31(arg_65_1, LuaDebugger.event.C2S_ReqVar, {
+			isComplete = 1,
+			variablesReference = var_65_0,
+			debugSpeedIndex = var_65_1,
+			vars = var_65_2
+		})
+	end
+
+	xpcall(var_65_3, function(arg_67_0)
+		print("获取变量错误 错误消息-----------------")
+		print(arg_67_0)
+		print(debug.traceback("", 2))
+		var_0_31(arg_65_1, LuaDebugger.event.C2S_ReqVar, {
+			isComplete = 1,
+			variablesReference = var_65_0,
+			debugSpeedIndex = var_65_1,
+			vars = {
+				{
+					isValue = false,
+					name = "error",
+					valueType = "string",
+					valueStr = var_0_6.encode("无法获取属性值")
+				}
+			}
+		})
+	end)
+end
+
+local function var_0_36()
+	LuaDebugger.Run = false
+	LuaDebugger.StepIn = false
+	LuaDebugger.StepNext = false
+	LuaDebugger.StepOut = false
+end
+
+local function var_0_37(arg_69_0)
+	arg_69_0 = var_0_14
+
+	local var_69_0
+	local var_69_1 = {}
+	local var_69_2
+
+	while true do
+		local var_69_3, var_69_4, var_69_5 = arg_69_0:receive()
+
+		if var_69_4 == "closed" then
+			debug.sethook()
+			coroutine.yield()
+		end
+
+		if var_69_3 then
+			local var_69_6 = var_0_16.decode(var_69_3)
+			local var_69_7 = var_69_6.event
+			local var_69_8 = var_69_6.data
+
+			if var_69_7 == LuaDebugger.event.S2C_DebugClose then
+				debug.sethook()
+				coroutine.yield()
+			elseif var_69_7 == LuaDebugger.event.S2C_SetBreakPoints then
+				local function var_69_9()
+					var_0_24(var_69_8)
+				end
+
+				xpcall(var_69_9, function(arg_71_0)
+					print(arg_71_0)
+				end)
+			elseif var_69_7 == LuaDebugger.event.S2C_RUN then
+				LuaDebugger.runTimeType = var_69_8.runTimeType
+				LuaDebugger.isProntToConsole = var_69_8.isProntToConsole
+
+				var_0_36()
+
+				LuaDebugger.Run = true
+
+				local var_69_10 = coroutine.yield()
+
+				LuaDebugger.currentDebuggerData = var_69_10
+
+				var_0_31(arg_69_0, var_69_10.event, {
+					stack = var_69_10.stack
+				})
+			elseif var_69_7 == LuaDebugger.event.S2C_ReqVar then
+				var_0_35(var_69_8, arg_69_0)
+			elseif var_69_7 == LuaDebugger.event.S2C_NextRequest then
+				var_0_36()
+
+				LuaDebugger.StepNext = true
+
+				local var_69_11 = coroutine.yield()
+
+				LuaDebugger.currentDebuggerData = var_69_11
+
+				var_0_31(arg_69_0, var_69_11.event, {
+					stack = var_69_11.stack
+				})
+			elseif var_69_7 == LuaDebugger.event.S2C_StepInRequest then
+				var_0_36()
+
+				LuaDebugger.StepIn = true
+
+				local var_69_12 = coroutine.yield()
+
+				LuaDebugger.currentDebuggerData = var_69_12
+
+				var_0_31(arg_69_0, var_69_12.event, {
+					stack = var_69_12.stack,
+					eventType = var_69_12.eventType
+				})
+			elseif var_69_7 == LuaDebugger.event.S2C_StepOutRequest then
+				var_0_36()
+
+				LuaDebugger.StepOut = true
+
+				local var_69_13 = coroutine.yield()
+
+				LuaDebugger.currentDebuggerData = var_69_13
+
+				var_0_31(arg_69_0, var_69_13.event, {
+					stack = var_69_13.stack,
+					eventType = var_69_13.eventType
+				})
+			elseif var_69_7 == LuaDebugger.event.S2C_LoadLuaScript then
+				var_0_4(var_69_8, true)
+			end
+		end
+	end
+end
+
+local var_0_38 = coroutine.create(var_0_37)
+
+function var_0_17(arg_72_0, arg_72_1)
+	local var_72_0
+
+	if arg_72_0 == "line" then
+		local var_72_1
+		local var_72_2 = 0
+
+		if LuaDebugger.currentDebuggerData then
+			var_72_1 = LuaDebugger.currentDebuggerData.funcs
+			var_72_2 = #var_72_1
+		end
+
+		local var_72_3 = var_0_10(2)
+		local var_72_4 = var_72_3.func
+		local var_72_5 = var_72_3.source
+		local var_72_6 = var_0_33(var_72_5)
+
+		if var_72_5 == "=[C]" or var_72_5:find(LuaDebugger.DebugLuaFie) then
+			return
+		end
+
+		if var_72_2 > 0 and var_72_1[1] == var_72_4 and LuaDebugger.currentLine ~= arg_72_1 then
+			LuaDebugger.runLineCount = LuaDebugger.runLineCount + 1
+		end
+
+		if LuaDebugger.StepOut then
+			if var_72_2 == 1 then
+				var_0_36()
+
+				LuaDebugger.Run = true
+
+				return
+			elseif var_72_1[2] == var_72_4 then
+				local var_72_7 = var_0_23(3, LuaDebugger.event.C2S_StepInResponse)
+
+				print("StepIn 挂起")
+				coroutine.resume(var_0_38, var_72_7)
+
+				return
+			end
+		end
+
+		if LuaDebugger.StepIn then
+			if var_72_1[1] == var_72_4 and LuaDebugger.runLineCount == 0 then
+				return
+			end
+
+			local var_72_8 = var_0_23(3, LuaDebugger.event.C2S_StepInResponse)
+
+			print("StepIn 挂起")
+			coroutine.resume(var_0_38, var_72_8)
+
+			return
+		end
+
+		if LuaDebugger.StepNext then
+			if LuaDebugger.currentLine == arg_72_1 then
+				return
+			end
+
+			if var_72_1 and var_72_1[1] ~= var_72_4 then
+				if var_72_2 > 1 then
+					if var_72_1[2] == var_72_4 then
+						-- block empty
+					else
+						return
+					end
+				else
+					return
+				end
+			end
+
+			local var_72_9 = var_0_23(3, LuaDebugger.event.C2S_NextResponse)
+
+			LuaDebugger.runLineCount = 0
+			LuaDebugger.currentLine = arg_72_1
+
+			coroutine.resume(var_0_38, var_72_9)
+
+			return
+		end
+
+		local var_72_10 = false
+		local var_72_11
+
+		if var_72_10 == false and var_0_28(var_72_6, arg_72_1) then
+			if var_72_1 and var_72_1[1] == var_72_4 and LuaDebugger.runLineCount == 0 then
+				LuaDebugger.runLineCount = 0
+
+				return
+			end
+
+			LuaDebugger.runLineCount = 0
+			LuaDebugger.currentLine = arg_72_1
+
+			local var_72_12 = true
+			local var_72_13 = LuaDebugger.event.C2S_HITBreakPoint
+			local var_72_14 = var_0_23(3, var_72_13)
+
+			coroutine.resume(var_0_38, var_72_14)
+		end
+	end
+end
+
+local function var_0_39()
+	local var_73_0 = var_0_23(4, LuaDebugger.event.C2S_HITBreakPoint)
+
+	coroutine.resume(var_0_38, var_73_0)
+end
+
+local function var_0_40()
+	local var_74_0 = var_0_11()
+
+	print(var_0_29)
+	print(var_0_30)
+
+	local var_74_1 = var_74_0.connect(var_0_29, var_0_30)
+
+	var_0_14 = var_74_1
+
+	if var_74_1 then
+		var_0_15 = var_0_11().connect(var_0_29, var_0_30)
+
+		if var_0_15 then
+			var_0_15:settimeout(0)
+			var_0_31(var_0_15, LuaDebugger.event.C2S_SetSocketName, {
+				name = "breakPointSocket"
+			})
+			var_0_31(var_74_1, LuaDebugger.event.C2S_SetSocketName, {
+				name = "mainSocket",
+				version = LuaDebugger.version
+			})
+			xpcall(function()
+				var_0_0(var_0_17, "lrc")
+			end, function(arg_76_0)
+				print("error:", arg_76_0)
+			end)
+
+			if not jit then
+				if _VERSION then
+					print("当前lua版本为: " .. _VERSION .. " 请使用LuaDebug 进行调试!")
+				else
+					print("当前为lua版本,请使用LuaDebug 进行调试!")
+				end
+			end
+
+			coroutine.resume(var_0_38, var_74_1)
+		end
+	end
+end
+
+function StartDebug(arg_77_0, arg_77_1)
+	LuaDebugger.DebugLuaFie = var_0_32(var_0_10(1).source)
+
+	if LuaDebugger.DebugLuaFie:find("%.lua") then
+		local var_77_0 = string.len(LuaDebugger.DebugLuaFie)
+
+		LuaDebugger.DebugLuaFie = LuaDebugger.DebugLuaFie:sub(1, var_77_0 - 4)
+	end
+
+	if not arg_77_0 then
+		print("error host nil")
+	end
+
+	if not arg_77_1 then
+		print("error prot nil")
+	end
+
+	if type(arg_77_0) ~= "string" then
+		print("error host not string")
+	end
+
+	if type(arg_77_1) ~= "number" then
+		print("error host not number")
+	end
+
+	var_0_29 = arg_77_0
+	var_0_30 = arg_77_1
+
+	xpcall(var_0_40, function(arg_78_0)
+		print(arg_78_0)
+	end)
+
+	return var_0_25, var_0_39
+end
+
+local var_0_41 = string
+
+var_0_6.__code = {
+	"A",
+	"B",
+	"C",
+	"D",
+	"E",
+	"F",
+	"G",
+	"H",
+	"I",
+	"J",
+	"K",
+	"L",
+	"M",
+	"N",
+	"O",
+	"P",
+	"Q",
+	"R",
+	"S",
+	"T",
+	"U",
+	"V",
+	"W",
+	"X",
+	"Y",
+	"Z",
+	"a",
+	"b",
+	"c",
+	"d",
+	"e",
+	"f",
+	"g",
+	"h",
+	"i",
+	"j",
+	"k",
+	"l",
+	"m",
+	"n",
+	"o",
+	"p",
+	"q",
+	"r",
+	"s",
+	"t",
+	"u",
+	"v",
+	"w",
+	"x",
+	"y",
+	"z",
+	"0",
+	"1",
+	"2",
+	"3",
+	"4",
+	"5",
+	"6",
+	"7",
+	"8",
+	"9",
+	"+",
+	"/"
+}
+var_0_6.__decode = {}
+
+for iter_0_0, iter_0_1 in pairs(var_0_6.__code) do
+	var_0_6.__decode[var_0_41.byte(iter_0_1, 1)] = iter_0_0 - 1
+end
+
+function var_0_6.encode(arg_79_0)
+	local var_79_0 = var_0_41.len(arg_79_0)
+	local var_79_1 = var_79_0 % 3
+	local var_79_2 = var_79_0 - var_79_1
+	local var_79_3 = {}
+	local var_79_4 = 1
+
+	for iter_79_0 = 1, var_79_2, 3 do
+		local var_79_5 = var_0_41.byte(arg_79_0, iter_79_0)
+		local var_79_6 = var_0_41.byte(arg_79_0, iter_79_0 + 1)
+		local var_79_7 = var_0_41.byte(arg_79_0, iter_79_0 + 2)
+		local var_79_8 = var_79_5 * 65536 + var_79_6 * 256 + var_79_7
+
+		for iter_79_1 = 1, 4 do
+			local var_79_9 = math.floor(var_79_8 / 2^((4 - iter_79_1) * 6)) % 64 + 1
+
+			var_79_3[var_79_4] = var_0_6.__code[var_79_9]
+			var_79_4 = var_79_4 + 1
+		end
+	end
+
+	if var_79_1 == 1 then
+		var_0_6.__left1(var_79_3, var_79_4, arg_79_0, var_79_2)
+	elseif var_79_1 == 2 then
+		var_0_6.__left2(var_79_3, var_79_4, arg_79_0, var_79_2)
+	end
+
+	return table.concat(var_79_3)
+end
+
+function var_0_6.__left2(arg_80_0, arg_80_1, arg_80_2, arg_80_3)
+	local var_80_0 = var_0_41.byte(arg_80_2, arg_80_3 + 1) * 1024 + var_0_41.byte(arg_80_2, arg_80_3 + 2) * 4
+	local var_80_1 = math.floor(var_80_0 / 4096) % 64 + 1
+
+	arg_80_0[arg_80_1] = var_0_6.__code[var_80_1]
+
+	local var_80_2 = math.floor(var_80_0 / 64) % 64 + 1
+
+	arg_80_0[arg_80_1 + 1] = var_0_6.__code[var_80_2]
+
+	local var_80_3 = var_80_0 % 64 + 1
+
+	arg_80_0[arg_80_1 + 2] = var_0_6.__code[var_80_3]
+	arg_80_0[arg_80_1 + 3] = "="
+end
+
+function var_0_6.__left1(arg_81_0, arg_81_1, arg_81_2, arg_81_3)
+	local var_81_0 = var_0_41.byte(arg_81_2, arg_81_3 + 1) * 16
+
+	tmp = math.floor(var_81_0 / 64)
+
+	local var_81_1 = tmp % 64 + 1
+
+	arg_81_0[arg_81_1] = var_0_6.__code[var_81_1]
+
+	local var_81_2 = var_81_0 % 64 + 1
+
+	arg_81_0[arg_81_1 + 1] = var_0_6.__code[var_81_2]
+	arg_81_0[arg_81_1 + 2] = "="
+	arg_81_0[arg_81_1 + 3] = "="
+end
+
+function var_0_6.decode(arg_82_0)
+	local var_82_0 = var_0_41.len(arg_82_0)
+	local var_82_1 = 0
+
+	if var_0_41.sub(arg_82_0, var_82_0 - 1) == "==" then
+		var_82_1 = 2
+		var_82_0 = var_82_0 - 4
+	elseif var_0_41.sub(arg_82_0, var_82_0) == "=" then
+		var_82_1 = 1
+		var_82_0 = var_82_0 - 4
+	end
+
+	local var_82_2 = {}
+	local var_82_3 = 1
+	local var_82_4 = var_0_6.__decode
+
+	for iter_82_0 = 1, var_82_0, 4 do
+		local var_82_5 = var_82_4[var_0_41.byte(arg_82_0, iter_82_0)]
+		local var_82_6 = var_82_4[var_0_41.byte(arg_82_0, iter_82_0 + 1)]
+		local var_82_7 = var_82_4[var_0_41.byte(arg_82_0, iter_82_0 + 2)]
+		local var_82_8 = var_82_4[var_0_41.byte(arg_82_0, iter_82_0 + 3)]
+		local var_82_9 = var_82_5 * 262144 + var_82_6 * 4096 + var_82_7 * 64 + var_82_8
+		local var_82_10 = var_0_41.char(var_82_9 % 256)
+		local var_82_11 = math.floor(var_82_9 / 256)
+		local var_82_12 = var_0_41.char(var_82_11 % 256)
+		local var_82_13 = math.floor(var_82_11 / 256)
+
+		var_82_2[var_82_3] = var_0_41.char(var_82_13 % 256)
+		var_82_2[var_82_3 + 1] = var_82_12
+		var_82_2[var_82_3 + 2] = var_82_10
+		var_82_3 = var_82_3 + 3
+	end
+
+	if var_82_1 == 1 then
+		var_0_6.__decodeLeft1(var_82_2, var_82_3, arg_82_0, var_82_0)
+	elseif var_82_1 == 2 then
+		var_0_6.__decodeLeft2(var_82_2, var_82_3, arg_82_0, var_82_0)
+	end
+
+	return table.concat(var_82_2)
+end
+
+function var_0_6.__decodeLeft1(arg_83_0, arg_83_1, arg_83_2, arg_83_3)
+	local var_83_0 = var_0_6.__decode
+	local var_83_1 = var_83_0[var_0_41.byte(arg_83_2, arg_83_3 + 1)]
+	local var_83_2 = var_83_0[var_0_41.byte(arg_83_2, arg_83_3 + 2)]
+	local var_83_3 = var_83_0[var_0_41.byte(arg_83_2, arg_83_3 + 3)]
+	local var_83_4 = var_83_1 * 4096 + var_83_2 * 64 + var_83_3
+	local var_83_5 = math.floor(var_83_4 / 1024) % 256
+	local var_83_6 = math.floor(var_83_4 / 4) % 256
+
+	arg_83_0[arg_83_1] = var_0_41.char(var_83_5)
+	arg_83_0[arg_83_1 + 1] = var_0_41.char(var_83_6)
+end
+
+function var_0_6.__decodeLeft2(arg_84_0, arg_84_1, arg_84_2, arg_84_3)
+	local var_84_0 = var_0_6.__decode
+	local var_84_1 = var_84_0[var_0_41.byte(arg_84_2, arg_84_3 + 1)]
+	local var_84_2 = var_84_0[var_0_41.byte(arg_84_2, arg_84_3 + 2)]
+	local var_84_3 = var_84_1 * 64 + var_84_2
+	local var_84_4 = math.floor(var_84_3 / 16)
+
+	arg_84_0[arg_84_1] = var_0_41.char(var_84_4)
+end
+
+return StartDebug

@@ -1,0 +1,34 @@
+﻿if cc.XMLHttpRequest == nil then
+	return
+end
+
+if WebSocket == nil then
+	return
+end
+
+local function var_0_0(arg_1_0, arg_1_1)
+	return
+end
+
+local var_0_1 = CCApplication:getInstance():getTargetPlatform()
+
+if kTargetIphone == var_0_1 or kTargetIpad == var_0_1 or kTargetAndroid == var_0_1 or kTargetWindows == var_0_1 then
+	local var_0_2 = {
+		sendTextMsg = function(arg_2_0, arg_2_1)
+			var_0_0("WebSocket:sendTextMsg", "WebSocket:sendString")
+
+			return arg_2_0:sendString(arg_2_1)
+		end
+	}
+
+	WebSocket.sendTextMsg = var_0_2.sendTextMsg
+
+	function var_0_2.sendBinaryMsg(arg_3_0, arg_3_1, arg_3_2)
+		var_0_0("WebSocket:sendBinaryMsg", "WebSocket:sendString")
+		string.char(unpack(arg_3_1))
+
+		return arg_3_0:sendString(string.char(unpack(arg_3_1)))
+	end
+
+	WebSocket.sendBinaryMsg = var_0_2.sendBinaryMsg
+end

@@ -1,0 +1,137 @@
+
+action.png
+size: 2039,2045
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+03
+  rotate: true
+  xy: 1755, 74
+  size: 354, 271
+  orig: 2000, 1803
+  offset: 298, 1391
+  index: -1
+05
+  rotate: false
+  xy: 1615, 832
+  size: 362, 330
+  orig: 2000, 1803
+  offset: 298, 1346
+  index: -1
+07
+  rotate: true
+  xy: 1755, 430
+  size: 400, 256
+  orig: 2000, 1803
+  offset: 298, 1393
+  index: -1
+13
+  rotate: false
+  xy: 1190, 771
+  size: 423, 391
+  orig: 2000, 1803
+  offset: 298, 1255
+  index: -1
+15
+  rotate: false
+  xy: 639, 87
+  size: 624, 639
+  orig: 2000, 1803
+  offset: 298, 1034
+  index: -1
+17
+  rotate: false
+  xy: 1190, 1164
+  size: 847, 879
+  orig: 2000, 1803
+  offset: 298, 818
+  index: -1
+23
+  rotate: false
+  xy: 2, 728
+  size: 1186, 1315
+  orig: 2000, 1803
+  offset: 462, 368
+  index: -1
+29
+  rotate: false
+  xy: 2, 2
+  size: 635, 724
+  orig: 2000, 1803
+  offset: 526, 835
+  index: -1
+31
+  rotate: true
+  xy: 1265, 181
+  size: 588, 488
+  orig: 2000, 1803
+  offset: 568, 844
+  index: -1
+
+action2.png
+size: 2019,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01
+  rotate: false
+  xy: 2, 2
+  size: 328, 292
+  orig: 2000, 1803
+  offset: 298, 1359
+  index: -1
+09
+  rotate: false
+  xy: 2, 296
+  size: 394, 269
+  orig: 2000, 1803
+  offset: 298, 1356
+  index: -1
+11
+  rotate: false
+  xy: 2, 567
+  size: 395, 270
+  orig: 2000, 1803
+  offset: 297, 1356
+  index: -1
+21
+  rotate: false
+  xy: 2, 839
+  size: 1115, 1207
+  orig: 2000, 1803
+  offset: 371, 492
+  index: -1
+27
+  rotate: false
+  xy: 1119, 951
+  size: 898, 1095
+  orig: 2000, 1803
+  offset: 524, 497
+  index: -1
+33
+  rotate: true
+  xy: 399, 614
+  size: 223, 386
+  orig: 2000, 1803
+  offset: 914, 851
+  index: -1
+
+action3.png
+size: 2002,1210
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+19
+  rotate: false
+  xy: 2, 2
+  size: 1055, 1206
+  orig: 2000, 1803
+  offset: 365, 495
+  index: -1
+25
+  rotate: false
+  xy: 1059, 112
+  size: 941, 1096
+  orig: 2000, 1803
+  offset: 524, 498
+  index: -1

@@ -1,0 +1,150 @@
+
+action.png
+size: 2043,2046
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+143
+  rotate: false
+  xy: 2, 59
+  size: 318, 357
+  orig: 1280, 1120
+  offset: 243, 763
+  index: -1
+146
+  rotate: false
+  xy: 1051, 508
+  size: 978, 767
+  orig: 1280, 1120
+  offset: 233, 353
+  index: -1
+147
+  rotate: false
+  xy: 1051, 1277
+  size: 990, 767
+  orig: 1280, 1120
+  offset: 233, 353
+  index: -1
+149
+  rotate: false
+  xy: 2, 1232
+  size: 1047, 812
+  orig: 1280, 1120
+  offset: 233, 308
+  index: -1
+150
+  rotate: false
+  xy: 2, 418
+  size: 1047, 812
+  orig: 1280, 1120
+  offset: 233, 308
+  index: -1
+160
+  rotate: true
+  xy: 1051, 2
+  size: 504, 706
+  orig: 1280, 1120
+  offset: 571, 414
+  index: -1
+
+action2.png
+size: 1865,1865
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+151
+  rotate: false
+  xy: 2, 1051
+  size: 1047, 812
+  orig: 1280, 1120
+  offset: 233, 308
+  index: -1
+152
+  rotate: true
+  xy: 1051, 816
+  size: 1047, 812
+  orig: 1280, 1120
+  offset: 233, 308
+  index: -1
+153
+  rotate: true
+  xy: 2, 2
+  size: 1047, 812
+  orig: 1280, 1120
+  offset: 233, 308
+  index: -1
+154
+  rotate: false
+  xy: 816, 2
+  size: 1046, 812
+  orig: 1280, 1120
+  offset: 233, 308
+  index: -1
+
+action3.png
+size: 1818,1630
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+148
+  rotate: false
+  xy: 2, 861
+  size: 1000, 767
+  orig: 1280, 1120
+  offset: 233, 353
+  index: -1
+155
+  rotate: false
+  xy: 1004, 816
+  size: 812, 812
+  orig: 1280, 1120
+  offset: 467, 308
+  index: -1
+156
+  rotate: false
+  xy: 2, 47
+  size: 812, 812
+  orig: 1280, 1120
+  offset: 467, 308
+  index: -1
+157
+  rotate: false
+  xy: 816, 2
+  size: 812, 812
+  orig: 1280, 1120
+  offset: 467, 308
+  index: -1
+
+action4.png
+size: 1676,1481
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+144
+  rotate: false
+  xy: 846, 712
+  size: 828, 767
+  orig: 1280, 1120
+  offset: 232, 353
+  index: -1
+145
+  rotate: false
+  xy: 2, 712
+  size: 842, 767
+  orig: 1280, 1120
+  offset: 233, 353
+  index: -1
+158
+  rotate: true
+  xy: 2, 2
+  size: 708, 811
+  orig: 1280, 1120
+  offset: 571, 309
+  index: -1
+159
+  rotate: true
+  xy: 815, 3
+  size: 707, 811
+  orig: 1280, 1120
+  offset: 571, 309
+  index: -1

@@ -1,0 +1,13 @@
+
+action.png
+size: 128,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+faceicon_mingren_7
+  rotate: false
+  xy: 2, 3
+  size: 92, 91
+  orig: 97, 93
+  offset: 2, 2
+  index: -1

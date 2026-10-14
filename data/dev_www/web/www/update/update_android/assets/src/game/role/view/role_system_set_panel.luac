@@ -1,0 +1,257 @@
+﻿RoleSystemSetPanel = RoleSystemSetPanel or BaseClass(BaseView)
+
+local var_0_0 = RoleController:getInstance()
+local var_0_1 = var_0_0:getModel()
+
+function RoleSystemSetPanel.__init(arg_1_0, arg_1_1)
+	arg_1_0.view_tag = ViewMgrTag.DIALOGUE_TAG
+	arg_1_0.role_vo = var_0_0:getRoleVo()
+	arg_1_0.is_full_screen = true
+	arg_1_0.view_tag = ViewMgrTag.DIALOGUE_TAG
+	arg_1_0.win_type = WinType.Mini
+	arg_1_0.layout_name = "roleinfo/role_system_set_panel"
+	arg_1_0.res_list = {
+		{
+			path = PathTool.getPlistImgForDownLoad("rolepersonalspace", "rolepersonalspace"),
+			type = ResourcesType.plist
+		}
+	}
+end
+
+function RoleSystemSetPanel.open_callback(arg_2_0)
+	arg_2_0.background = arg_2_0.root_wnd:getChildByName("background")
+
+	arg_2_0.background:setScale(display.getMaxScale())
+
+	arg_2_0.main_container = arg_2_0.root_wnd:getChildByName("main_container")
+
+	arg_2_0:playEnterAnimatianByObj(arg_2_0.main_container, 2)
+
+	arg_2_0.win_title = arg_2_0.main_container:getChildByName("win_title")
+
+	arg_2_0.win_title:setString(TI18N("Hệ thống"))
+
+	arg_2_0.page_name_1 = arg_2_0.main_container:getChildByName("page_name_1")
+
+	arg_2_0.page_name_1:setString(TI18N("Cài đặt âm thanh"))
+
+	arg_2_0.page_name_2 = arg_2_0.main_container:getChildByName("page_name_2")
+
+	arg_2_0.page_name_2:setString(TI18N("Cài đặt khác"))
+
+	arg_2_0.close_btn = arg_2_0.main_container:getChildByName("close_btn")
+	arg_2_0.music_con = arg_2_0.main_container:getChildByName("music_con")
+	arg_2_0.music_btn = arg_2_0.music_con:getChildByName("music_btn")
+
+	arg_2_0.music_btn:getChildByName("name"):setString(TI18N("Nhạc nền"))
+
+	arg_2_0.sound_btn = arg_2_0.music_con:getChildByName("sound_btn")
+
+	arg_2_0.sound_btn:getChildByName("name"):setString(TI18N("SFX"))
+
+	arg_2_0.voice_btn = arg_2_0.music_con:getChildByName("voice_btn")
+
+	arg_2_0.voice_btn:getChildByName("name"):setString(TI18N("Voice"))
+
+	arg_2_0.auto_pk_btn = arg_2_0.music_con:getChildByName("auto_pk_btn")
+
+	arg_2_0.auto_pk_btn:getChildByName("name"):setString(TI18N("Tự động chấp nhận"))
+
+	arg_2_0.property_btn = arg_2_0.music_con:getChildByName("property_btn")
+
+	arg_2_0.property_btn:getChildByName("name"):setString(TI18N("Chất lượng cao"))
+
+	arg_2_0.chat_red_btn = arg_2_0.music_con:getChildByName("chat_red_btn")
+
+	arg_2_0.chat_red_btn:getChildByName("name"):setString(TI18N("Kênh chat chấm đỏ"))
+
+	arg_2_0.quit_btn = arg_2_0.main_container:getChildByName("quit_btn")
+
+	arg_2_0.quit_btn:getChildByName("label"):setString(TI18N("Thoát"))
+
+	arg_2_0.switch_btn = arg_2_0.main_container:getChildByName("switch_btn")
+
+	arg_2_0.switch_btn:getChildByName("label"):setString(TI18N("Đổi tài khoản"))
+
+	arg_2_0.contact_btn = arg_2_0.main_container:getChildByName("contact_btn")
+
+	arg_2_0.contact_btn:getChildByName("label"):setString(TI18N("Hỗ trợ"))
+
+	arg_2_0.exchange_btn = arg_2_0.main_container:getChildByName("exchange_btn")
+
+	arg_2_0.exchange_btn:getChildByName("label"):setString(TI18N("Đổi Giftcode"))
+
+	arg_2_0.share_btn = arg_2_0.main_container:getChildByName("share_btn")
+
+	arg_2_0.share_btn:getChildByName("label"):setString(TI18N(303285))
+
+	arg_2_0.invitecode_btn = arg_2_0.main_container:getChildByName("invitecode_btn")
+
+	arg_2_0.invitecode_btn:getChildByName("label"):setString(TI18N(303286))
+	arg_2_0.main_container:getChildByName("sever_key"):setString(TI18N("Máy chủ"))
+
+	arg_2_0.sever_name = arg_2_0.main_container:getChildByName("sever_name")
+
+	if MAKELIFEBETTER then
+		arg_2_0.contact_btn:setVisible(false)
+		arg_2_0.exchange_btn:setVisible(false)
+	end
+
+	if not SHOW_GAME_SHARE then
+		arg_2_0.share_btn:setVisible(false)
+	end
+
+	if not SHOW_SINGLE_INVICODE then
+		arg_2_0.invitecode_btn:setVisible(false)
+	end
+
+	if IS_WIN_PLATFORM then
+		arg_2_0.switch_btn:setVisible(false)
+	end
+end
+
+function RoleSystemSetPanel.register_event(arg_3_0)
+	registerButtonEventListener(arg_3_0.background, function()
+		var_0_0:openRoleSystemSetPanel(false)
+	end, false, 2)
+	registerButtonEventListener(arg_3_0.close_btn, function()
+		var_0_0:openRoleSystemSetPanel(false)
+	end, true, 2)
+	registerButtonEventListener(arg_3_0.quit_btn, function()
+		sdkOnExit()
+	end, true, 1)
+	registerButtonEventListener(arg_3_0.switch_btn, function()
+		AudioManager:getInstance():stopMusic()
+		sdkOnSwitchAccount()
+	end, true, 1)
+	registerButtonEventListener(arg_3_0.contact_btn, function()
+		NoticeController:getInstance():openServiceCenterWindow(true)
+	end, true, 1)
+	registerButtonEventListener(arg_3_0.share_btn, function()
+		WelfareController:getInstance():openMainWindow(true, WelfareIcon.share_game)
+	end, true, 1)
+	registerButtonEventListener(arg_3_0.invitecode_btn, function()
+		WelfareController:getInstance():openMainWindow(true, WelfareIcon.invicode)
+	end, true, 1)
+	registerButtonEventListener(arg_3_0.exchange_btn, function()
+		arg_3_0:onExchangeBtn()
+	end, true, 1)
+	arg_3_0.music_btn:addEventListener(function(arg_12_0, arg_12_1)
+		if arg_12_1 == ccui.CheckBoxEventType.selected then
+			playButtonSound2()
+			SysEnv:getInstance():set(SysEnv.keys.music_is_open, true, false)
+		elseif arg_12_1 == ccui.CheckBoxEventType.unselected then
+			playButtonSound2()
+			SysEnv:getInstance():set(SysEnv.keys.music_is_open, false, false)
+		end
+	end)
+	arg_3_0.sound_btn:addEventListener(function(arg_13_0, arg_13_1)
+		if arg_13_1 == ccui.CheckBoxEventType.selected then
+			playButtonSound2()
+			SysEnv:getInstance():set(SysEnv.keys.audio_is_open, true, false)
+		elseif arg_13_1 == ccui.CheckBoxEventType.unselected then
+			playButtonSound2()
+			SysEnv:getInstance():set(SysEnv.keys.audio_is_open, false, false)
+		end
+	end)
+	arg_3_0.voice_btn:addEventListener(function(arg_14_0, arg_14_1)
+		if arg_14_1 == ccui.CheckBoxEventType.selected then
+			playButtonSound2()
+			SysEnv:getInstance():set(SysEnv.keys.voice_is_open, true, false)
+		elseif arg_14_1 == ccui.CheckBoxEventType.unselected then
+			playButtonSound2()
+			SysEnv:getInstance():set(SysEnv.keys.voice_is_open, false, false)
+		end
+	end)
+	arg_3_0.auto_pk_btn:addEventListener(function(arg_15_0, arg_15_1)
+		if arg_15_1 == ccui.CheckBoxEventType.selected then
+			playButtonSound2()
+			var_0_0:sender10318(1)
+		elseif arg_15_1 == ccui.CheckBoxEventType.unselected then
+			playButtonSound2()
+			var_0_0:sender10318(0)
+		end
+	end)
+	arg_3_0.chat_red_btn:addEventListener(function(arg_16_0, arg_16_1)
+		if arg_16_1 == ccui.CheckBoxEventType.selected then
+			playButtonSound2()
+			SysEnv:getInstance():set(SysEnv.keys.chat_red_open, true, false)
+			GlobalEvent:getInstance():Fire(EventId.CHAT_NEWMSG_FLAG)
+		elseif arg_16_1 == ccui.CheckBoxEventType.unselected then
+			playButtonSound2()
+			SysEnv:getInstance():set(SysEnv.keys.chat_red_open, false, false)
+			GlobalEvent:getInstance():Fire(EventId.CHAT_NEWMSG_FLAG)
+		end
+	end)
+	arg_3_0.property_btn:addEventListener(function(arg_17_0, arg_17_1)
+		if arg_17_1 == ccui.CheckBoxEventType.selected then
+			playButtonSound2()
+			SysEnv:getInstance():set(SysEnv.keys.high_quality, true, false)
+		elseif arg_17_1 == ccui.CheckBoxEventType.unselected then
+			playButtonSound2()
+			SysEnv:getInstance():set(SysEnv.keys.high_quality, false, false)
+		end
+	end)
+	arg_3_0:addGlobalEvent(NoticeEvent.All_Feedback_Event_Data, function()
+		local var_18_0 = NoticeController:getInstance():getModel():getRedStatus() or false
+
+		addRedPointToNodeByStatus(arg_3_0.contact_btn, var_18_0, 6, 6, nil)
+	end)
+end
+
+function RoleSystemSetPanel.onExchangeBtn(arg_19_0)
+	local function var_19_0(arg_20_0)
+		if arg_20_0 == nil or arg_20_0 == "" then
+			message(TI18N("Vui lòng nhập giftcode"))
+
+			return
+		end
+
+		local var_20_0 = string.gsub(arg_20_0, "\n", "")
+
+		var_0_0:sender10945(var_20_0)
+	end
+
+	local function var_19_1()
+		return
+	end
+
+	CommonAlert.showInputApply(nil, TI18N("Vui lòng nhập giftcode"), TI18N("Đổi quà"), var_19_0, nil, nil, true, var_19_1, 18, CommonAlert.type.rich, FALSE)
+end
+
+function RoleSystemSetPanel.openRootWnd(arg_22_0)
+	arg_22_0:setData()
+	NoticeController:getInstance():sender10813()
+end
+
+function RoleSystemSetPanel.setData(arg_23_0)
+	local var_23_0 = SysEnv:getInstance():getBool(SysEnv.keys.music_is_open, true)
+
+	arg_23_0.music_btn:setSelected(var_23_0)
+
+	local var_23_1 = SysEnv:getInstance():getBool(SysEnv.keys.audio_is_open, true)
+
+	arg_23_0.sound_btn:setSelected(var_23_1)
+
+	local var_23_2 = SysEnv:getInstance():getBool(SysEnv.keys.voice_is_open, true)
+
+	arg_23_0.voice_btn:setSelected(var_23_2)
+	arg_23_0.auto_pk_btn:setSelected(arg_23_0.role_vo.auto_pk == 1)
+
+	local var_23_3 = SysEnv:getInstance():getBool(SysEnv.keys.high_quality, true)
+
+	arg_23_0.property_btn:setSelected(var_23_3)
+
+	local var_23_4 = SysEnv:getInstance():getBool(SysEnv.keys.chat_red_open, true)
+
+	arg_23_0.chat_red_btn:setSelected(var_23_4)
+
+	local var_23_5 = getServerName(arg_23_0.role_vo.srv_id) or ""
+
+	arg_23_0.sever_name:setString(var_23_5)
+end
+
+function RoleSystemSetPanel.close_callback(arg_24_0)
+	SysEnv:getInstance():save()
+	var_0_0:openRoleSystemSetPanel(false)
+end

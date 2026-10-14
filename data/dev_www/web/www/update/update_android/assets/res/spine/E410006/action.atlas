@@ -1,0 +1,111 @@
+
+action.png
+size: 912,912
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01hudun/hudun_000
+  rotate: false
+  xy: 548, 651
+  size: 180, 259
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_002
+  rotate: false
+  xy: 366, 127
+  size: 180, 259
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_004
+  rotate: false
+  xy: 548, 390
+  size: 180, 259
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_006
+  rotate: false
+  xy: 730, 651
+  size: 180, 259
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_008
+  rotate: false
+  xy: 548, 129
+  size: 180, 259
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_010
+  rotate: false
+  xy: 2, 650
+  size: 180, 260
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_012
+  rotate: false
+  xy: 2, 388
+  size: 180, 260
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_014
+  rotate: false
+  xy: 184, 650
+  size: 180, 260
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_016
+  rotate: false
+  xy: 2, 126
+  size: 180, 260
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_018
+  rotate: false
+  xy: 184, 388
+  size: 180, 260
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_020
+  rotate: false
+  xy: 366, 650
+  size: 180, 260
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_022
+  rotate: false
+  xy: 730, 390
+  size: 180, 259
+  orig: 180, 270
+  offset: 0, 7
+  index: -1
+01hudun/hudun_024
+  rotate: false
+  xy: 184, 126
+  size: 180, 260
+  orig: 180, 270
+  offset: 0, 6
+  index: -1
+01hudun/hudun_026
+  rotate: false
+  xy: 366, 388
+  size: 180, 260
+  orig: 180, 270
+  offset: 0, 6
+  index: -1
+01hudun/hudun_028
+  rotate: false
+  xy: 730, 129
+  size: 180, 259
+  orig: 180, 270
+  offset: 0, 7
+  index: -1

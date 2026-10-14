@@ -1,0 +1,372 @@
+-- --------------------------------------------------------------------
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      我的赛程
+-- <br/> 2021.7
+-- --------------------------------------------------------------------
+GuildnewwarElitePlanTabForm = class("GuildnewwarElitePlanTabForm", function()
+    return ccui.Widget:create()
+end)
+
+local controller = GuildNewwarController:getInstance()
+local model = controller:getModel()
+local table_insert = table.insert
+local string_format = string.format
+local table_sort = table.sort
+
+function GuildnewwarElitePlanTabForm:ctor(parent)
+    self.parent = parent
+    self.role_vo = RoleController:getInstance():getRoleVo()
+     self:config()
+    self:layoutUI()
+    self:registerEvents()
+end
+
+function GuildnewwarElitePlanTabForm:config()
+
+end
+
+
+function GuildnewwarElitePlanTabForm:layoutUI()
+    local csbPath = PathTool.getTargetCSB("guildnewwar/guildnewwar_elite/guildnewwar_elite_plan_tab_form")
+    self.root_wnd = cc.CSLoader:createNode(csbPath)
+    self:addChild(self.root_wnd)
+
+    --读取文件的大小
+    self.size = self.root_wnd:getContentSize()
+    self:setContentSize(self.size)
+
+    self.container = self.root_wnd:getChildByName("container")
+    self.empty_panel = self.root_wnd:getChildByName("empty_panel")
+    self.scroll_container = self.container:getChildByName("scroll_container")
+end
+
+--事件
+function GuildnewwarElitePlanTabForm:registerEvents()
+    registerButtonEventListener(self.fight_btn, function() self:onClickFightBtn()  end ,true, REGISTER_BUTTON_SOUND_BUTTON_TYPY)
+    registerButtonEventListener(self.from_btn, function() self:onClickFromBtn()  end ,true, REGISTER_BUTTON_SOUND_BUTTON_TYPY)
+
+    --我的pk信息
+    if self.guildnewwar_my_match_log_event == nil then
+        self.guildnewwar_my_match_log_event = GlobalEvent:getInstance():Bind(GuildNewwarEvent.GUILDNEWWAR_MY_MATCH_LOG_EVENT,function ( data )
+            if not data then return end
+            self:setData(data)
+        end)
+    end
+end
+
+
+--@hero_vo 英雄数据
+function GuildnewwarElitePlanTabForm:setData(data)
+    -- self.scdata = data
+    -- --没有参数资格
+    -- if not data or next(data) == nil then
+    --     self.container:setVisible(false)
+    --     self.empty_panel:setVisible(true)
+    --     self:showEmptyInfo()
+    --     if self.parent then
+    --         self.parent:setTabBtnVisible(false)
+    --     end
+    --     return    
+    -- end
+    self.empty_panel:setVisible(false)
+    self.container:setVisible(true)
+    self.show_list = data
+    table.sort(self.show_list, function(a, b) return a.step > b.step end)
+    self:updateList()
+end
+
+function GuildnewwarElitePlanTabForm:showEmptyInfo()
+    commonShowEmptyIcon(self.empty_panel, true, {text = ""})
+
+    self.fuse_btn_label = createRichLabel(26,cc.c4b(0x64, 0x32, 0x23, 0xff), cc.p(0.5,1),cc.p(360, 555),nil,nil, 550)
+    self.fuse_btn_label:setString(TI18N("语言_c_4479"))
+    self.empty_panel:addChild(self.fuse_btn_label)
+
+    self.fuse_btn_label:addTouchLinkListener(function(type, value, sender, pos)
+        GuildNewwarController:getInstance():openGuildnewwarEliteGuessingWindow(true)
+         -- MainuiController:getInstance():requestOpenBattleRelevanceWindow(BattleConst.Fight_Type.Arenapeakchampion)
+    end, { "click", "href" })
+end
+
+function GuildnewwarElitePlanTabForm:updateList()
+    if self.item_scrollview == nil then
+        local scroll_view_size = self.scroll_container:getContentSize()
+        local setting = {
+            start_x = 0,                     -- 第一个单元的X起点
+            space_x = 0,                     -- x方向的间隔
+            start_y = 0,                     -- 第一个单元的Y起点
+            space_y = 0,                     -- y方向的间隔
+            item_width = 628,                -- 单元的尺寸width
+            item_height = 244,               -- 单元的尺寸height
+            row = 1,                         -- 行数，作用于水平滚动类型
+            col = 1,                         -- 列数，作用于垂直滚动类型
+            once_num = 1,                    -- 每次创建的数量
+        }
+        self.item_scrollview = CommonScrollViewSingleLayout.new(self.scroll_container, cc.p(0,0) , ScrollViewDir.vertical, ScrollViewStartPos.top, scroll_view_size, setting, cc.p(0, 0))
+
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.createNewCell), ScrollViewFuncType.CreateNewCell) --创建cell
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.numberOfCells), ScrollViewFuncType.NumberOfCells) --获取数量
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.updateCellByIndex), ScrollViewFuncType.UpdateCellByIndex) --更新cell
+    end
+    
+    if #self.show_list == 0 then
+        commonShowEmptyIcon(self.scroll_container, true, {text = TI18N("语言_c_130")})
+    else
+        commonShowEmptyIcon(self.scroll_container, false)
+    end
+
+    self.item_scrollview:reloadData()
+end
+
+
+--创建cell 
+--@width 是setting.item_width
+--@height 是setting.item_height
+function GuildnewwarElitePlanTabForm:createNewCell(width, height)
+   local cell = GuildnewwarElitePlanTabFormItem.new(width, height)
+   -- cell:setActionRankCommonType(self.holiday_bid, self.type)
+    -- cell:addCallBack(function() self:onCellTouched(cell) end)
+    return cell
+end
+--获取数据数量
+function GuildnewwarElitePlanTabForm:numberOfCells()
+    if not self.show_list then return 0 end
+    return #self.show_list
+end
+--更新cell(拖动的时候.刷新数据时候会执行次方法)
+--cell :createNewCell的返回的对象
+--index :数据的索引
+function GuildnewwarElitePlanTabForm:updateCellByIndex(cell, index)
+    cell.index = index
+    local cell_data = self.show_list[index]
+    if not cell_data then return end
+    cell:setData(cell_data) 
+end
+
+
+function GuildnewwarElitePlanTabForm:setVisibleStatus(bool)
+    self:setVisible(bool)
+    if bool then
+        if not self.is_init then
+            self.is_init = true
+            controller:sender14248()
+        end
+    end
+end
+
+--移除
+function GuildnewwarElitePlanTabForm:DeleteMe()
+    if self.guildnewwar_my_match_log_event then
+        GlobalEvent:getInstance():UnBind(self.guildnewwar_my_match_log_event)
+        self.guildnewwar_my_match_log_event = nil
+    end
+
+    if self.item_scrollview then
+        self.item_scrollview:DeleteMe()
+    end
+    self.item_scrollview = nil
+end
+
+-------------------item
+GuildnewwarElitePlanTabFormItem = class("GuildnewwarElitePlanTabFormItem", function()
+    return ccui.Widget:create()
+end)
+
+GuildnewwarElitePlanTabFormItem.Width = 628
+GuildnewwarElitePlanTabFormItem.Height = 244
+
+function GuildnewwarElitePlanTabFormItem:ctor()
+	self.ctrl = GuildNewwarController:getInstance()
+    self.model = self.ctrl:getModel()
+
+	self.star_list = {}
+
+	self:configUI()
+	self:register_event()
+end
+
+function GuildnewwarElitePlanTabFormItem:configUI(  )
+	self.size = cc.size(GuildnewwarElitePlanTabFormItem.Width, GuildnewwarElitePlanTabFormItem.Height)
+	self:setTouchEnabled(true)
+    self:setAnchorPoint(cc.p(0.5, 0))
+    self:setContentSize(self.size)
+
+	local csbPath = PathTool.getTargetCSB("guildnewwar/guildnewwar_elite/guildnewwar_elite_plan_tab_form_item")
+    self.root_wnd = cc.CSLoader:createNode(csbPath)
+    self:addChild(self.root_wnd)
+
+    local container = self.root_wnd:getChildByName("container")
+
+    self.result_win = container:getChildByName("result_win")
+    self.result_loss = container:getChildByName("result_loss")
+    self.result_win_x = self.result_win:getPositionX()
+    self.result_loss_x = self.result_loss:getPositionX()
+
+    self.win_mark = container:getChildByName("win_mark")
+    self.lose_mark = container:getChildByName("lose_mark")
+    self.win_mark_x = self.win_mark:getPositionX()
+    self.lose_mark_x = self.lose_mark:getPositionX()
+
+    self.play_btn = container:getChildByName("play_btn")
+    --中间部分
+    self.centre_scroe = container:getChildByName("centre_scroe")
+    self.centre_war_name = container:getChildByName("centre_war_name")
+    self.centre_time = container:getChildByName("centre_time")
+    self.centre_round = container:getChildByName("centre_round")
+
+    self.play_btn = container:getChildByName("play_btn")
+
+    local _getItem = function(prefix)
+        local item = {}
+        item.area_name = container:getChildByName(prefix.."area_name")
+        item.name = container:getChildByName(prefix.."name")
+        item.power_key = container:getChildByName(prefix.."power_key")
+        item.power_key:setString(TI18N("语言_c_1187"))
+        item.power_value = container:getChildByName(prefix.."power_value")
+        item.level_icon = container:getChildByName(prefix.."level_icon")
+        item.level_icon_1 = container:getChildByName(prefix.."level_icon_1")
+        item.head_node = container:getChildByName(prefix.."head_node")
+        local badge_item = GuildBadgeItem.new()
+        item.head_node:addChild(badge_item)
+        badge_item:setClickCallBack(function()
+            -- GuildController:getInstance():openGuildInfoWindow(item.data)
+            GuildController:getInstance():send13509(item.data.gid, item.data.srv_id)
+        end)
+        badge_item:setLevOnRight(prefix ~= "right_")
+        item.badge_item = badge_item
+        return item
+    end
+    self.left_item = _getItem("left_")
+    self.right_item = _getItem("right_")
+end
+
+function GuildnewwarElitePlanTabFormItem:register_event(  )
+    registerButtonEventListener(self.play_btn, handler(self, self.onClickPlayBtn) ,true, 2)
+end
+
+function GuildnewwarElitePlanTabFormItem:onClickPlayBtn()
+    if not self.data then return end
+    -- body
+    -- local replay_id=self.data.replay_id
+    -- BattleController:getInstance():csRecordBattle(replay_id or 0)
+    if self.data.id then
+        controller:openGuildnewwarEliteFightListPanel(true, {pk_id = self.data.id, p_type = ""})        
+    end
+end
+
+function GuildnewwarElitePlanTabFormItem:setData(data)
+    self.data = data
+
+    self.centre_war_name:setString(TI18N("语言_c_5251"))
+    self.centre_war_name:setTextColor(cc.c4b(0x3a, 0x78, 0xc4, 0xff))
+    self.centre_scroe:setString("")
+    local timezone = InviteCodeController:getInstance():getModel():getServerTimeZone()--服务器时区
+    -- local time = TimeTool.getYMDHM(data.time)
+    local n_time = data.time
+    if n_time and n_time == 0 then
+        n_time = GameNet:getInstance():getTime()
+    end
+    local H = TimeTool.xsdate("%H",n_time,timezone)
+    local M = TimeTool.xsdate("%M",n_time,timezone)
+    local S = TimeTool.xsdate("%S",n_time,timezone)
+    local y = TimeTool.xsdate("%Y",n_time,timezone)
+    local m = TimeTool.xsdate("%m",n_time,timezone)
+    local d = TimeTool.xsdate("%d",n_time,timezone)
+    local time = string.format("%s-%s-%s %s:%s", y, m, d, H, M)
+    self.centre_time:setString(time)
+
+    local str = ""
+    if data.step == 0 then
+        if model:isBeforeOpenMacthTime() then
+            return TI18N("语言_c_561")
+        else
+            return TI18N("语言_c_562")
+        end
+    else
+        local step_str = {TI18N("语言_c_5388"),TI18N("语言_c_5389"),TI18N("语言_c_5390"),TI18N("语言_c_5391"),TI18N("语言_c_5392"),TI18N("语言_c_5393")}
+        str = step_str[data.step]
+    end
+    self.centre_round:setString(str)
+
+    self.result_win:setVisible(data.ret ~= 0)
+    self.result_loss:setVisible(data.ret ~= 0)
+    self.win_mark:setVisible(data.ret ~= 0)
+    self.lose_mark:setVisible(data.ret ~= 0)
+    self.play_btn:setVisible(data.ret ~= 0)
+    if data.ret == 1 then --左边胜利
+        self.result_win:setPositionX(self.result_win_x)
+        self.result_loss:setPositionX(self.result_loss_x)
+
+        self.win_mark:setPositionX(self.win_mark_x)
+        self.lose_mark:setPositionX(self.lose_mark_x)
+    elseif data.ret == 2 then --右边胜利了
+        self.result_loss:setPositionX(self.result_win_x)
+        self.result_win:setPositionX(self.result_loss_x)
+
+        self.lose_mark:setPositionX(self.win_mark_x)
+        self.win_mark:setPositionX(self.lose_mark_x)
+    end
+
+    --左右
+    local left_data = {}
+    left_data.avatar = data.a_avatar
+    left_data.avatar_frame = data.a_avatar_frame
+    left_data.dan = data.a_dan or 1
+    left_data.gid = data.a_id
+    left_data.lev  = data.a_lev 
+    left_data.name = data.a_gname
+    left_data.power = data.a_power
+    left_data.srv_id = data.a_srv_id
+    left_data.ret = data.ret
+
+    self.left_item.data = left_data
+    self:initItemInfo(self.left_item, left_data, "left")
+
+    local right_data = {}
+    right_data.avatar = data.b_avatar
+    right_data.avatar_frame = data.b_avatar_frame
+    right_data.dan = data.b_dan or 1
+    right_data.gid = data.b_id
+    right_data.lev  = data.b_lev 
+    right_data.name = data.b_gname
+    right_data.power = data.b_power
+    right_data.srv_id = data.b_srv_id
+    right_data.ret = data.ret
+    self.right_item.data = right_data
+    self:initItemInfo(self.right_item, right_data, "right")
+end
+
+function GuildnewwarElitePlanTabFormItem:initItemInfo(item, data, direction)
+    local srv_name = getServerName(srv_id)
+    item.area_name:setString(string_format("[%s]", data.srv_id))
+    item.name:setString(data.name)
+    item.power_value:setString(data.power)
+
+    local config = Config.GuildWarNewData.data_guild_war_level[data.dan]
+    if config then
+        local name = config.little_ico
+        if name == nil or name == "" then
+            name = "icon_iron"
+        end
+        local bg_res = PathTool.getPlistImgForDownLoad("elitematch/elitematch_icon",name, false)
+        item.item_load = loadSpriteTextureFromCDN(item.level_icon , bg_res, ResourcesType.single, item.item_load)
+
+        name = config.little_name_ico
+        if name == nil or name == "" then
+            name = "num_1_1"
+        end
+        local bg_res = PathTool.getPlistImgForDownLoad("elitematch/elitematch_icon",name, false)
+        item.item_load_1 = loadSpriteTextureFromCDN(item.level_icon_1 , bg_res, ResourcesType.single, item.item_load_1)
+    end
+
+    local badge_data = GuildController:getInstance():getModel():getBadgeItemData(data.avatar, data.avatar_frame)
+    badge_data.lev = data.lev
+    item.badge_item:setData(badge_data)
+end
+
+
+function GuildnewwarElitePlanTabFormItem:DeleteMe(  )
+
+end

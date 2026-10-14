@@ -1,0 +1,90 @@
+
+stand2.png
+size: 549,628
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+stand/zddj0001
+  rotate: false
+  xy: 2, 184
+  size: 156, 156
+  orig: 178, 224
+  offset: 2, 14
+  index: -1
+stand/zddj0002
+  rotate: false
+  xy: 2, 24
+  size: 166, 157
+  orig: 178, 224
+  offset: 8, 14
+  index: -1
+stand/zddj0003
+  rotate: false
+  xy: 382, 2
+  size: 165, 170
+  orig: 178, 224
+  offset: 13, 0
+  index: -1
+stand/zddj0004
+  rotate: false
+  xy: 160, 183
+  size: 165, 156
+  orig: 178, 224
+  offset: 13, 14
+  index: -1
+stand/zddj0005
+  rotate: false
+  xy: 327, 174
+  size: 163, 156
+  orig: 178, 224
+  offset: 13, 14
+  index: -1
+stand/zddj0006
+  rotate: true
+  xy: 170, 14
+  size: 158, 210
+  orig: 178, 224
+  offset: 13, 14
+  index: -1
+stand/zddj0007
+  rotate: true
+  xy: 160, 341
+  size: 149, 208
+  orig: 178, 224
+  offset: 13, 6
+  index: -1
+stand/zddj0008
+  rotate: true
+  xy: 2, 492
+  size: 134, 186
+  orig: 178, 224
+  offset: 13, 14
+  index: -1
+stand/zddj0009
+  rotate: true
+  xy: 190, 492
+  size: 134, 178
+  orig: 178, 224
+  offset: 13, 15
+  index: -1
+stand/zddj0010
+  rotate: true
+  xy: 370, 483
+  size: 143, 168
+  orig: 178, 224
+  offset: 5, 15
+  index: -1
+stand/zddj0011
+  rotate: true
+  xy: 370, 332
+  size: 149, 161
+  orig: 178, 224
+  offset: 0, 14
+  index: -1
+stand/zddj0012
+  rotate: true
+  xy: 2, 342
+  size: 148, 156
+  orig: 178, 224
+  offset: 0, 14
+  index: -1

@@ -1,0 +1,307 @@
+
+action.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+suolong15
+  rotate: false
+  xy: 1630, 253
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+suolong21
+  rotate: false
+  xy: 448, 31
+  size: 68, 76
+  orig: 68, 76
+  offset: 0, 0
+  index: -1
+suolong22
+  rotate: false
+  xy: 518, 32
+  size: 68, 75
+  orig: 68, 75
+  offset: 0, 0
+  index: -1
+suolong23
+  rotate: false
+  xy: 327, 9
+  size: 70, 84
+  orig: 70, 88
+  offset: 0, 0
+  index: -1
+suolong25
+  rotate: false
+  xy: 1751, 104
+  size: 70, 84
+  orig: 70, 88
+  offset: 0, 0
+  index: -1
+suolong26
+  rotate: false
+  xy: 856, 3
+  size: 39, 48
+  orig: 39, 48
+  offset: 0, 0
+  index: -1
+suolong45
+  rotate: false
+  xy: 1397, 233
+  size: 231, 21
+  orig: 231, 21
+  offset: 0, 0
+  index: -1
+suolong46
+  rotate: true
+  xy: 1358, 167
+  size: 19, 37
+  orig: 19, 37
+  offset: 0, 0
+  index: -1
+suolong47
+  rotate: false
+  xy: 588, 30
+  size: 55, 77
+  orig: 59, 77
+  offset: 1, 0
+  index: -1
+suolong48
+  rotate: true
+  xy: 990, 2
+  size: 55, 68
+  orig: 55, 68
+  offset: 0, 0
+  index: -1
+suolong49
+  rotate: false
+  xy: 897, 18
+  size: 34, 33
+  orig: 34, 33
+  offset: 0, 0
+  index: -1
+suolong50
+  rotate: true
+  xy: 1116, 101
+  size: 55, 66
+  orig: 55, 66
+  offset: 0, 0
+  index: -1
+suolong51
+  rotate: false
+  xy: 897, 2
+  size: 14, 14
+  orig: 14, 15
+  offset: 0, 1
+  index: -1
+suolong52
+  rotate: true
+  xy: 1791, 194
+  size: 60, 107
+  orig: 61, 108
+  offset: 0, 1
+  index: -1
+suolong53
+  rotate: true
+  xy: 645, 40
+  size: 47, 81
+  orig: 47, 81
+  offset: 0, 0
+  index: -1
+suolong55
+  rotate: true
+  xy: 1207, 188
+  size: 66, 188
+  orig: 66, 188
+  offset: 0, 0
+  index: -1
+suolong56
+  rotate: true
+  xy: 213, 95
+  size: 159, 217
+  orig: 159, 217
+  offset: 0, 0
+  index: -1
+suolong57
+  rotate: true
+  xy: 1289, 142
+  size: 44, 67
+  orig: 44, 67
+  offset: 0, 0
+  index: -1
+suolong58
+  rotate: false
+  xy: 2004, 179
+  size: 42, 75
+  orig: 42, 76
+  offset: 0, 0
+  index: -1
+suolong59
+  rotate: false
+  xy: 399, 10
+  size: 47, 83
+  orig: 47, 83
+  offset: 0, 0
+  index: -1
+suolong60
+  rotate: true
+  xy: 654, 89
+  size: 165, 177
+  orig: 165, 177
+  offset: 0, 0
+  index: -1
+suolong61
+  rotate: true
+  xy: 728, 41
+  size: 46, 81
+  orig: 46, 81
+  offset: 0, 0
+  index: -1
+suolong62
+  rotate: true
+  xy: 1021, 158
+  size: 96, 184
+  orig: 97, 184
+  offset: 1, 0
+  index: -1
+suolong63
+  rotate: true
+  xy: 1900, 195
+  size: 59, 102
+  orig: 61, 105
+  offset: 2, 2
+  index: -1
+suolong64
+  rotate: false
+  xy: 1069, 70
+  size: 38, 25
+  orig: 38, 25
+  offset: 0, 0
+  index: -1
+suolong65
+  rotate: true
+  xy: 448, 13
+  size: 16, 39
+  orig: 16, 39
+  offset: 0, 0
+  index: -1
+suolong66
+  rotate: true
+  xy: 990, 59
+  size: 73, 54
+  orig: 73, 54
+  offset: 0, 0
+  index: -1
+suolong67
+  rotate: false
+  xy: 1540, 113
+  size: 109, 118
+  orig: 109, 118
+  offset: 0, 0
+  index: -1
+suolong68
+  rotate: true
+  xy: 1207, 157
+  size: 29, 80
+  orig: 29, 81
+  offset: 0, 1
+  index: -1
+suolong69
+  rotate: false
+  xy: 1823, 102
+  size: 63, 90
+  orig: 63, 90
+  offset: 0, 0
+  index: -1
+suolong70
+  rotate: false
+  xy: 1046, 59
+  size: 21, 36
+  orig: 21, 36
+  offset: 0, 0
+  index: -1
+suolong71
+  rotate: false
+  xy: 1651, 107
+  size: 98, 81
+  orig: 98, 84
+  offset: 0, 0
+  index: -1
+suolong72
+  rotate: false
+  xy: 2, 6
+  size: 139, 57
+  orig: 139, 57
+  offset: 0, 0
+  index: -1
+suolong73
+  rotate: false
+  xy: 432, 109
+  size: 220, 145
+  orig: 220, 145
+  offset: 0, 0
+  index: -1
+suolong75
+  rotate: true
+  xy: 833, 134
+  size: 120, 186
+  orig: 120, 186
+  offset: 0, 0
+  index: -1
+suolong76
+  rotate: true
+  xy: 833, 53
+  size: 79, 155
+  orig: 79, 155
+  offset: 0, 0
+  index: -1
+suolong77
+  rotate: false
+  xy: 1651, 190
+  size: 138, 64
+  orig: 138, 64
+  offset: 0, 0
+  index: -1
+suolong78
+  rotate: false
+  xy: 811, 2
+  size: 43, 49
+  orig: 43, 49
+  offset: 0, 0
+  index: -1
+suolong79
+  rotate: true
+  xy: 143, 3
+  size: 60, 88
+  orig: 60, 89
+  offset: 0, 0
+  index: -1
+suolong80
+  rotate: true
+  xy: 1397, 97
+  size: 134, 141
+  orig: 134, 145
+  offset: 0, 0
+  index: -1
+suolong81
+  rotate: false
+  xy: 1046, 97
+  size: 68, 59
+  orig: 68, 59
+  offset: 0, 0
+  index: -1
+suolong82
+  rotate: true
+  xy: 233, 4
+  size: 89, 92
+  orig: 89, 92
+  offset: 0, 0
+  index: -1
+suolong83
+  rotate: false
+  xy: 2, 65
+  size: 209, 189
+  orig: 209, 189
+  offset: 0, 0
+  index: -1

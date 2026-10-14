@@ -1,0 +1,250 @@
+
+action2.png
+size: 2048,2047
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/00 (10)
+  rotate: true
+  xy: 976, 177
+  size: 253, 294
+  orig: 1200, 800
+  offset: 193, 223
+  index: -1
+action2/00 (11)
+  rotate: true
+  xy: 976, 177
+  size: 253, 294
+  orig: 1200, 800
+  offset: 193, 223
+  index: -1
+action2/00 (12)
+  rotate: true
+  xy: 1641, 52
+  size: 221, 190
+  orig: 1200, 800
+  offset: 196, 220
+  index: -1
+action2/00 (13)
+  rotate: true
+  xy: 1641, 52
+  size: 221, 190
+  orig: 1200, 800
+  offset: 196, 220
+  index: -1
+action2/00 (14)
+  rotate: false
+  xy: 919, 5
+  size: 221, 170
+  orig: 1200, 800
+  offset: 258, 225
+  index: -1
+action2/00 (15)
+  rotate: false
+  xy: 919, 5
+  size: 221, 170
+  orig: 1200, 800
+  offset: 258, 225
+  index: -1
+action2/00 (4)
+  rotate: true
+  xy: 1833, 132
+  size: 216, 213
+  orig: 1200, 800
+  offset: 221, 181
+  index: -1
+action2/00 (5)
+  rotate: true
+  xy: 1833, 132
+  size: 216, 213
+  orig: 1200, 800
+  offset: 221, 181
+  index: -1
+action2/00 (6)
+  rotate: true
+  xy: 563, 134
+  size: 258, 354
+  orig: 1200, 800
+  offset: 198, 185
+  index: -1
+action2/00 (7)
+  rotate: true
+  xy: 563, 134
+  size: 258, 354
+  orig: 1200, 800
+  offset: 198, 185
+  index: -1
+action2/1
+  rotate: false
+  xy: 1278, 275
+  size: 525, 270
+  orig: 1200, 800
+  offset: 253, 223
+  index: -1
+action2/10
+  rotate: true
+  xy: 1479, 1375
+  size: 670, 539
+  orig: 1200, 800
+  offset: 414, 171
+  index: -1
+action2/11
+  rotate: false
+  xy: 2, 398
+  size: 700, 542
+  orig: 1200, 800
+  offset: 409, 171
+  index: -1
+action2/12
+  rotate: false
+  xy: 750, 1492
+  size: 727, 553
+  orig: 1200, 800
+  offset: 397, 171
+  index: -1
+action2/13
+  rotate: false
+  xy: 2, 1491
+  size: 746, 554
+  orig: 1200, 800
+  offset: 390, 171
+  index: -1
+action2/14
+  rotate: false
+  xy: 2, 942
+  size: 735, 547
+  orig: 1200, 800
+  offset: 396, 171
+  index: -1
+action2/15
+  rotate: false
+  xy: 750, 972
+  size: 710, 518
+  orig: 1200, 800
+  offset: 414, 171
+  index: -1
+action2/2
+  rotate: true
+  xy: 704, 394
+  size: 546, 270
+  orig: 1200, 800
+  offset: 245, 220
+  index: -1
+action2/3
+  rotate: false
+  xy: 1278, 547
+  size: 547, 286
+  orig: 1200, 800
+  offset: 269, 214
+  index: -1
+action2/4
+  rotate: false
+  xy: 2, 102
+  size: 559, 294
+  orig: 1200, 800
+  offset: 260, 207
+  index: -1
+action2/5
+  rotate: true
+  xy: 976, 432
+  size: 538, 300
+  orig: 1200, 800
+  offset: 254, 202
+  index: -1
+action2/6
+  rotate: true
+  xy: 1827, 350
+  size: 483, 215
+  orig: 1200, 800
+  offset: 296, 283
+  index: -1
+action2/7
+  rotate: false
+  xy: 1272, 61
+  size: 367, 212
+  orig: 1200, 800
+  offset: 398, 285
+  index: -1
+action2/8
+  rotate: true
+  xy: 1833, 2
+  size: 128, 208
+  orig: 1200, 800
+  offset: 608, 284
+  index: -1
+action2/9
+  rotate: false
+  xy: 1462, 835
+  size: 575, 538
+  orig: 1200, 800
+  offset: 414, 171
+  index: -1
+
+action22.png
+size: 762,387
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action1/15
+  rotate: true
+  xy: 263, 193
+  size: 192, 175
+  orig: 960, 480
+  offset: 260, 125
+  index: -1
+action2/00 (1)
+  rotate: false
+  xy: 440, 220
+  size: 161, 165
+  orig: 1200, 800
+  offset: 290, 229
+  index: -1
+action2/00 (2)
+  rotate: true
+  xy: 603, 58
+  size: 168, 156
+  orig: 1200, 800
+  offset: 274, 228
+  index: -1
+action2/00 (3)
+  rotate: true
+  xy: 603, 58
+  size: 168, 156
+  orig: 1200, 800
+  offset: 274, 228
+  index: -1
+action2/00 (8)
+  rotate: false
+  xy: 2, 78
+  size: 259, 307
+  orig: 1200, 800
+  offset: 189, 219
+  index: -1
+action2/00 (9)
+  rotate: false
+  xy: 2, 78
+  size: 259, 307
+  orig: 1200, 800
+  offset: 189, 219
+  index: -1
+stand/2
+  rotate: true
+  xy: 263, 2
+  size: 189, 161
+  orig: 960, 480
+  offset: 240, 110
+  index: -1
+stand/4
+  rotate: true
+  xy: 426, 5
+  size: 186, 175
+  orig: 960, 480
+  offset: 231, 101
+  index: -1
+stand/6
+  rotate: false
+  xy: 603, 228
+  size: 157, 157
+  orig: 960, 480
+  offset: 252, 119
+  index: -1

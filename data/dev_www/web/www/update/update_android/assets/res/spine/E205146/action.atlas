@@ -1,0 +1,137 @@
+
+action.png
+size: 2024,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/E205146/0_00012
+  rotate: true
+  xy: 1202, 772
+  size: 1274, 792
+  orig: 1800, 1200
+  offset: 198, 107
+  index: -1
+images/E205146/0_00013
+  rotate: false
+  xy: 2, 1142
+  size: 1198, 904
+  orig: 1800, 1200
+  offset: 190, 115
+  index: -1
+images/E205146/0_00014
+  rotate: true
+  xy: 2, 168
+  size: 972, 874
+  orig: 1800, 1200
+  offset: 201, 152
+  index: -1
+images/E205146/0_00020
+  rotate: false
+  xy: 1183, 2
+  size: 839, 768
+  orig: 1800, 1200
+  offset: 255, 163
+  index: -1
+images/E205146/0_00026
+  rotate: false
+  xy: 878, 644
+  size: 303, 496
+  orig: 1800, 1200
+  offset: 637, 277
+  index: -1
+images/E205146/0_00027
+  rotate: true
+  xy: 878, 390
+  size: 252, 279
+  orig: 1800, 1200
+  offset: 686, 416
+  index: -1
+images/E205146/0_00028
+  rotate: true
+  xy: 878, 170
+  size: 218, 238
+  orig: 1800, 1200
+  offset: 714, 452
+  index: -1
+
+action2.png
+size: 2021,2041
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/E205146/0_00016
+  rotate: true
+  xy: 2, 349
+  size: 879, 795
+  orig: 1800, 1200
+  offset: 226, 164
+  index: -1
+images/E205146/0_00017
+  rotate: false
+  xy: 872, 1238
+  size: 869, 801
+  orig: 1800, 1200
+  offset: 232, 164
+  index: -1
+images/E205146/0_00018
+  rotate: false
+  xy: 2, 1230
+  size: 868, 809
+  orig: 1800, 1200
+  offset: 229, 164
+  index: -1
+images/E205146/0_00019
+  rotate: true
+  xy: 799, 360
+  size: 868, 798
+  orig: 1800, 1200
+  offset: 226, 164
+  index: -1
+images/E205146/0_00024
+  rotate: false
+  xy: 1599, 545
+  size: 420, 691
+  orig: 1800, 1200
+  offset: 619, 172
+  index: -1
+images/E205146/0_00025
+  rotate: true
+  xy: 2, 2
+  size: 345, 574
+  orig: 1800, 1200
+  offset: 631, 214
+  index: -1
+
+action3.png
+size: 1580,1363
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/E205146/0_00015
+  rotate: false
+  xy: 2, 581
+  size: 829, 780
+  orig: 1800, 1200
+  offset: 225, 164
+  index: -1
+images/E205146/0_00021
+  rotate: true
+  xy: 833, 522
+  size: 839, 745
+  orig: 1800, 1200
+  offset: 259, 163
+  index: -1
+images/E205146/0_00022
+  rotate: true
+  xy: 2, 15
+  size: 564, 779
+  orig: 1800, 1200
+  offset: 523, 164
+  index: -1
+images/E205146/0_00023
+  rotate: true
+  xy: 783, 2
+  size: 518, 697
+  orig: 1800, 1200
+  offset: 551, 163
+  index: -1

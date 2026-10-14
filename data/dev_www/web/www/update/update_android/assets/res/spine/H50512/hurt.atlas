@@ -1,0 +1,55 @@
+
+hurt.png
+size: 1720,190
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hurt/sj0001
+  rotate: true
+  xy: 1562, 19
+  size: 169, 156
+  orig: 199, 325
+  offset: 2, 66
+  index: -1
+hurt/sj0002
+  rotate: true
+  xy: 638, 2
+  size: 186, 284
+  orig: 199, 325
+  offset: 8, 15
+  index: -1
+hurt/sj0003
+  rotate: true
+  xy: 329, 4
+  size: 184, 307
+  orig: 199, 325
+  offset: 13, 7
+  index: -1
+hurt/sj0004
+  rotate: true
+  xy: 2, 3
+  size: 185, 325
+  orig: 199, 325
+  offset: 13, 0
+  index: -1
+hurt/sj0005
+  rotate: true
+  xy: 924, 2
+  size: 186, 214
+  orig: 199, 325
+  offset: 13, 49
+  index: -1
+hurt/sj0006
+  rotate: true
+  xy: 1140, 30
+  size: 158, 210
+  orig: 199, 325
+  offset: 13, 66
+  index: -1
+hurt/sj0007
+  rotate: true
+  xy: 1352, 39
+  size: 149, 208
+  orig: 199, 325
+  offset: 13, 58
+  index: -1

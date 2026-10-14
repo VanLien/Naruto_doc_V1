@@ -1,0 +1,111 @@
+
+action1.png
+size: 1024,256
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+images/attack2/000001
+  rotate: true
+  xy: 282, 44
+  size: 85, 213
+  orig: 967, 480
+  offset: 189, 136
+  index: -1
+images/attack2/000011
+  rotate: true
+  xy: 282, 44
+  size: 85, 213
+  orig: 967, 480
+  offset: 189, 136
+  index: -1
+images/attack2/000002
+  rotate: true
+  xy: 498, 131
+  size: 85, 213
+  orig: 967, 480
+  offset: 191, 136
+  index: -1
+images/attack2/000012
+  rotate: true
+  xy: 498, 131
+  size: 85, 213
+  orig: 967, 480
+  offset: 191, 136
+  index: -1
+images/attack2/000003
+  rotate: false
+  xy: 924, 19
+  size: 87, 197
+  orig: 967, 480
+  offset: 193, 136
+  index: -1
+images/attack2/000013
+  rotate: false
+  xy: 924, 19
+  size: 87, 197
+  orig: 967, 480
+  offset: 193, 136
+  index: -1
+images/attack2/000004
+  rotate: true
+  xy: 712, 48
+  size: 80, 206
+  orig: 967, 480
+  offset: 192, 136
+  index: -1
+images/attack2/000014
+  rotate: true
+  xy: 712, 48
+  size: 80, 206
+  orig: 967, 480
+  offset: 192, 136
+  index: -1
+images/attack2/000015
+  rotate: true
+  xy: 712, 48
+  size: 80, 206
+  orig: 967, 480
+  offset: 192, 136
+  index: -1
+images/attack2/000005
+  rotate: true
+  xy: 713, 130
+  size: 86, 209
+  orig: 967, 480
+  offset: 188, 136
+  index: -1
+images/attack2/000006
+  rotate: false
+  xy: 192, 3
+  size: 88, 213
+  orig: 967, 480
+  offset: 186, 136
+  index: -1
+images/attack2/000007
+  rotate: false
+  xy: 98, 2
+  size: 92, 214
+  orig: 967, 480
+  offset: 182, 136
+  index: -1
+images/attack2/000008
+  rotate: false
+  xy: 2, 2
+  size: 94, 214
+  orig: 967, 480
+  offset: 182, 136
+  index: -1
+images/attack2/000009
+  rotate: true
+  xy: 497, 44
+  size: 85, 213
+  orig: 967, 480
+  offset: 186, 136
+  index: -1
+images/attack2/000010
+  rotate: true
+  xy: 282, 131
+  size: 85, 214
+  orig: 967, 480
+  offset: 186, 136
+  index: -1

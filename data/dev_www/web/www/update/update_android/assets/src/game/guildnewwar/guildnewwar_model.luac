@@ -1,0 +1,719 @@
+-- --------------------------------------------------------------------
+-- 这里填写简要说明(必填),
+--
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      这里填写详细说明,主要填写该模块的功能简要
+-- <br/>Create: 2018-10-08
+-- --------------------------------------------------------------------
+GuildNewwarModel = GuildNewwarModel or BaseClass()
+
+function GuildNewwarModel:__init(ctrl)
+    self.ctrl = ctrl
+    self:config()
+end
+
+function GuildNewwarModel:config()
+	self.challengeCount = 0 		-- 已挑战次数
+	self.guildWarResult = GuildNewwarConst.result.fighting -- 战斗结果
+	self.myGuildWarBaseInfo = {}	-- 我方联盟战基础数据(星数、buff等)
+	self.enemyGuildWarBaseInfo = {} -- 敌方联盟战基础数据(星数、名称)
+	self.guildWarStatus = GuildNewwarConst.status.close -- 联盟战状态
+	self.guildWarStartTime = 0 		-- 联盟战开始时间
+	self.guildWarEndTime = 0 		-- 联盟战结束时间
+	self.guildWarEnemyFlag = 0 		-- 是否匹配到对手
+	self.guildWarTopThreeRank = {}  -- 前三排名
+
+	self.myGuildWarPositionList = {}  -- 我方据点数据
+	self.enemyGuildWarPositionList = {} -- 敌方据点数据
+
+	self.award_box_data = {}  		-- 奖励宝箱数据
+
+	self.guildwar_red_list = {} 	-- 红点数据
+
+	--传奇赛
+
+	--27700 协议内容
+	self.main_data = nil
+	-- 27701协议内容
+	self.my_guess_data = nil
+
+	-- 64 强数据 self.match_data_64[赛区][组id] = pos_list(27709协议里面的 pos_list)
+	self.match_data_64 = {} 
+	self.max_group_64 = {}
+	-- 8 强数据 self.match_data_8[赛区] = pos_list (27710协议里面的pos_list)
+	self.match_data_8 = {}
+end
+
+--联盟总战力
+function GuildNewwarModel:setAvgPower(avg_power)
+	self.avg_power = avg_power or 0
+end
+
+function GuildNewwarModel:getAvgPower()
+	return self.avg_power or 0
+end
+
+-- 本地是否有联盟战敌方数据
+function GuildNewwarModel:checkIsHaveEnemyCacheData(  )
+	if next(self.enemyGuildWarPositionList) == nil then
+		return false
+	else
+		return true
+	end
+end
+
+-- 清空敌方联盟数据（断线重连时清空，重连成功后打开公会战则会重新请求数据）
+function GuildNewwarModel:clearEnemyCacheData(  )
+	self.enemyGuildWarPositionList = {}
+end
+
+-- 设置已挑战次数
+function GuildNewwarModel:setGuildWarChallengeCount( count )
+	self.challengeCount = count or 0
+	self:updateChallengeCountRedStatus()
+end
+
+function GuildNewwarModel:getGuildWarChallengeCount(  )
+	return self.challengeCount
+end
+-- 更新挑战次数红点
+function GuildNewwarModel:updateChallengeCountRedStatus(  )
+	if self.guildWarEnemyFlag == TRUE and self.guildWarStatus == GuildNewwarConst.status.processing and self.challengeCount < Config.GuildWarNewData.data_const.challange_time_limit.val then
+		self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_count, true)
+	else
+		self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_count, false)
+	end
+end
+
+-- 设置联盟战结果
+function GuildNewwarModel:setGuildWarResult( result )
+	self.guildWarResult = result
+end
+function GuildNewwarModel:getGuildWarResult(  )
+	return self.guildWarResult
+end
+
+-- 设置我方联盟战基础数据(星数、buff等)
+function GuildNewwarModel:setMyGuildWarBaseInfo( data )
+	self.myGuildWarBaseInfo = data or {}
+end
+function GuildNewwarModel:getMyGuildWarBaseInfo(  )
+	return self.myGuildWarBaseInfo
+end
+
+-- 更新我方联盟战基础数据
+function GuildNewwarModel:updateMyGuildWarBaseInfo( data )
+	for k,v in pairs(data) do
+		self.myGuildWarBaseInfo[k] = v
+	end
+end
+
+-- 更新敌方联盟战基础数据(目前只是星数)
+function GuildNewwarModel:updateEnemyGuildWarBaseInfo( hp )
+	self.enemyGuildWarBaseInfo.hp = hp
+end
+function GuildNewwarModel:getEnemyGuildWarBaseInfo(  )
+	return self.enemyGuildWarBaseInfo
+end
+
+-- 设置敌方联盟战数据
+function GuildNewwarModel:setEnemyGuildWarData( data )
+	-- 基础数据
+	self.enemyGuildWarBaseInfo.gname = data.gname2 or ""
+	self.enemyGuildWarBaseInfo.hp = data.hp2 or 0
+	self.enemyGuildWarBaseInfo.g_id = data.g_id or 0
+	self.enemyGuildWarBaseInfo.g_sid = data.g_sid or ""
+	self.enemyGuildWarBaseInfo.dan = data.dan2 or 1
+	self.enemyGuildWarBaseInfo.cups = data.cups2 or 1000
+	-- 据点数据
+	self.enemyGuildWarPositionList = {}
+	for k,pdata in pairs(data.defense or {}) do
+		local position_vo = GuildNewWarPositionVo.New()
+		position_vo:updateData(pdata)
+		self.enemyGuildWarPositionList[pdata.pos] = position_vo
+	end
+end
+function GuildNewwarModel:getEnemyGuildWarPositionList(  )
+	return self.enemyGuildWarPositionList
+end
+
+-- 获取敌方某一据点的当前血量
+function GuildNewwarModel:getEnemyPositionHpByPos( pos )
+	local position_vo = self.enemyGuildWarPositionList[pos]
+	if position_vo then
+		return position_vo.hp
+	end
+	return 0
+end
+
+-- 敌方是否还有存活的据点
+function GuildNewwarModel:checkEnemyIsHaveLivePosition(  )
+	local is_have = false
+	for k,position_vo in pairs(self.enemyGuildWarPositionList) do
+		if position_vo.hp > 0 then
+			is_have = true
+			break
+		end
+	end
+	return is_have
+end
+
+-- 设置联盟战状态数据
+function GuildNewwarModel:setGuildWarStatus( data )
+	if not data then data = {} end
+	self.guildWarStatus = data.status or GuildNewwarConst.status.close
+	self.guildWarStartTime = data.start_time or 0
+	self.guildWarEndTime = data.end_time or 0
+	self.guildWarEnemyFlag = data.flag or 0
+
+	-- 当状态变为未开启时，清掉缓存数据
+	if self.guildWarStatus == GuildNewwarConst.status.close then
+		self:config()
+	end
+	self:checkGuildWarStatusRed()
+	self:updateChallengeCountRedStatus()
+end
+-- 设置赛季数据 
+function GuildNewwarModel:setSeasonData(data)
+	self.guildwar_nomal_season_data = self.guildwar_nomal_season_data or {}
+	self.guildwar_nomal_season_data.is_top    = data.is_top     --是否获取传奇赛资格 
+	self.guildwar_nomal_season_data.zone_id   = data.zone_id    --赛区
+	self.guildwar_nomal_season_data.zone_rank = data.zone_rank  --赛区排名
+	self.guildwar_nomal_season_data.season    = data.season		--赛季
+	self.guildwar_nomal_season_data.week      = data.week		--周数
+	self.guildwar_nomal_season_data.dan       = data.dan		--段位
+	self.guildwar_nomal_season_data.cups	  = data.cups		--杯数
+	self.guildwar_nomal_season_data.win		  = data.win		--常规赛 胜场数
+	self.guildwar_nomal_season_data.all		  = data.all		--常规赛 总场数
+	self.guildwar_nomal_season_data.win_streak= data.win_streak	--常规赛 最大连胜
+	self.guildwar_nomal_season_data.rid       = data.rid		--
+	self.guildwar_nomal_season_data.srv_id    = data.srv_id		--
+	self.guildwar_nomal_season_data.name      = data.name		--赛季最佳成员名
+	self.guildwar_nomal_season_data.season_start_time = data.season_start_time --常规赛 开始时间
+	self.guildwar_nomal_season_data.season_end_time   = data.season_end_time   --常规赛 结束时间
+	self.guildwar_nomal_season_data.max_zone_id   = data.max_zone_id   --最大赛区
+	self.guildwar_nomal_season_data.status   = data.status   --99 表示公会联赛关闭 开旧公会战
+end
+
+function GuildNewwarModel:getSeasonData()
+	return self.guildwar_nomal_season_data
+end
+
+-- 更新联盟战状态的红点
+function GuildNewwarModel:checkGuildWarStatusRed(  )
+	if self.guildWarEnemyFlag == TRUE and self.guildWarStatus == GuildNewwarConst.status.showing then
+		if not self._match_red_flag then -- 该红点只显示一次
+			self._match_red_flag = true
+			self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_match, true)
+		end
+	elseif self.guildWarEnemyFlag == TRUE and self.guildWarStatus == GuildNewwarConst.status.processing then
+		if not self._start_red_flag then -- 该红点只显示一次
+			self._start_red_flag = true
+			self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_start, true)
+		end
+		self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_match, false)
+	else
+		self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_match, false)
+		self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_start, false)
+	end
+end
+
+function GuildNewwarModel:getGuildWarStatus(  )
+	return self.guildWarStatus
+end
+function GuildNewwarModel:getGuildWarSurplusTime(  )
+	local cur_time = GameNet:getInstance():getTime()
+	return self.guildWarEndTime - cur_time
+end
+function GuildNewwarModel:getGuildWarEnemyFlag(  )
+	return self.guildWarEnemyFlag
+end
+
+-- 设置我方联盟战据点数据
+function GuildNewwarModel:setMyGuildWarPositionData( dataList )
+	self.myGuildWarPositionList = {}
+	for k,data in pairs(dataList) do
+		local position_vo = GuildNewWarPositionVo.New()
+		position_vo:updateData(data)
+		self.myGuildWarPositionList[data.pos] = position_vo
+	end
+end
+function GuildNewwarModel:getMyGuildWarPositionList(  )
+	return self.myGuildWarPositionList
+end
+
+-- 更新我方据点数据(变量更)
+function GuildNewwarModel:updateMyGuildWarPositionData( dataList )
+	dataList = dataList or {}
+	for k,data in pairs(dataList) do
+		local position_vo = self.myGuildWarPositionList[data.pos]
+		if position_vo then
+			position_vo:updateData(data)
+		end
+	end
+end
+
+-- 更新敌方据点数据(变量更)
+function GuildNewwarModel:updateEnemyGuildWarPositionData( dataList )
+	dataList = dataList or {}
+	for k,data in pairs(dataList) do
+		local position_vo = self.enemyGuildWarPositionList[data.pos]
+		if position_vo then
+			position_vo:updateData(data)
+		end
+	end
+end
+
+-- 设置联盟战前三名数据
+function GuildNewwarModel:setGuildWarTopThreeRank( data )
+	self.guildWarTopThreeRank = data
+end
+function GuildNewwarModel:getGuildWarTopThreeRank(  )
+	return self.guildWarTopThreeRank
+end
+
+-- 更新联盟战红点
+function GuildNewwarModel:updateGuildWarRedStatus(bid, status, is_just_guildwar)
+    local _status = self.guildwar_red_list[bid]
+    if _status == status then return end
+
+	self.guildwar_red_list[bid] = status
+
+	if not is_just_guildwar then
+		-- 更新场景红点状态
+    	MainuiController:getInstance():setBtnRedPoint(MainuiConst.btn_index.guild, {bid = bid, status = status}) 
+		-- 更新公会主界面红点
+		GlobalEvent:getInstance():Fire(GuildEvent.UpdateGuildRedStatus, bid, status)
+	end
+	-- 更新公会战主界面红点
+	GlobalEvent:getInstance():Fire(GuildNewwarEvent.UpdateGuildWarRedStatusEvent, bid, status)
+end
+
+function GuildNewwarModel:checkRedIsShowByRedType( redType )
+	return self.guildwar_red_list[redType] or false
+end
+
+function GuildNewwarModel:checkGuildGuildWarRedStatus(  )
+	for k, v in pairs(self.guildwar_red_list) do
+		-- 排除日志红点，日志无需在入口处显示红点
+		if v == true and k ~= GuildConst.red_index.guildnewwar_log then
+			return true
+		end
+	end
+	return false
+end
+
+-- 设置奖励宝箱数据
+function GuildNewwarModel:setGuildWarBoxData( data )
+	local dataList = data.guild_league_peak_box
+	local result = data.result
+	local status = data.status
+	local end_time = data.end_time
+
+	if dataList then
+		self.award_box_data = {}
+		for k,data in pairs(dataList) do
+			data.status = result  -- 在这里赋值宝箱类型（金和铜）
+			local box_vo = GuildNewWarBoxVo.New()
+			box_vo:updateData(data)
+			table.insert(self.award_box_data, box_vo)
+		end
+	end
+
+	local cur_time = GameNet:getInstance():getTime()
+	-- 是否有权限领取宝箱、是否已到领取截止时间
+	if status and status == 1 and end_time and end_time > cur_time then
+		self.is_can_get_box = true
+	else
+		self.is_can_get_box = false
+	end
+	if self.is_can_get_box and not self:checkIsGetBoxAward() then
+		self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_box, true)
+	else
+		self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_box, false)
+	end
+end
+
+-- 更新宝箱数据
+function GuildNewwarModel:updateGuildWarBoxData( data )
+	if data then
+		local box_vo = self:getGuildWarDataByOrder(data.order)
+		if box_vo then
+			box_vo:updateData(data)
+		end
+		if self.is_can_get_box and not self:checkIsGetBoxAward() then
+			self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_box, true)
+		else
+			self:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_box, false)
+		end
+	end
+end
+
+-- 根据序号获取宝箱数据
+function GuildNewwarModel:getGuildWarDataByOrder( order )
+	for k,box_vo in pairs(self.award_box_data) do
+		if box_vo.order == order then
+			return box_vo
+		end
+	end
+end
+
+-- 获取全部宝箱数据
+function GuildNewwarModel:getGuildWarBoxData(  )
+	return self.award_box_data
+end
+
+-- 玩家是否领取了宝箱数据
+function GuildNewwarModel:checkIsGetBoxAward(  )
+	local is_get = false
+	local role_vo = RoleController:getInstance():getRoleVo()
+	for k,box_vo in pairs(self.award_box_data) do
+		if role_vo and box_vo.rid == role_vo.rid and box_vo.sid == role_vo.srv_id then
+			is_get = true
+			break
+		end
+	end
+	return is_get
+end
+
+--dan 根据当前段位  获取段位区间
+function GuildNewwarModel:analyzeGuildWarLevelCfg(dan)
+	local list = Config.GuildWarNewData.data_guild_war_level
+	local temp_cfg = {}
+	local need_exp_list = {}
+	local index = 0
+	local temp_need = 0
+	local base_exp = 0
+	if not self.level_cfg then
+		self.level_cfg = {}
+		for i, v in ipairs(list) do
+			if not temp_cfg.ico or (temp_cfg.ico and temp_cfg.ico ~= v.ico) then
+				index = index + 1
+				temp_need = 0
+				base_exp = 0
+			end
+			if base_exp == 0 then
+				base_exp = v.base_exp
+			end
+			if v.next_id ~= 0 then
+				temp_need = temp_need + v.need_exp
+			end
+			self.level_cfg[i] = {index = index, need_exp = temp_need, base_exp = base_exp}
+			need_exp_list[index] = math.max((need_exp_list[index] or 0), temp_need)
+			temp_cfg = v
+			if v.next_id == 0 then
+				break
+			end
+		end
+		for i, v in ipairs(self.level_cfg) do
+			v.need_exp = need_exp_list[v.index]
+		end
+	end
+	if not self.level_cfg[dan] then dan = 1 end
+	return self.level_cfg[dan].index, self.level_cfg[dan].need_exp, self.level_cfg[dan].base_exp
+end
+
+------ 传奇赛 ------
+function GuildNewwarModel:setMainData(data)
+    self.main_data = data
+    if self.main_data and self.my_bet_type then
+        self:checkPeakChampionTotalRedPoint(true)
+    end
+    -- --登陆检测一次
+    -- if not self.check_new_war then
+    --     self.check_new_war = true
+    --     CrossarenaController:getInstance():getModel():checkCrossarenaPrompt()
+    -- end
+end
+--是否赛季开启
+function GuildNewwarModel:checkSeasonIsStart()
+	if self.main_data then
+		local now_time = GameNet:getInstance():getTime() 
+		return now_time > self.main_data.start_time and now_time < self.main_data.end_time
+	end
+	return false
+end
+
+function GuildNewwarModel:getMainData()
+    return self.main_data
+end
+
+function GuildNewwarModel:checkGuildNewWarIsOpen(nottips)
+    -- local role_vo = RoleController:getInstance():getRoleVo()
+    -- local limit_cfg = Config.ArenaPeakChampionData.data_const["open_lev_limit"]
+    -- if limit_cfg and role_vo and role_vo.lev < limit_cfg.val then
+    --     if not nottips then
+    --         message(limit_cfg.desc)
+    --     end 
+    --     return false, limit_cfg.desc
+    -- end
+
+    -- local world_lv_cfg = Config.ArenaPeakChampionData.data_const["open_world_lev_limit"]
+    -- local world_lev = RoleController:getInstance():getModel():getWorldLev()
+    -- if world_lev and world_lv_cfg and world_lev < world_lv_cfg.val then
+    --     if not nottips then
+    --         message(world_lv_cfg.desc)
+    --     end 
+    --     return false, world_lv_cfg.desc
+    -- end
+
+    return true
+end
+
+function GuildNewwarModel:checkPeakChampionTotalRedPoint(need_check)
+    local is_open = self:checkGuildNewWarIsOpen(true)
+    if not is_open then return false end
+
+    local redpoint = self:getGuessRedPoint()
+    -- if redpoint then
+    --     PromptController:getInstance():getModel():addPromptData({type = PromptTypeConst.Guild_New_war})
+    -- else
+    --     PromptController:getInstance():getModel():removePromptDataByTpye(PromptTypeConst.Guild_New_war)
+    -- end
+
+    if self.main_data then
+        if not redpoint then
+            if self.my_match_redpoint or self.match_stage_redpoint then
+                redpoint = true
+            end
+        end
+
+        -- --点赞红点
+        -- if not redpoint  then
+        --     redpoint = self.is_worship_redpoint or false
+        -- end
+    end
+
+    if need_check then
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_ALL_RED_POINT_EVENT)
+    end
+	-- 抽奖
+	redpoint = redpoint or self:checkLegendTurnTable()
+    return redpoint
+end
+
+function GuildNewwarModel:checkLegendTurnTable()
+	local is_open = self:checkGuildNewWarIsOpen(true)
+    if not is_open then return false end
+	local item_bid = Config.DialData.data_const["elite_consume_item"].val
+	local num = BackpackController:getInstance():getModel():getBackPackItemNumByBid(item_bid)
+	return num > 0
+end
+
+-- --点赞红点
+-- function GuildNewwarModel:setWorshipRedPoint(count)
+--     if not count then return end
+--     local like_max = 3
+--     local config = Config.ArenaPeakChampionData.data_const.like_max
+--     if config then
+--         like_max = config.val or 3
+--     end
+--     if count >= like_max then
+--         self.is_worship_redpoint = false
+--     else
+--         self.is_worship_redpoint = true
+--     end
+--     self:checkPeakChampionTotalRedPoint(true)
+-- end
+
+-- function GuildNewwarModel:getWorshipRedPoint()
+--     return self.is_worship_redpoint or false
+-- end
+
+--获取是否竞猜的红点
+function GuildNewwarModel:getGuessRedPoint()
+    if self.main_data and self.my_bet_info then
+        if self.main_data.step ~= 0 and self.main_data.step_status == 4 then
+			--竞猜阶段 我未下注
+			if self.my_bet_info.bet_type == 0 then 
+				return true
+			end
+        end
+    end
+    return false
+end
+
+function GuildNewwarModel:setLoginRedPoint(data)
+    if not data then  return end
+    if not self.main_data then return end
+    for i,v in ipairs(data.point_info) do
+        if v.type == 1 then --我的赛程
+            self.my_match_redpoint = (v.is_point == 0)
+        elseif v.type == 2 then --晋级赛红点/64强红点
+            if self.main_data.step == 64  or self.main_data.step == 8 then
+                self.match_stage_redpoint = (v.is_point == 0)
+            else
+                self.match_stage_redpoint = false
+            end
+        end
+    end
+    self:checkPeakChampionTotalRedPoint(true)
+end
+
+function GuildNewwarModel:getMyMatchRedPoint()
+	return self.my_match_redpoint
+end
+
+function GuildNewwarModel:setMyMatchRedPoint(status)
+    self.my_match_redpoint = status
+    self:checkPeakChampionTotalRedPoint(true)
+end
+
+function GuildNewwarModel:getMatchStageRedPoint()
+	local redpoint = self.match_stage_redpoint or self:getGuessRedPoint()
+	return redpoint
+end
+
+function GuildNewwarModel:setMatchStageRedPoint(status)
+    self.match_stage_redpoint = status
+    self:checkPeakChampionTotalRedPoint(true)
+end
+
+--我的下注信息
+function GuildNewwarModel:setBetTypeInfo(bet_type)
+    self.my_bet_type = bet_type
+    if self.main_data and self.my_bet_type then
+        self:checkPeakChampionTotalRedPoint(true)
+    end
+end
+
+function GuildNewwarModel:setBetInfo(bet_info)
+	self.my_bet_info = bet_info
+end
+
+function GuildNewwarModel:getBetInfo()
+	return self.my_bet_info
+end
+
+function GuildNewwarModel:updateBetInfo(data)
+	if not self.my_bet_info then
+		self.my_bet_info = {}
+	end
+    self.my_bet_info.a_bet = data.a_bet
+    self.my_bet_info.a_bet_ratio = data.a_bet_ratio
+    self.my_bet_info.b_bet = data.b_bet
+    self.my_bet_info.b_bet_ratio = data.b_bet_ratio
+end
+
+function GuildNewwarModel:setMyGuessData(data)
+    self.my_guess_data = data
+end
+
+function GuildNewwarModel:getMyGuessData()
+    return self.my_guess_data
+end
+
+
+--64强数据
+function GuildNewwarModel:setMatchData64(list, zone_id)
+	if list then
+		zone_id = zone_id or 1
+	   self.match_data_64[zone_id] = {}
+	   self.max_group_64[zone_id] = 0
+	   for i,v in ipairs(list) do
+		   self.match_data_64[zone_id][v.group] = v.pos_list
+		   if self.max_group_64[zone_id] < v.group then
+			   self.max_group_64[zone_id] = v.group
+		   end
+	   end
+   else
+	   self.match_data_64[zone_id] = nil  
+	   self.max_group_64[zone_id] = 8  
+   end
+end
+--根据组获取信息
+function GuildNewwarModel:getMatchData64ByGroup(group, zone_id)
+	zone_id = zone_id or 1
+   if self.match_data_64 and self.match_data_64[zone_id] then
+	   return self.match_data_64[zone_id][group]
+   end
+   return nil
+end
+
+--8强数据
+function GuildNewwarModel:setMatchData8(data, zone_id)
+	zone_id = zone_id or 1
+   self.match_data_8[zone_id] = data
+end
+
+function GuildNewwarModel:getMatchData8(zone_id)
+	zone_id = zone_id or 1
+   return self.match_data_8[zone_id]
+end
+
+--获取比赛的阶段描述
+--return 比赛标题 , 比赛阶段
+function GuildNewwarModel:getMacthText(step, step_status)
+    if not step then return end
+    if step == 0 then
+        if self:isBeforeOpenMacthTime() then
+            return TI18N("语言_c_561")
+        else
+            return TI18N("语言_c_562")
+        end
+    else
+        local str = nil
+        local str1 = nil
+        local step_str = {TI18N("语言_c_5380"),TI18N("语言_c_5381"),TI18N("语言_c_5384"),TI18N("语言_c_5385"),TI18N("语言_c_5386"),TI18N("语言_c_5387")}
+        str = step_str[step]
+
+        if step_status then
+            if step_status == 4 then
+                str1 = TI18N("语言_c_4280")
+            elseif step_status == 5 then
+                str1 = TI18N("语言_c_4281")
+            elseif step_status == 3 then
+                str1 = TI18N("语言_c_120")
+            elseif step_status == 2 then 
+                str1 = TI18N("语言_c_5378")
+			elseif step_status == 6 then 
+                str1 = TI18N("语言_c_4983")
+            else --默认休整阶段
+                str1 = TI18N("语言_c_5379")
+            end
+        end
+        return str, str1
+    end
+end
+
+function GuildNewwarModel:isBeforeOpenMacthTime()
+    if not self.main_data then return false end
+
+    if self.main_data.step == 0 or self.main_data.step_status == 2 then
+
+        local time = self.main_data.start_time - GameNet:getInstance():getTime()
+        if time < 0 then
+            time = 0
+        end
+        --策划说 离开启时间 5天 6个小时跨服竞技场赛就是巅峰冠军赛季
+        local total_time =  5*24*60*60 + 6*60*60
+        if time <= total_time then
+            return true
+        else
+            return false
+        end
+    else
+        return false
+    end
+
+end
+
+--保存整容判断是否在竞猜或者战斗阶段
+function GuildNewwarModel:checkIsSaveFormStatus()
+	if not self.main_data then return false, TI18N("语言_c_5382") end
+    if self.main_data.step_status == GuildNewwarConst.guessing_set_status_type.set_status_quiz then
+		return false, TI18N("语言_c_5353")
+	end
+	if self.main_data.step_status == GuildNewwarConst.guessing_set_status_type.set_status_battle then
+		return false, TI18N("语言_c_5353")
+	end
+	if self.main_data.step_status == GuildNewwarConst.guessing_set_status_type.set_status_broadcast then
+		return false, TI18N("语言_c_5353")
+	end
+	return true
+end
+
+function GuildNewwarModel:__delete()
+end

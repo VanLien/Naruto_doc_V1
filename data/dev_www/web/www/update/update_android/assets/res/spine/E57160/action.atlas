@@ -1,0 +1,48 @@
+
+action.png
+size: 638,106
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/diandian/diandian_14
+  rotate: true
+  xy: 586, 10
+  size: 41, 42
+  orig: 48, 48
+  offset: 3, 3
+  index: -1
+images/guidao/guidao_00
+  rotate: false
+  xy: 0, 0
+  size: 212, 106
+  orig: 222, 112
+  offset: 5, 6
+  index: -1
+images/guidao_2/guidao_2_00
+  rotate: false
+  xy: 214, 2
+  size: 209, 104
+  orig: 218, 108
+  offset: 5, 4
+  index: -1
+images/qiu/qiu_16
+  rotate: false
+  xy: 586, 53
+  size: 52, 53
+  orig: 64, 64
+  offset: 6, 5
+  index: -1
+images/qiu_2/qiu_2_00
+  rotate: true
+  xy: 520, 41
+  size: 65, 64
+  orig: 78, 79
+  offset: 6, 8
+  index: -1
+images/xingxing/xingxing_03
+  rotate: false
+  xy: 425, 13
+  size: 93, 93
+  orig: 110, 110
+  offset: 9, 9
+  index: -1

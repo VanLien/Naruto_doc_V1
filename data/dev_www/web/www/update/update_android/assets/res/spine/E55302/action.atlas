@@ -1,0 +1,152 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 2, 2
+  size: 750, 377
+  orig: 750, 390
+  offset: 0, 13
+  index: -1
+11
+  rotate: false
+  xy: 2, 1542
+  size: 750, 390
+  orig: 750, 390
+  offset: 0, 0
+  index: -1
+12
+  rotate: false
+  xy: 2, 381
+  size: 750, 379
+  orig: 750, 390
+  offset: 0, 11
+  index: -1
+13
+  rotate: false
+  xy: 754, 774
+  size: 750, 379
+  orig: 750, 390
+  offset: 0, 11
+  index: -1
+14
+  rotate: false
+  xy: 2, 1150
+  size: 750, 390
+  orig: 750, 390
+  offset: 0, 0
+  index: -1
+15
+  rotate: false
+  xy: 754, 1542
+  size: 750, 390
+  orig: 750, 390
+  offset: 0, 0
+  index: -1
+16
+  rotate: false
+  xy: 2, 762
+  size: 750, 386
+  orig: 750, 390
+  offset: 0, 4
+  index: -1
+17
+  rotate: false
+  xy: 754, 1155
+  size: 750, 385
+  orig: 750, 390
+  offset: 0, 5
+  index: -1
+18
+  rotate: true
+  xy: 1506, 1182
+  size: 750, 382
+  orig: 750, 390
+  offset: 0, 8
+  index: -1
+2
+  rotate: false
+  xy: 754, 395
+  size: 750, 377
+  orig: 750, 390
+  offset: 0, 13
+  index: -1
+3
+  rotate: true
+  xy: 1506, 430
+  size: 750, 377
+  orig: 750, 390
+  offset: 0, 13
+  index: -1
+6
+  rotate: false
+  xy: 754, 16
+  size: 750, 377
+  orig: 750, 390
+  offset: 0, 13
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+10
+  rotate: false
+  xy: 2, 379
+  size: 750, 377
+  orig: 750, 390
+  offset: 0, 13
+  index: -1
+19
+  rotate: false
+  xy: 2, 2
+  size: 750, 375
+  orig: 750, 390
+  offset: 0, 15
+  index: -1
+20
+  rotate: false
+  xy: 754, 383
+  size: 748, 374
+  orig: 750, 390
+  offset: 0, 16
+  index: -1
+4
+  rotate: false
+  xy: 754, 759
+  size: 750, 376
+  orig: 750, 390
+  offset: 0, 14
+  index: -1
+5
+  rotate: true
+  xy: 1506, 764
+  size: 750, 376
+  orig: 750, 390
+  offset: 0, 14
+  index: -1
+7
+  rotate: false
+  xy: 2, 1137
+  size: 750, 377
+  orig: 750, 390
+  offset: 0, 13
+  index: -1
+8
+  rotate: false
+  xy: 2, 758
+  size: 750, 377
+  orig: 750, 390
+  offset: 0, 13
+  index: -1
+9
+  rotate: false
+  xy: 754, 1137
+  size: 750, 377
+  orig: 750, 390
+  offset: 0, 13
+  index: -1

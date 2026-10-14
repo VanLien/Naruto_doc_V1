@@ -1,0 +1,48 @@
+
+show.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+117-大筒木辉夜/00000
+  rotate: false
+  xy: 2, 1001
+  size: 356, 499
+  orig: 564, 564
+  offset: 86, 12
+  index: -1
+117-大筒木辉夜/00001
+  rotate: false
+  xy: 2, 501
+  size: 348, 498
+  orig: 564, 564
+  offset: 92, 14
+  index: -1
+117-大筒木辉夜/00002
+  rotate: false
+  xy: 715, 1504
+  size: 344, 498
+  orig: 564, 564
+  offset: 94, 16
+  index: -1
+117-大筒木辉夜/00003
+  rotate: false
+  xy: 2, 2
+  size: 345, 497
+  orig: 564, 564
+  offset: 92, 17
+  index: -1
+117-大筒木辉夜/00004
+  rotate: false
+  xy: 361, 1503
+  size: 352, 499
+  orig: 564, 564
+  offset: 86, 15
+  index: -1
+117-大筒木辉夜/00005
+  rotate: false
+  xy: 2, 1502
+  size: 357, 500
+  orig: 564, 564
+  offset: 83, 13
+  index: -1

@@ -1,0 +1,123 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/E405143/0_00013
+  rotate: false
+  xy: 1852, 1768
+  size: 187, 277
+  orig: 1200, 1000
+  offset: 536, 184
+  index: -1
+image/E405143/0_00014
+  rotate: true
+  xy: 879, 87
+  size: 267, 405
+  orig: 1200, 1000
+  offset: 489, 167
+  index: -1
+image/E405143/0_00015
+  rotate: true
+  xy: 476, 59
+  size: 295, 401
+  orig: 1200, 1000
+  offset: 472, 161
+  index: -1
+image/E405143/0_00016
+  rotate: true
+  xy: 2, 20
+  size: 334, 472
+  orig: 1200, 1000
+  offset: 459, 157
+  index: -1
+image/E405143/0_00017
+  rotate: true
+  xy: 1286, 2
+  size: 377, 475
+  orig: 1200, 1000
+  offset: 436, 152
+  index: -1
+image/E405143/0_00020
+  rotate: false
+  xy: 1286, 381
+  size: 738, 788
+  orig: 1200, 1000
+  offset: 280, 67
+  index: -1
+image/E405143/0_00024
+  rotate: false
+  xy: 2, 356
+  size: 896, 885
+  orig: 1200, 1000
+  offset: 184, 92
+  index: -1
+image/E405143/0_00025
+  rotate: false
+  xy: 931, 1171
+  size: 919, 874
+  orig: 1200, 1000
+  offset: 175, 104
+  index: -1
+image/E405143/0_00026
+  rotate: false
+  xy: 2, 1243
+  size: 927, 802
+  orig: 1200, 1000
+  offset: 177, 161
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/E405143/0_00018
+  rotate: false
+  xy: 1521, 504
+  size: 397, 462
+  orig: 1200, 1000
+  offset: 425, 166
+  index: -1
+image/E405143/0_00021
+  rotate: false
+  xy: 874, 968
+  size: 788, 820
+  orig: 1200, 1000
+  offset: 239, 69
+  index: -1
+image/E405143/0_00022
+  rotate: false
+  xy: 2, 2
+  size: 844, 888
+  orig: 1200, 1000
+  offset: 211, 71
+  index: -1
+image/E405143/0_00023
+  rotate: false
+  xy: 2, 892
+  size: 870, 896
+  orig: 1200, 1000
+  offset: 196, 76
+  index: -1
+image/E405143/0_00027
+  rotate: true
+  xy: 848, 29
+  size: 861, 671
+  orig: 1200, 1000
+  offset: 169, 272
+  index: -1
+
+action3.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/E405143/0_00019
+  rotate: false
+  xy: 2, 2
+  size: 571, 634
+  orig: 1200, 1000
+  offset: 331, 103
+  index: -1

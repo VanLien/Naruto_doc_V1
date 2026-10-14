@@ -1,0 +1,146 @@
+
+action.png
+size: 1009,995
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+glow/zdg_0000
+  rotate: true
+  xy: 0, 491
+  size: 504, 254
+  orig: 504, 254
+  offset: 0, 0
+  index: -1
+huahen/zhuahen_0000
+  rotate: false
+  xy: 256, 603
+  size: 233, 232
+  orig: 394, 426
+  offset: 65, 137
+  index: -1
+huahen/zhuahen_0001
+  rotate: false
+  xy: 233, 190
+  size: 239, 299
+  orig: 394, 426
+  offset: 71, 66
+  index: -1
+huahen/zhuahen_0002
+  rotate: true
+  xy: 568, 550
+  size: 227, 295
+  orig: 394, 426
+  offset: 81, 64
+  index: -1
+huahen/zhuahen_0003
+  rotate: true
+  xy: 568, 779
+  size: 216, 296
+  orig: 394, 426
+  offset: 92, 56
+  index: -1
+huahen/zhuahen_0004
+  rotate: false
+  xy: 0, 189
+  size: 231, 300
+  orig: 394, 426
+  offset: 73, 62
+  index: -1
+huahen/zhuahen_0005
+  rotate: true
+  xy: 256, 837
+  size: 158, 252
+  orig: 394, 426
+  offset: 144, 57
+  index: -1
+shouji/hit_tt_0000
+  rotate: false
+  xy: 380, 2
+  size: 186, 186
+  orig: 350, 350
+  offset: 81, 83
+  index: -1
+shouji/hit_tt_0001
+  rotate: false
+  xy: 568, 4
+  size: 186, 186
+  orig: 350, 350
+  offset: 81, 83
+  index: -1
+shouji/hit_tt_0002
+  rotate: false
+  xy: 666, 362
+  size: 186, 186
+  orig: 350, 350
+  offset: 81, 83
+  index: -1
+shouji/hit_tt_0003
+  rotate: false
+  xy: 0, 0
+  size: 190, 187
+  orig: 350, 350
+  offset: 77, 83
+  index: -1
+shouji/hit_tt_0004
+  rotate: false
+  xy: 474, 358
+  size: 190, 190
+  orig: 350, 350
+  offset: 75, 80
+  index: -1
+shouji/hit_tt_0005
+  rotate: true
+  xy: 192, 0
+  size: 187, 186
+  orig: 350, 350
+  offset: 76, 83
+  index: -1
+shouji/hit_tt_0006
+  rotate: true
+  xy: 756, 16
+  size: 177, 176
+  orig: 350, 350
+  offset: 81, 92
+  index: -1
+shouji/hit_tt_0007
+  rotate: true
+  xy: 474, 192
+  size: 164, 168
+  orig: 350, 350
+  offset: 92, 92
+  index: -1
+shouji/hit_tt_0008
+  rotate: true
+  xy: 644, 195
+  size: 161, 168
+  orig: 350, 350
+  offset: 94, 92
+  index: -1
+shouji/hit_tt_0009
+  rotate: false
+  xy: 814, 202
+  size: 156, 158
+  orig: 350, 350
+  offset: 96, 97
+  index: -1
+shouji/hit_tt_0010
+  rotate: false
+  xy: 865, 568
+  size: 141, 141
+  orig: 350, 350
+  offset: 102, 104
+  index: -1
+shouji/hit_tt_0011
+  rotate: false
+  xy: 866, 711
+  size: 142, 141
+  orig: 350, 350
+  offset: 102, 104
+  index: -1
+shouji/hit_tt_0012
+  rotate: false
+  xy: 866, 854
+  size: 143, 141
+  orig: 350, 350
+  offset: 101, 104
+  index: -1

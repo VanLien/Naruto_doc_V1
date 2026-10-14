@@ -1,0 +1,276 @@
+﻿LOG_TYPE = {
+	create_role = "create_role",
+	reg_acc = "reg_acc",
+	device = "device",
+	enter_city = "enter_city",
+	get_def_srv = "get_def_srv",
+	load_start = "load_start",
+	select_srv = "select_srv",
+	flash = "flash",
+	advice = "advice",
+	load_end = "load_end"
+}
+
+local var_0_0 = true and LOG_URL ~= nil and cc.CCGameLib.logsign and PLATFORM ~= cc.PLATFORM_OS_WINDOWS and PLATFORM ~= cc.PLATFORM_OS_MAC
+
+function log_to_web(arg_1_0, arg_1_1)
+	if not var_0_0 then
+		return
+	end
+
+	local var_1_0 = LOG_URL .. arg_1_0
+	local var_1_1 = os.date("%Y-%m-%d %H:%M:%S")
+	local var_1_2 = ("?date_time=" .. log_url_encode(var_1_1)) .. "&sign=" .. cc.CCGameLib:getInstance():logsign(var_1_1)
+
+	for iter_1_0, iter_1_1 in pairs(arg_1_1) do
+		var_1_2 = var_1_2 .. "&" .. iter_1_0 .. "=" .. log_url_encode(iter_1_1)
+	end
+
+	local var_1_3 = var_1_0 .. var_1_2
+	local var_1_4 = cc.XMLHttpRequest:new()
+
+	var_1_4.responseType = cc.XMLHTTPREQUEST_RESPONSE_STRING
+
+	var_1_4:open("POST", var_1_3)
+	var_1_4:registerScriptHandler(function()
+		log_to_idfa_web(var_1_2)
+	end)
+	var_1_4:send()
+end
+
+function log_to_idfa_web(arg_3_0)
+	if not CONF_IDFA_WEB then
+		return
+	end
+
+	local var_3_0 = CONF_IDFA_WEB
+	local var_3_1 = cc.XMLHttpRequest:new()
+
+	var_3_1.responseType = cc.XMLHTTPREQUEST_RESPONSE_STRING
+
+	var_3_1:open("POST", var_3_0)
+	var_3_1:registerScriptHandler(function()
+		return
+	end)
+	var_3_1:send(arg_3_0)
+end
+
+function log_url_encode(arg_5_0)
+	arg_5_0 = string.gsub(arg_5_0, "\n", "\r\n")
+	arg_5_0 = string.gsub(arg_5_0, "([^%w ])", function(arg_6_0)
+		return string.format("%%%02X", string.byte(arg_6_0))
+	end)
+	arg_5_0 = string.gsub(arg_5_0, " ", "+")
+
+	return arg_5_0
+end
+
+function log_get_device_type()
+	if PLATFORM == cc.PLATFORM_OS_WINDOWS then
+		return "win"
+	elseif PLATFORM == cc.PLATFORM_OS_MAC then
+		return "mac"
+	elseif PLATFORM == cc.PLATFORM_OS_IPHONE then
+		return "iphone"
+	elseif PLATFORM == cc.PLATFORM_OS_IPAD then
+		return "ipad"
+	elseif PLATFORM == cc.PLATFORM_OS_ANDROID then
+		return "android"
+	elseif PLATFORM == cc.PLATFORM_OS_LINUX then
+		return "linux"
+	else
+		return "other"
+	end
+end
+
+function log_get_device_info()
+	local var_8_0 = get_channel()
+
+	return {
+		resolution = "",
+		device_id = getIdFa(),
+		device_type = cc.GameDevice:callFunc("getDeviceName", "", 0, 0, ""),
+		os = cc.GameDevice:callFunc("system_version", "", 0, 0, ""),
+		carrier = cc.GameDevice:callFunc("carrier_name", "", 0, 0, ""),
+		network_type = device.isWifiState() and "wifi" or "数据",
+		product_name = GAME_CODE,
+		platform_name = PLATFORM_NAME,
+		channel_name = var_8_0
+	}
+end
+
+function log_flag(arg_9_0, arg_9_1)
+	if not var_0_0 then
+		return false
+	end
+
+	arg_9_1 = arg_9_1 or 1
+
+	local var_9_0 = string.format("%slog_flag.lua", cc.FileUtils:getInstance():getWritablePath())
+
+	if __log_flag == nil then
+		__log_flag = {}
+
+		if cc.FileUtils:getInstance():isFileExist(var_9_0) then
+			local var_9_1, var_9_2 = pcall(function()
+				return dofile(var_9_0)
+			end)
+
+			if var_9_1 and type(var_9_2) == "table" then
+				__log_flag = var_9_2
+			end
+		end
+	end
+
+	local var_9_3 = __log_flag[arg_9_0]
+
+	if var_9_3 ~= arg_9_1 then
+		__log_flag[arg_9_0] = arg_9_1
+
+		local var_9_4 = "return {"
+
+		for iter_9_0, iter_9_1 in pairs(__log_flag) do
+			if type(iter_9_1) == "string" then
+				var_9_4 = var_9_4 .. "\n  " .. iter_9_0 .. " = [[" .. iter_9_1 .. "]],"
+			else
+				var_9_4 = var_9_4 .. "\n  " .. iter_9_0 .. " = " .. iter_9_1 .. ","
+			end
+		end
+
+		local var_9_5 = var_9_4 .. "\n}"
+		local var_9_6 = assert(io.open(var_9_0, "wb"))
+
+		var_9_6:write(var_9_5)
+		var_9_6:close()
+	end
+
+	return var_9_3 ~= arg_9_1
+end
+
+function log_activate_device()
+	if log_flag(LOG_TYPE.device) then
+		local var_11_0 = log_get_device_info()
+
+		log_to_web("/device/activation", var_11_0)
+	end
+end
+
+function log_flash()
+	if log_flag(LOG_TYPE.flash) then
+		local var_12_0 = log_get_device_info()
+
+		var_12_0.step = 1
+
+		log_to_web("/entry/step", var_12_0)
+	end
+end
+
+function log_advice()
+	if log_flag(LOG_TYPE.advice) then
+		local var_13_0 = log_get_device_info()
+
+		var_13_0.step = 2
+
+		log_to_web("/entry/step", var_13_0)
+	end
+end
+
+function log_loading_start()
+	if log_flag(LOG_TYPE.load_start) then
+		local var_14_0 = log_get_device_info()
+
+		var_14_0.step = 3
+
+		log_to_web("/entry/step", var_14_0)
+	end
+end
+
+function log_loading_end()
+	if log_flag(LOG_TYPE.load_end) then
+		local var_15_0 = log_get_device_info()
+
+		var_15_0.step = 4
+
+		log_to_web("/entry/step", var_15_0)
+	end
+end
+
+function log_reg_account(arg_16_0)
+	if log_flag(LOG_TYPE.reg_acc) then
+		local var_16_0 = log_get_device_info()
+
+		var_16_0.step = 5
+		var_16_0.account_id = arg_16_0
+		var_16_0.account_name = arg_16_0
+
+		log_to_web("/entry/step", var_16_0)
+	end
+end
+
+function log_select_server(arg_17_0)
+	if log_flag(LOG_TYPE.select_srv) then
+		local var_17_0 = log_get_device_info()
+
+		var_17_0.step = 6
+		var_17_0.account_id = arg_17_0
+		var_17_0.account_name = arg_17_0
+
+		log_to_web("/entry/step", var_17_0)
+	end
+end
+
+function log_create_role(arg_18_0)
+	if log_flag(LOG_TYPE.create_role) then
+		local var_18_0 = log_get_device_info()
+
+		var_18_0.step = 7
+		var_18_0.account_id = arg_18_0
+		var_18_0.account_name = arg_18_0
+
+		log_to_web("/entry/step", var_18_0)
+	end
+end
+
+function log_enter_city(arg_19_0)
+	if log_flag(LOG_TYPE.enter_city) then
+		local var_19_0 = log_get_device_info()
+
+		var_19_0.step = 8
+		var_19_0.account_id = arg_19_0
+		var_19_0.account_name = arg_19_0
+
+		log_to_web("/entry/step", var_19_0)
+	end
+end
+
+function log_get_def_srv(arg_20_0)
+	return
+end
+
+function log_change_name(arg_21_0)
+	local var_21_0 = log_get_device_info()
+
+	var_21_0.name = arg_21_0
+
+	log_to_web("/api/set_name", var_21_0)
+end
+
+local var_0_1 = {}
+
+function log_put_guide(arg_22_0, arg_22_1)
+	local var_22_0 = log_get_device_info()
+
+	if var_0_1[arg_22_0] then
+		return
+	else
+		var_0_1[arg_22_0] = 1
+	end
+
+	var_22_0.guide_id = arg_22_0
+	var_22_0.step = arg_22_1
+
+	log_to_web("/api/guide", var_22_0)
+end
+
+log_activate_device()
+log_flash()

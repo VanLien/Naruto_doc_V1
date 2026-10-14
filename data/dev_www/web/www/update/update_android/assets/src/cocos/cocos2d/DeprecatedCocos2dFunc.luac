@@ -1,0 +1,1254 @@
+﻿local function var_0_0(arg_1_0, arg_1_1)
+	return
+end
+
+local var_0_1 = {
+	sharedDirector = function()
+		var_0_0("CCDirector:sharedDirector", "cc.Director:getInstance")
+
+		return cc.Director:getInstance()
+	end
+}
+
+CCDirector.sharedDirector = var_0_1.sharedDirector
+
+local var_0_2 = {
+	getInstance = function(arg_3_0)
+		var_0_0("cc.TextureCache:getInstance", "cc.Director:getInstance():getTextureCache")
+
+		return cc.Director:getInstance():getTextureCache()
+	end
+}
+
+cc.TextureCache.getInstance = var_0_2.getInstance
+
+function var_0_2.destroyInstance(arg_4_0)
+	var_0_0("cc.TextureCache:destroyInstance", "cc.Director:getInstance():destroyTextureCache")
+
+	return cc.Director:getInstance():destroyTextureCache()
+end
+
+cc.TextureCache.destroyInstance = var_0_2.destroyInstance
+
+function var_0_2.dumpCachedTextureInfo(arg_5_0)
+	var_0_0("self:dumpCachedTextureInfo", "self:getCachedTextureInfo")
+
+	return print(arg_5_0:getCachedTextureInfo())
+end
+
+cc.TextureCache.dumpCachedTextureInfo = var_0_2.dumpCachedTextureInfo
+
+local var_0_3 = {
+	sharedTextureCache = function()
+		var_0_0("CCTextureCache:sharedTextureCache", "CCTextureCache:getInstance")
+
+		return cc.TextureCache:getInstance()
+	end
+}
+
+rawset(CCTextureCache, "sharedTextureCache", var_0_3.sharedTextureCache)
+
+function var_0_3.purgeSharedTextureCache()
+	var_0_0("CCTextureCache:purgeSharedTextureCache", "CCTextureCache:destroyInstance")
+
+	return cc.TextureCache:destroyInstance()
+end
+
+rawset(CCTextureCache, "purgeSharedTextureCache", var_0_3.purgeSharedTextureCache)
+
+function var_0_3.addUIImage(arg_8_0, arg_8_1, arg_8_2)
+	var_0_0("CCTextureCache:addUIImage", "CCTextureCache:addImage")
+
+	return arg_8_0:addImage(arg_8_1, arg_8_2)
+end
+
+CCTextureCache.addUIImage = var_0_3.addUIImage
+
+local var_0_4 = {
+	addSpriteFrameWithFileName = function(arg_9_0, ...)
+		var_0_0("CCAnimationDeprecated:addSpriteFrameWithFileName", "cc.Animation:addSpriteFrameWithFile")
+
+		return arg_9_0:addSpriteFrameWithFile(...)
+	end
+}
+
+CCAnimation.addSpriteFrameWithFileName = var_0_4.addSpriteFrameWithFileName
+
+local var_0_5 = {
+	sharedAnimationCache = function()
+		var_0_0("CCAnimationCache:sharedAnimationCache", "CCAnimationCache:getInstance")
+
+		return CCAnimationCache:getInstance()
+	end
+}
+
+CCAnimationCache.sharedAnimationCache = var_0_5.sharedAnimationCache
+
+function var_0_5.purgeSharedAnimationCache()
+	var_0_0("CCAnimationCache:purgeSharedAnimationCache", "CCAnimationCache:destroyInstance")
+
+	return CCAnimationCache:destroyInstance()
+end
+
+CCAnimationCache.purgeSharedAnimationCache = var_0_5.purgeSharedAnimationCache
+
+function var_0_5.addAnimationsWithFile(arg_12_0, ...)
+	var_0_0("CCAnimationCache:addAnimationsWithFile", "cc.AnimationCache:addAnimations")
+
+	return arg_12_0:addAnimations(...)
+end
+
+CCAnimationCache.addAnimationsWithFile = var_0_5.addAnimationsWithFile
+
+function var_0_5.animationByName(arg_13_0, ...)
+	var_0_0("CCAnimationCache:animationByName", "cc.AnimationCache:getAnimation")
+
+	return arg_13_0:getAnimation(...)
+end
+
+CCAnimationCache.animationByName = var_0_5.animationByName
+
+function var_0_5.removeAnimationByName(arg_14_0)
+	var_0_0("CCAnimationCache:removeAnimationByName", "cc.AnimationCache:removeAnimation")
+
+	return arg_14_0:removeAnimation()
+end
+
+CCAnimationCache.removeAnimationByName = var_0_5.removeAnimationByName
+
+local var_0_6 = {
+	sharedFileUtils = function()
+		var_0_0("CCFileUtils:sharedFileUtils", "CCFileUtils:getInstance")
+
+		return cc.FileUtils:getInstance()
+	end
+}
+
+CCFileUtils.sharedFileUtils = var_0_6.sharedFileUtils
+
+function var_0_6.purgeFileUtils()
+	var_0_0("CCFileUtils:purgeFileUtils", "CCFileUtils:destroyInstance")
+
+	return cc.FileUtils:destroyInstance()
+end
+
+CCFileUtils.purgeFileUtils = var_0_6.purgeFileUtils
+
+local var_0_7 = {
+	createWithItem = function(arg_17_0, ...)
+		var_0_0("CCMenuDeprecated:createWithItem", "cc.Menu:createWithItem")
+
+		return arg_17_0:create(...)
+	end
+}
+
+CCMenu.createWithItem = var_0_7.createWithItem
+
+function var_0_7.setHandlerPriority(arg_18_0)
+	print("\n********** \n" .. "setHandlerPriority was deprecated in 3.0. \n**********")
+end
+
+CCMenu.setHandlerPriority = var_0_7.setHandlerPriority
+
+local var_0_8 = {
+	boundingBox = function(arg_19_0)
+		var_0_0("CCNode:boundingBox", "cc.Node:getBoundingBox")
+
+		return arg_19_0:getBoundingBox()
+	end
+}
+
+CCNode.boundingBox = var_0_8.boundingBox
+
+function var_0_8.numberOfRunningActions(arg_20_0)
+	var_0_0("CCNode:numberOfRunningActions", "cc.Node:getNumberOfRunningActions")
+
+	return arg_20_0:getNumberOfRunningActions()
+end
+
+CCNode.numberOfRunningActions = var_0_8.numberOfRunningActions
+
+function var_0_8.removeFromParentAndCleanup(arg_21_0, ...)
+	var_0_0("CCNode:removeFromParentAndCleanup", "cc.Node:removeFromParent")
+
+	return arg_21_0:removeFromParent(...)
+end
+
+CCNode.removeFromParentAndCleanup = var_0_8.removeFromParentAndCleanup
+
+local function var_0_9()
+	var_0_0("CCDrawPrimitives", "cc.DrawPrimitives")
+
+	return cc.DrawPrimitives
+end
+
+_G.CCDrawPrimitives = var_0_9()
+
+local var_0_10 = {
+	ccDrawPoint = function(arg_23_0)
+		var_0_0("ccDrawPoint", "cc.DrawPrimitives.drawPoint")
+
+		return cc.DrawPrimitives.drawPoint(arg_23_0)
+	end
+}
+
+_G.ccDrawPoint = var_0_10.ccDrawPoint
+
+function var_0_10.ccDrawLine(arg_24_0, arg_24_1)
+	var_0_0("ccDrawLine", "cc.DrawPrimitives.drawLine")
+
+	return cc.DrawPrimitives.drawLine(arg_24_0, arg_24_1)
+end
+
+_G.ccDrawLine = var_0_10.ccDrawLine
+
+function var_0_10.ccDrawRect(arg_25_0, arg_25_1)
+	var_0_0("ccDrawRect", "cc.DrawPrimitives.drawRect")
+
+	return cc.DrawPrimitives.drawRect(arg_25_0, arg_25_1)
+end
+
+_G.ccDrawRect = var_0_10.ccDrawRect
+
+function var_0_10.ccDrawSolidRect(arg_26_0, arg_26_1, arg_26_2)
+	var_0_0("ccDrawSolidRect", "cc.DrawPrimitives.drawSolidRect")
+
+	return cc.DrawPrimitives.drawSolidRect(arg_26_0, arg_26_1, arg_26_2)
+end
+
+_G.ccDrawSolidRect = var_0_10.ccDrawSolidRect
+
+function var_0_10.ccDrawCircle(arg_27_0, arg_27_1, arg_27_2, arg_27_3, arg_27_4, ...)
+	var_0_0("ccDrawCircle", "cc.DrawPrimitives.drawCircle")
+
+	return cc.DrawPrimitives.drawCircle(arg_27_0, arg_27_1, arg_27_2, arg_27_3, arg_27_4, ...)
+end
+
+_G.ccDrawCircle = var_0_10.ccDrawCircle
+
+function var_0_10.ccDrawSolidCircle(arg_28_0, arg_28_1, arg_28_2, arg_28_3, ...)
+	var_0_0("ccDrawSolidCircle", "cc.DrawPrimitives.drawSolidCircle")
+
+	return cc.DrawPrimitives.drawSolidCircle(arg_28_0, arg_28_1, arg_28_2, arg_28_3, ...)
+end
+
+_G.ccDrawSolidCircle = var_0_10.ccDrawSolidCircle
+
+function var_0_10.ccDrawQuadBezier(arg_29_0, arg_29_1, arg_29_2, arg_29_3)
+	var_0_0("ccDrawQuadBezier", "cc.DrawPrimitives.drawQuadBezier")
+
+	return cc.DrawPrimitives.drawQuadBezier(arg_29_0, arg_29_1, arg_29_2, arg_29_3)
+end
+
+_G.ccDrawQuadBezier = var_0_10.ccDrawQuadBezier
+
+function var_0_10.ccDrawCubicBezier(arg_30_0, arg_30_1, arg_30_2, arg_30_3, arg_30_4)
+	var_0_0("ccDrawCubicBezier", "cc.DrawPrimitives.drawCubicBezier")
+
+	return cc.DrawPrimitives.drawCubicBezier(arg_30_0, arg_30_1, arg_30_2, arg_30_3, arg_30_4)
+end
+
+_G.ccDrawCubicBezier = var_0_10.ccDrawCubicBezier
+
+function var_0_10.ccDrawCatmullRom(arg_31_0, arg_31_1)
+	var_0_0("ccDrawCatmullRom", "cc.DrawPrimitives.drawCatmullRom")
+
+	return cc.DrawPrimitives.drawCatmullRom(arg_31_0, arg_31_1)
+end
+
+_G.ccDrawCatmullRom = var_0_10.ccDrawCatmullRom
+
+function var_0_10.ccDrawCardinalSpline(arg_32_0, arg_32_1, arg_32_2)
+	var_0_0("ccDrawCardinalSpline", "cc.DrawPrimitives.drawCardinalSpline")
+
+	return cc.DrawPrimitives.drawCardinalSpline(arg_32_0, arg_32_1, arg_32_2)
+end
+
+_G.ccDrawCardinalSpline = var_0_10.ccDrawCardinalSpline
+
+function var_0_10.ccDrawColor4B(arg_33_0, arg_33_1, arg_33_2, arg_33_3)
+	var_0_0("ccDrawColor4B", "cc.DrawPrimitives.drawColor4B")
+
+	return cc.DrawPrimitives.drawColor4B(arg_33_0, arg_33_1, arg_33_2, arg_33_3)
+end
+
+_G.ccDrawColor4B = var_0_10.ccDrawColor4B
+
+function var_0_10.ccDrawColor4F(arg_34_0, arg_34_1, arg_34_2, arg_34_3)
+	var_0_0("ccDrawColor4F", "cc.DrawPrimitives.drawColor4F")
+
+	return cc.DrawPrimitives.drawColor4F(arg_34_0, arg_34_1, arg_34_2, arg_34_3)
+end
+
+_G.ccDrawColor4F = var_0_10.ccDrawColor4F
+
+function var_0_10.ccPointSize(arg_35_0)
+	var_0_0("ccPointSize", "cc.DrawPrimitives.setPointSize")
+
+	return cc.DrawPrimitives.setPointSize(arg_35_0)
+end
+
+_G.ccPointSize = var_0_10.ccPointSize
+
+local var_0_11 = {
+	setReverseProgress = function(arg_36_0, ...)
+		var_0_0("CCProgressTimer", "CCProgressTimer:setReverseDirection")
+
+		return arg_36_0:setReverseDirection(...)
+	end
+}
+
+CCProgressTimer.setReverseProgress = var_0_11.setReverseProgress
+
+local var_0_12 = {
+	spriteFrameByName = function(arg_37_0, arg_37_1)
+		var_0_0("CCSpriteFrameCache:spriteFrameByName", "CCSpriteFrameCache:getSpriteFrameByName")
+
+		return arg_37_0:getSpriteFrameByName(arg_37_1)
+	end
+}
+
+CCSpriteFrameCache.spriteFrameByName = var_0_12.spriteFrameByName
+
+function var_0_12.sharedSpriteFrameCache()
+	var_0_0("CCSpriteFrameCache:sharedSpriteFrameCache", "CCSpriteFrameCache:getInstance")
+
+	return CCSpriteFrameCache:getInstance()
+end
+
+CCSpriteFrameCache.sharedSpriteFrameCache = var_0_12.sharedSpriteFrameCache
+
+function var_0_12.purgeSharedSpriteFrameCache()
+	var_0_0("CCSpriteFrameCache:purgeSharedSpriteFrameCache", "CCSpriteFrameCache:destroyInstance")
+
+	return CCSpriteFrameCache:destroyInstance()
+end
+
+CCSpriteFrameCache.purgeSharedSpriteFrameCache = var_0_12.purgeSharedSpriteFrameCache
+
+function var_0_12.addSpriteFramesWithFile(arg_40_0, ...)
+	var_0_0("CCSpriteFrameCache:addSpriteFramesWithFile", "CCSpriteFrameCache:addSpriteFrames")
+
+	return arg_40_0:addSpriteFrames(...)
+end
+
+rawset(CCSpriteFrameCache, "addSpriteFramesWithFile", var_0_12.addSpriteFramesWithFile)
+
+function var_0_12.getSpriteFrameByName(arg_41_0, ...)
+	var_0_0("CCSpriteFrameCache:getSpriteFrameByName", "CCSpriteFrameCache:getSpriteFrame")
+
+	return arg_41_0:getSpriteFrame(...)
+end
+
+CCSpriteFrameCache.getSpriteFrameByName = var_0_12.getSpriteFrameByName
+
+local var_0_13 = {
+	create = function(arg_42_0, ...)
+		var_0_0("CCLabelAtlas:create", "CCLabelAtlas:_create")
+
+		return arg_42_0:_create(...)
+	end
+}
+
+CCLabelAtlas.create = var_0_13.create
+
+local function var_0_14(arg_43_0, arg_43_1, arg_43_2, arg_43_3)
+	var_0_0("CCRectMake(x,y,width,height)", "cc.rect(x,y,width,height) in lua")
+
+	return cc.rect(arg_43_0, arg_43_1, arg_43_2, arg_43_3)
+end
+
+_G.CCRectMake = var_0_14
+
+local function var_0_15(arg_44_0, arg_44_1, arg_44_2)
+	var_0_0("ccc3(r,g,b)", "cc.c3b(r,g,b)")
+
+	return cc.c3b(arg_44_0, arg_44_1, arg_44_2)
+end
+
+_G.ccc3 = var_0_15
+
+local function var_0_16(arg_45_0, arg_45_1)
+	var_0_0("ccp(x,y)", "cc.p(x,y)")
+
+	return cc.p(arg_45_0, arg_45_1)
+end
+
+_G.ccp = var_0_16
+
+local function var_0_17(arg_46_0, arg_46_1)
+	var_0_0("CCSizeMake(width,height)", "cc.size(width,height)")
+
+	return cc.size(arg_46_0, arg_46_1)
+end
+
+_G.CCSizeMake = var_0_17
+
+local function var_0_18(arg_47_0, arg_47_1, arg_47_2, arg_47_3)
+	var_0_0("ccc4(r,g,b,a)", "cc.c4b(r,g,b,a)")
+
+	return cc.c4b(arg_47_0, arg_47_1, arg_47_2, arg_47_3)
+end
+
+_G.ccc4 = var_0_18
+
+local function var_0_19(arg_48_0)
+	var_0_0("ccc4FFromccc3B(color3B)", "cc.c4f(color3B.r / 255.0,color3B.g / 255.0,color3B.b / 255.0,1.0)")
+
+	return cc.c4f(arg_48_0.r / 255, arg_48_0.g / 255, arg_48_0.b / 255, 1)
+end
+
+_G.ccc4FFromccc3B = var_0_19
+
+local function var_0_20(arg_49_0, arg_49_1, arg_49_2, arg_49_3)
+	var_0_0("ccc4f(r,g,b,a)", "cc.c4f(r,g,b,a)")
+
+	return cc.c4f(arg_49_0, arg_49_1, arg_49_2, arg_49_3)
+end
+
+_G.ccc4f = var_0_20
+
+local function var_0_21(arg_50_0)
+	var_0_0("ccc4FFromccc4B(color4B)", "cc.c4f(color4B.r/255.0, color4B.g/255.0, color4B.b/255.0, color4B.a/255.0)")
+
+	return cc.c4f(arg_50_0.r / 255, arg_50_0.g / 255, arg_50_0.b / 255, arg_50_0.a / 255)
+end
+
+_G.ccc4FFromccc4B = var_0_21
+
+local function var_0_22(arg_51_0, arg_51_1)
+	var_0_0("ccc4FEqual(a,b)", "a:equals(b)")
+
+	return arg_51_0:equals(arg_51_1)
+end
+
+_G.ccc4FEqual = var_0_22
+
+local function var_0_23(arg_52_0, arg_52_1, arg_52_2, arg_52_3, arg_52_4, arg_52_5)
+	var_0_0("ccpLineIntersect", "cc.pIsLineIntersect")
+
+	return cc.pIsLineIntersect(arg_52_0, arg_52_1, arg_52_2, arg_52_3, arg_52_4, arg_52_5)
+end
+
+_G.ccpLineIntersect = var_0_23
+
+local function var_0_24(arg_53_0, arg_53_1)
+	var_0_0("CCPointMake(x,y)", "cc.p(x,y)")
+
+	return cc.p(arg_53_0, arg_53_1)
+end
+
+_G.CCPointMake = var_0_24
+
+local function var_0_25(arg_54_0)
+	var_0_0("ccpNeg", "cc.pSub")
+
+	return cc.pSub({
+		x = 0,
+		y = 0
+	}, arg_54_0)
+end
+
+_G.ccpNeg = var_0_25
+
+local function var_0_26(arg_55_0, arg_55_1)
+	var_0_0("ccpAdd", "cc.pAdd")
+
+	return cc.pAdd(arg_55_0, arg_55_1)
+end
+
+_G.ccpAdd = var_0_26
+
+local function var_0_27(arg_56_0, arg_56_1)
+	var_0_0("ccpSub", "cc.pSub")
+
+	return cc.pSub(arg_56_0, arg_56_1)
+end
+
+_G.ccpSub = var_0_27
+
+local function var_0_28(arg_57_0, arg_57_1)
+	var_0_0("ccpMult", "cc.pMul")
+
+	return cc.pMul(arg_57_0, arg_57_1)
+end
+
+_G.ccpMult = var_0_28
+
+local function var_0_29(arg_58_0, arg_58_1)
+	var_0_0("ccpMidpoint", "cc.pMidpoint")
+
+	return cc.pMidpoint(arg_58_0, arg_58_1)
+end
+
+_G.ccpMidpoint = var_0_29
+
+local function var_0_30(arg_59_0, arg_59_1)
+	var_0_0("ccpDot", "cc.pDot")
+
+	return cc.pDot(arg_59_0, arg_59_1)
+end
+
+_G.ccpDot = var_0_30
+
+local function var_0_31(arg_60_0, arg_60_1)
+	var_0_0("ccpCross", "cc.pCross")
+
+	return cc.pCross(arg_60_0, arg_60_1)
+end
+
+_G.ccpCross = var_0_31
+
+local function var_0_32(arg_61_0)
+	var_0_0("ccpPerp", "cc.pPerp")
+
+	return cc.pPerp(arg_61_0)
+end
+
+_G.ccpPerp = var_0_32
+
+local function var_0_33(arg_62_0)
+	var_0_0("ccpRPerp", "cc.RPerp")
+
+	return cc.RPerp(arg_62_0)
+end
+
+_G.ccpRPerp = var_0_33
+
+local function var_0_34(arg_63_0, arg_63_1)
+	var_0_0("ccpProject", "cc.pProject")
+
+	return cc.pProject(arg_63_0, arg_63_1)
+end
+
+_G.ccpProject = var_0_34
+
+local function var_0_35(arg_64_0, arg_64_1)
+	var_0_0("ccpRotate", "cc.pRotate")
+
+	return cc.pRotate(arg_64_0, arg_64_1)
+end
+
+_G.ccpRotate = var_0_35
+
+local function var_0_36(arg_65_0, arg_65_1)
+	var_0_0("ccpUnrotate", "cc.pUnrotate")
+
+	return cc.pUnrotate(arg_65_0, arg_65_1)
+end
+
+_G.ccpUnrotate = var_0_36
+
+local function var_0_37(arg_66_0)
+	var_0_0("ccpLengthSQ", "cc.pLengthSQ")
+
+	return cc.pLengthSQ(arg_66_0)
+end
+
+_G.ccpLengthSQ = var_0_37
+
+local function var_0_38(arg_67_0, arg_67_1)
+	var_0_0("ccpDistanceSQ", "cc.pDistanceSQ")
+
+	return cc.pDistanceSQ(arg_67_0, arg_67_1)
+end
+
+_G.ccpDistanceSQ = var_0_38
+
+local function var_0_39(arg_68_0)
+	var_0_0("ccpLength", "cc.pGetLength")
+
+	return cc.pGetLength(arg_68_0)
+end
+
+_G.ccpLength = var_0_39
+
+local function var_0_40(arg_69_0, arg_69_1)
+	var_0_0("ccpDistance", "cc.pGetDistance")
+
+	return cc.pGetDistance(arg_69_0, arg_69_1)
+end
+
+_G.ccpDistance = var_0_40
+
+local function var_0_41(arg_70_0)
+	var_0_0("ccpNormalize", "cc.pNormalize")
+
+	return cc.pNormalize(arg_70_0)
+end
+
+_G.ccpNormalize = var_0_41
+
+local function var_0_42(arg_71_0)
+	var_0_0("ccpForAngle", "cc.pForAngle")
+
+	return cc.pForAngle(arg_71_0)
+end
+
+_G.ccpForAngle = var_0_42
+
+local function var_0_43(arg_72_0)
+	var_0_0("ccpToAngle", "cc.pToAngleSelf")
+
+	return cc.pToAngleSelf(arg_72_0)
+end
+
+_G.ccpToAngle = var_0_43
+
+local function var_0_44(arg_73_0, arg_73_1, arg_73_2)
+	var_0_0("ccpClamp", "cc.pGetClampPoint")
+
+	return cc.pGetClampPoint(arg_73_0, arg_73_1, arg_73_2)
+end
+
+_G.ccpClamp = var_0_44
+
+local function var_0_45(arg_74_0)
+	var_0_0("ccpFromSize(sz)", "cc.pFromSize")
+
+	return cc.pFromSize(arg_74_0)
+end
+
+_G.ccpFromSize = var_0_45
+
+local function var_0_46(arg_75_0, arg_75_1, arg_75_2)
+	var_0_0("ccpLerp", "cc.pLerp")
+
+	return cc.pLerp(arg_75_0, arg_75_1, arg_75_2)
+end
+
+_G.ccpLerp = var_0_46
+
+local function var_0_47(arg_76_0, arg_76_1, arg_76_2)
+	var_0_0("ccpFuzzyEqual", "cc.pFuzzyEqual")
+
+	return cc.pFuzzyEqual(arg_76_0, arg_76_1, arg_76_2)
+end
+
+_G.ccpFuzzyEqual = var_0_47
+
+local function var_0_48(arg_77_0, arg_77_1)
+	var_0_0("ccpCompMult", "cc.p")
+
+	return cc.p(arg_77_0.x * arg_77_1.x, arg_77_0.y * arg_77_1.y)
+end
+
+_G.ccpCompMult = var_0_48
+
+local function var_0_49(arg_78_0, arg_78_1)
+	var_0_0("ccpAngleSigned", "cc.pGetAngle")
+
+	return cc.pGetAngle(arg_78_0, arg_78_1)
+end
+
+_G.ccpAngleSigned = var_0_49
+
+local function var_0_50(arg_79_0, arg_79_1)
+	var_0_0("ccpAngle", "cc.pGetAngle")
+
+	return cc.pGetAngle(arg_79_0, ptw)
+end
+
+_G.ccpAngle = var_0_50
+
+local function var_0_51(arg_80_0, arg_80_1, arg_80_2)
+	var_0_0("ccpRotateByAngle", "cc.pRotateByAngle")
+
+	return cc.pRotateByAngle(arg_80_0, arg_80_1, arg_80_2)
+end
+
+_G.ccpRotateByAngle = var_0_51
+
+local function var_0_52(arg_81_0, arg_81_1, arg_81_2, arg_81_3)
+	var_0_0("ccpSegmentIntersect", "cc.pIsSegmentIntersect")
+
+	return cc.pIsSegmentIntersect(arg_81_0, arg_81_1, arg_81_2, arg_81_3)
+end
+
+_G.ccpSegmentIntersect = var_0_52
+
+local function var_0_53(arg_82_0, arg_82_1, arg_82_2, arg_82_3)
+	var_0_0("ccpIntersectPoint", "cc.pGetIntersectPoint")
+
+	return cc.pGetIntersectPoint(arg_82_0, arg_82_1, arg_82_2, arg_82_3)
+end
+
+_G.ccpIntersectPoint = var_0_53
+
+local function var_0_54(arg_83_0, arg_83_1)
+	var_0_0("vertex2(x,y)", "cc.vertex2F(x,y)")
+
+	return cc.vertex2F(arg_83_0, arg_83_1)
+end
+
+_G.vertex2 = var_0_54
+
+local function var_0_55(arg_84_0, arg_84_1, arg_84_2)
+	var_0_0("vertex3(x,y,z)", "cc.Vertex3F(x,y,z)")
+
+	return cc.Vertex3F(arg_84_0, arg_84_1, arg_84_2)
+end
+
+_G.vertex3 = var_0_55
+
+local function var_0_56(arg_85_0, arg_85_1)
+	var_0_0("tex2(u,v)", "cc.tex2f(u,v)")
+
+	return cc.tex2f(arg_85_0, arg_85_1)
+end
+
+_G.tex2 = var_0_56
+
+local function var_0_57(arg_86_0)
+	var_0_0("ccc4BFromccc4F(color4F)", "Color4B(color4F.r * 255.0, color4F.g * 255.0, color4F.b * 255.0, color4B.a * 255.0)")
+
+	return Color4B(arg_86_0.r * 255, arg_86_0.g * 255, arg_86_0.b * 255, color4B.a * 255)
+end
+
+_G.ccc4BFromccc4F = var_0_57
+
+local function var_0_58()
+	var_0_0("ccColor3B", "cc.c3b(0,0,0)")
+
+	return cc.c3b(0, 0, 0)
+end
+
+_G.ccColor3B = var_0_58
+
+local function var_0_59()
+	var_0_0("ccColor4B", "cc.c4b(0,0,0,0)")
+
+	return cc.c4b(0, 0, 0, 0)
+end
+
+_G.ccColor4B = var_0_59
+
+local function var_0_60()
+	var_0_0("ccColor4F", "cc.c4f(0.0,0.0,0.0,0.0)")
+
+	return cc.c4f(0, 0, 0, 0)
+end
+
+_G.ccColor4F = var_0_60
+
+local function var_0_61()
+	var_0_0("ccVertex2F", "cc.vertex2F(0.0,0.0)")
+
+	return cc.vertex2F(0, 0)
+end
+
+_G.ccVertex2F = var_0_61
+
+local function var_0_62()
+	var_0_0("ccVertex3F", "cc.Vertex3F(0.0, 0.0, 0.0)")
+
+	return cc.Vertex3F(0, 0, 0)
+end
+
+_G.ccVertex3F = var_0_62
+
+local function var_0_63()
+	var_0_0("ccTex2F", "cc.tex2F(0.0, 0.0)")
+
+	return cc.tex2F(0, 0)
+end
+
+_G.ccTex2F = var_0_63
+
+local function var_0_64()
+	var_0_0("ccPointSprite", "cc.PointSprite(cc.vertex2F(0.0, 0.0),cc.c4b(0.0, 0.0, 0.0),0)")
+
+	return cc.PointSprite(cc.vertex2F(0, 0), cc.c4b(0, 0, 0), 0)
+end
+
+_G.ccPointSprite = var_0_64
+
+local function var_0_65()
+	var_0_0("ccQuad2", "cc.Quad2(cc.vertex2F(0.0, 0.0), cc.vertex2F(0.0, 0.0), cc.vertex2F(0.0, 0.0), cc.vertex2F(0.0, 0.0))")
+
+	return cc.Quad2(cc.vertex2F(0, 0), cc.vertex2F(0, 0), cc.vertex2F(0, 0), cc.vertex2F(0, 0))
+end
+
+_G.ccQuad2 = var_0_65
+
+local function var_0_66()
+	var_0_0("ccQuad3", "cc.Quad3(cc.Vertex3F(0.0, 0.0 ,0.0), cc.Vertex3F(0.0, 0.0 ,0.0), cc.Vertex3F(0.0, 0.0 ,0.0), cc.Vertex3F(0.0, 0.0 ,0.0))")
+
+	return cc.Quad3(cc.Vertex3F(0, 0, 0), cc.Vertex3F(0, 0, 0), cc.Vertex3F(0, 0, 0), cc.Vertex3F(0, 0, 0))
+end
+
+_G.ccQuad3 = var_0_66
+
+local function var_0_67()
+	var_0_0("ccV2F_C4B_T2F", "cc.V2F_C4B_T2F(cc.vertex2F(0.0, 0.0), cc.c4b(0 , 0, 0, 0 ), cc.tex2F(0.0, 0.0))")
+
+	return cc.V2F_C4B_T2F(cc.vertex2F(0, 0), cc.c4b(0, 0, 0, 0), cc.tex2F(0, 0))
+end
+
+_G.ccV2F_C4B_T2F = var_0_67
+
+local function var_0_68()
+	var_0_0("ccV2F_C4F_T2F", "cc.V2F_C4F_T2F(cc.vertex2F(0.0, 0.0), cc.c4f(0.0 , 0.0 , 0.0 , 0.0 ), cc.tex2F(0.0, 0.0))")
+
+	return cc.V2F_C4F_T2F(cc.vertex2F(0, 0), cc.c4f(0, 0, 0, 0), cc.tex2F(0, 0))
+end
+
+_G.ccV2F_C4F_T2F = var_0_68
+
+local function var_0_69()
+	var_0_0("ccV3F_C4B_T2F", "cc.V3F_C4B_T2F(cc.vertex3F(0.0, 0.0, 0.0), cc.c4b(0 , 0 , 0, 0 ), cc.tex2F(0.0, 0.0))")
+
+	return cc.V3F_C4B_T2F(cc.vertex3F(0, 0, 0), cc.c4b(0, 0, 0, 0), cc.tex2F(0, 0))
+end
+
+_G.ccV3F_C4B_T2F = var_0_69
+
+local function var_0_70()
+	var_0_0("ccV2F_C4B_T2F_Quad", "cc.V2F_C4B_T2F_Quad(cc.V2F_C4B_T2F(cc.vertex2F(0.0, 0.0), cc.c4b(0 , 0, 0, 0 ), cc.tex2F(0.0, 0.0)), cc.V2F_C4B_T2F(cc.vertex2F(0.0, 0.0), cc.c4b(0 , 0, 0, 0 ), cc.tex2F(0.0, 0.0)), cc.V2F_C4B_T2F(cc.vertex2F(0.0, 0.0), cc.c4b(0 , 0, 0, 0 ), cc.tex2F(0.0, 0.0)), cc.V2F_C4B_T2F(cc.vertex2F(0.0, 0.0), cc.c4b(0 , 0, 0, 0 ), cc.tex2F(0.0, 0.0)))")
+
+	return cc.V2F_C4B_T2F_Quad(cc.V2F_C4B_T2F(cc.vertex2F(0, 0), cc.c4b(0, 0, 0, 0), cc.tex2F(0, 0)), cc.V2F_C4B_T2F(cc.vertex2F(0, 0), cc.c4b(0, 0, 0, 0), cc.tex2F(0, 0)), cc.V2F_C4B_T2F(cc.vertex2F(0, 0), cc.c4b(0, 0, 0, 0), cc.tex2F(0, 0)), cc.V2F_C4B_T2F(cc.vertex2F(0, 0), cc.c4b(0, 0, 0, 0), cc.tex2F(0, 0)))
+end
+
+_G.ccV2F_C4B_T2F_Quad = var_0_70
+
+local function var_0_71()
+	var_0_0("ccV3F_C4B_T2F_Quad", "cc.V3F_C4B_T2F_Quad(_tl, _bl, _tr, _br)")
+
+	return cc.V3F_C4B_T2F_Quad(cc.V3F_C4B_T2F(cc.vertex3F(0, 0, 0), cc.c4b(0, 0, 0, 0), cc.tex2F(0, 0)), cc.V3F_C4B_T2F(cc.vertex3F(0, 0, 0), cc.c4b(0, 0, 0, 0), cc.tex2F(0, 0)), cc.V3F_C4B_T2F(cc.vertex3F(0, 0, 0), cc.c4b(0, 0, 0, 0), cc.tex2F(0, 0)), cc.V3F_C4B_T2F(cc.vertex3F(0, 0, 0), cc.c4b(0, 0, 0, 0), cc.tex2F(0, 0)))
+end
+
+_G.ccV3F_C4B_T2F_Quad = var_0_71
+
+local function var_0_72()
+	var_0_0("ccV2F_C4F_T2F_Quad", "cc.V2F_C4F_T2F_Quad(_bl, _br, _tl, _tr)")
+
+	return cc.V2F_C4F_T2F_Quad(cc.V2F_C4F_T2F(cc.vertex2F(0, 0), cc.c4f(0, 0, 0, 0), cc.tex2F(0, 0)), cc.V2F_C4F_T2F(cc.vertex2F(0, 0), cc.c4f(0, 0, 0, 0), cc.tex2F(0, 0)), cc.V3F_C4B_T2F(cc.vertex2F(0, 0), cc.c4f(0, 0, 0, 0), cc.tex2F(0, 0)), cc.V2F_C4F_T2F(cc.vertex2F(0, 0), cc.c4f(0, 0, 0, 0), cc.tex2F(0, 0)))
+end
+
+_G.ccV2F_C4F_T2F_Quad = var_0_72
+
+local function var_0_73()
+	var_0_0("ccT2F_Quad", "cc.T2F_Quad(_bl, _br, _tl, _tr)")
+
+	return cc.T2F_Quad(cc.tex2F(0, 0), cc.tex2F(0, 0), cc.tex2F(0, 0), cc.tex2F(0, 0))
+end
+
+_G.ccT2F_Quad = var_0_73
+
+local function var_0_74()
+	var_0_0("ccAnimationFrameData", "cc.AnimationFrameData( _texCoords, _delay, _size)")
+
+	return cc.AnimationFrameData(cc.T2F_Quad(cc.tex2F(0, 0), cc.tex2F(0, 0), cc.tex2F(0, 0), cc.tex2F(0, 0)), 0, cc.size(0, 0))
+end
+
+_G.ccAnimationFrameData = var_0_74
+
+local function var_0_75(arg_104_0, arg_104_1)
+	var_0_0("tex2(u,v)", "cc.tex2f(u,v)")
+
+	return cc.tex2f(arg_104_0, arg_104_1)
+end
+
+_G.tex2 = var_0_75
+
+local var_0_76 = {
+	sharedApplication = function()
+		var_0_0("CCApplication:sharedApplication", "CCApplication:getInstance")
+
+		return CCApplication:getInstance()
+	end
+}
+
+CCApplication.sharedApplication = var_0_76.sharedApplication
+
+local var_0_77 = {
+	sharedDirector = function()
+		var_0_0("CCDirector:sharedDirector", "CCDirector:getInstance")
+
+		return CCDirector:getInstance()
+	end
+}
+
+CCDirector.sharedDirector = var_0_77.sharedDirector
+
+local var_0_78 = {
+	sharedUserDefault = function()
+		var_0_0("CCUserDefault:sharedUserDefault", "CCUserDefault:getInstance")
+
+		return CCUserDefault:getInstance()
+	end
+}
+
+CCUserDefault.sharedUserDefault = var_0_78.sharedUserDefault
+
+function var_0_78.purgeSharedUserDefault()
+	var_0_0("CCUserDefault:purgeSharedUserDefault", "CCUserDefault:destroyInstance")
+
+	return CCUserDefault:destroyInstance()
+end
+
+CCUserDefault.purgeSharedUserDefault = var_0_78.purgeSharedUserDefault
+
+local var_0_79 = {
+	vertex = function(arg_109_0, arg_109_1)
+		var_0_0("vertex", "CCGrid3DAction:getVertex")
+
+		return arg_109_0:getVertex(arg_109_1)
+	end
+}
+
+CCGrid3DAction.vertex = var_0_79.vertex
+
+function var_0_79.originalVertex(arg_110_0, arg_110_1)
+	var_0_0("originalVertex", "CCGrid3DAction:getOriginalVertex")
+
+	return arg_110_0:getOriginalVertex(arg_110_1)
+end
+
+CCGrid3DAction.originalVertex = var_0_79.originalVertex
+
+local var_0_80 = {
+	tile = function(arg_111_0, arg_111_1)
+		var_0_0("tile", "CCTiledGrid3DAction:getTile")
+
+		return arg_111_0:getTile(arg_111_1)
+	end
+}
+
+CCTiledGrid3DAction.tile = var_0_80.tile
+
+function var_0_80.originalTile(arg_112_0, arg_112_1)
+	var_0_0("originalTile", "CCTiledGrid3DAction:getOriginalTile")
+
+	return arg_112_0:getOriginalTile(arg_112_1)
+end
+
+CCTiledGrid3DAction.originalTile = var_0_80.originalTile
+
+local var_0_81 = {
+	stringForFormat = function(arg_113_0)
+		var_0_0("Texture2D:stringForFormat", "Texture2D:getStringForFormat")
+
+		return arg_113_0:getStringForFormat()
+	end
+}
+
+CCTexture2D.stringForFormat = var_0_81.stringForFormat
+
+function var_0_81.bitsPerPixelForFormat(arg_114_0)
+	var_0_0("Texture2D:bitsPerPixelForFormat", "Texture2D:getBitsPerPixelForFormat")
+
+	return arg_114_0:getBitsPerPixelForFormat()
+end
+
+CCTexture2D.bitsPerPixelForFormat = var_0_81.bitsPerPixelForFormat
+
+function var_0_81.bitsPerPixelForFormat(arg_115_0, arg_115_1)
+	var_0_0("Texture2D:bitsPerPixelForFormat", "Texture2D:getBitsPerPixelForFormat")
+
+	return arg_115_0:getBitsPerPixelForFormat(arg_115_1)
+end
+
+CCTexture2D.bitsPerPixelForFormat = var_0_81.bitsPerPixelForFormat
+
+function var_0_81.defaultAlphaPixelFormat(arg_116_0)
+	var_0_0("Texture2D:defaultAlphaPixelFormat", "Texture2D:getDefaultAlphaPixelFormat")
+
+	return arg_116_0:getDefaultAlphaPixelFormat()
+end
+
+CCTexture2D.defaultAlphaPixelFormat = var_0_81.defaultAlphaPixelFormat
+
+local var_0_82 = {
+	timerWithScriptHandler = function(arg_117_0, arg_117_1)
+		var_0_0("CCTimer:timerWithScriptHandler", "CCTimer:createWithScriptHandler")
+
+		return CCTimer:createWithScriptHandler(arg_117_0, arg_117_1)
+	end
+}
+
+CCTimer.timerWithScriptHandler = var_0_82.timerWithScriptHandler
+
+function var_0_82.numberOfRunningActionsInTarget(arg_118_0, arg_118_1)
+	var_0_0("CCActionManager:numberOfRunningActionsInTarget", "CCActionManager:getNumberOfRunningActionsInTarget")
+
+	return arg_118_0:getNumberOfRunningActionsInTarget(arg_118_1)
+end
+
+CCTimer.numberOfRunningActionsInTarget = var_0_82.numberOfRunningActionsInTarget
+
+local var_0_83 = {
+	fontSize = function()
+		var_0_0("CCMenuItemFont:fontSize", "CCMenuItemFont:getFontSize")
+
+		return CCMenuItemFont:getFontSize()
+	end
+}
+
+CCMenuItemFont.fontSize = var_0_83.fontSize
+
+function var_0_83.fontName()
+	var_0_0("CCMenuItemFont:fontName", "CCMenuItemFont:getFontName")
+
+	return CCMenuItemFont:getFontName()
+end
+
+CCMenuItemFont.fontName = var_0_83.fontName
+
+function var_0_83.fontSizeObj(arg_121_0)
+	var_0_0("CCMenuItemFont:fontSizeObj", "CCMenuItemFont:getFontSizeObj")
+
+	return arg_121_0:getFontSizeObj()
+end
+
+CCMenuItemFont.fontSizeObj = var_0_83.fontSizeObj
+
+function var_0_83.fontNameObj(arg_122_0)
+	var_0_0("CCMenuItemFont:fontNameObj", "CCMenuItemFont:getFontNameObj")
+
+	return arg_122_0:getFontNameObj()
+end
+
+CCMenuItemFont.fontNameObj = var_0_83.fontNameObj
+
+local var_0_84 = {
+	selectedItem = function(arg_123_0)
+		var_0_0("CCMenuItemToggle:selectedItem", "CCMenuItemToggle:getSelectedItem")
+
+		return arg_123_0:getSelectedItem()
+	end
+}
+
+CCMenuItemToggle.selectedItem = var_0_84.selectedItem
+
+local var_0_85 = {
+	tileAt = function(arg_124_0, arg_124_1)
+		var_0_0("CCTileMapAtlas:tileAt", "CCTileMapAtlas:getTileAt")
+
+		return arg_124_0:getTileAt(arg_124_1)
+	end
+}
+
+CCTileMapAtlas.tileAt = var_0_85.tileAt
+
+local var_0_86 = {
+	tileAt = function(arg_125_0, arg_125_1)
+		var_0_0("CCTMXLayer:tileAt", "CCTMXLayer:getTileAt")
+
+		return arg_125_0:getTileAt(arg_125_1)
+	end
+}
+
+CCTMXLayer.tileAt = var_0_86.tileAt
+
+function var_0_86.tileGIDAt(arg_126_0, arg_126_1)
+	var_0_0("CCTMXLayer:tileGIDAt", "CCTMXLayer:getTileGIDAt")
+
+	return arg_126_0:getTileGIDAt(arg_126_1)
+end
+
+CCTMXLayer.tileGIDAt = var_0_86.tileGIDAt
+
+function var_0_86.positionAt(arg_127_0, arg_127_1)
+	var_0_0("CCTMXLayer:positionAt", "CCTMXLayer:getPositionAt")
+
+	return arg_127_0:getPositionAt(arg_127_1)
+end
+
+CCTMXLayer.positionAt = var_0_86.positionAt
+
+function var_0_86.propertyNamed(arg_128_0, arg_128_1)
+	var_0_0("CCTMXLayer:propertyNamed", "CCTMXLayer:getProperty")
+
+	return arg_128_0:getProperty(arg_128_1)
+end
+
+CCTMXLayer.propertyNamed = var_0_86.propertyNamed
+
+local var_0_87 = {
+	layerNamed = function(arg_129_0, arg_129_1)
+		var_0_0("CCTMXTiledMap:layerNamed", "CCTMXTiledMap:getLayer")
+
+		return arg_129_0:getLayer(arg_129_1)
+	end
+}
+
+CCTMXTiledMap.layerNamed = var_0_87.layerNamed
+
+function var_0_87.propertyNamed(arg_130_0, arg_130_1)
+	var_0_0("CCTMXTiledMap:propertyNamed", "CCTMXTiledMap:getProperty")
+
+	return arg_130_0:getProperty(arg_130_1)
+end
+
+CCTMXTiledMap.propertyNamed = var_0_87.propertyNamed
+
+function var_0_87.propertiesForGID(arg_131_0, arg_131_1)
+	var_0_0("CCTMXTiledMap:propertiesForGID", "CCTMXTiledMap:getPropertiesForGID")
+
+	return arg_131_0:getPropertiesForGID(arg_131_1)
+end
+
+CCTMXTiledMap.propertiesForGID = var_0_87.propertiesForGID
+
+function var_0_87.objectGroupNamed(arg_132_0, arg_132_1)
+	var_0_0("CCTMXTiledMap:objectGroupNamed", "CCTMXTiledMap:getObjectGroup")
+
+	return arg_132_0:getObjectGroup(arg_132_1)
+end
+
+CCTMXTiledMap.objectGroupNamed = var_0_87.objectGroupNamed
+
+local var_0_88 = {
+	getStoringCharacters = function(arg_133_0)
+		var_0_0("CCTMXMapInfo:getStoringCharacters", "CCTMXMapInfo:isStoringCharacters")
+
+		return arg_133_0:isStoringCharacters()
+	end
+}
+
+CCTMXMapInfo.getStoringCharacters = var_0_88.getStoringCharacters
+
+function var_0_88.formatWithTMXFile(arg_134_0, arg_134_1)
+	var_0_0("CCTMXMapInfo:formatWithTMXFile", "CCTMXMapInfo:create")
+
+	return CCTMXMapInfo:create(arg_134_1)
+end
+
+CCTMXMapInfo.formatWithTMXFile = var_0_88.formatWithTMXFile
+
+function var_0_88.formatWithXML(arg_135_0, arg_135_1, arg_135_2)
+	var_0_0("CCTMXMapInfo:formatWithXML", "TMXMapInfo:createWithXML")
+
+	return CCTMXMapInfo:createWithXML(arg_135_1, arg_135_2)
+end
+
+CCTMXMapInfo.formatWithXML = var_0_88.formatWithXML
+
+local var_0_89 = {
+	propertyNamed = function(arg_136_0, arg_136_1)
+		var_0_0("CCTMXObjectGroup:propertyNamed", "CCTMXObjectGroup:getProperty")
+
+		return arg_136_0:getProperty(arg_136_1)
+	end
+}
+
+CCTMXObjectGroup.propertyNamed = var_0_89.propertyNamed
+
+function var_0_89.objectNamed(arg_137_0, arg_137_1)
+	var_0_0("CCTMXObjectGroup:objectNamed", "CCTMXObjectGroup:getObject")
+
+	return arg_137_0:getObject(arg_137_1)
+end
+
+CCTMXObjectGroup.objectNamed = var_0_89.objectNamed
+
+local var_0_90 = {
+	newCCImage = function(arg_138_0)
+		var_0_0("CCRenderTexture:newCCImage", "CCRenderTexture:newImage")
+
+		return arg_138_0:newImage()
+	end
+}
+
+CCRenderTexture.newCCImage = var_0_90.newCCImage
+
+local var_0_91 = {
+	setFlipX = function(arg_139_0, arg_139_1)
+		var_0_0("CCSpriteDeprecated:setFlipX", "CCSpriteDeprecated:setFlippedX")
+
+		return arg_139_0:setFlippedX(arg_139_1)
+	end
+}
+
+cc.Sprite.setFlipX = var_0_91.setFlipX
+
+function var_0_91.setFlipY(arg_140_0, arg_140_1)
+	var_0_0("CCSpriteDeprecated:setFlipY", "CCSpriteDeprecated:setFlippedY")
+
+	return arg_140_0:setFlippedY(arg_140_1)
+end
+
+cc.Sprite.setFlipY = var_0_91.setFlipY
+
+local var_0_92 = {
+	setKeypadEnabled = function(arg_141_0, arg_141_1)
+		return arg_141_0:setKeyboardEnabled(arg_141_1)
+	end
+}
+
+cc.Layer.setKeypadEnabled = var_0_92.setKeypadEnabled
+
+function var_0_92.isKeypadEnabled(arg_142_0)
+	return arg_142_0:isKeyboardEnabled()
+end
+
+cc.Layer.isKeypadEnabled = var_0_92.isKeypadEnabled
+
+local var_0_93 = {
+	setZOrder = function(arg_143_0, arg_143_1)
+		var_0_0("cc.Node:setZOrder", "cc.Node:setLocalZOrder")
+
+		return arg_143_0:setLocalZOrder(arg_143_1)
+	end
+}
+
+cc.Node.setZOrder = var_0_93.setZOrder
+
+function var_0_93.getZOrder(arg_144_0)
+	var_0_0("cc.Node:getZOrder", "cc.Node:getLocalZOrder")
+
+	return arg_144_0:getLocalZOrder()
+end
+
+cc.Node.getZOrder = var_0_93.getZOrder
+
+function var_0_93.setVertexZ(arg_145_0, arg_145_1)
+	var_0_0("cc.Node:setVertexZ", "cc.Node:setPositionZ")
+
+	return arg_145_0:setPositionZ(arg_145_1)
+end
+
+cc.Node.setVertexZ = var_0_93.setVertexZ
+
+function var_0_93.getVertexZ(arg_146_0)
+	var_0_0("cc.Node:getVertexZ", "cc.Node:getPositionZ")
+
+	return arg_146_0:getPositionZ()
+end
+
+cc.Node.getVertexZ = var_0_93.getVertexZ
+
+function var_0_93.ignoreAnchorPointForPosition(arg_147_0, arg_147_1)
+	var_0_0("cc.Node:ignoreAnchorPointForPosition", "cc.Node:setIgnoreAnchorPointForPosition")
+
+	return arg_147_0:setIgnoreAnchorPointForPosition(arg_147_1)
+end
+
+cc.Node.ignoreAnchorPointForPosition = var_0_93.ignoreAnchorPointForPosition
+
+local var_0_94 = {
+	initWithVertexShaderByteArray = function(arg_148_0, arg_148_1, arg_148_2)
+		var_0_0("cc.GLProgram:initWithVertexShaderByteArray", "cc.GLProgram:initWithByteArrays")
+
+		return arg_148_0:initWithByteArrays(arg_148_1, arg_148_2)
+	end
+}
+
+cc.GLProgram.initWithVertexShaderByteArray = var_0_94.initWithVertexShaderByteArray
+
+function var_0_94.initWithVertexShaderFilename(arg_149_0, arg_149_1, arg_149_2)
+	var_0_0("cc.GLProgram:initWithVertexShaderFilename", "cc.GLProgram:initWithFilenames")
+
+	return arg_149_0:initWithFilenames(arg_149_1, arg_149_2)
+end
+
+cc.GLProgram.initWithVertexShaderFilename = var_0_94.initWithVertexShaderFilename
+
+function var_0_94.addAttribute(arg_150_0, arg_150_1, arg_150_2)
+	var_0_0("cc.GLProgram:addAttribute", "cc.GLProgram:bindAttribLocation")
+
+	return arg_150_0:bindAttribLocation(arg_150_1, arg_150_2)
+end
+
+cc.GLProgram.addAttribute = var_0_94.addAttribute

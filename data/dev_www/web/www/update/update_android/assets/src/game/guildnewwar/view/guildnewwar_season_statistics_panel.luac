@@ -1,0 +1,435 @@
+ -- --------------------------------------------------------------------
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      公会赛季统计
+-- <br/> 2021/6/24
+-- --------------------------------------------------------------------
+GuildnewwarSeasonStatisticsPanel = GuildnewwarSeasonStatisticsPanel or BaseClass(BaseView)
+
+local controller = GuildNewwarController:getInstance()
+local string_format = string.format
+local table_insert = table.insert
+local table_sort = table.sort
+
+
+function GuildnewwarSeasonStatisticsPanel:__init()
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+    self.win_type = WinType.Mini   
+    self.is_full_screen = false
+    self.layout_name = "guildnewwar/guildnewwar_season_statistics_panel"
+
+    self.res_list = {
+        {path = PathTool.getPlistImgForDownLoad("market", "market"), type = ResourcesType.plist},
+    }
+    --总记录
+    self.record_data = nil
+    --个人记录
+    self.personal_record_list= {}
+
+    --
+    self.season_statistics = {}
+end
+
+function GuildnewwarSeasonStatisticsPanel:open_callback()
+    self.background = self.root_wnd:getChildByName("background")
+    if self.background ~= nil then
+        self.background:setScale(display.getMaxScale())
+    end
+
+    self.main_container = self.root_wnd:getChildByName("main_container")
+    self:playEnterAnimatianByObj(self.main_container, 2)
+    self.main_panel = self.main_container:getChildByName("main_panel")
+
+    self.tab_container = self.main_panel:getChildByName("tab_container")
+    local tab_name_list = {
+        [1] = TI18N("语言_c_5238"),
+        [2] = TI18N("语言_c_5239")
+    }
+    self.tab_list = {}
+    for i=1,2 do
+        local tab_btn = self.tab_container:getChildByName("tab_btn_"..i)
+        if tab_btn then
+            local object = {}
+            object.select_bg = tab_btn:getChildByName('select_bg')
+            object.select_bg:setVisible(false)
+            object.unselect_bg = tab_btn:getChildByName('unselect_bg')
+            object.title = tab_btn:getChildByName("title")
+            object.title:setTextColor(cc.c4b(0xcf, 0xb5, 0x93, 0xff))
+            if tab_name_list[i] then
+                object.title:setString(tab_name_list[i])
+            end
+            object.tab_btn = tab_btn
+            object.index = i
+            self.tab_list[i] = object
+        end
+    end
+    self.title = self.main_panel:getChildByName("win_title")
+    self.title:setString(TI18N("语言_c_5238"))
+
+    self.close_btn = self.main_panel:getChildByName("close_btn")
+
+    self.panel = self.main_panel:getChildByName("panel")
+
+    local key_left_list = {
+        [1] = TI18N("语言_c_3894"),
+        [2] = TI18N("语言_c_3895"),
+        [3] = TI18N("语言_c_3896"),
+        [4] = TI18N("语言_c_3897"),
+        [5] = TI18N("语言_c_5240"),
+        [6] = TI18N("语言_c_5241"),
+    }
+
+    local key_right_list = {
+        [1] = TI18N("语言_c_5242"),
+        [2] = TI18N("语言_c_5243"),
+        [3] = TI18N("语言_c_5244"),
+        [4] = TI18N("语言_c_5245"),
+        [5] = TI18N(""),
+        [6] = TI18N(""),
+    }
+    self.left_value_list = {}
+    self.right_value_list = {}
+    for i=1,6 do
+        local key_label = self.panel:getChildByName("key_label_"..i)
+        if key_left_list[i] then
+            key_label:setTouchEnabled(true)
+            -- key_label:setString(key_left_list[i])
+            key_label:setString(transformTextToShort(key_left_list[i],10))
+            addEvt2showAllTextTips(key_label,key_left_list[i],10)
+        end
+        local key_label_right = self.panel:getChildByName("key_label_right_"..i)
+        if key_right_list[i] and key_label_right then
+            key_label_right:setTouchEnabled(true)
+            -- key_label_right:setString(key_right_list[i])
+            key_label_right:setString(transformTextToShort(key_right_list[i],10))
+            addEvt2showAllTextTips(key_label_right,key_right_list[i],10)
+        end
+        if i ~= 6 then
+            self.left_value_list[i] = self.panel:getChildByName("key_value_"..i)
+            self.left_value_list[i]:setPositionX(key_label:getPositionX() + key_label:getContentSize().width + 10)
+            if key_label_right then
+                self.right_value_list[i] = self.panel:getChildByName("key_value_right_"..i)
+                self.right_value_list[i]:setPositionX(key_label_right:getPositionX() + key_label_right:getContentSize().width + 10)
+            end
+        end
+    end
+
+    self.panel:getChildByName("label_rank_title"):setString(TI18N("语言_c_255"))
+    self.panel:getChildByName("label_play_name"):setString(TI18N("语言_c_256"))
+    self.panel:getChildByName("label_star_title"):setString(TI18N("语言_c_1192"))
+    self.panel:getChildByName("label_record_title"):setString(TI18N("语言_c_1193"))
+
+    local panel_list = self.panel:getChildByName("panel_list")
+    local scroll_view_size = panel_list:getContentSize()
+    local setting = {
+        item_class = GuildnewwarSeasonStatisticsItem,      -- 单元类
+        start_x = 0,                  -- 第一个单元的X起点
+        space_x = 0,                    -- x方向的间隔
+        start_y = 0,                    -- 第一个单元的Y起点
+        space_y = 0,                   -- y方向的间隔
+        item_width = 615,               -- 单元的尺寸width
+        item_height = 124,              -- 单元的尺寸height
+        row = 1,                        -- 行数，作用于水平滚动类型
+        col = 1,                         -- 列数，作用于垂直滚动类型
+    }
+    self.play_scrollview = CommonScrollViewLayout.new(panel_list, cc.p(0,0) , ScrollViewDir.vertical, ScrollViewStartPos.top, scroll_view_size, setting)
+    self.play_scrollview:setBounceEnabled(false)
+
+    self.match_name = self.panel:getChildByName("match_name")
+    self.left_btn = self.panel:getChildByName("left_btn")
+    self.right_btn = self.panel:getChildByName("right_btn")
+
+    self.panel_1 = self.main_panel:getChildByName("panel_1")  --对战记录
+    self.panel_record_list = self.panel_1:getChildByName("panel_record_list")
+    local scroll_view_size = self.panel_record_list:getContentSize()
+    local setting = {
+        item_class = GuildnewwarSeasonBattleRecordItem,      -- 单元类
+        start_x = 0,                  -- 第一个单元的X起点
+        space_x = 0,                    -- x方向的间隔
+        start_y = 0,                    -- 第一个单元的Y起点
+        space_y = 0,                   -- y方向的间隔
+        item_width = 628,               -- 单元的尺寸width
+        item_height = 244,              -- 单元的尺寸height
+        row = 1,                        -- 行数，作用于水平滚动类型
+        col = 1,                         -- 列数，作用于垂直滚动类型
+    }
+    self.record_scrollview = CommonScrollViewLayout.new(self.panel_record_list, cc.p(0,0) , ScrollViewDir.vertical, ScrollViewStartPos.top, scroll_view_size, setting)
+    self.record_scrollview:setBounceEnabled(false)
+end
+
+function GuildnewwarSeasonStatisticsPanel:register_event()
+    registerButtonEventListener(self.close_btn, handler(self, self.onClickBtnClose) ,true, 2)
+    registerButtonEventListener(self.background, handler(self, self.onClickBtnClose) ,false, 2)
+    registerButtonEventListener(self.left_btn, handler(self, self.onClickBtnLeft) ,true, 1)
+    registerButtonEventListener(self.right_btn, handler(self, self.onClickBtnRight) ,true, 1)
+
+    for k, object in pairs(self.tab_list) do
+        if object.tab_btn then
+            object.tab_btn:addTouchEventListener(function(sender, event_type)
+                if event_type == ccui.TouchEventType.ended then
+                    playTabButtonSound()
+                    self:changeSelectedTab(object.index)
+                end
+            end)
+        end
+    end
+
+    self:addGlobalEvent(GuildNewwarEvent.GUILDNEWWAR_SEASON_STATISTICS, function(data)
+        self.season_statistics = data
+        self:updateData()
+    end)
+    self:addGlobalEvent(GuildNewwarEvent.GUILDNEWWAR_SEASON_PLAY, function(data)
+        self.personal_record_list= data
+        self:updateData()
+    end)
+end
+
+--关闭
+function GuildnewwarSeasonStatisticsPanel:onClickBtnClose()
+    -- self:showSharePanel(false)
+    controller:openGuildnewwarSeasonStatisticsPanel(false)
+end
+
+--左
+function GuildnewwarSeasonStatisticsPanel:onClickBtnLeft()
+    if not self.select_period then return end
+    self.select_period = self.select_period - 1
+    if self.select_period <= 1 then
+        self.select_period = 1
+    end
+    self:setTitle(self.select_period)
+    self:setBtnShowStatus()
+    self:updateData() 
+end
+--右
+function GuildnewwarSeasonStatisticsPanel:onClickBtnRight()
+    if not self.select_period then return end
+    self.select_period = self.select_period + 1
+    if self.select_period >= self.max_period then
+        self.select_period = self.max_period
+    end
+    self:setTitle(self.select_period)
+    self:setBtnShowStatus()
+    self:updateData()
+end
+
+--设置按钮状态
+function GuildnewwarSeasonStatisticsPanel:setBtnShowStatus()
+    if not self.select_period then return end
+    if self.max_period == 1 then
+        self.left_btn:setVisible(false)
+        self.right_btn:setVisible(false) 
+        return 
+    end
+    if self.select_period == 1 then
+        self.left_btn:setVisible(false)
+        self.right_btn:setVisible(true) 
+    elseif self.select_period == self.max_period then
+        self.left_btn:setVisible(true)
+        self.right_btn:setVisible(false) 
+    else
+        self.left_btn:setVisible(true)
+        self.right_btn:setVisible(true)
+    end
+end
+
+
+-- 切换标签页
+function GuildnewwarSeasonStatisticsPanel:changeSelectedTab( index )
+    if self.tab_object ~= nil and self.tab_object.index == index then return end
+    if self.tab_object then
+        self.tab_object.select_bg:setVisible(false)
+        self.tab_object.title:setTextColor(cc.c4b(0xcf, 0xb5, 0x93, 0xff))
+        self.tab_object = nil
+    end
+    self.tab_object = self.tab_list[index]
+    if self.tab_object then
+        self.tab_object.select_bg:setVisible(true)
+        self.tab_object.title:setTextColor(cc.c4b(0xff, 0xed, 0xd6, 0xff))
+    end
+    self.index = index
+
+    if not self.select_period then return end
+    self.panel:setVisible(index == 1)
+    self.panel_1:setVisible(index == 2)
+    if index == 1 then
+        if next(self.season_statistics) then
+            self:updateData()
+        else
+            GuildNewwarController:getInstance():sender14225()
+        end
+    else
+        if next(self.personal_record_list) then
+            self:updateData()
+        else
+            GuildNewwarController:getInstance():sender14226()
+        end
+    end
+end
+
+function GuildnewwarSeasonStatisticsPanel:senderProto(period)
+end
+
+function GuildnewwarSeasonStatisticsPanel:openRootWnd(period)
+    local season_data = GuildNewwarController:getInstance():getModel():getSeasonData()
+    local period = season_data and season_data.season or 1
+    self.max_period = 1
+    self.select_period = period
+    self:setTitle(period)
+    self:setBtnShowStatus()
+    self:changeSelectedTab(1)
+end
+
+function GuildnewwarSeasonStatisticsPanel:updateData()
+    if not self.select_period then return end
+    if self.index == 1 then
+        self:updatePanel() 
+    else
+        self:updatePanel1()
+    end
+end
+
+
+function GuildnewwarSeasonStatisticsPanel:setTitle(period)
+    local str
+    if period == nil then
+        str = TI18N("语言_c_3891")
+    else
+        str = string_format(TI18N("语言_c_3908"), period)
+    end
+    self.match_name:setString(str)
+end
+
+function GuildnewwarSeasonStatisticsPanel:updatePanel()
+    if not self.season_statistics then return end
+    local data = self.season_statistics
+    local config = Config.GuildWarNewData.data_guild_war_level[data.max_dan]
+    if config then
+        self.left_value_list[1]:setString(config.name) --当前段位
+    else
+        self.left_value_list[1]:setString(TI18N("语言_c_273")) --当前段位
+    end
+
+    --所在赛区： 无  
+    if data.zone_id == 0 or not data.zone_id then
+        self.left_value_list[2]:setString(TI18N("语言_c_2103"))
+    else
+        self.left_value_list[2]:setString(string.format(TI18N("语言_c_558"),data.zone_id))
+    end
+    self.left_value_list[3]:setString(data.win_count1)--常规赛胜场
+    local count
+    if data.win_count1 and data.all_count1 ~= 0 then
+        count = math.floor(data.win_count1 * 100 / data.all_count1)
+    else
+        count = 0
+    end
+    self.left_value_list[4]:setString(count.."%")--常规赛胜率
+    self.left_value_list[5]:setString(data.now_win_streak) --连胜
+
+    self.right_value_list[1]:setString(data.max_cups) --最高杯数
+    self.right_value_list[2]:setString(data.zone_rank)--赛季排名
+    self.right_value_list[3]:setString(data.win_count2)--传奇赛胜场
+    local count
+    if data.all_count2 ~= 0 then
+        count = math.floor(data.win_count2 * 100 / data.all_count2)
+    else
+        count = 0
+    end
+    self.right_value_list[4]:setString(count.."%") --传奇赛胜率
+
+    if data.name == nil or data.name == "" then
+        self.gid = 0
+    else
+        self.grid = data.grid
+        self.gsrv_id = data.gsrv_id
+    end
+    self.play_scrollview:setData(data.ranks)
+end
+
+function GuildnewwarSeasonStatisticsPanel:updatePanel1()
+    self.record_scrollview:setData(self.personal_record_list)
+end
+
+function GuildnewwarSeasonStatisticsPanel:close_callback()
+    controller:openGuildnewwarSeasonStatisticsPanel(false)
+end
+
+------------------------------------------
+-- 子项
+GuildnewwarSeasonStatisticsItem = class("GuildnewwarSeasonStatisticsItem", function()
+    return ccui.Widget:create()
+end)
+
+function GuildnewwarSeasonStatisticsItem:ctor()
+    self:configUI()
+    self:register_event()
+end
+
+function GuildnewwarSeasonStatisticsItem:configUI(  )
+    self.size = cc.size(615,124)
+    self:setTouchEnabled(true)
+    self:setContentSize(self.size)
+
+    local csbPath = PathTool.getTargetCSB("guildnewwar/guildnewwar_season_statistics_item")
+    self.root_wnd = cc.CSLoader:createNode(csbPath)
+    self:addChild(self.root_wnd)
+
+    local main_container = self.root_wnd:getChildByName("main_container")
+    self.image_rank = main_container:getChildByName("image_rank")
+    self.label_rank = main_container:getChildByName("label_rank")
+    self.node_head = main_container:getChildByName("node_head")
+    self.player_head = PlayerHead.new(PlayerHead.type.circle)
+    self.node_head:addChild(self.player_head)
+    -- self.player_head:setHeadRes(data.face, false, LOADTEXT_TYPE, data.face_file, data.face_update_time)
+    -- self.player_head:setLev(data.lev)
+
+    self.label_name = main_container:getChildByName("label_name")
+    self.label_star = main_container:getChildByName("label_star")
+    self.label_record = main_container:getChildByName("label_record")
+end
+
+function GuildnewwarSeasonStatisticsItem:register_event( )
+    self.player_head:addCallBack(function()
+        if not self.data.rid then return end
+        if self.data.rid == 0 then return end
+        FriendController:getInstance():openFriendCheckPanel(true, {srv_id = self.data.srv_id, rid = self.data.rid})
+    end)
+end
+
+function GuildnewwarSeasonStatisticsItem:setData(data)
+    data = data or {}
+	self.data = data
+
+	if data.rank == 1 then
+		self.label_rank:setVisible(false)
+		self.image_rank:setVisible(true)
+		self.image_rank:loadTexture(PathTool.getResFrame("common","common_3001"), LOADTEXT_TYPE_PLIST)
+	elseif data.rank == 2 then
+		self.label_rank:setVisible(false)
+		self.image_rank:setVisible(true)
+		self.image_rank:loadTexture(PathTool.getResFrame("common","common_3002"), LOADTEXT_TYPE_PLIST)
+	elseif data.rank == 3 then
+		self.label_rank:setVisible(false)
+		self.image_rank:setVisible(true)
+		self.image_rank:loadTexture(PathTool.getResFrame("common","common_3003"), LOADTEXT_TYPE_PLIST)
+	else
+		self.label_rank:setString(data.rank)
+		self.label_rank:setVisible(true)
+		self.image_rank:setVisible(false)
+	end
+
+	self.player_head:setHeadRes(data.face, false, LOADTEXT_TYPE, data.face_file, data.face_update_time)
+	self.player_head:setLev(data.lev)
+
+    self.label_name:setString(transformNameByServ(data.name, data.srv_id))
+    
+    self.label_star:setString(data.star)
+    self.label_record:setString(data.war_score)
+end
+
+function GuildnewwarSeasonStatisticsItem:DeleteMe( )
+    self:removeAllChildren()
+    self:removeFromParent()
+end
+

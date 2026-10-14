@@ -1,0 +1,426 @@
+-- --------------------------------------------------------------------
+-- 这里填写简要说明(必填),
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      公会战奖励界面
+-- <br/>Create: 2019年9月23日 
+GuildNewwarAwardWindow = GuildNewwarAwardWindow or BaseClass(BaseView)
+
+local controller = GuildNewwarController:getInstance()
+local model = controller:getModel()
+local string_format = string.format
+local table_sort = table.sort
+local table_insert = table.insert
+
+function GuildNewwarAwardWindow:__init()
+    self.win_type = WinType.Full
+    self.is_full_screen = true
+    self.res_list = {
+        {path = PathTool.getPlistImgForDownLoad("guildmarketplacereward", "guildmarketplacereward"), type = ResourcesType.plist},
+    }
+    self.layout_name = "guildnewwar/guildnewwar_award_list_panel"
+end
+
+function GuildNewwarAwardWindow:open_callback(  )
+    self.background = self.root_wnd:getChildByName("background")
+    local scale = display.getMaxScale() or 1
+    self.background:setScale(scale)
+
+    self.main_container = self.root_wnd:getChildByName("main_container")
+    self:playEnterAnimatianByObj(self.main_container, 1)
+    self.main_panel = self.main_container:getChildByName("main_panel")
+    self.close_btn = self.main_panel:getChildByName("close_btn")
+    self.tips = self.main_panel:getChildByName("tips")
+
+    --段位页签
+    self.tabArray = self.tabArray or {
+        {title = TI18N("语言_roo_fe_03_1"), index = 1, status = true},
+        {title = TI18N("语言_roo_fe_03_2"), index = 2, status = true},
+        {title = TI18N("语言_roo_fe_03_3"), index = 3, status = true},
+        {title = TI18N("语言_roo_fe_03_4"), index = 4, status = true},
+        {title = TI18N("语言_roo_fe_03_5"), index = 5, status = true},
+        {title = TI18N("语言_roo_fe_03_6"), index = 6, status = true},
+        {title = TI18N("语言_hol_ar_te_04_12"), index = 7, status = true}
+    }
+
+    local tab_container = self.main_panel:getChildByName("tab_container")
+    local bgSize = tab_container:getContentSize()
+    local scroll_view_size = cc.size(bgSize.width, bgSize.height)
+    -- local setting = {
+    --     item_class = CommonTabBtn,      -- 单元类
+    --     start_x = 5,                  -- 第一个单元的X起点
+    --     space_x = 0,                    -- x方向的间隔
+    --     start_y = 0,                    -- 第一个单元的Y起点
+    --     space_y = 0,                   -- y方向的间隔
+    --     item_width = 120,               -- 单元的尺寸width
+    --     item_height = 60,              -- 单元的尺寸height
+    --     row = 1,                        -- 行数，作用于水平滚动类型
+    --     col = 0,                         -- 列数，作用于垂直滚动类型
+    -- }
+    -- self.tab_scrollview = CommonScrollViewLayout.new(tab_container, cc.p(0, 0) , ScrollViewDir.horizontal, ScrollViewStartPos.top, scroll_view_size, setting)
+    -- local ext_data = {
+    --     default_index = 1, tab_size = cc.size(120, 60), 
+    --     select_color = cc.c4b(0xf8,0xef,0x76,0xff), 
+    --     select_outline = cc.c4b(0x5c,0x27,0x05,0xff), 
+    --     normal_color = cc.c4b(0xf9,0xee,0xd0,0xff), 
+    --     normal_outline = cc.c4b(0x3a,0x29,0x0a,0xff),
+    --     select_res = "common_2039.png",
+    --     normal_res = "common_2038.png",
+    --     img_rect = cc.rect(25, 25, 2, 11),
+    --     target_list = {
+    --         max_index = #self.tabArray,
+    --         select_res = "common_2027.png",
+    --         normal_res = "common_2026.png",
+    --         is_flipx = true,
+    --     },
+    -- }
+    -- self.tab_scrollview:setData(self.tabArray, handler(self, self._onClickTabBtn), nil, ext_data)
+    -- self.tab_scrollview:addEndCallBack(function (  )
+    --     self.tab_btn_list = self.tab_scrollview:getItemList()
+    --     if self.temp_cur_index then --用作如果没有如果list 没有加载完的缓存
+    --         self:setSelecteTab(self.temp_cur_index)
+    --         self.temp_cur_index = nil
+    --     end
+    -- end)
+
+    self.label_cur_lev = self.main_panel:getChildByName("label_cur_lev")
+    self.label_cur_lev:setString(TI18N("语言_c_3893"))
+    self.label_cur_lev_val = self.label_cur_lev:getChildByName("label_cur_lev_val")
+    ccui.Helper:doLayout(self.label_cur_lev)
+    self.label_lev_desc = self.main_panel:getChildByName("label_lev_desc")
+    self.label_lev_desc:setString(TI18N("语言_c_5264"))
+    self.label_lev_desc:setVisible(false)
+    self.gold_container = self.main_panel:getChildByName("gold_container")
+    local gold_label = self.gold_container:getChildByName("gold_label")
+    gold_label:setString(TI18N("语言_c_3819"))
+    self.gold_container:getChildByName("gold_content"):setString(TI18N("语言_c_3820"))
+
+    self.gold_container_1 = self.main_panel:getChildByName("gold_container_1")
+    local gold_label_1= self.gold_container_1:getChildByName("gold_label_1")
+    gold_label_1:setString(TI18N("语言_c_3821"))
+    self.gold_container_1:getChildByName("gold_content_1"):setString(TI18N("语言_c_3822"))
+
+    self.rank_container = self.main_panel:getChildByName("rank_container")
+    local rank_label= self.rank_container:getChildByName("rank_label")
+    rank_label:setString(TI18N("语言_c_426"))
+
+    self.win_title = self.main_panel:getChildByName("win_title")
+    self.win_title:setString(TI18N("语言_gui_se_ar_08_2"))
+
+    local setting = {
+        start_x = 5,                  -- 第一个单元的X起点
+        space_x = -8,                    -- x方向的间隔
+        start_y = 0,                    -- 第一个单元的Y起点
+        space_y = 0,                   -- y方向的间隔
+        item_width = 147,               -- 单元的尺寸width
+        item_height = 60,              -- 单元的尺寸height
+        row = 1,                        -- 行数，作用于水平滚动类型
+        col = 0,                         -- 列数，作用于垂直滚动类型
+    }
+    
+	self.tab_scrollview = CommonScrollViewSingleLayout.new(tab_container, cc.p(0, 0) , ScrollViewDir.horizontal, ScrollViewStartPos.top, scroll_view_size, setting)
+
+	self.tab_scrollview:registerScriptHandlerSingle(handler(self,self.createNewCell), ScrollViewFuncType.CreateNewCell) --创建cell
+	self.tab_scrollview:registerScriptHandlerSingle(handler(self,self.numberOfCells), ScrollViewFuncType.NumberOfCells) --获取数量
+	self.tab_scrollview:registerScriptHandlerSingle(handler(self,self.updateCellByIndex), ScrollViewFuncType.UpdateCellByIndex) --更新cell
+    self.tab_scrollview:reloadData(1)
+end
+
+function GuildNewwarAwardWindow:createNewCell()
+    local cell = CommonTabBtn.new()
+    cell:addCallBack(handler(self, self._onClickTabBtn))
+    return cell
+end
+
+function GuildNewwarAwardWindow:numberOfCells()
+    if not self.tabArray then return 0 end
+    return #self.tabArray
+end
+
+function GuildNewwarAwardWindow:updateCellByIndex(cell, index)
+    cell.index = index
+    local data = self.tabArray[index]
+    if not data then return end
+    local ext_data = {
+        tab_size = cc.size(147, 60), 
+        select_color = cc.c4b(0xf8, 0xef, 0x76, 0xff), 
+        select_outline = cc.c4b(0x5c, 0x27, 0x05,0xff), 
+        normal_color = cc.c4b(0x92, 0xb1, 0xdc, 0xff), 
+        normal_outline = cc.c4b(0x34, 0x4c, 0x5f,0xff),
+        select_res = "common_2039.png",
+        normal_res = "common_2038.png",
+        img_rect = cc.rect(25, 25, 2, 11),
+        target_list = {
+            max_index = #self.tabArray,
+            select_res = "common_2027.png",
+            normal_res = "common_2026.png",
+            is_flipx = true,
+            index = index,
+        },
+        default_index = 1,
+    }
+    if self.cur_selected_index then
+        ext_data.default_index = self.cur_selected_index
+    end
+    cell:setExtendData(ext_data)
+    cell:setData(data)
+end
+
+function GuildNewwarAwardWindow:setSelecteTab(index)
+    local tab_btn = self.tab_scrollview:getCellByIndex(index)
+    self:_onClickTabBtn(tab_btn)
+end
+
+function GuildNewwarAwardWindow:_onClickTabBtn( tab_btn )
+    if self.cur_selected_index and self.cur_selected_index == tab_btn.index then return end
+    local cell = self.tab_scrollview:getCellByIndex(self.cur_selected_index)
+    if cell then
+        cell:setBtnSelectStatus(false)
+    end
+
+    if tab_btn then
+        self.cur_selected_index = tab_btn.index
+        tab_btn:setBtnSelectStatus(true)
+
+        self:selectTabBtn(self.cur_selected_index)
+    end
+end
+
+function GuildNewwarAwardWindow:register_event(  )
+        registerButtonEventListener(self.close_btn, handler(self, self.onClickCloseBtn), true, 2)
+        registerButtonEventListener(self.background, handler(self, self.onClickCloseBtn), true, 2)
+        
+        if self.tips then  --规则说明
+            self.tips:addTouchEventListener(function ( sender,event_type )
+                if event_type == ccui.TouchEventType.ended then
+                playButtonSound2()
+                    if Config.GuildWarNewData.data_const.marketplace_rule then
+                        local str = Config.GuildWarNewData.data_const.marketplace_rule.desc
+                        TipsManager:getInstance():showCommonTips(str, sender:getTouchBeganPosition())
+                    end
+                end
+            end)
+        end
+end
+
+function GuildNewwarAwardWindow:openRootWnd()
+    -- self:setSelecteTab(1)
+    local season_data = GuildNewwarController:getInstance():getModel():getSeasonData()
+    local config = Config.GuildWarNewData.data_guild_war_level[season_data.dan]
+    self.label_cur_lev_val:setString(config.name)
+end
+
+function GuildNewwarAwardWindow:selectTabBtn(index)
+    local power = model:getAvgPower()
+    local cur_config = Config.GuildWarNewData.data_marketplace_reward[index]
+    if not cur_config then 
+        cur_config = Config.GuildWarNewData.data_marketplace_reward[Config.GuildWarNewData.data_marketplace_reward_length]
+    end
+
+    local rand_reward = cur_config.rand_reward
+    local reward = cur_config.reward
+
+    self:setReward_regular(reward) --设置固定奖励 
+    self:setReward_random(rand_reward)  -- 设置随机奖励
+    self:showRankInfo()
+end
+
+--设置固定奖励 
+function GuildNewwarAwardWindow:setReward_regular(list)
+    self.gold_scroll_size = self.gold_container:getContentSize()
+    local setting = {}
+    setting.scale = 0.9
+    setting.space_x = 15
+    setting.is_center = false
+    setting.max_count = 5
+    local data_list1 = {}
+    if list then
+        for k, v in pairs(list) do
+            table_insert(data_list1, {v[1], v[2]})
+        end
+    end
+    self.gold_scrollview  = createScrollView(self.gold_scroll_size.width, self.gold_scroll_size.height, 0, 0, self.gold_container, ScrollViewDir.horizontal) 
+    self.scroll_list = commonShowSingleRowItemList(self.gold_scrollview, self.scroll_list, data_list1, setting)
+end
+
+--设置随机奖励
+function GuildNewwarAwardWindow:setReward_random(data_list)
+    self.gold_scroll_size_1 = self.gold_container_1:getContentSize()
+    local setting = {}
+    setting.scale = 0.9
+    setting.space_x = 15
+    setting.is_center = false
+    setting.max_count = 5
+    local data_list1 = {}
+    if data_list then
+        for k, v in pairs(data_list) do
+            table_insert(data_list1, {v[1], v[2]})
+        end
+    end
+    self.gold_scrollview_1  = createScrollView(self.gold_scroll_size_1.width, self.gold_scroll_size_1.height, 0, 0, self.gold_container_1, ScrollViewDir.horizontal) 
+    self.scroll_list_1 = commonShowSingleRowItemList(self.gold_scrollview_1, self.scroll_list_1, data_list1, setting)
+
+end
+
+function GuildNewwarAwardWindow:showRankInfo(  )
+    local award_data = self:getGuildWarAwardData()
+    for i,data in ipairs(award_data) do
+        local pre_num = 1
+        if award_data[i-1] then
+            pre_num = award_data[i-1].num+1
+        end
+        data.min = pre_num
+        data.max = data.num
+        data.reward = data.award
+        data.index = i
+    end
+
+    self.rank_scrollview_size = self.rank_container:getContentSize()
+    if not self.rank_scrollview then
+        local setting = {
+            item_class = GuildNewsecretareaRankRewardItem,
+            start_x = 0,
+            space_x = 0,
+            start_y = 0,
+            space_y = 4,
+            item_width = 600,
+            item_height = 110,
+            row = 0,
+            col = 1,
+            scale = 1
+        }
+        self.rank_scrollview = CommonScrollViewLayout.new(self.rank_container, cc.p(0,0) , ScrollViewDir.vertical, ScrollViewStartPos.top, self.rank_scrollview_size, setting)
+    end
+    self.rank_scrollview:setData(award_data)
+end
+
+function GuildNewwarAwardWindow:getGuildWarAwardData(  )
+    local award_data = {}
+    local list = Config.GuildWarNewData.data_award[self.cur_selected_index]
+    for k,v in pairs(list) do
+        local temp_data = DeepCopy(v)
+        table.insert(award_data, temp_data)
+    end
+
+    local function sortFunc( objA, objB )
+        return objA.num < objB.num
+    end
+    table.sort(award_data, sortFunc)
+    return award_data
+end
+
+
+-- 关闭
+function GuildNewwarAwardWindow:onClickCloseBtn()
+    controller:openGuildWarAwardWindow(false)
+end
+
+function GuildNewwarAwardWindow:close_callback()
+    if self.scroll_list then
+        for i,v in pairs(self.scroll_list) do
+            v:DeleteMe()
+        end
+        self.scroll_list = nil
+    end
+    if self.scroll_list_1 then
+        for i,v in pairs(self.scroll_list_1) do
+            v:DeleteMe()
+        end
+        self.scroll_list_1 = nil
+    end
+    if self.scroll_list_fight then
+        for i,v in pairs(self.scroll_list_fight) do
+            v:DeleteMe()
+        end
+        self.scroll_list_fight = nil
+    end
+    controller:openGuildWarAwardWindow(false)
+end
+
+-- --------------------------------------------------------------------
+-- (必填, 创建模块的人员)
+-- @description:
+--      排行奖励
+-- <br/>Create: new Date().toISOString()
+--
+-- --------------------------------------------------------------------
+GuildNewsecretareaRankRewardItem = class("GuildNewsecretareaRankRewardItem", function()
+    return ccui.Layout:create()
+end)
+
+function GuildNewsecretareaRankRewardItem:ctor()
+    self.item_list = {}
+    
+    self.root_wnd = createCSBNote(PathTool.getTargetCSB("guildsecretarea/guildsecretarea_reward_rank_item"))
+    self.size = self.root_wnd:getContentSize()
+    self:setAnchorPoint(cc.p(0.5, 0.5))
+    self:setContentSize(self.size)
+    
+    self.root_wnd:setAnchorPoint(0.5, 0.5)
+    self.root_wnd:setPosition(self.size.width * 0.5, self.size.height * 0.5)
+    self:addChild(self.root_wnd)
+    
+    self.rank_img = self.root_wnd:getChildByName("rank_img")
+    self.rank_label = self.root_wnd:getChildByName("rank_label")
+    self.item_container = self.root_wnd:getChildByName("item_container")
+    
+    self.total_width = self.item_container:getContentSize().width
+    
+    self:registerEvent()
+end
+
+function GuildNewsecretareaRankRewardItem:registerEvent()
+end
+
+function GuildNewsecretareaRankRewardItem:setData(data)
+    if data ~= nil then
+        if data.index ~= nil then
+            if data.index <= 3 then
+                self.rank_label:setVisible(false)
+                local res_id = PathTool.getResFrame("common", string.format("common_200%s", data.index))
+                if self.rank_res_id ~= res_id then
+                    self.rank_res_id = res_id
+                    loadSpriteTexture(self.rank_img, res_id, LOADTEXT_TYPE_PLIST)
+                end
+                self.rank_img:setVisible(true)
+            else
+                self.rank_img:setVisible(false)
+                self.rank_label:setVisible(true)
+                self.rank_label:setString(string.format("%s~%s", data.min, data.max))
+                if data.max == 999 then
+                    self.rank_label:setString(string.format("%s+", data.min))
+                end
+            end
+        end
+
+        self.item_container_size = self.item_container:getContentSize()
+
+        local setting = {}
+        setting.scale = 0.7
+        setting.space_x = 15
+        setting.is_center = false
+        setting.max_count = 2
+        local item_list = {}
+        if data.reward then
+            for k, v in pairs(data.reward) do
+                table_insert(item_list, {v[1], v[2]})
+            end
+        end
+        self.item_scrollview  = createScrollView(self.item_container_size.width, self.item_container_size.height, 0, 0, self.item_container, ScrollViewDir.horizontal) 
+        self.scroll_list_item = commonShowSingleRowItemList(self.item_scrollview, self.scroll_list_item, item_list, setting)
+        
+    end
+end
+
+function GuildNewsecretareaRankRewardItem:DeleteMe()
+
+   if self.scroll_list_item then
+        for i,v in pairs(self.scroll_list_item) do
+            v:DeleteMe()
+        end
+        self.scroll_list_item = nil
+    end
+    self:removeAllChildren()
+    self:removeFromParent()
+end 

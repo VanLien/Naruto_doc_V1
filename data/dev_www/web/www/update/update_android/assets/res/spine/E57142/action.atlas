@@ -1,0 +1,223 @@
+
+action.png
+size: 960,496
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+buff/qiliu/qiliu_00020
+  rotate: true
+  xy: 307, 219
+  size: 129, 138
+  orig: 144, 144
+  offset: 2, 0
+  index: -1
+buff/qiliu/qiliu_00023
+  rotate: false
+  xy: 617, 365
+  size: 137, 131
+  orig: 144, 144
+  offset: 5, 12
+  index: -1
+buff/qiliu/qiliu_00026
+  rotate: true
+  xy: 756, 367
+  size: 129, 139
+  orig: 144, 144
+  offset: 12, 5
+  index: -1
+buff/qiliu/qiliu_00029
+  rotate: true
+  xy: 447, 218
+  size: 129, 134
+  orig: 144, 144
+  offset: 13, 4
+  index: -1
+buff/qiliu/qiliu_00032
+  rotate: false
+  xy: 583, 213
+  size: 126, 134
+  orig: 144, 144
+  offset: 14, 4
+  index: -1
+buff/qiliu/qiliu_00035
+  rotate: false
+  xy: 711, 234
+  size: 126, 129
+  orig: 144, 144
+  offset: 14, 7
+  index: -1
+buff/xiongmaotou/xiongmaotou_00023
+  rotate: true
+  xy: 158, 115
+  size: 100, 98
+  orig: 102, 100
+  offset: 1, 1
+  index: -1
+buff/xiongmaotou/xiongmaotou_00026
+  rotate: true
+  xy: 258, 115
+  size: 100, 98
+  orig: 102, 100
+  offset: 1, 1
+  index: -1
+buff/xiongmaotou/xiongmaotou_00029
+  rotate: true
+  xy: 385, 0
+  size: 100, 98
+  orig: 102, 100
+  offset: 1, 1
+  index: -1
+buff/xiongmaotou/xiongmaotou_00032
+  rotate: false
+  xy: 779, 14
+  size: 97, 99
+  orig: 102, 100
+  offset: 3, 1
+  index: -1
+buff/xiongmaotou/xiongmaotou_00035
+  rotate: false
+  xy: 485, 0
+  size: 93, 100
+  orig: 102, 100
+  offset: 5, 0
+  index: -1
+buff/xiongmaotou/xiongmaotou_00038
+  rotate: false
+  xy: 580, 1
+  size: 92, 100
+  orig: 102, 100
+  offset: 5, 0
+  index: -1
+buff/xiongmaotou/xiongmaotou_00041
+  rotate: true
+  xy: 839, 149
+  size: 92, 95
+  orig: 102, 100
+  offset: 5, 5
+  index: -1
+buff/xiongmaotou/xiongmaotou_00044
+  rotate: true
+  xy: 358, 128
+  size: 89, 82
+  orig: 102, 100
+  offset: 8, 8
+  index: -1
+buff/xiongmaotou/xiongmaotou_00047
+  rotate: false
+  xy: 897, 457
+  size: 35, 39
+  orig: 102, 100
+  offset: 61, 13
+  index: -1
+buff/xiongmaotou2/xiongmaotou2_00023
+  rotate: false
+  xy: 839, 243
+  size: 121, 122
+  orig: 122, 122
+  offset: 1, 0
+  index: -1
+buff/xiongmaotou2/xiongmaotou2_00026
+  rotate: true
+  xy: 711, 115
+  size: 117, 120
+  orig: 122, 122
+  offset: 4, 2
+  index: -1
+buff/xiongmaotou2/xiongmaotou2_00029
+  rotate: true
+  xy: 442, 102
+  size: 114, 119
+  orig: 122, 122
+  offset: 5, 3
+  index: -1
+buff/xiongmaotou2/xiongmaotou2_00032
+  rotate: true
+  xy: 156, 0
+  size: 113, 117
+  orig: 122, 122
+  offset: 5, 4
+  index: -1
+buff/xiongmaotou2/xiongmaotou2_00035
+  rotate: false
+  xy: 275, 1
+  size: 108, 112
+  orig: 122, 122
+  offset: 8, 7
+  index: -1
+buff/xiongmaotou2/xiongmaotou2_00038
+  rotate: false
+  xy: 563, 103
+  size: 108, 108
+  orig: 122, 122
+  offset: 8, 7
+  index: -1
+buff/xiongmaotou2/xiongmaotou2_00041
+  rotate: false
+  xy: 674, 19
+  size: 103, 94
+  orig: 122, 122
+  offset: 11, 9
+  index: -1
+buff/xiongmaotou2/xiongmaotou2_00044
+  rotate: true
+  xy: 878, 57
+  size: 90, 81
+  orig: 122, 122
+  offset: 21, 13
+  index: -1
+buff/xiongmaotou2/xiongmaotou2_00047
+  rotate: false
+  xy: 934, 463
+  size: 26, 33
+  orig: 122, 122
+  offset: 73, 25
+  index: -1
+buff/yinyangyu/yinyangyu_00018
+  rotate: true
+  xy: 466, 349
+  size: 147, 149
+  orig: 162, 158
+  offset: 3, 9
+  index: -1
+buff/yinyangyu/yinyangyu_00020
+  rotate: true
+  xy: 314, 350
+  size: 146, 150
+  orig: 162, 158
+  offset: 9, 3
+  index: -1
+buff/yinyangyu/yinyangyu_00022
+  rotate: false
+  xy: 0, 352
+  size: 156, 144
+  orig: 162, 158
+  offset: 6, 9
+  index: -1
+buff/yinyangyu/yinyangyu_00024
+  rotate: false
+  xy: 0, 208
+  size: 156, 142
+  orig: 162, 158
+  offset: 5, 11
+  index: -1
+buff/yinyangyu/yinyangyu_00026
+  rotate: false
+  xy: 158, 352
+  size: 154, 144
+  orig: 162, 158
+  offset: 4, 9
+  index: -1
+buff/yinyangyu/yinyangyu_00028
+  rotate: false
+  xy: 0, 62
+  size: 154, 144
+  orig: 162, 158
+  offset: 3, 8
+  index: -1
+buff/yinyangyu/yinyangyu_00030
+  rotate: false
+  xy: 158, 217
+  size: 147, 133
+  orig: 162, 158
+  offset: 1, 8
+  index: -1

@@ -1,0 +1,113 @@
+﻿GlobalPopupMgr = GlobalPopupMgr or BaseClass()
+NeedCheckPopupWindow = {
+	Common = "Common",
+	RfmPersonnalGiftWindow = "RfmPersonnalGiftWindow"
+}
+CheckPopupLayoutName = {
+	[NeedCheckPopupWindow.Common] = {},
+	[NeedCheckPopupWindow.RfmPersonnalGiftWindow] = {
+		"mainui/item_exhibition_view"
+	}
+}
+
+function GlobalPopupMgr.__init(arg_1_0)
+	if GlobalPopupMgr.Instance ~= nil then
+		error("[GlobalPopupMgr] accempt to create singleton twice!")
+	end
+
+	GlobalPopupMgr.Instance = arg_1_0
+end
+
+function GlobalPopupMgr.getInstance(arg_2_0)
+	if GlobalPopupMgr.Instance == nil then
+		GlobalPopupMgr.New()
+		arg_2_0:registerEvents()
+
+		arg_2_0.delayWinMap = {}
+	end
+
+	return GlobalPopupMgr.Instance
+end
+
+function GlobalPopupMgr.registerEvents(arg_3_0)
+	arg_3_0.close_base_view_event = GlobalEvent:getInstance():Bind(EventId.CLOSE_BASE_VIEW, function()
+		arg_3_0:checkPopupWindow()
+	end)
+end
+
+function GlobalPopupMgr.addPopupWindow(arg_5_0, arg_5_1, arg_5_2)
+	if arg_5_1 == nil then
+		return
+	end
+
+	if arg_5_0.delayWinMap ~= nil then
+		for iter_5_0, iter_5_1 in ipairs(arg_5_0.delayWinMap) do
+			if iter_5_1.winName == arg_5_1 then
+				return
+			end
+		end
+	else
+		arg_5_0.delayWinMap = {}
+	end
+
+	local var_5_0 = {
+		winName = arg_5_1,
+		data = arg_5_2 or {}
+	}
+
+	table.insert(arg_5_0.delayWinMap, var_5_0)
+end
+
+function GlobalPopupMgr.checkPopupWindow(arg_6_0)
+	if arg_6_0.delayWinMap == nil or next(arg_6_0.delayWinMap) == nil then
+		return
+	end
+
+	if GuideController:getInstance():isInGuide() then
+		return
+	end
+
+	if StoryController:getInstance():getModel():isStoryState() then
+		return
+	end
+
+	for iter_6_0 = #arg_6_0.delayWinMap, 1, -1 do
+		local var_6_0 = true
+
+		for iter_6_1, iter_6_2 in pairs(BaseView.winMap) do
+			for iter_6_3, iter_6_4 in pairs(CheckPopupLayoutName[NeedCheckPopupWindow.Common]) do
+				if iter_6_2.layout_name == iter_6_4 then
+					var_6_0 = false
+				end
+			end
+
+			if arg_6_0.delayWinMap[iter_6_0].winName and CheckPopupLayoutName[arg_6_0.delayWinMap[iter_6_0].winName] then
+				for iter_6_5, iter_6_6 in pairs(CheckPopupLayoutName[arg_6_0.delayWinMap[iter_6_0].winName]) do
+					if iter_6_2.layout_name == iter_6_6 then
+						var_6_0 = false
+					end
+				end
+			end
+		end
+
+		if var_6_0 then
+			local var_6_1 = table.remove(arg_6_0.delayWinMap, iter_6_0)
+
+			arg_6_0:endPopupWindow(var_6_1)
+		end
+	end
+end
+
+function GlobalPopupMgr.endPopupWindow(arg_7_0, arg_7_1)
+	if arg_7_1 == nil or arg_7_1.winName == nil then
+		return
+	end
+
+	if arg_7_1.winName == NeedCheckPopupWindow.RfmPersonnalGiftWindow then
+		RfmPersonnalGiftController:getInstance():openRfmPersonalGiftView(true)
+	end
+end
+
+function GlobalPopupMgr.__delete(arg_8_0)
+	return
+end

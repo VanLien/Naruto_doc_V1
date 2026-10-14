@@ -1,0 +1,159 @@
+
+show.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/1/show1/000000
+  rotate: false
+  xy: 375, 1421
+  size: 364, 615
+  orig: 676, 676
+  offset: 141, 42
+  index: -1
+image/1/show1/000001
+  rotate: false
+  xy: 714, 821
+  size: 336, 598
+  orig: 676, 676
+  offset: 169, 45
+  index: -1
+image/1/show1/000003
+  rotate: true
+  xy: 1473, 1379
+  size: 328, 566
+  orig: 676, 676
+  offset: 166, 45
+  index: -1
+image/1/show1/000004
+  rotate: true
+  xy: 1399, 339
+  size: 333, 582
+  orig: 676, 676
+  offset: 165, 45
+  index: -1
+image/1/show1/000005
+  rotate: false
+  xy: 1052, 834
+  size: 347, 592
+  orig: 676, 676
+  offset: 165, 42
+  index: -1
+image/1/show1/000006
+  rotate: false
+  xy: 1111, 1437
+  size: 360, 599
+  orig: 676, 676
+  offset: 160, 48
+  index: -1
+image/1/show1/000007
+  rotate: false
+  xy: 2, 195
+  size: 365, 604
+  orig: 676, 676
+  offset: 155, 46
+  index: -1
+image/1/show1/000008
+  rotate: false
+  xy: 741, 1428
+  size: 368, 608
+  orig: 676, 676
+  offset: 159, 50
+  index: -1
+image/1/show1/000009
+  rotate: false
+  xy: 369, 808
+  size: 343, 608
+  orig: 676, 676
+  offset: 187, 52
+  index: -1
+image/1/show1/000010
+  rotate: false
+  xy: 369, 198
+  size: 336, 608
+  orig: 676, 676
+  offset: 184, 49
+  index: -1
+image/1/show1/000011
+  rotate: true
+  xy: 1401, 674
+  size: 337, 592
+  orig: 676, 676
+  offset: 184, 51
+  index: -1
+image/1/show1/000013
+  rotate: true
+  xy: 1399, 2
+  size: 335, 562
+  orig: 676, 676
+  offset: 183, 49
+  index: -1
+image/1/show1/000014
+  rotate: true
+  xy: 1473, 1709
+  size: 327, 573
+  orig: 676, 676
+  offset: 184, 54
+  index: -1
+image/1/show1/000015
+  rotate: false
+  xy: 1062, 250
+  size: 335, 582
+  orig: 676, 676
+  offset: 176, 52
+  index: -1
+image/1/show1/000016
+  rotate: false
+  xy: 707, 215
+  size: 353, 591
+  orig: 676, 676
+  offset: 160, 56
+  index: -1
+image/1/show1/000017
+  rotate: true
+  xy: 1401, 1013
+  size: 364, 592
+  orig: 676, 676
+  offset: 152, 58
+  index: -1
+image/1/show1/000018
+  rotate: false
+  xy: 2, 801
+  size: 365, 615
+  orig: 676, 676
+  offset: 143, 43
+  index: -1
+image/1/show1/000019
+  rotate: false
+  xy: 2, 1418
+  size: 371, 618
+  orig: 676, 676
+  offset: 137, 42
+  index: -1
+image/1/show1/000020
+  rotate: false
+  xy: 2, 1418
+  size: 371, 618
+  orig: 676, 676
+  offset: 137, 42
+  index: -1
+
+show2.png
+size: 2048,512
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/1/show1/000002
+  rotate: true
+  xy: 537, 12
+  size: 325, 542
+  orig: 676, 676
+  offset: 166, 42
+  index: -1
+image/1/show1/000012
+  rotate: true
+  xy: 2, 2
+  size: 335, 533
+  orig: 676, 676
+  offset: 183, 51
+  index: -1

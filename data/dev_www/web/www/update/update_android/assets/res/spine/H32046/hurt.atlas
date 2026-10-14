@@ -1,0 +1,41 @@
+
+hurt.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 294, 20
+  size: 302, 266
+  orig: 391, 320
+  offset: 35, 23
+  index: -1
+2
+  rotate: false
+  xy: 2, 2
+  size: 290, 284
+  orig: 391, 320
+  offset: 13, 30
+  index: -1
+3
+  rotate: false
+  xy: 598, 6
+  size: 280, 280
+  orig: 391, 320
+  offset: 10, 29
+  index: -1
+4
+  rotate: false
+  xy: 880, 9
+  size: 250, 277
+  orig: 391, 320
+  offset: 9, 27
+  index: -1
+5
+  rotate: true
+  xy: 1132, 41
+  size: 245, 278
+  orig: 391, 320
+  offset: 12, 26
+  index: -1

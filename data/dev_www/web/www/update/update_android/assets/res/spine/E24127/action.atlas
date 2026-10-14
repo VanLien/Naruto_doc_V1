@@ -1,0 +1,125 @@
+
+action.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arms
+  rotate: false
+  xy: 2, 232
+  size: 613, 266
+  orig: 613, 266
+  offset: 0, 0
+  index: -1
+back hair
+  rotate: false
+  xy: 1074, 183
+  size: 419, 315
+  orig: 419, 315
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 617, 99
+  size: 399, 455
+  orig: 399, 455
+  offset: 0, 0
+  index: -1
+close eye
+  rotate: false
+  xy: 1994, 465
+  size: 52, 33
+  orig: 52, 33
+  offset: 0, 0
+  index: -1
+clothes1
+  rotate: true
+  xy: 1661, 99
+  size: 134, 124
+  orig: 134, 124
+  offset: 0, 0
+  index: -1
+clothes2
+  rotate: true
+  xy: 138, 3
+  size: 65, 128
+  orig: 65, 128
+  offset: 0, 0
+  index: -1
+clothes3
+  rotate: false
+  xy: 2, 70
+  size: 312, 160
+  orig: 312, 160
+  offset: 0, 0
+  index: -1
+clothes4
+  rotate: false
+  xy: 1787, 318
+  size: 205, 180
+  orig: 205, 180
+  offset: 0, 0
+  index: -1
+clothes5
+  rotate: false
+  xy: 1495, 235
+  size: 290, 263
+  orig: 290, 263
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 1994, 431
+  size: 52, 32
+  orig: 52, 32
+  offset: 0, 0
+  index: -1
+front hair
+  rotate: true
+  xy: 1074, 99
+  size: 82, 190
+  orig: 82, 190
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 1787, 64
+  size: 106, 132
+  orig: 106, 132
+  offset: 0, 0
+  index: -1
+left arm
+  rotate: false
+  xy: 316, 83
+  size: 294, 147
+  orig: 294, 147
+  offset: 0, 0
+  index: -1
+right arm
+  rotate: true
+  xy: 1787, 172
+  size: 144, 173
+  orig: 144, 173
+  offset: 0, 0
+  index: -1
+right hair
+  rotate: false
+  xy: 1495, 100
+  size: 164, 133
+  orig: 164, 133
+  offset: 0, 0
+  index: -1
+right hand
+  rotate: true
+  xy: 2, 2
+  size: 66, 134
+  orig: 66, 134
+  offset: 0, 0
+  index: -1
+top hair
+  rotate: false
+  xy: 1266, 81
+  size: 186, 100
+  orig: 186, 100
+  offset: 0, 0
+  index: -1

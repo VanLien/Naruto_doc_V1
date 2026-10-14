@@ -1,0 +1,356 @@
+
+action1.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/action1_Animal/0_00000
+  rotate: false
+  xy: 1882, 1851
+  size: 148, 175
+  orig: 900, 600
+  offset: 85, 48
+  index: -1
+images/action1_Animal/0_00001
+  rotate: false
+  xy: 1846, 1177
+  size: 172, 187
+  orig: 900, 600
+  offset: 72, 35
+  index: -1
+images/action1_Animal/0_00002
+  rotate: false
+  xy: 1093, 1156
+  size: 188, 211
+  orig: 900, 600
+  offset: 61, 20
+  index: -1
+images/action1_Animal/0_00003
+  rotate: true
+  xy: 1146, 1371
+  size: 197, 216
+  orig: 900, 600
+  offset: 59, 16
+  index: -1
+images/action1_Animal/0_00004
+  rotate: true
+  xy: 690, 1377
+  size: 168, 220
+  orig: 900, 600
+  offset: 56, 13
+  index: -1
+images/action1_Animal/0_00005
+  rotate: false
+  xy: 1282, 1034
+  size: 122, 113
+  orig: 900, 600
+  offset: 96, 48
+  index: -1
+images/action1_Animal/0_00006
+  rotate: false
+  xy: 1285, 920
+  size: 122, 112
+  orig: 900, 600
+  offset: 96, 48
+  index: -1
+images/action1_Animal/0_00007
+  rotate: true
+  xy: 1170, 1032
+  size: 122, 110
+  orig: 900, 600
+  offset: 96, 48
+  index: -1
+images/action1_Animal/0_00008
+  rotate: false
+  xy: 1406, 1040
+  size: 122, 107
+  orig: 900, 600
+  offset: 96, 48
+  index: -1
+images/action1_Animal/0_00009
+  rotate: false
+  xy: 1155, 933
+  size: 128, 97
+  orig: 900, 600
+  offset: 96, 48
+  index: -1
+images/action1_Animal/0_00010
+  rotate: true
+  xy: 1019, 950
+  size: 91, 134
+  orig: 900, 600
+  offset: 113, 64
+  index: -1
+images/action1_Animal/0_00011
+  rotate: true
+  xy: 625, 1042
+  size: 148, 175
+  orig: 900, 600
+  offset: 85, 48
+  index: -1
+images/action1_Animal/0_00012
+  rotate: true
+  xy: 436, 1087
+  size: 172, 187
+  orig: 900, 600
+  offset: 72, 35
+  index: -1
+images/action1_Animal/0_00013
+  rotate: false
+  xy: 1453, 1158
+  size: 188, 211
+  orig: 900, 600
+  offset: 61, 20
+  index: -1
+images/action1_Animal/0_00014
+  rotate: true
+  xy: 875, 1170
+  size: 197, 216
+  orig: 900, 600
+  offset: 59, 16
+  index: -1
+images/action1_Animal/0_00015
+  rotate: false
+  xy: 1283, 1149
+  size: 168, 220
+  orig: 900, 600
+  offset: 56, 13
+  index: -1
+images/attack/0_00000
+  rotate: true
+  xy: 690, 1547
+  size: 245, 220
+  orig: 900, 600
+  offset: 86, 63
+  index: -1
+images/attack/0_00001
+  rotate: false
+  xy: 1633, 1808
+  size: 247, 218
+  orig: 900, 600
+  offset: 80, 63
+  index: -1
+images/attack/0_00002
+  rotate: false
+  xy: 1159, 1570
+  size: 209, 223
+  orig: 900, 600
+  offset: 78, 63
+  index: -1
+images/attack/0_00003
+  rotate: false
+  xy: 1576, 1378
+  size: 211, 213
+  orig: 900, 600
+  offset: 77, 63
+  index: -1
+images/attack/0_00004
+  rotate: true
+  xy: 436, 1261
+  size: 232, 204
+  orig: 900, 600
+  offset: 85, 61
+  index: -1
+images/attack/0_00005
+  rotate: true
+  xy: 252, 1247
+  size: 233, 182
+  orig: 900, 600
+  offset: 84, 61
+  index: -1
+images/attack/0_00006
+  rotate: false
+  xy: 642, 1192
+  size: 231, 183
+  orig: 900, 600
+  offset: 86, 61
+  index: -1
+images/attack/0_00007
+  rotate: true
+  xy: 1852, 1574
+  size: 232, 194
+  orig: 900, 600
+  offset: 85, 61
+  index: -1
+images/attack/0_00008
+  rotate: false
+  xy: 912, 1369
+  size: 232, 202
+  orig: 900, 600
+  offset: 85, 62
+  index: -1
+images/attack/0_00009
+  rotate: false
+  xy: 1364, 1371
+  size: 210, 197
+  orig: 900, 600
+  offset: 86, 61
+  index: -1
+images/attack/0_00010
+  rotate: false
+  xy: 1789, 1366
+  size: 213, 206
+  orig: 900, 600
+  offset: 85, 61
+  index: -1
+images/attack/0_00011
+  rotate: false
+  xy: 1643, 1167
+  size: 201, 197
+  orig: 900, 600
+  offset: 85, 62
+  index: -1
+images/attack/0_00012
+  rotate: true
+  xy: 282, 1495
+  size: 254, 195
+  orig: 900, 600
+  offset: 85, 63
+  index: -1
+images/debuff/0_00000
+  rotate: true
+  xy: 872, 1070
+  size: 98, 158
+  orig: 1800, 1200
+  offset: 651, 363
+  index: -1
+images/debuff/0_00001
+  rotate: false
+  xy: 802, 1030
+  size: 68, 160
+  orig: 1800, 1200
+  offset: 672, 363
+  index: -1
+images/debuff/0_00002
+  rotate: true
+  xy: 872, 977
+  size: 91, 145
+  orig: 1800, 1200
+  offset: 670, 363
+  index: -1
+images/debuff/0_00003
+  rotate: true
+  xy: 1032, 1043
+  size: 111, 136
+  orig: 1800, 1200
+  offset: 668, 363
+  index: -1
+images/debuff/0_00004
+  rotate: false
+  xy: 2, 1482
+  size: 278, 267
+  orig: 1800, 1200
+  offset: 596, 275
+  index: -1
+images/debuff/0_00005
+  rotate: false
+  xy: 346, 1774
+  size: 265, 252
+  orig: 1800, 1200
+  offset: 601, 297
+  index: -1
+images/debuff/0_00006
+  rotate: false
+  xy: 613, 1794
+  size: 253, 232
+  orig: 1800, 1200
+  offset: 613, 323
+  index: -1
+images/debuff/0_00007
+  rotate: false
+  xy: 1614, 1593
+  size: 236, 213
+  orig: 1800, 1200
+  offset: 632, 348
+  index: -1
+images/debuff/0_00008
+  rotate: false
+  xy: 1363, 1820
+  size: 268, 206
+  orig: 1800, 1200
+  offset: 644, 357
+  index: -1
+images/debuff/0_00009
+  rotate: false
+  xy: 2, 1751
+  size: 342, 275
+  orig: 1800, 1200
+  offset: 674, 286
+  index: -1
+images/stand/0_00000
+  rotate: false
+  xy: 912, 1573
+  size: 245, 220
+  orig: 900, 600
+  offset: 86, 63
+  index: -1
+images/stand/0_00001
+  rotate: true
+  xy: 2, 2
+  size: 244, 224
+  orig: 900, 600
+  offset: 85, 63
+  index: -1
+images/stand/0_00002
+  rotate: false
+  xy: 1370, 1595
+  size: 242, 223
+  orig: 900, 600
+  offset: 86, 63
+  index: -1
+images/stand/0_00003
+  rotate: false
+  xy: 868, 1795
+  size: 247, 231
+  orig: 900, 600
+  offset: 85, 63
+  index: -1
+images/stand/0_00004
+  rotate: true
+  xy: 2, 493
+  size: 247, 234
+  orig: 900, 600
+  offset: 85, 63
+  index: -1
+images/stand/0_00005
+  rotate: true
+  xy: 2, 990
+  size: 249, 236
+  orig: 900, 600
+  offset: 84, 63
+  index: -1
+images/stand/0_00006
+  rotate: true
+  xy: 2, 742
+  size: 246, 239
+  orig: 900, 600
+  offset: 86, 63
+  index: -1
+images/stand/0_00007
+  rotate: true
+  xy: 479, 1526
+  size: 246, 209
+  orig: 900, 600
+  offset: 85, 63
+  index: -1
+images/stand/0_00008
+  rotate: false
+  xy: 1117, 1795
+  size: 244, 231
+  orig: 900, 600
+  offset: 85, 63
+  index: -1
+images/stand/0_00009
+  rotate: true
+  xy: 2, 248
+  size: 243, 234
+  orig: 900, 600
+  offset: 85, 63
+  index: -1
+images/stand/0_00010
+  rotate: false
+  xy: 2, 1241
+  size: 248, 239
+  orig: 900, 600
+  offset: 84, 63
+  index: -1

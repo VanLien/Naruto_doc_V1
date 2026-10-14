@@ -1,0 +1,160 @@
+
+action.png
+size: 998,1016
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_00037
+  rotate: true
+  xy: 805, 696
+  size: 320, 169
+  orig: 354, 199
+  offset: 16, 21
+  index: -1
+1_00038
+  rotate: false
+  xy: 0, 847
+  size: 343, 169
+  orig: 354, 199
+  offset: 5, 21
+  index: -1
+1_00039
+  rotate: false
+  xy: 221, 339
+  size: 342, 169
+  orig: 354, 199
+  offset: 6, 21
+  index: -1
+1_00040
+  rotate: true
+  xy: 565, 230
+  size: 339, 158
+  orig: 354, 199
+  offset: 9, 25
+  index: -1
+1_00041
+  rotate: true
+  xy: 565, 230
+  size: 339, 158
+  orig: 354, 199
+  offset: 9, 25
+  index: -1
+1_00042
+  rotate: true
+  xy: 220, 0
+  size: 337, 132
+  orig: 354, 199
+  offset: 4, 31
+  index: -1
+1_00043
+  rotate: true
+  xy: 838, 366
+  size: 328, 132
+  orig: 354, 199
+  offset: 13, 31
+  index: -1
+1_00044
+  rotate: true
+  xy: 221, 510
+  size: 335, 111
+  orig: 354, 199
+  offset: 13, 38
+  index: -1
+1_00045
+  rotate: true
+  xy: 725, 238
+  size: 331, 111
+  orig: 354, 199
+  offset: 17, 38
+  index: -1
+1_00046
+  rotate: true
+  xy: 354, 41
+  size: 64, 84
+  orig: 354, 199
+  offset: 275, 46
+  index: -1
+1_00047
+  rotate: true
+  xy: 354, 41
+  size: 64, 84
+  orig: 354, 199
+  offset: 275, 46
+  index: -1
+bowenaad_004
+  rotate: false
+  xy: 0, 54
+  size: 199, 87
+  orig: 200, 96
+  offset: 0, 9
+  index: -1
+xunhuans_000
+  rotate: true
+  xy: 0, 611
+  size: 234, 219
+  orig: 237, 229
+  offset: 2, 5
+  index: -1
+xunhuans_001
+  rotate: true
+  xy: 0, 375
+  size: 234, 219
+  orig: 237, 229
+  offset: 2, 5
+  index: -1
+xunhuans_002
+  rotate: false
+  xy: 569, 809
+  size: 234, 207
+  orig: 237, 229
+  offset: 2, 5
+  index: -1
+xunhuans_003
+  rotate: false
+  xy: 560, 25
+  size: 233, 203
+  orig: 237, 229
+  offset: 2, 5
+  index: -1
+xunhuans_004
+  rotate: true
+  xy: 795, 5
+  size: 231, 203
+  orig: 237, 229
+  offset: 4, 5
+  index: -1
+xunhuans_005
+  rotate: true
+  xy: 354, 107
+  size: 230, 204
+  orig: 237, 229
+  offset: 6, 8
+  index: -1
+xunhuans_006
+  rotate: false
+  xy: 563, 571
+  size: 227, 211
+  orig: 237, 229
+  offset: 10, 9
+  index: -1
+xunhuans_007
+  rotate: false
+  xy: 334, 570
+  size: 227, 212
+  orig: 237, 229
+  offset: 10, 8
+  index: -1
+xunhuans_008
+  rotate: true
+  xy: 0, 143
+  size: 230, 218
+  orig: 237, 229
+  offset: 7, 5
+  index: -1
+xunhuans_009
+  rotate: true
+  xy: 345, 784
+  size: 232, 222
+  orig: 237, 229
+  offset: 4, 5
+  index: -1

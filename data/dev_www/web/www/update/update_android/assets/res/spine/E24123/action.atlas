@@ -1,0 +1,13 @@
+
+action.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action.skel
+  rotate: false
+  xy: 0, 0
+  size: 678, 954
+  orig: 678, 954
+  offset: 0, 0
+  index: -1

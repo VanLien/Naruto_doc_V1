@@ -1,0 +1,230 @@
+
+action.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Object/Paw_0000
+  rotate: false
+  xy: 2, 354
+  size: 116, 127
+  orig: 116, 127
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0000
+  rotate: false
+  xy: 2, 266
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0001
+  rotate: false
+  xy: 120, 395
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0002
+  rotate: false
+  xy: 2, 178
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0003
+  rotate: false
+  xy: 187, 395
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0004
+  rotate: false
+  xy: 2, 90
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0005
+  rotate: false
+  xy: 254, 395
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0006
+  rotate: false
+  xy: 2, 2
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0007
+  rotate: false
+  xy: 321, 395
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0008
+  rotate: false
+  xy: 388, 395
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0009
+  rotate: false
+  xy: 69, 266
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0010
+  rotate: false
+  xy: 69, 178
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0011
+  rotate: false
+  xy: 69, 90
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0012
+  rotate: false
+  xy: 69, 2
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0013
+  rotate: false
+  xy: 136, 307
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0014
+  rotate: false
+  xy: 136, 219
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0015
+  rotate: false
+  xy: 203, 307
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0016
+  rotate: false
+  xy: 136, 131
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0017
+  rotate: false
+  xy: 203, 219
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0018
+  rotate: false
+  xy: 270, 307
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0019
+  rotate: false
+  xy: 136, 43
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0020
+  rotate: false
+  xy: 203, 131
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0021
+  rotate: false
+  xy: 270, 219
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0022
+  rotate: false
+  xy: 337, 307
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0023
+  rotate: false
+  xy: 203, 43
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0024
+  rotate: false
+  xy: 270, 131
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0025
+  rotate: false
+  xy: 337, 219
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0026
+  rotate: false
+  xy: 270, 43
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0027
+  rotate: false
+  xy: 337, 131
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0028
+  rotate: false
+  xy: 337, 43
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+Smoke/smoke_0029
+  rotate: false
+  xy: 404, 307
+  size: 65, 86
+  orig: 65, 86
+  offset: 0, 0
+  index: -1
+lz1_0000
+  rotate: false
+  xy: 404, 241
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1

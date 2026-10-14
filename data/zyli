@@ -1,0 +1,28 @@
+#!/bin/bash
+
+HOSTNAME="localhost"
+PORT="3306"
+USERNAME="root"
+PASSWORD="Vanlien1503"
+
+DB4="sszg_register"
+DB5="game_cdk"
+
+
+#创建数据库 zyli.cn
+sql="GRANT ALL PRIVILEGES ON *.* TO '${USERNAME}'@'%' IDENTIFIED BY '${PASSWORD}'WITH GRANT OPTION;"
+sql0="FLUSH   PRIVILEGES;"
+sql4="create database ${DB4} DEFAULT CHARACTER SET utf8;"
+sql5="create database ${DB5} DEFAULT CHARACTER SET utf8;"
+
+mysql -u${USERNAME} -p${PASSWORD} -e "${sql}"
+mysql -u${USERNAME} -p${PASSWORD} -e "${sql0}"
+mysql -h${HOSTNAME} -P${PORT} -u${USERNAME} -p${PASSWORD} -e "${sql4}"
+mysql -h${HOSTNAME} -P${PORT} -u${USERNAME} -p${PASSWORD} -e "${sql5}"
+
+
+#还原数据库 zyli.cn
+mysql -u${USERNAME} -p${PASSWORD} ${DB4} < /data/sql/sszg_register.sql
+mysql -u${USERNAME} -p${PASSWORD} ${DB5} < /data/sql/game_cdk.sql
+
+

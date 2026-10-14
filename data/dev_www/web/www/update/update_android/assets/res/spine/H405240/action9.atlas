@@ -1,0 +1,202 @@
+
+action9.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hashirama attack/0_00000
+  rotate: false
+  xy: 2, 3
+  size: 269, 194
+  orig: 900, 600
+  offset: 208, 196
+  index: -1
+hashirama attack/0_00001
+  rotate: false
+  xy: 1013, 829
+  size: 269, 192
+  orig: 900, 600
+  offset: 208, 194
+  index: -1
+hashirama attack/0_00002
+  rotate: false
+  xy: 1284, 831
+  size: 269, 190
+  orig: 900, 600
+  offset: 208, 198
+  index: -1
+hashirama attack/0_00003
+  rotate: false
+  xy: 2, 199
+  size: 269, 209
+  orig: 900, 600
+  offset: 208, 205
+  index: -1
+hashirama attack/0_00004
+  rotate: false
+  xy: 488, 764
+  size: 274, 257
+  orig: 900, 600
+  offset: 208, 205
+  index: -1
+hashirama attack/0_00005
+  rotate: false
+  xy: 2, 410
+  size: 339, 283
+  orig: 900, 600
+  offset: 208, 205
+  index: -1
+hashirama attack/0_00006
+  rotate: false
+  xy: 2, 695
+  size: 484, 326
+  orig: 900, 600
+  offset: 208, 205
+  index: -1
+hashirama run/0_00000
+  rotate: false
+  xy: 1212, 682
+  size: 188, 145
+  orig: 900, 600
+  offset: 153, 199
+  index: -1
+hashirama run/0_00001
+  rotate: true
+  xy: 1402, 644
+  size: 185, 149
+  orig: 900, 600
+  offset: 156, 197
+  index: -1
+hashirama run/0_00002
+  rotate: true
+  xy: 669, 278
+  size: 187, 144
+  orig: 900, 600
+  offset: 155, 199
+  index: -1
+hashirama run/0_00003
+  rotate: false
+  xy: 1553, 597
+  size: 188, 141
+  orig: 900, 600
+  offset: 153, 203
+  index: -1
+hashirama run/0_00004
+  rotate: false
+  xy: 1743, 584
+  size: 188, 142
+  orig: 900, 600
+  offset: 152, 206
+  index: -1
+hashirama run/0_00005
+  rotate: false
+  xy: 764, 645
+  size: 189, 147
+  orig: 900, 600
+  offset: 152, 204
+  index: -1
+hashirama run/0_00006
+  rotate: true
+  xy: 518, 274
+  size: 191, 149
+  orig: 900, 600
+  offset: 152, 203
+  index: -1
+hashirama run/0_00007
+  rotate: true
+  xy: 422, 51
+  size: 192, 144
+  orig: 900, 600
+  offset: 149, 206
+  index: -1
+madara attack/0_00000
+  rotate: false
+  xy: 421, 245
+  size: 95, 194
+  orig: 900, 600
+  offset: 231, 196
+  index: -1
+madara attack/0_00001
+  rotate: false
+  xy: 568, 80
+  size: 101, 192
+  orig: 900, 600
+  offset: 229, 194
+  index: -1
+madara attack/0_00002
+  rotate: true
+  xy: 1555, 883
+  size: 138, 242
+  orig: 900, 600
+  offset: 232, 198
+  index: -1
+madara attack/0_00003
+  rotate: false
+  xy: 343, 441
+  size: 137, 252
+  orig: 900, 600
+  offset: 236, 195
+  index: -1
+madara attack/0_00004
+  rotate: false
+  xy: 764, 794
+  size: 247, 227
+  orig: 900, 600
+  offset: 104, 195
+  index: -1
+madara run/0_00000
+  rotate: false
+  xy: 1013, 684
+  size: 197, 143
+  orig: 900, 600
+  offset: 156, 199
+  index: -1
+madara run/0_00001
+  rotate: false
+  xy: 482, 467
+  size: 197, 149
+  orig: 900, 600
+  offset: 160, 197
+  index: -1
+madara run/0_00002
+  rotate: false
+  xy: 488, 618
+  size: 200, 144
+  orig: 900, 600
+  offset: 158, 199
+  index: -1
+madara run/0_00003
+  rotate: false
+  xy: 1555, 740
+  size: 200, 141
+  orig: 900, 600
+  offset: 156, 203
+  index: -1
+madara run/0_00004
+  rotate: false
+  xy: 1757, 728
+  size: 198, 142
+  orig: 900, 600
+  offset: 155, 206
+  index: -1
+madara run/0_00005
+  rotate: true
+  xy: 273, 2
+  size: 201, 147
+  orig: 900, 600
+  offset: 155, 204
+  index: -1
+madara run/0_00006
+  rotate: false
+  xy: 1799, 872
+  size: 203, 149
+  orig: 900, 600
+  offset: 155, 203
+  index: -1
+madara run/0_00007
+  rotate: true
+  xy: 273, 205
+  size: 203, 146
+  orig: 900, 600
+  offset: 153, 204
+  index: -1

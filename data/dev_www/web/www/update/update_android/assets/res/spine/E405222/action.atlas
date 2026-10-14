@@ -1,0 +1,166 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/action2_hit/0_00010
+  rotate: false
+  xy: 2, 32
+  size: 638, 568
+  orig: 1190, 850
+  offset: 318, 109
+  index: -1
+images/action2_hit/0_00012
+  rotate: false
+  xy: 1322, 2
+  size: 701, 643
+  orig: 1190, 850
+  offset: 330, 80
+  index: -1
+images/action2_hit/0_00013
+  rotate: true
+  xy: 1322, 647
+  size: 716, 678
+  orig: 1190, 850
+  offset: 331, 61
+  index: -1
+images/action2_hit/0_00014
+  rotate: false
+  xy: 2, 1346
+  size: 724, 688
+  orig: 1190, 850
+  offset: 337, 58
+  index: -1
+images/action2_hit/0_00015
+  rotate: false
+  xy: 728, 1365
+  size: 727, 669
+  orig: 1190, 850
+  offset: 336, 79
+  index: -1
+images/action2_hit/0_00016
+  rotate: true
+  xy: 2, 602
+  size: 742, 665
+  orig: 1190, 850
+  offset: 338, 93
+  index: -1
+images/action2_hit/0_00017
+  rotate: true
+  xy: 669, 600
+  size: 744, 651
+  orig: 1190, 850
+  offset: 343, 107
+  index: -1
+images/action2_hit/0_00018
+  rotate: false
+  xy: 1457, 1385
+  size: 531, 649
+  orig: 1190, 850
+  offset: 348, 108
+  index: -1
+images/action2_hit/0_00019
+  rotate: true
+  xy: 642, 64
+  size: 534, 639
+  orig: 1190, 850
+  offset: 343, 109
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/action2_hit/0_00000
+  rotate: true
+  xy: 410, 150
+  size: 123, 73
+  orig: 1190, 850
+  offset: 344, 280
+  index: -1
+images/action2_hit/0_00001
+  rotate: false
+  xy: 528, 822
+  size: 261, 128
+  orig: 1190, 850
+  offset: 352, 224
+  index: -1
+images/action2_hit/0_00002
+  rotate: false
+  xy: 1075, 1139
+  size: 368, 222
+  orig: 1190, 850
+  offset: 354, 154
+  index: -1
+images/action2_hit/0_00003
+  rotate: true
+  xy: 824, 1083
+  size: 389, 249
+  orig: 1190, 850
+  offset: 353, 139
+  index: -1
+images/action2_hit/0_00004
+  rotate: false
+  xy: 2, 2
+  size: 406, 271
+  orig: 1190, 850
+  offset: 350, 133
+  index: -1
+images/action2_hit/0_00005
+  rotate: true
+  xy: 528, 952
+  size: 452, 294
+  orig: 1190, 850
+  offset: 327, 127
+  index: -1
+images/action2_hit/0_00006
+  rotate: false
+  xy: 1178, 1363
+  size: 464, 322
+  orig: 1190, 850
+  offset: 335, 122
+  index: -1
+images/action2_hit/0_00007
+  rotate: true
+  xy: 1704, 1540
+  size: 501, 342
+  orig: 1190, 850
+  offset: 329, 116
+  index: -1
+images/action2_hit/0_00008
+  rotate: false
+  xy: 1178, 1687
+  size: 524, 354
+  orig: 1190, 850
+  offset: 325, 110
+  index: -1
+images/action2_hit/0_00009
+  rotate: true
+  xy: 2, 275
+  size: 526, 506
+  orig: 1190, 850
+  offset: 326, 108
+  index: -1
+images/action2_hit/0_00011
+  rotate: false
+  xy: 2, 1406
+  size: 653, 635
+  orig: 1190, 850
+  offset: 323, 75
+  index: -1
+images/action2_hit/0_00020
+  rotate: false
+  xy: 2, 803
+  size: 524, 601
+  orig: 1190, 850
+  offset: 347, 110
+  index: -1
+images/action2_hit/0_00021
+  rotate: false
+  xy: 657, 1474
+  size: 519, 567
+  orig: 1190, 850
+  offset: 352, 116
+  index: -1

@@ -1,0 +1,45 @@
+----------------------------------------------------
+-- 此文件由数据工具生成
+-- 每日签到活动配置数据--wonderland_sign_data.xml
+--------------------------------------
+
+Config = Config or {} 
+Config.WonderlandSignData = Config.WonderlandSignData or {}
+
+-- -------------------constant_start-------------------
+Config.WonderlandSignData.data_constant_length = 1
+Config.WonderlandSignData.data_constant = {
+	[99992] = {label=99992, key=10001, desc=TI18N("语言_won_sig_01_1"), val={{3,500}}}
+}
+Config.WonderlandSignData.data_constant_fun = function(key)
+	local data=Config.WonderlandSignData.data_constant[key]
+	if DATA_DEBUG and data == nil then
+		print('(Config.WonderlandSignData.data_constant['..key..'])not found') return
+	end
+	return data
+end
+-- -------------------constant_end---------------------
+
+
+-- -------------------lev_reward_list_start-------------------
+Config.WonderlandSignData.data_lev_reward_list_length = 1
+Config.WonderlandSignData.data_lev_reward_list = {
+	[10001] = {
+		[1] = {period=10001, day=1, reward={{99021,2}}, rmb_reward={{99021,2},{99022,1}}},
+		[2] = {period=10001, day=2, reward={{99021,2}}, rmb_reward={{99021,2},{10403,2}}},
+		[3] = {period=10001, day=3, reward={{99021,2}}, rmb_reward={{99021,2},{99022,1}}},
+		[4] = {period=10001, day=4, reward={{99021,2}}, rmb_reward={{99021,2},{10403,2}}},
+		[5] = {period=10001, day=5, reward={{99021,2}}, rmb_reward={{99021,2},{99022,1}}},
+		[6] = {period=10001, day=6, reward={{99021,2}}, rmb_reward={{99021,2},{10403,2}}},
+		[7] = {period=10001, day=7, reward={{99021,2}}, rmb_reward={{99021,2},{99022,1}}},
+	},
+}
+-- -------------------lev_reward_list_end---------------------
+
+
+-- -------------------advance_card_list_start-------------------
+Config.WonderlandSignData.data_advance_card_list_length = 1
+Config.WonderlandSignData.data_advance_card_list = {
+	[10001] = {period=10001, charge_id=1930, name=TI18N("语言_hol_ne_wa_or_06_1"), reward={{3,680},{99021,6},{99022,1}}, reward_1={{3,680},{99021,6},{99022,1}}, reward_2={{99021,28},{99022,4},{10403,6}}},
+}
+-- -------------------advance_card_list_end---------------------

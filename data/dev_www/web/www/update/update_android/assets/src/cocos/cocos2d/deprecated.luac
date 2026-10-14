@@ -1,0 +1,18 @@
+﻿function schedule(arg_1_0, arg_1_1, arg_1_2)
+	local var_1_0 = cc.DelayTime:create(arg_1_2)
+	local var_1_1 = cc.Sequence:create(var_1_0, cc.CallFunc:create(arg_1_1))
+	local var_1_2 = cc.RepeatForever:create(var_1_1)
+
+	arg_1_0:runAction(var_1_2)
+
+	return var_1_2
+end
+
+function performWithDelay(arg_2_0, arg_2_1, arg_2_2)
+	local var_2_0 = cc.DelayTime:create(arg_2_2)
+	local var_2_1 = cc.Sequence:create(var_2_0, cc.CallFunc:create(arg_2_1))
+
+	arg_2_0:runAction(var_2_1)
+
+	return var_2_1
+end

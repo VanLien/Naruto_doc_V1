@@ -1,0 +1,139 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2_hit_quan/0_00008
+  rotate: false
+  xy: 2, 10
+  size: 268, 140
+  orig: 1200, 1200
+  offset: 466, 466
+  index: -1
+action2_hit_quan/0_00009
+  rotate: false
+  xy: 1564, 617
+  size: 261, 146
+  orig: 1200, 1200
+  offset: 474, 466
+  index: -1
+action2_hit_quan/0_00010
+  rotate: false
+  xy: 272, 2
+  size: 250, 148
+  orig: 1200, 1200
+  offset: 476, 466
+  index: -1
+action2_hit_quan/0_00011
+  rotate: true
+  xy: 1910, 753
+  size: 256, 134
+  orig: 1200, 1200
+  offset: 469, 466
+  index: -1
+action2_hit_quan/0_00012
+  rotate: false
+  xy: 397, 326
+  size: 245, 117
+  orig: 1200, 1200
+  offset: 475, 467
+  index: -1
+action2_hit_quan/0_00013
+  rotate: false
+  xy: 912, 602
+  size: 244, 129
+  orig: 1200, 1200
+  offset: 474, 466
+  index: -1
+action2_hit_quan/0_00014
+  rotate: false
+  xy: 912, 471
+  size: 243, 129
+  orig: 1200, 1200
+  offset: 478, 471
+  index: -1
+action2_hit_quan/0_00015
+  rotate: false
+  xy: 394, 193
+  size: 231, 131
+  orig: 1200, 1200
+  offset: 480, 471
+  index: -1
+action2_hit_quan/0_00016
+  rotate: false
+  xy: 644, 317
+  size: 225, 126
+  orig: 1200, 1200
+  offset: 483, 467
+  index: -1
+action2_hit_quan/0_00017
+  rotate: false
+  xy: 627, 193
+  size: 226, 122
+  orig: 1200, 1200
+  offset: 483, 466
+  index: -1
+action2_hit_quan/0_00018
+  rotate: true
+  xy: 783, 476
+  size: 250, 127
+  orig: 1200, 1200
+  offset: 478, 466
+  index: -1
+kakutsuchi/0_00004
+  rotate: false
+  xy: 2, 152
+  size: 390, 283
+  orig: 780, 468
+  offset: 245, 150
+  index: -1
+kakutsuchi/0_00005
+  rotate: false
+  xy: 2, 437
+  size: 393, 282
+  orig: 780, 468
+  offset: 245, 151
+  index: -1
+kakutsuchi/0_00006
+  rotate: false
+  xy: 792, 733
+  size: 384, 276
+  orig: 780, 468
+  offset: 249, 151
+  index: -1
+kakutsuchi/0_00007
+  rotate: false
+  xy: 2, 721
+  size: 393, 288
+  orig: 780, 468
+  offset: 240, 152
+  index: -1
+kakutsuchi/0_00008
+  rotate: false
+  xy: 397, 445
+  size: 384, 281
+  orig: 780, 468
+  offset: 245, 152
+  index: -1
+kakutsuchi/0_00009
+  rotate: false
+  xy: 397, 728
+  size: 393, 281
+  orig: 780, 468
+  offset: 245, 152
+  index: -1
+kakutsuchi/0_00010
+  rotate: false
+  xy: 1178, 734
+  size: 384, 275
+  orig: 780, 468
+  offset: 249, 152
+  index: -1
+kakutsuchi/0_00011
+  rotate: false
+  xy: 1564, 765
+  size: 344, 244
+  orig: 780, 468
+  offset: 289, 152
+  index: -1

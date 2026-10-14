@@ -1,0 +1,17 @@
+﻿function ccui.CheckBox.onEvent(arg_1_0, arg_1_1)
+	arg_1_0:addEventListener(function(arg_2_0, arg_2_1)
+		local var_2_0 = {}
+
+		if arg_2_1 == 0 then
+			var_2_0.name = "selected"
+		else
+			var_2_0.name = "unselected"
+		end
+
+		var_2_0.target = arg_2_0
+
+		arg_1_1(var_2_0)
+	end)
+
+	return arg_1_0
+end

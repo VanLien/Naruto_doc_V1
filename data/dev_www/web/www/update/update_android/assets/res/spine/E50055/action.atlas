@@ -1,0 +1,132 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+lilianhua[1]0025
+  rotate: false
+  xy: 1075, 523
+  size: 187, 84
+  orig: 262, 551
+  offset: 36, 7
+  index: -1
+lilianhua[1]0026
+  rotate: false
+  xy: 2, 2
+  size: 198, 459
+  orig: 262, 551
+  offset: 30, 5
+  index: -1
+lilianhua[1]0028
+  rotate: true
+  xy: 956, 609
+  size: 198, 530
+  orig: 262, 551
+  offset: 30, 5
+  index: -1
+lilianhua[1]0030
+  rotate: true
+  xy: 960, 809
+  size: 198, 537
+  orig: 262, 551
+  offset: 30, 5
+  index: -1
+lilianhua[1]0032
+  rotate: true
+  xy: 414, 809
+  size: 198, 544
+  orig: 262, 551
+  offset: 30, 5
+  index: -1
+lilianhua[1]0034
+  rotate: false
+  xy: 209, 465
+  size: 203, 542
+  orig: 262, 551
+  offset: 30, 5
+  index: -1
+lilianhua[1]0036
+  rotate: false
+  xy: 2, 463
+  size: 205, 544
+  orig: 262, 551
+  offset: 30, 5
+  index: -1
+lilianhua[1]0038
+  rotate: true
+  xy: 414, 609
+  size: 198, 540
+  orig: 262, 551
+  offset: 30, 5
+  index: -1
+lilianhua[1]0040
+  rotate: true
+  xy: 1499, 809
+  size: 198, 278
+  orig: 262, 551
+  offset: 30, 5
+  index: -1
+lilianhua[1]0041
+  rotate: true
+  xy: 1488, 617
+  size: 190, 273
+  orig: 262, 551
+  offset: 36, 7
+  index: -1
+lilianhua[1]0042
+  rotate: true
+  xy: 1779, 809
+  size: 198, 237
+  orig: 262, 551
+  offset: 30, 5
+  index: -1
+lilianhua[1]0043
+  rotate: true
+  xy: 1763, 620
+  size: 187, 229
+  orig: 262, 551
+  offset: 36, 7
+  index: -1
+lilianhua[1]0044
+  rotate: true
+  xy: 414, 434
+  size: 173, 227
+  orig: 262, 551
+  offset: 43, 9
+  index: -1
+lilianhua[1]0045
+  rotate: true
+  xy: 643, 469
+  size: 138, 215
+  orig: 262, 551
+  offset: 61, 14
+  index: -1
+lilianhua[1]0046
+  rotate: true
+  xy: 860, 488
+  size: 119, 213
+  orig: 262, 551
+  offset: 70, 17
+  index: -1
+lilianhua[1]0048
+  rotate: true
+  xy: 1264, 533
+  size: 74, 155
+  orig: 262, 551
+  offset: 95, 71
+  index: -1
+lilianhua[1]0050
+  rotate: true
+  xy: 643, 420
+  size: 47, 102
+  orig: 262, 551
+  offset: 95, 97
+  index: -1
+lilianhua[1]0052
+  rotate: false
+  xy: 2018, 945
+  size: 24, 62
+  orig: 262, 551
+  offset: 95, 135
+  index: -1

@@ -1,0 +1,97 @@
+
+hurt.png
+size: 420,540
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+J0000
+  rotate: false
+  xy: 2, 320
+  size: 230, 218
+  orig: 1062, 1062
+  offset: 427, 518
+  index: -1
+J0041
+  rotate: false
+  xy: 234, 347
+  size: 183, 191
+  orig: 1062, 1062
+  offset: 445, 518
+  index: -1
+J0042
+  rotate: true
+  xy: 198, 162
+  size: 156, 220
+  orig: 1062, 1062
+  offset: 449, 513
+  index: -1
+J0043
+  rotate: false
+  xy: 2, 98
+  size: 194, 220
+  orig: 1062, 1062
+  offset: 442, 518
+  index: -1
+wuqi_eff01
+  rotate: false
+  xy: 2, 2
+  size: 58, 94
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff02
+  rotate: false
+  xy: 62, 2
+  size: 57, 94
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff03
+  rotate: true
+  xy: 198, 103
+  size: 57, 95
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff04
+  rotate: false
+  xy: 121, 2
+  size: 56, 94
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff05
+  rotate: false
+  xy: 179, 3
+  size: 56, 93
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff06
+  rotate: false
+  xy: 237, 8
+  size: 57, 93
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff07
+  rotate: false
+  xy: 296, 8
+  size: 56, 93
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff08
+  rotate: false
+  xy: 354, 8
+  size: 56, 93
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff09
+  rotate: true
+  xy: 295, 103
+  size: 57, 94
+  orig: 63, 96
+  offset: 3, 0
+  index: -1

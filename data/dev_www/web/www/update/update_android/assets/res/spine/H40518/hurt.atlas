@@ -1,0 +1,118 @@
+
+hurt.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/hurt/0_00000
+  rotate: false
+  xy: 1, 1620
+  size: 476, 383
+  orig: 960, 640
+  offset: 97, 40
+  index: -1
+images/hurt/0_00001
+  rotate: false
+  xy: 1, 1252
+  size: 475, 367
+  orig: 960, 640
+  offset: 98, 55
+  index: -1
+images/hurt/0_00002
+  rotate: false
+  xy: 478, 1643
+  size: 467, 360
+  orig: 960, 640
+  offset: 101, 60
+  index: -1
+images/hurt/0_00003
+  rotate: false
+  xy: 946, 1691
+  size: 366, 312
+  orig: 960, 640
+  offset: 153, 60
+  index: -1
+images/hurt/0_00004
+  rotate: false
+  xy: 1, 626
+  size: 366, 312
+  orig: 960, 640
+  offset: 153, 60
+  index: -1
+images/hurt/0_00005
+  rotate: false
+  xy: 1, 939
+  size: 374, 312
+  orig: 960, 640
+  offset: 148, 61
+  index: -1
+images/stand/0_00000
+  rotate: false
+  xy: 376, 1026
+  size: 172, 225
+  orig: 960, 640
+  offset: 265, 76
+  index: -1
+images/stand/0_00001
+  rotate: true
+  xy: 1497, 1825
+  size: 178, 224
+  orig: 960, 640
+  offset: 260, 76
+  index: -1
+images/stand/0_00002
+  rotate: true
+  xy: 1, 1
+  size: 175, 222
+  orig: 960, 640
+  offset: 262, 76
+  index: -1
+images/stand/0_00003
+  rotate: false
+  xy: 185, 404
+  size: 180, 221
+  orig: 960, 640
+  offset: 264, 76
+  index: -1
+images/stand/0_00004
+  rotate: false
+  xy: 1313, 1780
+  size: 183, 223
+  orig: 960, 640
+  offset: 263, 76
+  index: -1
+images/stand/0_00005
+  rotate: true
+  xy: 946, 1518
+  size: 172, 225
+  orig: 960, 640
+  offset: 265, 76
+  index: -1
+images/stand/0_00006
+  rotate: false
+  xy: 1, 177
+  size: 178, 224
+  orig: 960, 640
+  offset: 260, 76
+  index: -1
+images/stand/0_00007
+  rotate: false
+  xy: 1172, 1468
+  size: 175, 222
+  orig: 960, 640
+  offset: 262, 76
+  index: -1
+images/stand/0_00008
+  rotate: true
+  xy: 1722, 1823
+  size: 180, 221
+  orig: 960, 640
+  offset: 264, 76
+  index: -1
+images/stand/0_00009
+  rotate: false
+  xy: 1, 402
+  size: 183, 223
+  orig: 960, 640
+  offset: 263, 76
+  index: -1

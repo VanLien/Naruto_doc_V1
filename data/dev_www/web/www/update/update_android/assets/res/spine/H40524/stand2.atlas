@@ -1,0 +1,146 @@
+
+stand2.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hashirama stand/0_00000
+  rotate: true
+  xy: 497, 106
+  size: 97, 194
+  orig: 900, 600
+  offset: 230, 196
+  index: -1
+hashirama stand/0_00001
+  rotate: true
+  xy: 693, 102
+  size: 101, 192
+  orig: 900, 600
+  offset: 229, 194
+  index: -1
+hashirama stand/0_00002
+  rotate: true
+  xy: 1081, 103
+  size: 100, 190
+  orig: 900, 600
+  offset: 230, 198
+  index: -1
+hashirama stand/0_00003
+  rotate: false
+  xy: 2, 8
+  size: 99, 195
+  orig: 900, 600
+  offset: 230, 195
+  index: -1
+hashirama stand/0_00004
+  rotate: true
+  xy: 103, 105
+  size: 98, 196
+  orig: 900, 600
+  offset: 230, 195
+  index: -1
+hashirama stand/0_00005
+  rotate: true
+  xy: 301, 104
+  size: 99, 194
+  orig: 900, 600
+  offset: 230, 197
+  index: -1
+hashirama stand/0_00006
+  rotate: true
+  xy: 1273, 105
+  size: 98, 191
+  orig: 900, 600
+  offset: 230, 201
+  index: -1
+hashirama stand/0_00007
+  rotate: true
+  xy: 299, 6
+  size: 96, 190
+  orig: 900, 600
+  offset: 230, 203
+  index: -1
+hashirama stand/0_00008
+  rotate: true
+  xy: 1861, 109
+  size: 94, 183
+  orig: 900, 600
+  offset: 230, 197
+  index: -1
+hashirama stand/0_00009
+  rotate: true
+  xy: 693, 7
+  size: 93, 190
+  orig: 900, 600
+  offset: 230, 197
+  index: -1
+madara stand/0_00000
+  rotate: true
+  xy: 103, 8
+  size: 95, 194
+  orig: 900, 600
+  offset: 231, 196
+  index: -1
+madara stand/0_00001
+  rotate: true
+  xy: 887, 102
+  size: 101, 192
+  orig: 900, 600
+  offset: 229, 194
+  index: -1
+madara stand/0_00002
+  rotate: true
+  xy: 885, 2
+  size: 98, 190
+  orig: 900, 600
+  offset: 232, 198
+  index: -1
+madara stand/0_00003
+  rotate: true
+  xy: 1466, 109
+  size: 94, 195
+  orig: 900, 600
+  offset: 236, 195
+  index: -1
+madara stand/0_00004
+  rotate: true
+  xy: 1663, 114
+  size: 89, 196
+  orig: 900, 600
+  offset: 239, 195
+  index: -1
+madara stand/0_00005
+  rotate: true
+  xy: 497, 14
+  size: 90, 194
+  orig: 900, 600
+  offset: 239, 197
+  index: -1
+madara stand/0_00006
+  rotate: true
+  xy: 1663, 22
+  size: 90, 190
+  orig: 900, 600
+  offset: 238, 202
+  index: -1
+madara stand/0_00007
+  rotate: true
+  xy: 1855, 22
+  size: 85, 189
+  orig: 900, 600
+  offset: 242, 204
+  index: -1
+madara stand/0_00008
+  rotate: true
+  xy: 1273, 20
+  size: 83, 182
+  orig: 900, 600
+  offset: 241, 197
+  index: -1
+madara stand/0_00009
+  rotate: true
+  xy: 1466, 20
+  size: 87, 190
+  orig: 900, 600
+  offset: 236, 197
+  index: -1

@@ -1,0 +1,118 @@
+
+stand2.png
+size: 628,321
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+wuchangbai_0000
+  rotate: true
+  xy: 200, 0
+  size: 100, 103
+  orig: 260, 227
+  offset: 87, 54
+  index: -1
+wuchangbai_0001
+  rotate: false
+  xy: 524, 120
+  size: 104, 108
+  orig: 260, 227
+  offset: 83, 51
+  index: -1
+wuchangbai_0002
+  rotate: false
+  xy: 411, 16
+  size: 106, 106
+  orig: 260, 227
+  offset: 81, 59
+  index: -1
+wuchangbai_0003
+  rotate: false
+  xy: 249, 220
+  size: 117, 101
+  orig: 260, 227
+  offset: 82, 66
+  index: -1
+wuchangbai_0004
+  rotate: true
+  xy: 96, 98
+  size: 115, 102
+  orig: 260, 227
+  offset: 89, 66
+  index: -1
+wuchangbai_0005
+  rotate: true
+  xy: 200, 102
+  size: 115, 100
+  orig: 260, 227
+  offset: 86, 69
+  index: -1
+wuchangbai_0006
+  rotate: false
+  xy: 411, 124
+  size: 111, 104
+  orig: 260, 227
+  offset: 90, 65
+  index: -1
+wuchangbai_0007
+  rotate: true
+  xy: 302, 105
+  size: 113, 107
+  orig: 260, 227
+  offset: 88, 60
+  index: -1
+wuchangbai_0008
+  rotate: false
+  xy: 128, 219
+  size: 119, 102
+  orig: 260, 227
+  offset: 87, 54
+  index: -1
+wuchangbai_0009
+  rotate: false
+  xy: 0, 215
+  size: 126, 106
+  orig: 260, 227
+  offset: 83, 51
+  index: -1
+wuchangbai_0010
+  rotate: true
+  xy: 0, 82
+  size: 131, 94
+  orig: 260, 227
+  offset: 81, 59
+  index: -1
+wuchangbai_0011
+  rotate: false
+  xy: 368, 233
+  size: 130, 88
+  orig: 260, 227
+  offset: 82, 66
+  index: -1
+wuchangbai_0012
+  rotate: false
+  xy: 500, 230
+  size: 123, 91
+  orig: 260, 227
+  offset: 89, 66
+  index: -1
+wuchangbai_0013
+  rotate: false
+  xy: 519, 26
+  size: 95, 92
+  orig: 260, 227
+  offset: 86, 69
+  index: -1
+wuchangbai_0014
+  rotate: false
+  xy: 305, 6
+  size: 93, 97
+  orig: 260, 227
+  offset: 90, 65
+  index: -1
+wuchangbai_0015
+  rotate: true
+  xy: 96, 0
+  size: 96, 99
+  orig: 260, 227
+  offset: 88, 60
+  index: -1

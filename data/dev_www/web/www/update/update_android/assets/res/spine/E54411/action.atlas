@@ -1,0 +1,55 @@
+
+action.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/bainshendi/0000
+  rotate: false
+  xy: 0, 220
+  size: 280, 280
+  orig: 286, 288
+  offset: 4, 3
+  index: -1
+images/bianshen/0005
+  rotate: false
+  xy: 0, 0
+  size: 262, 220
+  orig: 277, 250
+  offset: 5, 8
+  index: -1
+images/bianshen/0007
+  rotate: false
+  xy: 280, 325
+  size: 187, 175
+  orig: 277, 250
+  offset: 35, 35
+  index: -1
+images/bianshen/0009
+  rotate: false
+  xy: 467, 336
+  size: 184, 164
+  orig: 277, 250
+  offset: 42, 35
+  index: -1
+images/bianshen/0011
+  rotate: false
+  xy: 795, 358
+  size: 153, 142
+  orig: 277, 250
+  offset: 75, 68
+  index: -1
+images/bianshen/0013
+  rotate: false
+  xy: 651, 345
+  size: 144, 155
+  orig: 277, 250
+  offset: 79, 64
+  index: -1
+images/bianshen/0015
+  rotate: true
+  xy: 280, 189
+  size: 136, 152
+  orig: 277, 250
+  offset: 88, 66
+  index: -1

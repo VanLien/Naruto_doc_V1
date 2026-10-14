@@ -1,0 +1,55 @@
+
+action.png
+size: 608,608
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+diceng_00
+  rotate: false
+  xy: 409, 242
+  size: 162, 162
+  orig: 200, 200
+  offset: 18, 20
+  index: -1
+fazhen2_00
+  rotate: false
+  xy: 2, 36
+  size: 175, 162
+  orig: 200, 200
+  offset: 8, 19
+  index: -1
+fazhen_00
+  rotate: false
+  xy: 2, 200
+  size: 405, 406
+  orig: 500, 500
+  offset: 47, 48
+  index: -1
+fazhengaungdan_32
+  rotate: true
+  xy: 354, 99
+  size: 99, 86
+  orig: 150, 150
+  offset: 24, 33
+  index: -1
+fazhenshuikuo_00
+  rotate: false
+  xy: 179, 76
+  size: 173, 122
+  orig: 200, 150
+  offset: 13, 10
+  index: -1
+fazhenzhongxin_00
+  rotate: false
+  xy: 409, 406
+  size: 197, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+xingguang_28
+  rotate: false
+  xy: 179, 7
+  size: 67, 67
+  orig: 100, 100
+  offset: 17, 16
+  index: -1

@@ -1,0 +1,7 @@
+﻿local var_0_0 = cc.Menu
+
+function cc.MenuItem.onClicked(arg_1_0, arg_1_1)
+	arg_1_0:registerScriptTapHandler(arg_1_1)
+
+	return arg_1_0
+end

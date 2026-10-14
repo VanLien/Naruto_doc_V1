@@ -1,0 +1,779 @@
+﻿SysEnv = SysEnv or BaseClass()
+
+local var_0_0 = cc.FileUtils:getInstance():getWritablePath() .. "sys_env_data.lua"
+
+SysEnv.keys = {
+	elfin_auto_buy_item = "elfin_auto_buy_item",
+	spine_down_key = "spine_down_key",
+	equip_sell_star_3 = "equip_sell_star_3",
+	holy_sell_star_3 = "holy_sell_star_3",
+	cache_chat = "cache_chat",
+	holy_sell_star_2 = "holy_sell_star_2",
+	scene_quality = "scene_quality",
+	usrNameList = "usrNameList",
+	audio_volume = "audio_volume",
+	holy_plan_save_tip = "holy_plan_save_tip",
+	mission_trace = "mission_trace",
+	equip_sell_quality_3 = "equip_sell_quality_3",
+	holy_sell_star_5 = "holy_sell_star_5",
+	srv_id = "srv_id",
+	equip_sell_quality_4 = "equip_sell_quality_4",
+	gm_eidt_list = "gm_eidt_list",
+	adventure_mine_skip_fight = "adventure_mine_skip_fight",
+	welfare_redpoint = "welfare_redpoint",
+	auto_cross_voice = "auto_cross_voice",
+	chat_red_open = "chat_red_open",
+	equip_sell_quality_5 = "equip_sell_quality_5",
+	default_server_data = "default_server_data",
+	custom_head_info = "custom_head_info",
+	holy_sell_step_3 = "holy_sell_step_3",
+	video_first_open = "video_first_open",
+	equip_sell_star_5 = "equip_sell_star_5",
+	user_proto_agree = "user_proto_agree",
+	holy_sell_step_1 = "holy_sell_step_1",
+	one_key_sacrifice = "one_key_sacrifice",
+	equip_sell_quality_2 = "equip_sell_quality_2",
+	frist_open_game = "frist_open_game",
+	usrName = "usrName",
+	holy_sell_step_2 = "holy_sell_step_2",
+	login_srv_sign = "login_srv_sign",
+	rid = "rid",
+	password = "password",
+	holy_plan_wear_tip = "holy_plan_wear_tip",
+	elfin_plan_save_tip = "elfin_plan_save_tip",
+	music_is_open = "music_is_open",
+	guild_first_open = "guild_first_open",
+	equip_sell_all = "equip_sell_all",
+	equip_sell_quality_1 = "equip_sell_quality_1",
+	music_volume = "music_volume",
+	arenateam_skip_fight = "arenateam_skip_fight",
+	loading_png = "loading_png_form",
+	holy_sell_star_1 = "holy_sell_star_1",
+	user_proto_name_list = "user_proto_name_list",
+	equip_sell_star_1 = "equip_sell_star_1",
+	equip_sell_star_2 = "equip_sell_star_2",
+	dungeon_check_onekey = "dungeon_check_onekey",
+	message_push = "message_push",
+	chat_greeting = "chat_greeting",
+	planesafk_skip_fight = "planesafk_skip_fight",
+	auto_world_voice = "auto_world_voice",
+	auto_guild_voice = "auto_guild_voice",
+	audio_is_open = "audio_is_open",
+	grow_fund_redpoint = "grow_fund_redpoint",
+	voice_is_open = "voice_is_open",
+	equip_sell_star_4 = "equip_sell_star_4",
+	resources_down_key = "resources_down_key",
+	adventure_series_fight = "adventure_series_fight",
+	forge_artifact_num = "forge_artifact_num",
+	voice_volume = "voice_volume",
+	holy_sell_star_4 = "holy_sell_star_4",
+	equip_sell_star_6 = "equip_sell_star_6",
+	high_quality = "high_quality",
+	adventure_skip_fight = "adventure_skip_fight"
+}
+SysEnv.files = {}
+
+function SysEnv.getInstance(arg_1_0)
+	if not arg_1_0.is_init then
+		arg_1_0:load()
+
+		arg_1_0.is_init = true
+	end
+
+	return arg_1_0
+end
+
+function SysEnv.get(arg_2_0, arg_2_1, arg_2_2)
+	if arg_2_1 == nil then
+		return arg_2_2
+	end
+
+	if arg_2_0[arg_2_1] ~= nil then
+		return arg_2_0[arg_2_1]
+	else
+		return arg_2_2
+	end
+end
+
+function SysEnv.getNum(arg_3_0, arg_3_1, arg_3_2)
+	return arg_3_0:get(arg_3_1, arg_3_2 or 0)
+end
+
+function SysEnv.getStr(arg_4_0, arg_4_1, arg_4_2)
+	return arg_4_0:get(arg_4_1, arg_4_2 or "")
+end
+
+function SysEnv.getTable(arg_5_0, arg_5_1, arg_5_2)
+	return arg_5_0:get(arg_5_1, arg_5_2 or {})
+end
+
+function SysEnv.getBool(arg_6_0, arg_6_1, arg_6_2)
+	return arg_6_0:get(arg_6_1, arg_6_2 or false)
+end
+
+function SysEnv.set(arg_7_0, arg_7_1, arg_7_2, arg_7_3)
+	if arg_7_1 == nil then
+		return
+	end
+
+	if type(arg_7_2) ~= "table" and arg_7_0[arg_7_1] and arg_7_0[arg_7_1] == arg_7_2 then
+		return
+	end
+
+	arg_7_0[arg_7_1] = arg_7_2
+
+	arg_7_0:updateEventKey(arg_7_1, arg_7_2)
+
+	if arg_7_3 == false then
+		return
+	end
+
+	arg_7_0:save()
+end
+
+function SysEnv.updateEventKey(arg_8_0, arg_8_1, arg_8_2)
+	if arg_8_1 == SysEnv.keys.music_volume then
+		AudioManager:getInstance():setMusicVolume(arg_8_2 / 100)
+	elseif arg_8_1 == SysEnv.keys.audio_volume then
+		AudioManager:getInstance():setEffectVolume(arg_8_2 / 100)
+	elseif arg_8_1 == SysEnv.keys.voice_volume then
+		AudioManager:getInstance():setRecordVolume(arg_8_2 / 100)
+	elseif arg_8_1 == SysEnv.keys.music_is_open then
+		if arg_8_2 == false then
+			AudioManager:getInstance():setMusicVolume(0)
+		elseif arg_8_2 == true then
+			AudioManager:getInstance():setMusicVolume(SysEnv:getInstance():getNum(SysEnv.keys.music_volume, 100) / 100)
+		end
+	elseif arg_8_1 == SysEnv.keys.audio_is_open then
+		if arg_8_2 == false then
+			AudioManager:getInstance():setEffectVolume(0)
+		elseif arg_8_2 == true then
+			AudioManager:getInstance():setEffectVolume(SysEnv:getInstance():getNum(SysEnv.keys.audio_volume, 100) / 100)
+		end
+	elseif arg_8_1 == SysEnv.keys.voice_is_open then
+		if arg_8_2 == false then
+			AudioManager:getInstance():setRecordVolume(0)
+		elseif arg_8_2 == true then
+			AudioManager:getInstance():setRecordVolume(SysEnv:getInstance():getNum(SysEnv.keys.voice_volume, 100) / 100)
+		end
+	elseif arg_8_1 == SysEnv.keys.scene_quality then
+		-- block empty
+	elseif arg_8_1 == SysEnv.keys.message_push then
+		-- block empty
+	elseif arg_8_1 == SysEnv.keys.mission_trace then
+		-- block empty
+	elseif arg_8_1 == SysEnv.keys.high_quality then
+		if arg_8_2 == false then
+			EQUIPMENT_QUALITY = 1
+		elseif arg_8_2 == true then
+			EQUIPMENT_QUALITY = 3
+		end
+	end
+end
+
+function SysEnv.getKeys(arg_9_0)
+	return SysEnv.keys
+end
+
+function SysEnv.filepath(arg_10_0)
+	return var_0_0
+end
+
+function SysEnv.load(arg_11_0)
+	local var_11_0 = arg_11_0:filepath()
+
+	if not var_11_0 then
+		return
+	end
+
+	local var_11_1 = arg_11_0:loadfile(var_11_0)
+
+	for iter_11_0, iter_11_1 in pairs(var_11_1 or {}) do
+		arg_11_0[iter_11_0] = iter_11_1
+	end
+end
+
+function SysEnv.save(arg_12_0)
+	local var_12_0 = arg_12_0:filepath()
+
+	if not var_12_0 then
+		return
+	end
+
+	local var_12_1 = "return {"
+	local var_12_2
+	local var_12_3 = arg_12_0:getKeys()
+
+	for iter_12_0, iter_12_1 in pairs(var_12_3) do
+		v = arg_12_0[iter_12_1]
+
+		if v ~= nil then
+			local var_12_4 = type(v)
+
+			if var_12_4 == "string" then
+				v = "[[" .. v .. "]]"
+			elseif var_12_4 == "table" then
+				v = arg_12_0:luaTable2Str(v, 1)
+			else
+				v = tostring(v)
+			end
+
+			var_12_1 = var_12_1 .. "\n  " .. iter_12_1 .. "=" .. v .. ","
+		end
+	end
+
+	local var_12_5 = var_12_1 .. "\n}"
+
+	return writeBinaryFile(var_12_0, var_12_5)
+end
+
+function SysEnv.loadfile(arg_13_0, arg_13_1)
+	if cc.FileUtils:getInstance():isFileExist(arg_13_1) then
+		print("load_file===>", arg_13_1)
+
+		local var_13_0, var_13_1 = pcall(function()
+			return dofile(arg_13_1)
+		end)
+
+		if var_13_0 and type(var_13_1) == "table" then
+			return var_13_1
+		end
+	end
+
+	return {}
+end
+
+function SysEnv.isFileExist(arg_15_0)
+	local var_15_0 = arg_15_0:filepath()
+
+	if var_15_0 and cc.FileUtils:getInstance():isFileExist(var_15_0) then
+		return true
+	end
+
+	return false
+end
+
+function SysEnv.savefile(arg_16_0, arg_16_1, arg_16_2)
+	local var_16_0 = "return " .. arg_16_0:luaTable2Str(arg_16_2, 0)
+
+	print("save_file===>", arg_16_1)
+
+	return writeBinaryFile(arg_16_1, var_16_0)
+end
+
+function SysEnv.savefileOutKey(arg_17_0, arg_17_1, arg_17_2)
+	local var_17_0 = "return " .. arg_17_0:otherLuaTable2Str(arg_17_2, 0)
+
+	print("save_file===>", arg_17_1)
+
+	return writeBinaryFile(arg_17_1, var_17_0)
+end
+
+function SysEnv.otherLuaTable2Str(arg_18_0, arg_18_1, arg_18_2)
+	arg_18_2 = arg_18_2 or 0
+
+	local var_18_0 = "{\n"
+	local var_18_1 = string.rep("  ", arg_18_2)
+
+	for iter_18_0, iter_18_1 in pairs(arg_18_1) do
+		if type(iter_18_0) == "string" then
+			iter_18_0 = string.format("%q", iter_18_0)
+		end
+
+		TypeV = type(iter_18_1)
+
+		if TypeV == "table" then
+			iter_18_1 = arg_18_0:luaTable2Str(iter_18_1, arg_18_2 + 1)
+		elseif TypeV == "string" then
+			iter_18_1 = string.format("%q", iter_18_1)
+		else
+			iter_18_1 = tostring(iter_18_1)
+		end
+
+		var_18_0 = var_18_0 .. var_18_1 .. "  " .. iter_18_1 .. ",\n"
+	end
+
+	return var_18_0 .. var_18_1 .. "}"
+end
+
+function SysEnv.luaTable2Str(arg_19_0, arg_19_1, arg_19_2)
+	arg_19_2 = arg_19_2 or 0
+
+	local var_19_0 = "{\n"
+	local var_19_1 = string.rep("  ", arg_19_2)
+
+	for iter_19_0, iter_19_1 in pairs(arg_19_1) do
+		if type(iter_19_0) == "string" then
+			iter_19_0 = string.format("%q", iter_19_0)
+		end
+
+		TypeV = type(iter_19_1)
+
+		if TypeV == "table" then
+			iter_19_1 = arg_19_0:luaTable2Str(iter_19_1, arg_19_2 + 1)
+		elseif TypeV == "string" then
+			iter_19_1 = string.format("%q", iter_19_1)
+		else
+			iter_19_1 = tostring(iter_19_1)
+		end
+
+		var_19_0 = var_19_0 .. var_19_1 .. "  [" .. iter_19_0 .. "] = " .. iter_19_1 .. ",\n"
+	end
+
+	return var_19_0 .. var_19_1 .. "}"
+end
+
+local var_0_1 = {}
+local var_0_2 = {}
+local var_0_3 = {}
+
+function SysEnv.loadRankFile(arg_20_0, arg_20_1, arg_20_2)
+	local var_20_0 = 0
+
+	if arg_20_2 == true then
+		var_20_0 = 1
+	end
+
+	if var_0_1[getNorKey(arg_20_1, var_20_0)] ~= nil then
+		return var_0_1[getNorKey(arg_20_1, var_20_0)]
+	end
+
+	local var_20_1 = cc.FileUtils:getInstance():getWritablePath() .. "rank_env/" .. var_20_0 .. "/"
+	local var_20_2 = RoleController:getInstance():getRoleVo()
+
+	if var_20_2 == nil then
+		return
+	end
+
+	local var_20_3 = getNorKey(var_20_2.rid, var_20_2.main_srv_id)
+	local var_20_4 = var_20_1 .. var_20_3 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_20_4) then
+		cc.FileUtils:getInstance():createDirectory(var_20_4)
+	end
+
+	local var_20_5 = var_20_4 .. "rank_data_" .. arg_20_1 .. ".lua"
+
+	var_0_1[arg_20_1] = arg_20_0:loadfile(var_20_5)
+
+	return var_0_1[arg_20_1]
+end
+
+function SysEnv.saveResourcesFile(arg_21_0, arg_21_1)
+	local var_21_0 = cc.FileUtils:getInstance():getWritablePath() .. "resources_env/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_21_0) then
+		cc.FileUtils:getInstance():createDirectory(var_21_0)
+	end
+
+	local var_21_1 = var_21_0 .. "resources_data.lua"
+
+	arg_21_0:savefileOutKey(var_21_1, arg_21_1)
+end
+
+function SysEnv.loadResourcesFile(arg_22_0)
+	local var_22_0 = cc.FileUtils:getInstance():getWritablePath() .. "resources_env/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_22_0) then
+		cc.FileUtils:getInstance():createDirectory(var_22_0)
+	end
+
+	local var_22_1 = var_22_0 .. "resources_data.lua"
+
+	return (arg_22_0:loadfile(var_22_1))
+end
+
+function SysEnv.saveRankFile(arg_23_0, arg_23_1, arg_23_2, arg_23_3, arg_23_4)
+	local var_23_0 = 0
+
+	if arg_23_4 == true then
+		var_23_0 = 1
+	end
+
+	local var_23_1 = cc.FileUtils:getInstance():getWritablePath() .. "rank_env/" .. var_23_0 .. "/"
+	local var_23_2 = RoleController:getInstance():getRoleVo()
+
+	if var_23_2 == nil then
+		return
+	end
+
+	local var_23_3 = getNorKey(var_23_2.rid, var_23_2.main_srv_id)
+	local var_23_4 = var_23_1 .. var_23_3 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_23_4) then
+		cc.FileUtils:getInstance():createDirectory(var_23_4)
+	end
+
+	local var_23_5 = var_23_4 .. "rank_data_" .. arg_23_1 .. ".lua"
+	local var_23_6 = {
+		timestamp = arg_23_2,
+		data = arg_23_3
+	}
+
+	arg_23_0:savefile(var_23_5, var_23_6)
+
+	var_0_1[arg_23_1] = var_23_6
+end
+
+function SysEnv.saveFormFile(arg_24_0, arg_24_1, arg_24_2)
+	local var_24_0 = cc.FileUtils:getInstance():getWritablePath() .. "form_env/"
+	local var_24_1 = RoleController:getInstance():getRoleVo()
+
+	if var_24_1 == nil then
+		return
+	end
+
+	local var_24_2 = getNorKey(var_24_1.rid, var_24_1.main_srv_id)
+	local var_24_3 = var_24_0 .. var_24_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_24_3) then
+		cc.FileUtils:getInstance():createDirectory(var_24_3)
+	end
+
+	local var_24_4 = var_24_3 .. "form_data_" .. arg_24_1 .. ".lua"
+	local var_24_5 = {
+		type = arg_24_1,
+		data = arg_24_2
+	}
+
+	arg_24_0:savefile(var_24_4, var_24_5)
+
+	var_0_2[arg_24_1] = var_24_5
+end
+
+function SysEnv.loadFormFile(arg_25_0, arg_25_1)
+	if var_0_2[arg_25_1] ~= nil then
+		return var_0_2[arg_25_1]
+	end
+
+	local var_25_0 = cc.FileUtils:getInstance():getWritablePath() .. "form_env/"
+	local var_25_1 = RoleController:getInstance():getRoleVo()
+
+	if var_25_1 == nil then
+		return
+	end
+
+	local var_25_2 = getNorKey(var_25_1.rid, var_25_1.main_srv_id)
+	local var_25_3 = var_25_0 .. var_25_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_25_3) then
+		cc.FileUtils:getInstance():createDirectory(var_25_3)
+	end
+
+	local var_25_4 = var_25_3 .. "form_data_" .. arg_25_1 .. ".lua"
+
+	var_0_2[arg_25_1] = arg_25_0:loadfile(var_25_4)
+
+	return var_0_2[arg_25_1]
+end
+
+function SysEnv.saveBigWorldFormFile(arg_26_0, arg_26_1)
+	local var_26_0 = cc.FileUtils:getInstance():getWritablePath() .. "form_env/"
+	local var_26_1 = RoleController:getInstance():getRoleVo()
+
+	if var_26_1 == nil then
+		return
+	end
+
+	local var_26_2 = getNorKey(var_26_1.rid, var_26_1.main_srv_id)
+	local var_26_3 = var_26_0 .. var_26_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_26_3) then
+		cc.FileUtils:getInstance():createDirectory(var_26_3)
+	end
+
+	local var_26_4 = var_26_3 .. "big_world_data.lua"
+	local var_26_5 = arg_26_1
+
+	arg_26_0:savefile(var_26_4, var_26_5)
+
+	var_0_3 = var_26_5
+end
+
+function SysEnv.loadBigWorldFormFile(arg_27_0)
+	if var_0_3 ~= nil and next(var_0_3) ~= nil then
+		return var_0_3
+	end
+
+	local var_27_0 = cc.FileUtils:getInstance():getWritablePath() .. "form_env/"
+	local var_27_1 = RoleController:getInstance():getRoleVo()
+
+	if var_27_1 == nil then
+		return
+	end
+
+	local var_27_2 = getNorKey(var_27_1.rid, var_27_1.main_srv_id)
+	local var_27_3 = var_27_0 .. var_27_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_27_3) then
+		cc.FileUtils:getInstance():createDirectory(var_27_3)
+	end
+
+	local var_27_4 = var_27_3 .. "big_world_data.lua"
+
+	var_0_3 = arg_27_0:loadfile(var_27_4)
+
+	return var_0_3
+end
+
+function SysEnv.loadPrivateChatFile(arg_28_0, arg_28_1, arg_28_2)
+	local var_28_0 = cc.FileUtils:getInstance():getWritablePath() .. "chat_env/"
+	local var_28_1 = RoleController:getInstance():getRoleVo()
+
+	if var_28_1 == nil then
+		return
+	end
+
+	local var_28_2 = getNorKey(var_28_1.rid, var_28_1.srv_id)
+	local var_28_3 = var_28_0 .. var_28_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_28_3) then
+		cc.FileUtils:getInstance():createDirectory(var_28_3)
+	end
+
+	local var_28_4 = var_28_3 .. "chat_" .. var_28_1.srv_id .. "_" .. var_28_1.rid .. "_" .. arg_28_1 .. "_" .. arg_28_2 .. ".lua"
+
+	return (arg_28_0:loadfile(var_28_4) or {}).talk_list
+end
+
+function SysEnv.savePrivateChatFile(arg_29_0, arg_29_1, arg_29_2, arg_29_3)
+	local var_29_0 = cc.FileUtils:getInstance():getWritablePath() .. "chat_env/"
+	local var_29_1 = RoleController:getInstance():getRoleVo()
+
+	if var_29_1 == nil then
+		return
+	end
+
+	local var_29_2 = getNorKey(var_29_1.rid, var_29_1.srv_id)
+	local var_29_3 = var_29_0 .. var_29_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_29_3) then
+		cc.FileUtils:getInstance():createDirectory(var_29_3)
+	end
+
+	local var_29_4 = var_29_3 .. "chat_" .. var_29_1.srv_id .. "_" .. var_29_1.rid .. "_" .. arg_29_1 .. "_" .. arg_29_2 .. ".lua"
+	local var_29_5 = {
+		talk_list = arg_29_3
+	}
+
+	arg_29_0:savefile(var_29_4, var_29_5)
+end
+
+function SysEnv.saveContactListFile(arg_30_0, arg_30_1)
+	local var_30_0 = cc.FileUtils:getInstance():getWritablePath() .. "private_chat_env/"
+	local var_30_1 = RoleController:getInstance():getRoleVo()
+
+	if var_30_1 == nil then
+		return
+	end
+
+	local var_30_2 = getNorKey(var_30_1.rid, var_30_1.srv_id)
+	local var_30_3 = var_30_0 .. var_30_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_30_3) then
+		cc.FileUtils:getInstance():createDirectory(var_30_3)
+	end
+
+	local var_30_4 = var_30_3 .. "private_chat_" .. var_30_1.srv_id .. "_" .. var_30_1.rid .. ".lua"
+	local var_30_5 = {
+		contact_list = arg_30_1
+	}
+
+	arg_30_0:savefile(var_30_4, var_30_5)
+end
+
+function SysEnv.loadContactListFile(arg_31_0)
+	local var_31_0 = cc.FileUtils:getInstance():getWritablePath() .. "private_chat_env/"
+	local var_31_1 = RoleController:getInstance():getRoleVo()
+
+	if var_31_1 == nil then
+		return
+	end
+
+	local var_31_2 = getNorKey(var_31_1.rid, var_31_1.srv_id)
+	local var_31_3 = var_31_0 .. var_31_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_31_3) then
+		cc.FileUtils:getInstance():createDirectory(var_31_3)
+	end
+
+	local var_31_4 = var_31_3 .. "private_chat_" .. var_31_1.srv_id .. "_" .. var_31_1.rid .. ".lua"
+
+	return (arg_31_0:loadfile(var_31_4) or {}).contact_list
+end
+
+function SysEnv.saveDramaTipsFile(arg_32_0, arg_32_1)
+	local var_32_0 = cc.FileUtils:getInstance():getWritablePath() .. "drama_tips_env/"
+	local var_32_1 = RoleController:getInstance():getRoleVo()
+
+	if var_32_1 == nil then
+		return
+	end
+
+	local var_32_2 = getNorKey(var_32_1.rid, var_32_1.srv_id)
+	local var_32_3 = var_32_0 .. var_32_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_32_3) then
+		cc.FileUtils:getInstance():createDirectory(var_32_3)
+	end
+
+	local var_32_4 = var_32_3 .. "drama_tips_" .. var_32_1.srv_id .. "_" .. var_32_1.rid .. ".lua"
+	local var_32_5 = {}
+
+	if not var_32_5[arg_32_1.dun_id] then
+		var_32_5[arg_32_1.dun_id] = {
+			dun_id = arg_32_1.dun_id
+		}
+	end
+
+	local var_32_6 = var_32_5
+
+	arg_32_0:savefile(var_32_4, var_32_6)
+end
+
+function SysEnv.loadDramaTipsFile(arg_33_0)
+	local var_33_0 = cc.FileUtils:getInstance():getWritablePath() .. "drama_tips_env/"
+	local var_33_1 = RoleController:getInstance():getRoleVo()
+
+	if var_33_1 == nil then
+		return
+	end
+
+	local var_33_2 = getNorKey(var_33_1.rid, var_33_1.srv_id)
+	local var_33_3 = var_33_0 .. var_33_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_33_3) then
+		cc.FileUtils:getInstance():createDirectory(var_33_3)
+	end
+
+	local var_33_4 = var_33_3 .. "drama_tips_" .. var_33_1.srv_id .. "_" .. var_33_1.rid .. ".lua"
+
+	return arg_33_0:loadfile(var_33_4) or {}
+end
+
+function SysEnv.saveArtifactLockStatus(arg_34_0, arg_34_1)
+	local var_34_0 = cc.FileUtils:getInstance():getWritablePath() .. "artifact_lock_env/"
+	local var_34_1 = RoleController:getInstance():getRoleVo()
+
+	if var_34_1 == nil then
+		return
+	end
+
+	local var_34_2 = getNorKey(var_34_1.rid, var_34_1.srv_id)
+	local var_34_3 = var_34_0 .. var_34_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_34_3) then
+		cc.FileUtils:getInstance():createDirectory(var_34_3)
+	end
+
+	local var_34_4 = var_34_3 .. "artifact_lock_" .. var_34_1.srv_id .. "_" .. var_34_1.rid .. ".lua"
+	local var_34_5 = {
+		lock_status = arg_34_1
+	}
+
+	arg_34_0:savefile(var_34_4, var_34_5)
+end
+
+function SysEnv.loadArtifactLockStatus(arg_35_0)
+	local var_35_0 = cc.FileUtils:getInstance():getWritablePath() .. "artifact_lock_env/"
+	local var_35_1 = RoleController:getInstance():getRoleVo()
+
+	if var_35_1 == nil then
+		return
+	end
+
+	local var_35_2 = getNorKey(var_35_1.rid, var_35_1.srv_id)
+	local var_35_3 = var_35_0 .. var_35_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_35_3) then
+		cc.FileUtils:getInstance():createDirectory(var_35_3)
+	end
+
+	local var_35_4 = var_35_3 .. "artifact_lock_" .. var_35_1.srv_id .. "_" .. var_35_1.rid .. ".lua"
+
+	return (arg_35_0:loadfile(var_35_4) or {}).lock_status
+end
+
+function SysEnv.saveGuildActiveIconId(arg_36_0, arg_36_1)
+	local var_36_0 = cc.FileUtils:getInstance():getWritablePath() .. "guild_active_env/"
+	local var_36_1 = RoleController:getInstance():getRoleVo()
+
+	if var_36_1 == nil then
+		return
+	end
+
+	local var_36_2 = getNorKey(var_36_1.rid, var_36_1.srv_id)
+	local var_36_3 = var_36_0 .. var_36_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_36_3) then
+		cc.FileUtils:getInstance():createDirectory(var_36_3)
+	end
+
+	local var_36_4 = var_36_3 .. "guild_active_" .. var_36_1.srv_id .. "_" .. var_36_1.rid .. ".lua"
+	local var_36_5 = {
+		active_icon_id = arg_36_1
+	}
+
+	arg_36_0:savefile(var_36_4, var_36_5)
+end
+
+function SysEnv.loadGuildActiveIconId(arg_37_0)
+	local var_37_0 = cc.FileUtils:getInstance():getWritablePath() .. "guild_active_env/"
+	local var_37_1 = RoleController:getInstance():getRoleVo()
+
+	if var_37_1 == nil then
+		return
+	end
+
+	local var_37_2 = getNorKey(var_37_1.rid, var_37_1.srv_id)
+	local var_37_3 = var_37_0 .. var_37_2 .. "/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_37_3) then
+		cc.FileUtils:getInstance():createDirectory(var_37_3)
+	end
+
+	local var_37_4 = var_37_3 .. "guild_active_" .. var_37_1.srv_id .. "_" .. var_37_1.rid .. ".lua"
+	local var_37_5 = arg_37_0:loadfile(var_37_4) or {}
+
+	if not var_37_5.active_icon_id then
+		local var_37_6 = GuildController:getInstance():getModel():getGuildActiveLev()
+		local var_37_7 = Config.GuildQuestData.data_lev_data[var_37_6]
+
+		if var_37_7 then
+			var_37_5.active_icon_id = var_37_7.res_id
+		end
+	end
+
+	return var_37_5.active_icon_id or 1
+end
+
+function SysEnv.saveAllServerListFile(arg_38_0)
+	local var_38_0 = LoginController:getInstance():getModel():getServerListData()
+
+	if not var_38_0 then
+		return
+	end
+
+	local var_38_1 = cc.FileUtils:getInstance():getWritablePath() .. "server_list_env/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_38_1) then
+		cc.FileUtils:getInstance():createDirectory(var_38_1)
+	end
+
+	local var_38_2 = var_38_1 .. "server_list_data.lua"
+	local var_38_3 = var_38_0
+
+	arg_38_0:savefile(var_38_2, var_38_3)
+end
+
+function SysEnv.loadAllServerListFile(arg_39_0)
+	local var_39_0 = cc.FileUtils:getInstance():getWritablePath() .. "server_list_env/"
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_39_0) then
+		cc.FileUtils:getInstance():createDirectory(var_39_0)
+	end
+
+	local var_39_1 = var_39_0 .. "server_list_data.lua"
+
+	return arg_39_0:loadfile(var_39_1) or {}
+end

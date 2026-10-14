@@ -1,0 +1,160 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+caiguangbuffaa
+  rotate: false
+  xy: 1237, 1714
+  size: 195, 195
+  orig: 195, 195
+  offset: 0, 0
+  index: -1
+lingpiang_0000
+  rotate: false
+  xy: 2, 1605
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0001
+  rotate: false
+  xy: 2, 1299
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0002
+  rotate: false
+  xy: 249, 1605
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0003
+  rotate: false
+  xy: 2, 993
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0004
+  rotate: false
+  xy: 249, 1299
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0005
+  rotate: false
+  xy: 496, 1605
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0006
+  rotate: false
+  xy: 2, 687
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0007
+  rotate: false
+  xy: 249, 993
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0008
+  rotate: false
+  xy: 496, 1299
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0009
+  rotate: false
+  xy: 743, 1605
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0010
+  rotate: false
+  xy: 2, 381
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0011
+  rotate: false
+  xy: 249, 687
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0012
+  rotate: false
+  xy: 496, 993
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0013
+  rotate: false
+  xy: 743, 1299
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0014
+  rotate: false
+  xy: 990, 1605
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0015
+  rotate: false
+  xy: 2, 75
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0016
+  rotate: false
+  xy: 249, 381
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0017
+  rotate: false
+  xy: 496, 687
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0018
+  rotate: false
+  xy: 743, 993
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+lingpiang_0019
+  rotate: false
+  xy: 990, 1299
+  size: 245, 304
+  orig: 245, 304
+  offset: 0, 0
+  index: -1
+xinga_0014
+  rotate: false
+  xy: 2, 2
+  size: 66, 71
+  orig: 66, 71
+  offset: 0, 0
+  index: -1

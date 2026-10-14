@@ -1,0 +1,143 @@
+-- --------------------------------------------------------------------
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      巅峰冠军赛 双方阵容战斗信息 对战详情 子项
+-- <br/> 2019年11月19日
+-- ---------------------------------------------------------------------
+GuildnewwarEliteFightListItem = class("GuildnewwarEliteFightListItem", function()
+    return ccui.Widget:create()
+end)
+
+local string_format = string.format
+
+function GuildnewwarEliteFightListItem:ctor(width, height)
+    self:configUI(width, height)
+    self:register_event()
+end
+
+function GuildnewwarEliteFightListItem:configUI( width, height )
+    self.size = cc.size(width, height)
+    self:setTouchEnabled(true)
+    self:setContentSize(self.size)
+
+    local csbPath = PathTool.getTargetCSB("guildnewwar/guildnewwar_elite/guildnewwar_elite_fight_list_item")
+    self.root_wnd = cc.CSLoader:createNode(csbPath)
+    self:addChild(self.root_wnd)
+
+    local main_container = self.root_wnd:getChildByName("main_container")
+    self.main_container = main_container
+
+    local _getItem = function(prefix)
+        local item = {}
+        item.team_name = main_container:getChildByName(prefix.."team_name")
+        item.head_name = main_container:getChildByName(prefix.."head_name")
+        item.power_txt = main_container:getChildByName(prefix.."power_txt")
+        item.arrow_bg = main_container:getChildByName(prefix.."arrow_bg")
+        item.node_head = main_container:getChildByName(prefix.."node_head")
+        item.role_head = PlayerHead.new(PlayerHead.type.circle)
+        item.node_head:addChild(item.role_head)
+        return item
+    end
+    self.left_info = _getItem("left_")
+    self.right_info = _getItem("right_")
+
+    self.centre_time = main_container:getChildByName("centre_time")
+    self.play_btn = main_container:getChildByName("play_btn")
+    self.image_vs = main_container:getChildByName("image_vs")
+
+    self.result_win = main_container:getChildByName("result_win")
+    self.result_win.init_pos = cc.p(self.result_win:getPosition())
+    self.result_loss = main_container:getChildByName("result_loss")
+    self.result_loss.init_pos = cc.p(self.result_loss:getPosition())
+
+    self.right_info.team_name:setVisible(false)
+    main_container:getChildByName("num_bg_0"):setVisible(false)
+end
+
+function GuildnewwarEliteFightListItem:register_event( )
+    registerButtonEventListener(self.play_btn, handler(self, self.onClickPlayBtn) ,true, 2)
+end
+
+function GuildnewwarEliteFightListItem:onClickPlayBtn()
+    if not self.data then return end
+    local maindata = GuildNewwarController:getInstance():getModel():getMainData() or {}
+    BattleController:getInstance():csRecordBattle(self.data.replay_id, maindata.srv_id)
+    if self.p_type and self.p_type == "guess" then
+        GlobalEvent:getInstance():Fire(BarrageEvent.HandleBarrageType, false, BarrageConst.type.arenapeakchampion)
+    end
+end
+
+function GuildnewwarEliteFightListItem:setData(data, p_type)
+    if not data then return end
+    self.data = data
+    self.p_type = p_type or ""
+    self:initItemInfo()
+end
+
+function GuildnewwarEliteFightListItem:initItemInfo()
+    local data = self.data
+    --left
+    self.left_info.head_name:setString(data.a_name)
+    self.left_info.team_name:setString(string.format(TI18N("语言_c_1558"), self.index))
+    self.left_info.power_txt:setString(data.a_power)
+    self.left_info.role_head:setHeadRes(data.a_face, false, LOADTEXT_TYPE, data.a_face_file, data.a_face_update_time)
+    self.left_info.role_head:setLev(data.a_lev)
+    local avatar_bid = data.a_avatar_bid
+    local vo = Config.AvatarData.data_avatar[avatar_bid]
+    if vo then
+        local res_id = vo.res_id or 1
+        local res = PathTool.getTargetRes("headcircle", "txt_cn_headcircle_" .. res_id, false, false)
+        self.left_info.role_head:showBg(res, nil, false, vo.offy)
+    end
+    --right
+    self.right_info.head_name:setString(data.b_name)
+    self.right_info.team_name:setString(string.format(TI18N("语言_c_1558"), self.index))
+    self.right_info.power_txt:setString(data.b_power)
+    self.right_info.arrow_bg:setPositionX(self.right_info.power_txt:getPositionX() - self.right_info.power_txt:getContentSize().width)
+    self.right_info.role_head:setHeadRes(data.b_face, false, LOADTEXT_TYPE, data.b_face_file, data.b_face_update_time)
+    self.right_info.role_head:setLev(data.b_lev)
+    local avatar_bid = data.b_avatar_bid
+    local vo = Config.AvatarData.data_avatar[avatar_bid]
+    if vo then
+        local res_id = vo.res_id or 1
+        local res = PathTool.getTargetRes("headcircle", "txt_cn_headcircle_" .. res_id, false, false)
+        self.right_info.role_head:showBg(res, nil, false, vo.offy)
+    end
+
+    if data.ret == 0 then
+        self.centre_time:setVisible(false)
+        self.play_btn:setVisible(false)
+        self.image_vs:setVisible(true)
+        self.result_win:setVisible(false)
+        self.result_loss:setVisible(false)
+    else
+        local timezone = InviteCodeController:getInstance():getModel():getServerTimeZone()--服务器时区
+        local e_dZoneDiff = (timezone - TimeTool.getTimeZone())*3600
+        local time = TimeTool.getYMDHM(data.time + e_dZoneDiff)
+        self.centre_time:setString(time)    
+        self.centre_time:setVisible(true)
+        self.play_btn:setVisible(true)
+        self.image_vs:setVisible(false)
+        self.result_win:setVisible(true)
+        self.result_loss:setVisible(true)
+        if data.ret == 1 then
+            self.result_win:setPosition(self.result_win.init_pos)
+            self.result_loss:setPosition(self.result_loss.init_pos)
+        else
+            self.result_win:setPosition(self.result_loss.init_pos)
+            self.result_loss:setPosition(self.result_win.init_pos)
+        end
+    end
+end
+
+function GuildnewwarEliteFightListItem:DeleteMe( )
+    if self.left_info.role_head and not tolua.isnull(self.left_info.role_head) then
+        self.left_info.role_head:DeleteMe()
+    end
+    if self.right_info.role_head and not tolua.isnull(self.right_info.role_head) then
+        self.right_info.role_head:DeleteMe()
+    end
+    self:removeAllChildren()
+    self:removeFromParent()
+end

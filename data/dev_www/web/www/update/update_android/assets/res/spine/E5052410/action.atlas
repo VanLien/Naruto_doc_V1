@@ -1,0 +1,131 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action1_Animal hit/0_00000
+  rotate: false
+  xy: 1238, 110
+  size: 227, 228
+  orig: 2400, 1200
+  offset: 790, 555
+  index: -1
+action1_Animal hit/0_00001
+  rotate: false
+  xy: 1467, 24
+  size: 327, 255
+  orig: 2400, 1200
+  offset: 790, 570
+  index: -1
+action1_Animal hit/0_00002
+  rotate: true
+  xy: 738, 10
+  size: 328, 498
+  orig: 2400, 1200
+  offset: 790, 588
+  index: -1
+action1_Animal hit/0_00003
+  rotate: true
+  xy: 2, 2
+  size: 231, 564
+  orig: 2400, 1200
+  offset: 790, 555
+  index: -1
+action1_Animal hit/0_00007
+  rotate: true
+  xy: 1474, 1367
+  size: 671, 494
+  orig: 2400, 1200
+  offset: 790, 388
+  index: -1
+action1_Animal hit/0_00008
+  rotate: true
+  xy: 1474, 702
+  size: 663, 489
+  orig: 2400, 1200
+  offset: 790, 388
+  index: -1
+action1_Animal hit/0_00010
+  rotate: false
+  xy: 568, 6
+  size: 165, 227
+  orig: 2400, 1200
+  offset: 790, 559
+  index: -1
+action1_Animal hit/0_00011
+  rotate: false
+  xy: 1796, 54
+  size: 211, 225
+  orig: 2400, 1200
+  offset: 790, 557
+  index: -1
+action1_Animal hit/0_00012
+  rotate: false
+  xy: 1474, 281
+  size: 567, 419
+  orig: 2400, 1200
+  offset: 790, 418
+  index: -1
+action1_Animal hit/0_00016
+  rotate: false
+  xy: 738, 340
+  size: 734, 836
+  orig: 2400, 1200
+  offset: 790, 186
+  index: -1
+action1_Animal hit/0_00017
+  rotate: false
+  xy: 2, 1137
+  size: 734, 901
+  orig: 2400, 1200
+  offset: 790, 136
+  index: -1
+action1_Animal hit/0_00018
+  rotate: false
+  xy: 2, 235
+  size: 734, 900
+  orig: 2400, 1200
+  offset: 790, 148
+  index: -1
+action1_Animal hit/0_00019
+  rotate: false
+  xy: 738, 1178
+  size: 734, 860
+  orig: 2400, 1200
+  offset: 790, 188
+  index: -1
+
+action2.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action1_Animal hit/0_00005
+  rotate: false
+  xy: 1403, 433
+  size: 638, 483
+  orig: 2400, 1200
+  offset: 790, 436
+  index: -1
+action1_Animal hit/0_00006
+  rotate: false
+  xy: 738, 450
+  size: 663, 466
+  orig: 2400, 1200
+  offset: 790, 404
+  index: -1
+action1_Animal hit/0_00009
+  rotate: false
+  xy: 738, 2
+  size: 636, 446
+  orig: 2400, 1200
+  offset: 790, 404
+  index: -1
+action1_Animal hit/0_00014
+  rotate: false
+  xy: 2, 167
+  size: 734, 749
+  orig: 2400, 1200
+  offset: 790, 229
+  index: -1

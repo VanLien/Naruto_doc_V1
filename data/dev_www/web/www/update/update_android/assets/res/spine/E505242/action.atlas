@@ -1,0 +1,131 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action1_hit/action2-action2_0
+  rotate: false
+  xy: 1305, 78
+  size: 227, 165
+  orig: 1687, 1561
+  offset: 458, 577
+  index: -1
+action1_hit/action2-action2_11
+  rotate: false
+  xy: 1305, 245
+  size: 586, 606
+  orig: 1687, 1561
+  offset: 474, 387
+  index: -1
+action1_hit/action2-action2_12
+  rotate: false
+  xy: 623, 669
+  size: 596, 641
+  orig: 1687, 1561
+  offset: 464, 383
+  index: -1
+action1_hit/action2-action2_16
+  rotate: true
+  xy: 712, 54
+  size: 613, 591
+  orig: 1687, 1561
+  offset: 447, 371
+  index: -1
+action1_hit/action2-action2_2
+  rotate: false
+  xy: 639, 1330
+  size: 638, 697
+  orig: 1687, 1561
+  offset: 422, 397
+  index: -1
+action1_hit/action2-action2_3
+  rotate: true
+  xy: 1279, 1430
+  size: 597, 727
+  orig: 1687, 1561
+  offset: 463, 403
+  index: -1
+action1_hit/action2-action2_4
+  rotate: true
+  xy: 1279, 853
+  size: 575, 710
+  orig: 1687, 1561
+  offset: 485, 411
+  index: -1
+action1_hit/action2-action2_5
+  rotate: true
+  xy: 2, 2
+  size: 599, 708
+  orig: 1687, 1561
+  offset: 461, 397
+  index: -1
+action1_hit/action2-action2_6
+  rotate: false
+  xy: 2, 1312
+  size: 635, 715
+  orig: 1687, 1561
+  offset: 425, 407
+  index: -1
+action1_hit/action2-action2_7
+  rotate: false
+  xy: 2, 603
+  size: 619, 707
+  orig: 1687, 1561
+  offset: 441, 380
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action1_hit/action2-action2_1
+  rotate: false
+  xy: 2, 625
+  size: 595, 569
+  orig: 1687, 1561
+  offset: 465, 516
+  index: -1
+action1_hit/action2-action2_10
+  rotate: false
+  xy: 2, 1196
+  size: 610, 577
+  orig: 1687, 1561
+  offset: 450, 402
+  index: -1
+action1_hit/action2-action2_13
+  rotate: true
+  xy: 614, 675
+  size: 545, 568
+  orig: 1687, 1561
+  offset: 515, 377
+  index: -1
+action1_hit/action2-action2_14
+  rotate: false
+  xy: 2, 32
+  size: 546, 591
+  orig: 1687, 1561
+  offset: 514, 372
+  index: -1
+action1_hit/action2-action2_15
+  rotate: true
+  xy: 1224, 1221
+  size: 552, 573
+  orig: 1687, 1561
+  offset: 508, 370
+  index: -1
+action1_hit/action2-action2_8
+  rotate: true
+  xy: 550, 2
+  size: 621, 475
+  orig: 1687, 1561
+  offset: 439, 460
+  index: -1
+action1_hit/action2-action2_9
+  rotate: false
+  xy: 614, 1222
+  size: 608, 551
+  orig: 1687, 1561
+  offset: 452, 364
+  index: -1

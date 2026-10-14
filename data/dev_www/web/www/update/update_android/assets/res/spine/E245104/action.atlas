@@ -1,0 +1,118 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Goddess_0
+  rotate: true
+  xy: 1240, 1814
+  size: 88, 398
+  orig: 88, 398
+  offset: 0, 0
+  index: -1
+Goddess_10
+  rotate: false
+  xy: 2, 140
+  size: 217, 381
+  orig: 217, 381
+  offset: 0, 0
+  index: -1
+Goddess_11
+  rotate: false
+  xy: 387, 760
+  size: 89, 420
+  orig: 89, 420
+  offset: 0, 0
+  index: -1
+Goddess_13
+  rotate: true
+  xy: 1240, 1724
+  size: 88, 382
+  orig: 88, 382
+  offset: 0, 0
+  index: -1
+Goddess_15
+  rotate: false
+  xy: 988, 1621
+  size: 250, 281
+  orig: 250, 281
+  offset: 0, 0
+  index: -1
+Goddess_2
+  rotate: false
+  xy: 221, 171
+  size: 89, 350
+  orig: 89, 350
+  offset: 0, 0
+  index: -1
+Goddess_4
+  rotate: false
+  xy: 2, 523
+  size: 383, 657
+  orig: 383, 657
+  offset: 0, 0
+  index: -1
+Goddess_5
+  rotate: true
+  xy: 863, 1227
+  size: 171, 118
+  orig: 171, 118
+  offset: 0, 0
+  index: -1
+Goddess_6
+  rotate: true
+  xy: 387, 665
+  size: 93, 79
+  orig: 93, 79
+  offset: 0, 0
+  index: -1
+Goddess_7
+  rotate: true
+  xy: 484, 1185
+  size: 213, 377
+  orig: 213, 377
+  offset: 0, 0
+  index: -1
+Goddess_8
+  rotate: false
+  xy: 2, 2
+  size: 165, 136
+  orig: 165, 136
+  offset: 0, 0
+  index: -1
+Goddess_9
+  rotate: false
+  xy: 1640, 1836
+  size: 106, 66
+  orig: 106, 66
+  offset: 0, 0
+  index: -1
+baiping_0000
+  rotate: false
+  xy: 988, 1491
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+guangyundd_0000
+  rotate: false
+  xy: 484, 1400
+  size: 502, 502
+  orig: 502, 502
+  offset: 0, 0
+  index: -1
+xinga_0014
+  rotate: false
+  xy: 1240, 1651
+  size: 66, 71
+  orig: 66, 71
+  offset: 0, 0
+  index: -1
+xingchena_0000
+  rotate: false
+  xy: 2, 1182
+  size: 480, 720
+  orig: 480, 720
+  offset: 0, 0
+  index: -1

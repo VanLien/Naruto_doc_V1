@@ -1,0 +1,76 @@
+
+stand2.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+madara stand/0_00000
+  rotate: true
+  xy: 105, 102
+  size: 95, 194
+  orig: 900, 600
+  offset: 231, 196
+  index: -1
+madara stand/0_00001
+  rotate: false
+  xy: 2, 5
+  size: 101, 192
+  orig: 900, 600
+  offset: 229, 194
+  index: -1
+madara stand/0_00002
+  rotate: true
+  xy: 105, 2
+  size: 98, 190
+  orig: 900, 600
+  offset: 232, 198
+  index: -1
+madara stand/0_00003
+  rotate: true
+  xy: 301, 103
+  size: 94, 195
+  orig: 900, 600
+  offset: 236, 195
+  index: -1
+madara stand/0_00004
+  rotate: true
+  xy: 498, 108
+  size: 89, 196
+  orig: 900, 600
+  offset: 239, 195
+  index: -1
+madara stand/0_00005
+  rotate: true
+  xy: 696, 107
+  size: 90, 194
+  orig: 900, 600
+  offset: 239, 197
+  index: -1
+madara stand/0_00006
+  rotate: true
+  xy: 498, 16
+  size: 90, 190
+  orig: 900, 600
+  offset: 238, 202
+  index: -1
+madara stand/0_00007
+  rotate: true
+  xy: 301, 16
+  size: 85, 189
+  orig: 900, 600
+  offset: 242, 204
+  index: -1
+madara stand/0_00008
+  rotate: false
+  xy: 892, 15
+  size: 83, 182
+  orig: 900, 600
+  offset: 241, 197
+  index: -1
+madara stand/0_00009
+  rotate: true
+  xy: 690, 18
+  size: 87, 190
+  orig: 900, 600
+  offset: 236, 197
+  index: -1

@@ -1,0 +1,62 @@
+
+action.png
+size: 1024,512
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+kunaitx/0_00000
+  rotate: false
+  xy: 279, 144
+  size: 136, 121
+  orig: 500, 500
+  offset: 174, 190
+  index: -1
+kunaitx/0_00001
+  rotate: false
+  xy: 2, 223
+  size: 275, 272
+  orig: 500, 500
+  offset: 131, 139
+  index: -1
+kunaitx/0_00002
+  rotate: false
+  xy: 2, 2
+  size: 256, 219
+  orig: 500, 500
+  offset: 160, 141
+  index: -1
+kunaitx/0_00003
+  rotate: false
+  xy: 279, 267
+  size: 276, 228
+  orig: 500, 500
+  offset: 149, 143
+  index: -1
+kunaitx/0_00004
+  rotate: true
+  xy: 557, 312
+  size: 183, 233
+  orig: 500, 500
+  offset: 247, 139
+  index: -1
+kunaitx/0_00005
+  rotate: true
+  xy: 792, 338
+  size: 157, 229
+  orig: 500, 500
+  offset: 273, 140
+  index: -1
+kunaitx/0_00006
+  rotate: true
+  xy: 557, 197
+  size: 113, 207
+  orig: 500, 500
+  offset: 306, 147
+  index: -1
+kunaitx/1
+  rotate: false
+  xy: 417, 187
+  size: 95, 78
+  orig: 200, 100
+  offset: 54, 11
+  index: -1

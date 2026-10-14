@@ -1,0 +1,301 @@
+﻿local var_0_0 = {}
+local var_0_1 = {
+	BACKIN = {
+		cc.EaseBackIn,
+		1
+	},
+	BACKINOUT = {
+		cc.EaseBackInOut,
+		1
+	},
+	BACKOUT = {
+		cc.EaseBackOut,
+		1
+	},
+	BOUNCE = {
+		cc.EaseBounce,
+		1
+	},
+	BOUNCEIN = {
+		cc.EaseBounceIn,
+		1
+	},
+	BOUNCEINOUT = {
+		cc.EaseBounceInOut,
+		1
+	},
+	BOUNCEOUT = {
+		cc.EaseBounceOut,
+		1
+	},
+	ELASTIC = {
+		cc.EaseElastic,
+		2,
+		0.3
+	},
+	ELASTICIN = {
+		cc.EaseElasticIn,
+		2,
+		0.3
+	},
+	ELASTICINOUT = {
+		cc.EaseElasticInOut,
+		2,
+		0.3
+	},
+	ELASTICOUT = {
+		cc.EaseElasticOut,
+		2,
+		0.3
+	},
+	EXPONENTIALIN = {
+		cc.EaseExponentialIn,
+		1
+	},
+	EXPONENTIALINOUT = {
+		cc.EaseExponentialInOut,
+		1
+	},
+	EXPONENTIALOUT = {
+		cc.EaseExponentialOut,
+		1
+	},
+	IN = {
+		cc.EaseIn,
+		2,
+		1
+	},
+	INOUT = {
+		cc.EaseInOut,
+		2,
+		1
+	},
+	OUT = {
+		cc.EaseOut,
+		2,
+		1
+	},
+	RATEACTION = {
+		cc.EaseRateAction,
+		2,
+		1
+	},
+	SINEIN = {
+		cc.EaseSineIn,
+		1
+	},
+	SINEINOUT = {
+		cc.EaseSineInOut,
+		1
+	},
+	SINEOUT = {
+		cc.EaseSineOut,
+		1
+	}
+}
+local var_0_2 = cc.Director:getInstance():getActionManager()
+
+function var_0_0.newEasing(arg_1_0, arg_1_1, arg_1_2)
+	local var_1_0 = string.upper(tostring(arg_1_1))
+	local var_1_1
+
+	if var_0_1[var_1_0] then
+		local var_1_2, var_1_3, var_1_4 = unpack(var_0_1[var_1_0])
+
+		if var_1_3 == 2 then
+			var_1_1 = var_1_2:create(arg_1_0, arg_1_2 or var_1_4)
+		else
+			var_1_1 = var_1_2:create(arg_1_0)
+		end
+	end
+
+	return var_1_1 or arg_1_0
+end
+
+function var_0_0.create(arg_2_0, arg_2_1)
+	arg_2_1 = checktable(arg_2_1)
+
+	if arg_2_1.easing then
+		if type(arg_2_1.easing) == "table" then
+			arg_2_0 = var_0_0.newEasing(arg_2_0, unpack(arg_2_1.easing))
+		else
+			arg_2_0 = var_0_0.newEasing(arg_2_0, arg_2_1.easing)
+		end
+	end
+
+	local var_2_0 = {}
+	local var_2_1 = checknumber(arg_2_1.delay)
+
+	if var_2_1 > 0 then
+		var_2_0[#var_2_0 + 1] = cc.DelayTime:create(var_2_1)
+	end
+
+	var_2_0[#var_2_0 + 1] = arg_2_0
+
+	local var_2_2 = arg_2_1.onComplete
+
+	if type(var_2_2) ~= "function" then
+		var_2_2 = nil
+	end
+
+	if var_2_2 then
+		var_2_0[#var_2_0 + 1] = cc.CallFunc:create(var_2_2)
+	end
+
+	if arg_2_1.removeSelf then
+		var_2_0[#var_2_0 + 1] = cc.RemoveSelf:create()
+	end
+
+	if #var_2_0 > 1 then
+		return var_0_0.sequence(var_2_0)
+	else
+		return var_2_0[1]
+	end
+end
+
+function var_0_0.execute(arg_3_0, arg_3_1, arg_3_2)
+	assert(not tolua.isnull(arg_3_0), "transition.execute() - target is not cc.Node")
+
+	local var_3_0 = var_0_0.create(arg_3_1, arg_3_2)
+
+	arg_3_0:runAction(var_3_0)
+
+	return var_3_0
+end
+
+function var_0_0.moveTo(arg_4_0, arg_4_1)
+	assert(not tolua.isnull(arg_4_0), "transition.moveTo() - target is not cc.Node")
+
+	local var_4_0 = arg_4_1.x or arg_4_0:getPositionX()
+	local var_4_1 = arg_4_1.y or arg_4_0:getPositionY()
+	local var_4_2 = cc.MoveTo:create(arg_4_1.time, cc.p(var_4_0, var_4_1))
+
+	return var_0_0.execute(arg_4_0, var_4_2, arg_4_1)
+end
+
+function var_0_0.moveBy(arg_5_0, arg_5_1)
+	assert(not tolua.isnull(arg_5_0), "transition.moveBy() - target is not cc.Node")
+
+	local var_5_0 = arg_5_1.x or 0
+	local var_5_1 = arg_5_1.y or 0
+	local var_5_2 = cc.MoveBy:create(arg_5_1.time, cc.p(var_5_0, var_5_1))
+
+	return var_0_0.execute(arg_5_0, var_5_2, arg_5_1)
+end
+
+function var_0_0.fadeIn(arg_6_0, arg_6_1)
+	assert(not tolua.isnull(arg_6_0), "transition.fadeIn() - target is not cc.Node")
+
+	local var_6_0 = cc.FadeIn:create(arg_6_1.time)
+
+	return var_0_0.execute(arg_6_0, var_6_0, arg_6_1)
+end
+
+function var_0_0.fadeOut(arg_7_0, arg_7_1)
+	assert(not tolua.isnull(arg_7_0), "transition.fadeOut() - target is not cc.Node")
+
+	local var_7_0 = cc.FadeOut:create(arg_7_1.time)
+
+	return var_0_0.execute(arg_7_0, var_7_0, arg_7_1)
+end
+
+function var_0_0.fadeTo(arg_8_0, arg_8_1)
+	assert(not tolua.isnull(arg_8_0), "transition.fadeTo() - target is not cc.Node")
+
+	local var_8_0 = checkint(arg_8_1.opacity)
+
+	if var_8_0 < 0 then
+		var_8_0 = 0
+	elseif var_8_0 > 255 then
+		var_8_0 = 255
+	end
+
+	local var_8_1 = cc.FadeTo:create(arg_8_1.time, var_8_0)
+
+	return var_0_0.execute(arg_8_0, var_8_1, arg_8_1)
+end
+
+function var_0_0.scaleTo(arg_9_0, arg_9_1)
+	assert(not tolua.isnull(arg_9_0), "transition.scaleTo() - target is not cc.Node")
+
+	local var_9_0
+
+	if arg_9_1.scale then
+		var_9_0 = cc.ScaleTo:create(checknumber(arg_9_1.time), checknumber(arg_9_1.scale))
+	elseif arg_9_1.scaleX or arg_9_1.scaleY then
+		local var_9_1
+		local var_9_2
+
+		if arg_9_1.scaleX then
+			var_9_1 = checknumber(arg_9_1.scaleX)
+		else
+			var_9_1 = arg_9_0:getScaleX()
+		end
+
+		if arg_9_1.scaleY then
+			var_9_2 = checknumber(arg_9_1.scaleY)
+		else
+			var_9_2 = arg_9_0:getScaleY()
+		end
+
+		var_9_0 = cc.ScaleTo:create(checknumber(arg_9_1.time), var_9_1, var_9_2)
+	end
+
+	return var_0_0.execute(arg_9_0, var_9_0, arg_9_1)
+end
+
+function var_0_0.rotateTo(arg_10_0, arg_10_1)
+	assert(not tolua.isnull(arg_10_0), "transition.rotateTo() - target is not cc.Node")
+
+	local var_10_0 = arg_10_1.rotation or arg_10_0:getRotation()
+	local var_10_1 = cc.RotateTo:create(arg_10_1.time, var_10_0)
+
+	return var_0_0.execute(arg_10_0, var_10_1, arg_10_1)
+end
+
+function var_0_0.rotateBy(arg_11_0, arg_11_1)
+	assert(not tolua.isnull(arg_11_0), "transition.rotateTo() - target is not cc.Node")
+
+	local var_11_0 = arg_11_1.rotation or 0
+	local var_11_1 = cc.RotateBy:create(arg_11_1.time, var_11_0)
+
+	return var_0_0.execute(arg_11_0, var_11_1, arg_11_1)
+end
+
+function var_0_0.sequence(arg_12_0)
+	if #arg_12_0 < 1 then
+		return
+	end
+
+	if #arg_12_0 < 2 then
+		return arg_12_0[1]
+	end
+
+	return cc.Sequence:create(arg_12_0)
+end
+
+function var_0_0.removeAction(arg_13_0)
+	if not tolua.isnull(arg_13_0) then
+		var_0_2:removeAction(arg_13_0)
+	end
+end
+
+function var_0_0.stopTarget(arg_14_0)
+	if not tolua.isnull(arg_14_0) then
+		var_0_2:removeAllActionsFromTarget(arg_14_0)
+	end
+end
+
+function var_0_0.pauseTarget(arg_15_0)
+	if not tolua.isnull(arg_15_0) then
+		var_0_2:pauseTarget(arg_15_0)
+	end
+end
+
+function var_0_0.resumeTarget(arg_16_0)
+	if not tolua.isnull(arg_16_0) then
+		var_0_2:resumeTarget(arg_16_0)
+	end
+end
+
+return var_0_0

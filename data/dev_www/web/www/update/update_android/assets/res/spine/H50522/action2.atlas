@@ -1,0 +1,159 @@
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/action2/0_00001
+  rotate: true
+  xy: 1828, 767
+  size: 146, 189
+  orig: 900, 600
+  offset: 170, 149
+  index: -1
+images/susanoo/0_00000
+  rotate: false
+  xy: 1828, 915
+  size: 199, 417
+  orig: 2125, 1275
+  offset: 715, 336
+  index: -1
+images/susanoo/0_00003
+  rotate: false
+  xy: 1412, 738
+  size: 414, 594
+  orig: 2125, 1275
+  offset: 715, 289
+  index: -1
+images/susanoo/0_00013
+  rotate: true
+  xy: 1444, 19
+  size: 717, 584
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+images/susanoo/0_00015
+  rotate: false
+  xy: 2, 2
+  size: 708, 644
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+images/susanoo/0_00017
+  rotate: false
+  xy: 712, 41
+  size: 730, 608
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+images/susanoo/0_00018
+  rotate: false
+  xy: 2, 648
+  size: 707, 696
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+images/susanoo/0_00019
+  rotate: false
+  xy: 711, 651
+  size: 699, 681
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+images/susanoo/0_00020
+  rotate: false
+  xy: 2, 1346
+  size: 710, 697
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+images/susanoo/0_00021
+  rotate: true
+  xy: 1409, 1334
+  size: 709, 617
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+images/susanoo/0_00022
+  rotate: false
+  xy: 714, 1348
+  size: 693, 695
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1
+
+action22.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/action2/0_00000
+  rotate: false
+  xy: 708, 820
+  size: 140, 180
+  orig: 900, 600
+  offset: 167, 146
+  index: -1
+images/action2/0_00002
+  rotate: false
+  xy: 797, 193
+  size: 94, 143
+  orig: 900, 600
+  offset: 188, 166
+  index: -1
+images/action2/0_00003
+  rotate: false
+  xy: 708, 650
+  size: 128, 168
+  orig: 900, 600
+  offset: 170, 153
+  index: -1
+images/action2/0_00004
+  rotate: false
+  xy: 708, 487
+  size: 129, 161
+  orig: 900, 600
+  offset: 171, 153
+  index: -1
+images/action2/0_00005
+  rotate: false
+  xy: 658, 74
+  size: 136, 126
+  orig: 900, 600
+  offset: 188, 138
+  index: -1
+images/action2/0_00006
+  rotate: false
+  xy: 708, 338
+  size: 136, 147
+  orig: 900, 600
+  offset: 188, 139
+  index: -1
+images/action2/0_00007
+  rotate: false
+  xy: 658, 202
+  size: 137, 134
+  orig: 900, 600
+  offset: 188, 138
+  index: -1
+images/action2/0_00008
+  rotate: false
+  xy: 850, 840
+  size: 145, 160
+  orig: 900, 600
+  offset: 184, 129
+  index: -1
+images/susanoo/0_00008
+  rotate: true
+  xy: 2, 2
+  size: 334, 654
+  orig: 2125, 1275
+  offset: 715, 290
+  index: -1
+images/susanoo/0_00010
+  rotate: false
+  xy: 2, 338
+  size: 704, 662
+  orig: 2125, 1275
+  offset: 715, 287
+  index: -1

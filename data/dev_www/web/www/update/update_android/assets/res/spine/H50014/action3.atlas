@@ -1,0 +1,62 @@
+
+action3.png
+size: 512,256
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+action3/0_00001
+  rotate: true
+  xy: 238, 166
+  size: 88, 141
+  orig: 800, 600
+  offset: 70, 96
+  index: -1
+action3/0_00002
+  rotate: false
+  xy: 2, 117
+  size: 129, 137
+  orig: 800, 600
+  offset: 30, 97
+  index: -1
+action3/0_00003
+  rotate: false
+  xy: 133, 120
+  size: 103, 134
+  orig: 800, 600
+  offset: 79, 95
+  index: -1
+action3/0_00004
+  rotate: true
+  xy: 381, 159
+  size: 95, 117
+  orig: 800, 600
+  offset: 73, 95
+  index: -1
+action3/0_00005
+  rotate: false
+  xy: 133, 2
+  size: 94, 116
+  orig: 800, 600
+  offset: 73, 95
+  index: -1
+action3/0_00006
+  rotate: true
+  xy: 379, 65
+  size: 92, 117
+  orig: 800, 600
+  offset: 73, 95
+  index: -1
+action3/0_00007
+  rotate: true
+  xy: 2, 17
+  size: 98, 123
+  orig: 800, 600
+  offset: 72, 95
+  index: -1
+action3/0_00008
+  rotate: true
+  xy: 238, 80
+  size: 84, 139
+  orig: 800, 600
+  offset: 74, 96
+  index: -1

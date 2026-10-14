@@ -1,0 +1,89 @@
+stand2.png
+size: 2500,250
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+stand/zddj0001
+rotate: false
+xy: 0, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0002
+rotate: false
+xy: 283, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0003
+rotate: false
+xy: 566, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0004
+rotate: false
+xy: 849, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0005
+rotate: false
+xy: 1132, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0006
+rotate: false
+xy: 1981, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0007
+rotate: false
+xy: 0, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0008
+rotate: false
+xy: 283, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0009
+rotate: false
+xy: 566, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0010
+rotate: false
+xy: 849, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0011
+rotate: false
+xy: 1132, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1
+stand/zddj0012
+rotate: false
+xy: 1981, 0
+size: 283, 298
+orig: 231, 291
+offset: -60, -25
+index: -1

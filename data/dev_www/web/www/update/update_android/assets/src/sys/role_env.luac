@@ -1,0 +1,47 @@
+﻿RoleEnv = RoleEnv or BaseClass(SysEnv)
+
+local var_0_0 = cc.FileUtils:getInstance():getWritablePath() .. "role_env/"
+
+RoleEnv.keys = {
+	godbattle_form = "godbattle_form",
+	chief_war_show_form = "chief_war_show_form",
+	barrage_type_key = "barrage_type_key",
+	guild_war_form = "guild_war_form",
+	bigworld_personal_log = "bigworld_personal_log",
+	assistant_key = "assistant_key",
+	undertown_dun_type = "undertown_dun_type",
+	item_source_key = "item_source_key",
+	artifact_count_tips = "artifact_count_tips",
+	guide_step_list = "guide_step_list",
+	guide_over_step = "over"
+}
+
+function RoleEnv.getInstance(arg_1_0)
+	if not arg_1_0.is_init then
+		arg_1_0.is_init = true
+	end
+
+	return arg_1_0
+end
+
+function RoleEnv.updateEventKey(arg_2_0, arg_2_1, arg_2_2)
+	return
+end
+
+function RoleEnv.getKeys(arg_3_0)
+	return RoleEnv.keys
+end
+
+function RoleEnv.filepath(arg_4_0)
+	local var_4_0 = RoleController:getInstance():getRoleVo()
+
+	if var_4_0 == nil then
+		return
+	end
+
+	if not cc.FileUtils:getInstance():isDirectoryExist(var_0_0) then
+		cc.FileUtils:getInstance():createDirectory(var_0_0)
+	end
+
+	return string.format("%srole_env_%d_%s_%d.lua", var_0_0, var_4_0.reg_time, var_4_0.srv_id, var_4_0.rid)
+end

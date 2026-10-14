@@ -1,0 +1,54 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/action1_hit/0_00001
+  rotate: false
+  xy: 1, 1
+  size: 870, 887
+  orig: 1800, 1800
+  offset: 519, 523
+  index: -1
+image/action1_hit/0_00002
+  rotate: false
+  xy: 981, 990
+  size: 987, 975
+  orig: 1800, 1800
+  offset: 467, 478
+  index: -1
+image/action1_hit/0_00003
+  rotate: false
+  xy: 1, 889
+  size: 979, 1076
+  orig: 1800, 1800
+  offset: 512, 406
+  index: -1
+image/action1_hit/0_00004
+  rotate: false
+  xy: 981, 263
+  size: 975, 726
+  orig: 1800, 1800
+  offset: 561, 807
+  index: -1
+image/action1_hit/0_00005
+  rotate: true
+  xy: 872, 82
+  size: 180, 491
+  orig: 1800, 1800
+  offset: 1286, 999
+  index: -1
+
+action2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/action1_hit/0_00000
+  rotate: false
+  xy: 1, 1
+  size: 890, 784
+  orig: 1800, 1800
+  offset: 444, 508
+  index: -1

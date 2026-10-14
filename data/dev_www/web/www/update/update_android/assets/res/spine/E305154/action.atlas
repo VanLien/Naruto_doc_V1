@@ -1,0 +1,236 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+E305154/1/0_00000
+  rotate: true
+  xy: 1603, 203
+  size: 234, 422
+  orig: 1800, 1080
+  offset: 558, 382
+  index: -1
+E305154/1/0_00001
+  rotate: true
+  xy: 1603, 2
+  size: 199, 425
+  orig: 1800, 1080
+  offset: 558, 416
+  index: -1
+E305154/1/0_00003
+  rotate: false
+  xy: 1878, 1566
+  size: 95, 474
+  orig: 1800, 1080
+  offset: 558, 416
+  index: -1
+E305154/1/0_00004
+  rotate: true
+  xy: 472, 8
+  size: 95, 455
+  orig: 1800, 1080
+  offset: 558, 416
+  index: -1
+E305154/1/0_00006
+  rotate: false
+  xy: 1286, 101
+  size: 315, 628
+  orig: 1800, 1080
+  offset: 558, 318
+  index: -1
+E305154/1/0_00007
+  rotate: false
+  xy: 1630, 930
+  size: 342, 548
+  orig: 1800, 1080
+  offset: 558, 323
+  index: -1
+E305154/1/0_00009
+  rotate: false
+  xy: 942, 36
+  size: 342, 669
+  orig: 1800, 1080
+  offset: 558, 321
+  index: -1
+E305154/1/0_00010
+  rotate: false
+  xy: 1286, 731
+  size: 342, 667
+  orig: 1800, 1080
+  offset: 558, 323
+  index: -1
+E305154/1/0_00012
+  rotate: false
+  xy: 942, 707
+  size: 342, 691
+  orig: 1800, 1080
+  offset: 558, 319
+  index: -1
+E305154/1/0_00013
+  rotate: false
+  xy: 1630, 439
+  size: 342, 489
+  orig: 1800, 1080
+  offset: 558, 323
+  index: -1
+E305154/2/0_00006
+  rotate: true
+  xy: 1286, 7
+  size: 92, 226
+  orig: 1800, 1080
+  offset: 900, 359
+  index: -1
+E305154/2/0_00010
+  rotate: false
+  xy: 472, 105
+  size: 468, 618
+  orig: 1800, 1080
+  offset: 900, 263
+  index: -1
+E305154/2/0_00018
+  rotate: false
+  xy: 1408, 1480
+  size: 468, 560
+  orig: 1800, 1080
+  offset: 900, 245
+  index: -1
+E305154/2/0_00021
+  rotate: false
+  xy: 942, 1400
+  size: 464, 640
+  orig: 1800, 1080
+  offset: 904, 300
+  index: -1
+E305154/2/0_00022
+  rotate: false
+  xy: 472, 725
+  size: 468, 637
+  orig: 1800, 1080
+  offset: 900, 315
+  index: -1
+E305154/2/0_00024
+  rotate: false
+  xy: 472, 1364
+  size: 468, 676
+  orig: 1800, 1080
+  offset: 900, 293
+  index: -1
+E305154/2/0_00025
+  rotate: false
+  xy: 2, 6
+  size: 468, 669
+  orig: 1800, 1080
+  offset: 900, 301
+  index: -1
+E305154/2/0_00027
+  rotate: false
+  xy: 2, 1357
+  size: 468, 683
+  orig: 1800, 1080
+  offset: 900, 316
+  index: -1
+E305154/2/0_00028
+  rotate: false
+  xy: 2, 677
+  size: 468, 678
+  orig: 1800, 1080
+  offset: 900, 320
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+E305154/1/0_00015
+  rotate: false
+  xy: 1412, 1518
+  size: 342, 493
+  orig: 1800, 1080
+  offset: 558, 319
+  index: -1
+E305154/1/0_00016
+  rotate: false
+  xy: 472, 2
+  size: 342, 489
+  orig: 1800, 1080
+  offset: 558, 323
+  index: -1
+E305154/1/0_00018
+  rotate: false
+  xy: 942, 1007
+  size: 342, 494
+  orig: 1800, 1080
+  offset: 558, 318
+  index: -1
+E305154/1/0_00019
+  rotate: false
+  xy: 1286, 1023
+  size: 341, 478
+  orig: 1800, 1080
+  offset: 558, 334
+  index: -1
+E305154/2/0_00007
+  rotate: false
+  xy: 1756, 1744
+  size: 269, 267
+  orig: 1800, 1080
+  offset: 900, 313
+  index: -1
+E305154/2/0_00009
+  rotate: false
+  xy: 2, 1455
+  size: 468, 556
+  orig: 1800, 1080
+  offset: 900, 315
+  index: -1
+E305154/2/0_00012
+  rotate: false
+  xy: 472, 493
+  size: 436, 471
+  orig: 1800, 1080
+  offset: 932, 288
+  index: -1
+E305154/2/0_00013
+  rotate: false
+  xy: 2, 382
+  size: 468, 521
+  orig: 1800, 1080
+  offset: 900, 268
+  index: -1
+E305154/2/0_00015
+  rotate: false
+  xy: 942, 1503
+  size: 468, 508
+  orig: 1800, 1080
+  offset: 900, 294
+  index: -1
+E305154/2/0_00016
+  rotate: false
+  xy: 472, 1482
+  size: 468, 529
+  orig: 1800, 1080
+  offset: 900, 276
+  index: -1
+E305154/2/0_00019
+  rotate: false
+  xy: 472, 966
+  size: 468, 514
+  orig: 1800, 1080
+  offset: 900, 292
+  index: -1
+E305154/2/0_00030
+  rotate: false
+  xy: 2, 905
+  size: 468, 548
+  orig: 1800, 1080
+  offset: 900, 360
+  index: -1
+E305154/2/0_00031
+  rotate: false
+  xy: 2, 10
+  size: 468, 370
+  orig: 1800, 1080
+  offset: 900, 455
+  index: -1

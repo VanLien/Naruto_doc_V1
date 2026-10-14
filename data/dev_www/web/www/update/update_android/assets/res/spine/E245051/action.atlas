@@ -1,0 +1,97 @@
+
+action.png
+size: 1259,1259
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+NFZ_FX0_pg_HIT_00000
+  rotate: false
+  xy: 446, 934
+  size: 399, 323
+  orig: 399, 323
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_HIT_00001
+  rotate: false
+  xy: 847, 934
+  size: 399, 323
+  orig: 399, 323
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_HIT_00002
+  rotate: false
+  xy: 446, 609
+  size: 399, 323
+  orig: 399, 323
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_HIT_00003
+  rotate: false
+  xy: 847, 609
+  size: 399, 323
+  orig: 399, 323
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_HIT_00004
+  rotate: false
+  xy: 2, 534
+  size: 399, 323
+  orig: 399, 323
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_HIT_00005
+  rotate: true
+  xy: 2, 133
+  size: 399, 323
+  orig: 399, 323
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_tuoWei_00000
+  rotate: true
+  xy: 327, 186
+  size: 346, 231
+  orig: 346, 231
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_tuoWei_00001
+  rotate: true
+  xy: 560, 261
+  size: 346, 231
+  orig: 346, 231
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_tuoWei_00002
+  rotate: false
+  xy: 785, 28
+  size: 346, 231
+  orig: 346, 231
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_tuoWei_00003
+  rotate: true
+  xy: 793, 261
+  size: 346, 231
+  orig: 346, 231
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_tuoWei_00004
+  rotate: true
+  xy: 1026, 261
+  size: 346, 231
+  orig: 346, 231
+  offset: 0, 0
+  index: -1
+NFZ_FX0_pg_xi_ADD
+  rotate: true
+  xy: 560, 25
+  size: 234, 223
+  orig: 234, 223
+  offset: 0, 0
+  index: -1
+di_00000
+  rotate: false
+  xy: 2, 859
+  size: 442, 398
+  orig: 442, 398
+  offset: 0, 0
+  index: -1

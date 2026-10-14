@@ -1,0 +1,118 @@
+
+action1.png
+size: 2048,512
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/action1/0_00000
+  rotate: true
+  xy: 1486, 128
+  size: 193, 227
+  orig: 900, 600
+  offset: 147, 130
+  index: -1
+image/action1/0_00001
+  rotate: false
+  xy: 2, 2
+  size: 196, 244
+  orig: 900, 600
+  offset: 142, 124
+  index: -1
+image/action1/0_00002
+  rotate: true
+  xy: 979, 298
+  size: 177, 249
+  orig: 900, 600
+  offset: 134, 126
+  index: -1
+image/action1/0_00003
+  rotate: true
+  xy: 1230, 314
+  size: 161, 254
+  orig: 900, 600
+  offset: 151, 120
+  index: -1
+image/action1/0_00004
+  rotate: true
+  xy: 230, 280
+  size: 195, 242
+  orig: 900, 600
+  offset: 133, 130
+  index: -1
+image/action1/0_00005
+  rotate: false
+  xy: 2, 248
+  size: 226, 227
+  orig: 900, 600
+  offset: 140, 134
+  index: -1
+image/action1/0_00006
+  rotate: true
+  xy: 474, 109
+  size: 175, 216
+  orig: 900, 600
+  offset: 140, 138
+  index: -1
+image/action1/0_00007
+  rotate: true
+  xy: 230, 104
+  size: 174, 240
+  orig: 900, 600
+  offset: 129, 148
+  index: -1
+image/action1/0_00008
+  rotate: true
+  xy: 723, 101
+  size: 195, 228
+  orig: 900, 600
+  offset: 101, 166
+  index: -1
+image/action1/0_00009
+  rotate: true
+  xy: 474, 286
+  size: 189, 247
+  orig: 900, 600
+  offset: 72, 134
+  index: -1
+image/action1/0_00010
+  rotate: true
+  xy: 953, 98
+  size: 198, 227
+  orig: 900, 600
+  offset: 56, 136
+  index: -1
+image/action1/0_00011
+  rotate: true
+  xy: 1740, 312
+  size: 163, 242
+  orig: 900, 600
+  offset: 35, 128
+  index: -1
+image/action1/0_00012
+  rotate: true
+  xy: 1486, 323
+  size: 152, 252
+  orig: 900, 600
+  offset: 34, 123
+  index: -1
+image/action1/0_00013
+  rotate: true
+  xy: 723, 298
+  size: 177, 254
+  orig: 900, 600
+  offset: 32, 117
+  index: -1
+image/action1/0_00014
+  rotate: true
+  xy: 1230, 142
+  size: 170, 238
+  orig: 900, 600
+  offset: 30, 127
+  index: -1
+image/action1/0_00015
+  rotate: true
+  xy: 1715, 133
+  size: 177, 217
+  orig: 900, 600
+  offset: 25, 133
+  index: -1

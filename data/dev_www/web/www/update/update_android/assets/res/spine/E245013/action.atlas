@@ -1,0 +1,125 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+NRR_FX2_QBZF_HIT_00000
+  rotate: false
+  xy: 2, 1087
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00001
+  rotate: false
+  xy: 561, 1584
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00002
+  rotate: false
+  xy: 2, 679
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00003
+  rotate: false
+  xy: 271, 1087
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00004
+  rotate: false
+  xy: 830, 1584
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00005
+  rotate: false
+  xy: 2, 271
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00006
+  rotate: false
+  xy: 271, 679
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00007
+  rotate: false
+  xy: 1099, 1584
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00008
+  rotate: false
+  xy: 271, 271
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00009
+  rotate: true
+  xy: 2, 2
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00010
+  rotate: false
+  xy: 1368, 1584
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00011
+  rotate: false
+  xy: 1637, 1584
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00012
+  rotate: true
+  xy: 561, 1315
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00013
+  rotate: true
+  xy: 969, 1315
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00014
+  rotate: true
+  xy: 1377, 1315
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+NRR_FX2_QBZF_HIT_00015
+  rotate: false
+  xy: 540, 907
+  size: 267, 406
+  orig: 267, 406
+  offset: 0, 0
+  index: -1
+hit_00000
+  rotate: false
+  xy: 2, 1495
+  size: 557, 495
+  orig: 557, 495
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,139 @@
+
+action.png
+size: 1022,1004
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shouji/hit_jy_0000
+  rotate: false
+  xy: 0, 21
+  size: 209, 264
+  orig: 267, 467
+  offset: 28, 52
+  index: -1
+shouji/hit_jy_0001
+  rotate: false
+  xy: 0, 605
+  size: 209, 399
+  orig: 267, 467
+  offset: 28, 8
+  index: -1
+shouji/hit_jy_0002
+  rotate: false
+  xy: 211, 630
+  size: 219, 374
+  orig: 267, 467
+  offset: 18, 0
+  index: -1
+shouji/hit_jy_0003
+  rotate: false
+  xy: 0, 287
+  size: 229, 316
+  orig: 267, 467
+  offset: 11, 0
+  index: -1
+shouji/hit_jy_0004
+  rotate: false
+  xy: 231, 312
+  size: 238, 316
+  orig: 267, 467
+  offset: 11, 0
+  index: -1
+shouji/hit_jy_0005
+  rotate: false
+  xy: 677, 688
+  size: 240, 316
+  orig: 267, 467
+  offset: 10, 0
+  index: -1
+shouji/hit_jy_0006
+  rotate: false
+  xy: 432, 688
+  size: 243, 316
+  orig: 267, 467
+  offset: 10, 0
+  index: -1
+shouji/hit_jy_0007
+  rotate: false
+  xy: 471, 376
+  size: 244, 310
+  orig: 267, 467
+  offset: 10, 0
+  index: -1
+shouji/hit_jy_0009
+  rotate: true
+  xy: 367, 13
+  size: 205, 221
+  orig: 267, 467
+  offset: 30, 83
+  index: -1
+shouji/hit_jy_0011
+  rotate: false
+  xy: 590, 0
+  size: 205, 218
+  orig: 267, 467
+  offset: 30, 86
+  index: -1
+shouji/hit_jy_0013
+  rotate: false
+  xy: 797, 19
+  size: 189, 208
+  orig: 267, 467
+  offset: 38, 87
+  index: -1
+shouji/hit_jy_0015
+  rotate: true
+  xy: 873, 384
+  size: 76, 105
+  orig: 267, 467
+  offset: 100, 113
+  index: -1
+yanwu/yanwujj_0000
+  rotate: false
+  xy: 919, 703
+  size: 98, 28
+  orig: 400, 200
+  offset: 66, 52
+  index: -1
+yanwu/yanwujj_0002
+  rotate: true
+  xy: 919, 733
+  size: 271, 102
+  orig: 400, 200
+  offset: 55, 46
+  index: -1
+yanwu/yanwujj_0004
+  rotate: true
+  xy: 717, 384
+  size: 302, 154
+  orig: 400, 200
+  offset: 48, 46
+  index: -1
+yanwu/yanwujj_0006
+  rotate: false
+  xy: 471, 220
+  size: 298, 154
+  orig: 400, 200
+  offset: 66, 46
+  index: -1
+yanwu/yanwujj_0008
+  rotate: true
+  xy: 211, 4
+  size: 281, 154
+  orig: 400, 200
+  offset: 85, 46
+  index: -1
+yanwu/yanwujj_0010
+  rotate: false
+  xy: 771, 229
+  size: 243, 153
+  orig: 400, 200
+  offset: 100, 47
+  index: -1
+yanwu/yanwujj_0012
+  rotate: true
+  xy: 873, 462
+  size: 224, 149
+  orig: 400, 200
+  offset: 114, 49
+  index: -1

@@ -1,0 +1,166 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+debuff/0_00000
+  rotate: false
+  xy: 916, 1312
+  size: 98, 158
+  orig: 1800, 1200
+  offset: 651, 363
+  index: -1
+debuff/0_00001
+  rotate: false
+  xy: 630, 185
+  size: 68, 160
+  orig: 1800, 1200
+  offset: 672, 363
+  index: -1
+debuff/0_00002
+  rotate: false
+  xy: 1837, 1623
+  size: 91, 145
+  orig: 1800, 1200
+  offset: 670, 363
+  index: -1
+debuff/0_00003
+  rotate: false
+  xy: 1159, 287
+  size: 111, 136
+  orig: 1800, 1200
+  offset: 668, 363
+  index: -1
+debuff/0_00008
+  rotate: true
+  xy: 1837, 1770
+  size: 268, 206
+  orig: 1800, 1200
+  offset: 644, 357
+  index: -1
+debuff/0_00010
+  rotate: false
+  xy: 2, 2
+  size: 626, 343
+  orig: 1800, 1200
+  offset: 657, 284
+  index: -1
+debuff/0_00011
+  rotate: false
+  xy: 1286, 125
+  size: 732, 500
+  orig: 1800, 1200
+  offset: 650, 217
+  index: -1
+debuff/0_00015
+  rotate: true
+  xy: 1286, 627
+  size: 843, 579
+  orig: 1800, 1200
+  offset: 657, 240
+  index: -1
+debuff/0_00016
+  rotate: false
+  xy: 916, 1472
+  size: 919, 566
+  orig: 1800, 1200
+  offset: 654, 255
+  index: -1
+debuff/0_00017
+  rotate: true
+  xy: 721, 425
+  size: 856, 563
+  orig: 1800, 1200
+  offset: 649, 253
+  index: -1
+debuff/0_00018
+  rotate: true
+  xy: 2, 347
+  size: 934, 717
+  orig: 1800, 1200
+  offset: 681, 231
+  index: -1
+debuff/0_00019
+  rotate: false
+  xy: 2, 1283
+  size: 912, 755
+  orig: 1800, 1200
+  offset: 671, 213
+  index: -1
+debuff/0_00023
+  rotate: false
+  xy: 721, 148
+  size: 436, 275
+  orig: 1800, 1200
+  offset: 1131, 285
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+debuff/0_00004
+  rotate: false
+  xy: 1615, 1328
+  size: 278, 267
+  orig: 1800, 1200
+  offset: 596, 275
+  index: -1
+debuff/0_00005
+  rotate: true
+  xy: 634, 472
+  size: 265, 252
+  orig: 1800, 1200
+  offset: 601, 297
+  index: -1
+debuff/0_00006
+  rotate: true
+  xy: 634, 217
+  size: 253, 232
+  orig: 1800, 1200
+  offset: 613, 323
+  index: -1
+debuff/0_00007
+  rotate: false
+  xy: 634, 2
+  size: 236, 213
+  orig: 1800, 1200
+  offset: 632, 348
+  index: -1
+debuff/0_00009
+  rotate: false
+  xy: 1615, 1597
+  size: 342, 275
+  orig: 1800, 1200
+  offset: 674, 286
+  index: -1
+debuff/0_00012
+  rotate: false
+  xy: 841, 1323
+  size: 772, 549
+  orig: 1800, 1200
+  offset: 672, 214
+  index: -1
+debuff/0_00013
+  rotate: false
+  xy: 2, 739
+  size: 800, 556
+  orig: 1800, 1200
+  offset: 687, 236
+  index: -1
+debuff/0_00014
+  rotate: false
+  xy: 2, 1297
+  size: 837, 575
+  orig: 1800, 1200
+  offset: 666, 233
+  index: -1
+debuff/0_00021
+  rotate: false
+  xy: 2, 33
+  size: 630, 704
+  orig: 1800, 1200
+  offset: 939, 242
+  index: -1

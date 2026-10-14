@@ -1,0 +1,174 @@
+
+action4.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/action2/00000
+  rotate: true
+  xy: 1565, 393
+  size: 118, 194
+  orig: 768, 384
+  offset: 203, 83
+  index: -1
+image/action2/00001
+  rotate: true
+  xy: 978, 390
+  size: 121, 194
+  orig: 768, 384
+  offset: 178, 106
+  index: -1
+image/action2/00002
+  rotate: true
+  xy: 778, 258
+  size: 127, 187
+  orig: 768, 384
+  offset: 151, 132
+  index: -1
+image/action2/00003
+  rotate: true
+  xy: 588, 257
+  size: 129, 189
+  orig: 768, 384
+  offset: 133, 145
+  index: -1
+image/action2/00004
+  rotate: false
+  xy: 261, 319
+  size: 131, 192
+  orig: 768, 384
+  offset: 131, 146
+  index: -1
+image/action2/00005
+  rotate: true
+  xy: 393, 382
+  size: 129, 194
+  orig: 768, 384
+  offset: 130, 146
+  index: -1
+image/action2/00006
+  rotate: false
+  xy: 1, 118
+  size: 126, 195
+  orig: 768, 384
+  offset: 130, 146
+  index: -1
+image/action2/00007
+  rotate: false
+  xy: 1, 314
+  size: 128, 197
+  orig: 768, 384
+  offset: 134, 138
+  index: -1
+image/action2/00008
+  rotate: false
+  xy: 130, 317
+  size: 130, 194
+  orig: 768, 384
+  offset: 138, 133
+  index: -1
+image/action2/00009
+  rotate: true
+  xy: 784, 386
+  size: 125, 193
+  orig: 768, 384
+  offset: 162, 117
+  index: -1
+image/action2/00010
+  rotate: true
+  xy: 588, 387
+  size: 124, 195
+  orig: 768, 384
+  offset: 185, 98
+  index: -1
+image/action2/00011
+  rotate: true
+  xy: 1760, 393
+  size: 118, 194
+  orig: 768, 384
+  offset: 203, 83
+  index: -1
+image/limbo/stand/00000
+  rotate: true
+  xy: 393, 263
+  size: 118, 194
+  orig: 768, 384
+  offset: 203, 83
+  index: -1
+image/limbo/stand/00001
+  rotate: true
+  xy: 360, 145
+  size: 117, 194
+  orig: 768, 384
+  offset: 204, 83
+  index: -1
+image/limbo/stand/00002
+  rotate: true
+  xy: 196, 1
+  size: 116, 193
+  orig: 768, 384
+  offset: 204, 83
+  index: -1
+image/limbo/stand/00003
+  rotate: true
+  xy: 966, 158
+  size: 115, 192
+  orig: 768, 384
+  offset: 204, 83
+  index: -1
+image/limbo/stand/00004
+  rotate: true
+  xy: 1173, 276
+  size: 115, 192
+  orig: 768, 384
+  offset: 204, 83
+  index: -1
+image/limbo/stand/00005
+  rotate: true
+  xy: 978, 274
+  size: 115, 193
+  orig: 768, 384
+  offset: 205, 83
+  index: -1
+image/limbo/stand/00006
+  rotate: true
+  xy: 1, 1
+  size: 116, 194
+  orig: 768, 384
+  offset: 205, 83
+  index: -1
+image/limbo/stand/00007
+  rotate: false
+  xy: 128, 118
+  size: 115, 195
+  orig: 768, 384
+  offset: 206, 83
+  index: -1
+image/limbo/stand/00008
+  rotate: false
+  xy: 244, 121
+  size: 115, 195
+  orig: 768, 384
+  offset: 206, 83
+  index: -1
+image/limbo/stand/00009
+  rotate: true
+  xy: 555, 141
+  size: 115, 195
+  orig: 768, 384
+  offset: 206, 83
+  index: -1
+image/limbo/stand/00010
+  rotate: true
+  xy: 1369, 393
+  size: 118, 195
+  orig: 768, 384
+  offset: 204, 83
+  index: -1
+image/limbo/stand/00011
+  rotate: true
+  xy: 1173, 392
+  size: 119, 195
+  orig: 768, 384
+  offset: 203, 83
+  index: -1

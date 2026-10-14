@@ -1,0 +1,137 @@
+
+action3.png
+size: 2005,2041
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/10
+  rotate: false
+  xy: 2, 6
+  size: 854, 673
+  orig: 1024, 1024
+  offset: 55, 175
+  index: -1
+action2/16
+  rotate: false
+  xy: 1722, 90
+  size: 281, 577
+  orig: 1024, 1024
+  offset: 297, 182
+  index: -1
+action2/3
+  rotate: false
+  xy: 858, 2
+  size: 862, 665
+  orig: 1024, 1024
+  offset: 44, 156
+  index: -1
+action2/5
+  rotate: false
+  xy: 958, 669
+  size: 870, 679
+  orig: 1024, 1024
+  offset: 45, 172
+  index: -1
+action2/6
+  rotate: false
+  xy: 2, 681
+  size: 899, 650
+  orig: 1024, 1024
+  offset: 45, 177
+  index: -1
+action2/8
+  rotate: false
+  xy: 958, 1350
+  size: 906, 689
+  orig: 1024, 1024
+  offset: 43, 166
+  index: -1
+action2/9
+  rotate: false
+  xy: 2, 1333
+  size: 954, 706
+  orig: 1024, 1024
+  offset: 0, 151
+  index: -1
+
+action32.png
+size: 2038,2032
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/1
+  rotate: false
+  xy: 1531, 997
+  size: 389, 370
+  orig: 1024, 1024
+  offset: 260, 177
+  index: -1
+action2/11
+  rotate: false
+  xy: 2, 743
+  size: 823, 644
+  orig: 1024, 1024
+  offset: 114, 179
+  index: -1
+action2/12
+  rotate: false
+  xy: 2, 95
+  size: 819, 646
+  orig: 1024, 1024
+  offset: 141, 181
+  index: -1
+action2/13
+  rotate: true
+  xy: 823, 2
+  size: 739, 640
+  orig: 1024, 1024
+  offset: 221, 178
+  index: -1
+action2/14
+  rotate: false
+  xy: 827, 743
+  size: 702, 624
+  orig: 1024, 1024
+  offset: 251, 180
+  index: -1
+action2/17
+  rotate: false
+  xy: 1745, 1509
+  size: 270, 521
+  orig: 1024, 1024
+  offset: 302, 179
+  index: -1
+action2/2
+  rotate: true
+  xy: 1465, 32
+  size: 709, 571
+  orig: 1024, 1024
+  offset: 121, 177
+  index: -1
+action2/4
+  rotate: false
+  xy: 892, 1369
+  size: 851, 661
+  orig: 1024, 1024
+  offset: 59, 158
+  index: -1
+action2/7
+  rotate: false
+  xy: 2, 1389
+  size: 888, 641
+  orig: 1024, 1024
+  offset: 53, 171
+  index: -1
+
+action33.png
+size: 652,586
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action2/15
+  rotate: false
+  xy: 2, 2
+  size: 648, 582
+  orig: 1024, 1024
+  offset: 281, 181
+  index: -1

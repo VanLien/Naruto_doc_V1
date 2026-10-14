@@ -1,0 +1,220 @@
+-- --------------------------------------------------------------------
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      组织战 传奇赛 排行奖励
+-- <br/> 2019年3月1日
+-- --------------------------------------------------------------------
+GuildNewwarEliteRankAwardPreview = GuildNewwarEliteRankAwardPreview or BaseClass(BaseView)
+
+local controller = GuildNewwarController:getInstance()
+local string_format = string.format
+local table_insert = table.insert
+local table_sort = table.sort
+
+
+function GuildNewwarEliteRankAwardPreview:__init()
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+    self.win_type = WinType.Mini   
+    self.is_full_screen = false
+    self.layout_name = "guildnewwar/guildnewwar_elite/guildnewwar_elite_rank_award_preview"
+
+    self.res_list = {
+     -- { path = PathTool.getPlistImgForDownLoad("form","form"), type = ResourcesType.plist },
+    }
+
+    --奖励
+    self.reward_list = {}
+    self.show_list = {}
+end
+
+function GuildNewwarEliteRankAwardPreview:open_callback()
+    self.background = self.root_wnd:getChildByName("background")
+    if self.background ~= nil then
+        self.background:setScale(display.getMaxScale())
+    end
+
+    self.main_container = self.root_wnd:getChildByName("main_container")
+    self:playEnterAnimatianByObj(self.main_container, 1)
+    self.main_panel = self.main_container:getChildByName("main_panel")
+
+    self.tab_container = self.main_panel:getChildByName("tab_container")
+    self.title = self.main_panel:getChildByName("win_title")
+    self.title:setString(TI18N("语言_c_728"))
+
+    self.scroll_container = self.main_panel:getChildByName("scroll_container")
+
+    self.main_panel:getChildByName("col_name1"):setString(TI18N("语言_s_12"))
+    self.main_panel:getChildByName("col_name2"):setString(TI18N("语言_c_5372"))
+
+    self.close_btn = self.main_panel:getChildByName("close_btn")
+    self.bottom_label = self.main_panel:getChildByName("bottom_label")
+    self.bottom_label:setVisible(false)
+    self.bottom_left_label = self.main_panel:getChildByName("bottom_left_label")
+end
+
+function GuildNewwarEliteRankAwardPreview:register_event()
+    registerButtonEventListener(self.background, handler(self, self.onClickBtnClose) ,false, 1)
+    registerButtonEventListener(self.close_btn, handler(self, self.onClickBtnClose) ,true, 2)
+end
+
+--关闭
+function GuildNewwarEliteRankAwardPreview:onClickBtnClose()
+    GuildNewwarController:getInstance():openGuildNewwarEliteRankAwardPreview(false)
+end
+
+--@level_id 段位
+--@rank 名次
+function GuildNewwarEliteRankAwardPreview:openRootWnd(index, level_id, rank)
+    self:initData()
+    self:updateList()
+end
+
+function GuildNewwarEliteRankAwardPreview:initData()
+    self.reward_list = {}
+    local config_list = Config.GuildSagaChampionData.data_rank_reward
+    self.reward_list = config_list
+end
+
+function GuildNewwarEliteRankAwardPreview:updateList()
+    if self.item_scrollview == nil then
+        local scroll_view_size = self.scroll_container:getContentSize()
+        local setting = {
+            start_x = 0,                     -- 第一个单元的X起点
+            space_x = 0,                     -- x方向的间隔
+            start_y = 0,                     -- 第一个单元的Y起点
+            space_y = 0,                     -- y方向的间隔
+            item_width = 628,                -- 单元的尺寸width
+            item_height = 138,               -- 单元的尺寸height
+            row = 1,                         -- 行数，作用于水平滚动类型
+            col = 1,                         -- 列数，作用于垂直滚动类型
+            once_num = 1,                    -- 每次创建的数量
+        }
+        self.item_scrollview = CommonScrollViewSingleLayout.new(self.scroll_container, cc.p(0,0) , ScrollViewDir.vertical, ScrollViewStartPos.top, scroll_view_size, setting, cc.p(0, 0))
+
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.createNewCell), ScrollViewFuncType.CreateNewCell) --创建cell
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.numberOfCells), ScrollViewFuncType.NumberOfCells) --获取数量
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.updateCellByIndex), ScrollViewFuncType.UpdateCellByIndex) --更新cell
+    end
+    self.show_list = self.reward_list
+    self.item_scrollview:reloadData()
+end
+
+
+--创建cell 
+--@width 是setting.item_width
+--@height 是setting.item_height
+function GuildNewwarEliteRankAwardPreview:createNewCell(width, height)
+   local cell = GuildNewwarEliteRankAwardItem.new()
+   -- cell:setActionRankCommonType(self.holiday_bid, self.type)
+    -- cell:addCallBack(function() self:onCellTouched(cell) end)
+    return cell
+end
+--获取数据数量
+function GuildNewwarEliteRankAwardPreview:numberOfCells()
+    if not self.show_list then return 0 end
+    return #self.show_list
+end
+--更新cell(拖动的时候.刷新数据时候会执行次方法)
+--cell :createNewCell的返回的对象
+--index :数据的索引
+function GuildNewwarEliteRankAwardPreview:updateCellByIndex(cell, index)
+    cell.index = index
+    local cell_data = self.show_list[index]
+    if not cell_data then return end
+    cell:setData(cell_data)
+end
+
+
+function GuildNewwarEliteRankAwardPreview:close_callback()
+    if self.item_scrollview then
+        self.item_scrollview:DeleteMe()
+    end
+    self.item_scrollview = nil
+    GuildNewwarController:getInstance():openGuildNewwarEliteRankAwardPreview(false)
+end
+
+------------------------------------------
+-- 子项
+GuildNewwarEliteRankAwardItem = class("GuildNewwarEliteRankAwardItem", function()
+    return ccui.Widget:create()
+end)
+
+function GuildNewwarEliteRankAwardItem:ctor()
+    self:configUI()
+    self:register_event()
+end
+
+function GuildNewwarEliteRankAwardItem:configUI(  )
+    self.size = cc.size(628,138)
+    self:setTouchEnabled(true)
+    self:setContentSize(self.size)
+
+    local csbPath = PathTool.getTargetCSB("guildnewwar/guildnewwar_elite/guildnewwar_elite_rank_award_item")
+    self.root_wnd = cc.CSLoader:createNode(csbPath)
+    self:addChild(self.root_wnd)
+
+    local container = self.root_wnd:getChildByName("container")
+    self.rank_index = container:getChildByName("rank_index")
+    self.rank_img = container:getChildByName("rank_img")
+    self.rank_img:ignoreContentAdaptWithSize(true)
+    self.item_scrollview = container:getChildByName("item_scrollview")
+    self.item_scrollview:setScrollBarEnabled(false)
+    self.item_scrollview:setSwallowTouches(false)
+
+    self.label_des =  container:getChildByName("label_des")
+    self.label_des:setString(TI18N("语言_c_5368"))
+    if self.label_des:getContentSize().width > 150 then
+        setTextMaxWidth(self.label_des, 150)
+        self.label_des:setString(TI18N("语言_c_5368"))
+    end
+    ccui.Helper:doLayout(self.label_des)
+    self.setting = {}
+    self.setting.scale = 0.8
+    self.setting.max_count = 3
+end
+
+function GuildNewwarEliteRankAwardItem:register_event( )
+    registerButtonEventListener(self.label_des, handler(self, self.onClickDes) ,true, 2)
+end
+
+function GuildNewwarEliteRankAwardItem:onClickDes( )
+    controller:openGuildnewwarEliteDetailedRewardPanel(true, self.data)
+end
+
+function GuildNewwarEliteRankAwardItem:setData(data)
+    self.data = data
+
+    local index = data.max
+	if index >= 1 and index <= 3 then
+        self.rank_index:setVisible(false)
+        self.rank_img:setVisible(true)
+		self.rank_img:loadTexture(PathTool.getResFrame("common","common_200"..index),LOADTEXT_TYPE_PLIST)
+		self.rank_img:setScale(0.7)
+    else
+        self.rank_index:setVisible(true)
+        self.rank_img:setVisible(false)
+        if data.min ~= data.max then
+            self.rank_index:setString(data.min.."~"..data.max)
+        else
+            self.rank_index:setString(index)
+        end
+    end
+
+    local reward = data.items1 or {}
+    self.item_list = commonShowSingleRowItemList(self.item_scrollview, self.item_list, reward, self.setting)
+end
+
+function GuildNewwarEliteRankAwardItem:DeleteMe( )
+    if self.item_list then
+        for i,v in ipairs(self.item_list) do
+            v:DeleteMe()
+        end
+    end
+    if self.item_load then
+        self.item_load:DeleteMe()
+        self.item_load = nil
+    end
+    self:removeAllChildren()
+    self:removeFromParent()
+end

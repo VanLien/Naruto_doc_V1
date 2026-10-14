@@ -1,0 +1,174 @@
+
+action.png
+size: 980,311
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+files/buff1/001
+  rotate: true
+  xy: 814, 191
+  size: 118, 74
+  orig: 500, 500
+  offset: 173, 116
+  index: -1
+files/buff1/002
+  rotate: true
+  xy: 467, 5
+  size: 140, 66
+  orig: 500, 500
+  offset: 151, 119
+  index: -1
+files/buff1/003
+  rotate: true
+  xy: 725, 159
+  size: 150, 87
+  orig: 500, 500
+  offset: 144, 121
+  index: -1
+files/buff1/004
+  rotate: true
+  xy: 535, 17
+  size: 133, 87
+  orig: 500, 500
+  offset: 134, 123
+  index: -1
+files/buff1/005
+  rotate: true
+  xy: 423, 147
+  size: 162, 90
+  orig: 500, 500
+  offset: 131, 126
+  index: -1
+files/buff1/006
+  rotate: true
+  xy: 891, 51
+  size: 74, 82
+  orig: 500, 500
+  offset: 123, 132
+  index: -1
+files/buff1/007
+  rotate: true
+  xy: 244, 10
+  size: 105, 79
+  orig: 500, 500
+  offset: 128, 140
+  index: -1
+files/buff1/008
+  rotate: true
+  xy: 715, 2
+  size: 151, 89
+  orig: 500, 500
+  offset: 132, 141
+  index: -1
+files/buff1/009
+  rotate: true
+  xy: 624, 20
+  size: 130, 89
+  orig: 500, 500
+  offset: 130, 140
+  index: -1
+files/buff1/010
+  rotate: true
+  xy: 806, 8
+  size: 149, 83
+  orig: 500, 500
+  offset: 131, 149
+  index: -1
+files/buff1/011
+  rotate: false
+  xy: 2, 2
+  size: 164, 62
+  orig: 500, 500
+  offset: 133, 172
+  index: -1
+files/buff1/012
+  rotate: true
+  xy: 254, 121
+  size: 188, 88
+  orig: 500, 500
+  offset: 149, 148
+  index: -1
+files/buff1/013
+  rotate: true
+  xy: 660, 155
+  size: 154, 63
+  orig: 500, 500
+  offset: 212, 171
+  index: -1
+files/buff1/014
+  rotate: true
+  xy: 595, 152
+  size: 157, 63
+  orig: 500, 500
+  offset: 210, 166
+  index: -1
+files/buff1/015
+  rotate: true
+  xy: 174, 117
+  size: 192, 78
+  orig: 500, 500
+  offset: 177, 150
+  index: -1
+files/buff1/016
+  rotate: true
+  xy: 83, 104
+  size: 205, 89
+  orig: 500, 500
+  offset: 164, 141
+  index: -1
+files/buff1/019
+  rotate: true
+  xy: 891, 127
+  size: 94, 85
+  orig: 500, 500
+  offset: 278, 143
+  index: -1
+files/buff1/020
+  rotate: true
+  xy: 168, 2
+  size: 100, 74
+  orig: 500, 500
+  offset: 281, 143
+  index: -1
+files/buff1/021
+  rotate: true
+  xy: 2, 66
+  size: 243, 79
+  orig: 500, 500
+  offset: 133, 135
+  index: -1
+files/buff1/022
+  rotate: false
+  xy: 891, 223
+  size: 87, 86
+  orig: 500, 500
+  offset: 279, 125
+  index: -1
+files/buff1/023
+  rotate: true
+  xy: 389, 2
+  size: 139, 76
+  orig: 500, 500
+  offset: 227, 120
+  index: -1
+files/buff1/024
+  rotate: true
+  xy: 515, 152
+  size: 157, 78
+  orig: 500, 500
+  offset: 210, 117
+  index: -1
+files/buff1/025
+  rotate: true
+  xy: 344, 143
+  size: 166, 77
+  orig: 500, 500
+  offset: 175, 114
+  index: -1
+files/buff1/026
+  rotate: true
+  xy: 325, 3
+  size: 116, 62
+  orig: 500, 500
+  offset: 192, 113
+  index: -1

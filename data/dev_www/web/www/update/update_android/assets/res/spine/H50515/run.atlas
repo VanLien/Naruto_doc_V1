@@ -1,0 +1,62 @@
+
+run.png
+size: 1024,512
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/run/0_00000
+  rotate: true
+  xy: 564, 211
+  size: 280, 204
+  orig: 900, 600
+  offset: 42, 122
+  index: -1
+image/run/0_00001
+  rotate: false
+  xy: 2, 74
+  size: 275, 205
+  orig: 900, 600
+  offset: 44, 123
+  index: -1
+image/run/0_00002
+  rotate: false
+  xy: 480, 4
+  size: 265, 205
+  orig: 900, 600
+  offset: 52, 123
+  index: -1
+image/run/0_00003
+  rotate: true
+  xy: 770, 236
+  size: 255, 209
+  orig: 900, 600
+  offset: 61, 122
+  index: -1
+image/run/0_00004
+  rotate: false
+  xy: 747, 8
+  size: 264, 201
+  orig: 900, 600
+  offset: 58, 121
+  index: -1
+image/run/0_00005
+  rotate: true
+  xy: 279, 2
+  size: 277, 199
+  orig: 900, 600
+  offset: 46, 126
+  index: -1
+image/run/0_00006
+  rotate: false
+  xy: 285, 281
+  size: 277, 210
+  orig: 900, 600
+  offset: 44, 122
+  index: -1
+image/run/0_00007
+  rotate: false
+  xy: 2, 281
+  size: 281, 210
+  orig: 900, 600
+  offset: 40, 122
+  index: -1

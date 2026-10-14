@@ -1,0 +1,110 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+E500145/0_00000
+  rotate: false
+  xy: 521, 13
+  size: 456, 400
+  orig: 1000, 800
+  offset: 291, 37
+  index: -1
+E500145/0_00004
+  rotate: false
+  xy: 1417, 692
+  size: 545, 579
+  orig: 1000, 800
+  offset: 236, 22
+  index: -1
+E500145/0_00010
+  rotate: false
+  xy: 646, 415
+  size: 769, 548
+  orig: 1000, 800
+  offset: 88, 30
+  index: -1
+E500145/0_00012
+  rotate: true
+  xy: 2, 2
+  size: 701, 517
+  orig: 1000, 800
+  offset: 129, 35
+  index: -1
+E500145/0_00014
+  rotate: false
+  xy: 2, 1365
+  size: 848, 677
+  orig: 1000, 800
+  offset: 54, 34
+  index: -1
+E500145/0_00016
+  rotate: true
+  xy: 852, 1273
+  size: 769, 647
+  orig: 1000, 800
+  offset: 99, 76
+  index: -1
+E500145/0_00018
+  rotate: false
+  xy: 2, 705
+  size: 642, 658
+  orig: 1000, 800
+  offset: 191, 65
+  index: -1
+E500145/0_00020
+  rotate: false
+  xy: 1501, 1353
+  size: 536, 689
+  orig: 1000, 800
+  offset: 253, 65
+  index: -1
+E500145/0_00022
+  rotate: false
+  xy: 1417, 47
+  size: 488, 643
+  orig: 1000, 800
+  offset: 259, 80
+  index: -1
+E500145/0_00026
+  rotate: false
+  xy: 646, 965
+  size: 132, 398
+  orig: 1000, 800
+  offset: 447, 150
+  index: -1
+
+action2.png
+size: 2048,1024
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+E500145/0_00002
+  rotate: true
+  xy: 549, 351
+  size: 543, 576
+  orig: 1000, 800
+  offset: 238, 21
+  index: -1
+E500145/0_00006
+  rotate: false
+  xy: 2, 319
+  size: 545, 575
+  orig: 1000, 800
+  offset: 236, 27
+  index: -1
+E500145/0_00008
+  rotate: true
+  xy: 1127, 351
+  size: 543, 576
+  orig: 1000, 800
+  offset: 238, 21
+  index: -1
+E500145/0_00024
+  rotate: true
+  xy: 2, 2
+  size: 315, 524
+  orig: 1000, 800
+  offset: 343, 96
+  index: -1

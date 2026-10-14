@@ -1,0 +1,139 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Special effects
+  rotate: false
+  xy: 0, 310
+  size: 1016, 712
+  orig: 1016, 712
+  offset: 0, 0
+  index: -1
+biyan
+  rotate: true
+  xy: 1293, 703
+  size: 74, 42
+  orig: 74, 42
+  offset: 0, 0
+  index: -1
+huaban1 (1)
+  rotate: false
+  xy: 998, 162
+  size: 119, 95
+  orig: 119, 95
+  offset: 0, 0
+  index: -1
+huaban2
+  rotate: false
+  xy: 886, 0
+  size: 93, 97
+  orig: 93, 97
+  offset: 0, 0
+  index: -1
+huaban3
+  rotate: false
+  xy: 1018, 390
+  size: 158, 162
+  orig: 158, 162
+  offset: 0, 0
+  index: -1
+qunbaihou
+  rotate: false
+  xy: 1018, 554
+  size: 273, 223
+  orig: 273, 223
+  offset: 0, 0
+  index: -1
+qunbaiqian
+  rotate: false
+  xy: 610, 60
+  size: 274, 248
+  orig: 274, 248
+  offset: 0, 0
+  index: -1
+shenti
+  rotate: true
+  xy: 0, 8
+  size: 300, 608
+  orig: 300, 608
+  offset: 0, 0
+  index: -1
+tou
+  rotate: false
+  xy: 1525, 865
+  size: 147, 157
+  orig: 147, 157
+  offset: 0, 0
+  index: -1
+toufaer
+  rotate: false
+  xy: 1367, 841
+  size: 156, 181
+  orig: 156, 181
+  offset: 0, 0
+  index: -1
+toufasan
+  rotate: true
+  xy: 1178, 388
+  size: 164, 119
+  orig: 164, 119
+  offset: 0, 0
+  index: -1
+toufasi
+  rotate: true
+  xy: 1177, 246
+  size: 140, 124
+  orig: 140, 124
+  offset: 0, 0
+  index: -1
+toufayi
+  rotate: false
+  xy: 1018, 779
+  size: 347, 243
+  orig: 347, 243
+  offset: 0, 0
+  index: -1
+toujin
+  rotate: false
+  xy: 1367, 785
+  size: 125, 54
+  orig: 125, 54
+  offset: 0, 0
+  index: -1
+yanjing
+  rotate: false
+  xy: 1674, 884
+  size: 74, 42
+  orig: 74, 42
+  offset: 0, 0
+  index: -1
+youdabi
+  rotate: false
+  xy: 886, 99
+  size: 110, 209
+  orig: 110, 209
+  offset: 0, 0
+  index: -1
+youxiaobi
+  rotate: false
+  xy: 1018, 259
+  size: 157, 129
+  orig: 157, 129
+  offset: 0, 0
+  index: -1
+zuodabi
+  rotate: true
+  xy: 1871, 918
+  size: 104, 166
+  orig: 104, 166
+  offset: 0, 0
+  index: -1
+zuoxiaobi
+  rotate: true
+  xy: 1674, 928
+  size: 94, 195
+  orig: 94, 195
+  offset: 0, 0
+  index: -1

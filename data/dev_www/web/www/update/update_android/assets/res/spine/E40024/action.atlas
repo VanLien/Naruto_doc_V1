@@ -1,0 +1,160 @@
+
+action.png
+size: 1698,836
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+jn04_xia00
+  rotate: false
+  xy: 393, 565
+  size: 391, 271
+  orig: 391, 278
+  offset: 0, 0
+  index: -1
+jn04_xia01
+  rotate: false
+  xy: 0, 563
+  size: 391, 273
+  orig: 391, 278
+  offset: 0, 0
+  index: -1
+jn04_xia02
+  rotate: false
+  xy: 0, 289
+  size: 391, 272
+  orig: 391, 278
+  offset: 0, 0
+  index: -1
+jn04_xia03
+  rotate: false
+  xy: 0, 17
+  size: 391, 270
+  orig: 391, 278
+  offset: 0, 0
+  index: -1
+jn04_xia04
+  rotate: false
+  xy: 393, 298
+  size: 379, 265
+  orig: 391, 278
+  offset: 0, 0
+  index: -1
+jn04_xia05
+  rotate: false
+  xy: 786, 574
+  size: 371, 262
+  orig: 391, 278
+  offset: 0, 0
+  index: -1
+jn04_xia06
+  rotate: false
+  xy: 393, 44
+  size: 362, 252
+  orig: 391, 278
+  offset: 0, 0
+  index: -1
+jn04_xia07
+  rotate: false
+  xy: 1159, 599
+  size: 356, 237
+  orig: 391, 278
+  offset: 5, 0
+  index: -1
+jn04_xia08
+  rotate: false
+  xy: 1159, 395
+  size: 346, 202
+  orig: 391, 278
+  offset: 15, 0
+  index: -1
+jn04_xia09
+  rotate: false
+  xy: 786, 370
+  size: 330, 202
+  orig: 391, 278
+  offset: 31, 0
+  index: -1
+jn04_xia10
+  rotate: false
+  xy: 774, 185
+  size: 309, 183
+  orig: 312, 218
+  offset: 3, 0
+  index: -1
+jn_shang00
+  rotate: true
+  xy: 1463, 48
+  size: 175, 111
+  orig: 180, 213
+  offset: 4, 0
+  index: -1
+jn_shang01
+  rotate: true
+  xy: 939, 3
+  size: 180, 149
+  orig: 180, 213
+  offset: 0, 0
+  index: -1
+jn_shang02
+  rotate: false
+  xy: 757, 0
+  size: 180, 183
+  orig: 180, 213
+  offset: 0, 0
+  index: -1
+jn_shang03
+  rotate: false
+  xy: 1507, 249
+  size: 180, 198
+  orig: 180, 213
+  offset: 0, 0
+  index: -1
+jn_shang04
+  rotate: true
+  xy: 1085, 188
+  size: 180, 207
+  orig: 180, 213
+  offset: 0, 0
+  index: -1
+jn_shang05
+  rotate: false
+  xy: 1517, 628
+  size: 180, 208
+  orig: 180, 213
+  offset: 0, 0
+  index: -1
+jn_shang06
+  rotate: true
+  xy: 1294, 225
+  size: 168, 211
+  orig: 180, 213
+  offset: 5, 0
+  index: -1
+jn_shang07
+  rotate: true
+  xy: 1090, 15
+  size: 171, 213
+  orig: 180, 213
+  offset: 9, 0
+  index: -1
+jn_shang08
+  rotate: false
+  xy: 1305, 23
+  size: 156, 200
+  orig: 180, 213
+  offset: 24, 13
+  index: -1
+jn_shang09
+  rotate: true
+  xy: 1507, 449
+  size: 148, 191
+  orig: 180, 213
+  offset: 27, 22
+  index: -1
+jn_shang10
+  rotate: false
+  xy: 1576, 97
+  size: 108, 150
+  orig: 180, 213
+  offset: 38, 56
+  index: -1

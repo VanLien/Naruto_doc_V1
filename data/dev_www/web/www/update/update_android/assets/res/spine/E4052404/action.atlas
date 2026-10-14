@@ -1,0 +1,138 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hashirama action3_woodgolem/0_00002
+  rotate: false
+  xy: 1569, 636
+  size: 474, 565
+  orig: 1700, 1275
+  offset: 459, 213
+  index: -1
+hashirama action3_woodgolem/0_00006
+  rotate: false
+  xy: 1708, 1618
+  size: 334, 423
+  orig: 1700, 1275
+  offset: 522, 297
+  index: -1
+hashirama action3_woodgolem/0_00007
+  rotate: false
+  xy: 1387, 81
+  size: 567, 553
+  orig: 1700, 1275
+  offset: 416, 216
+  index: -1
+hashirama action3_woodgolem/0_00008
+  rotate: false
+  xy: 693, 31
+  size: 692, 644
+  orig: 1700, 1275
+  offset: 343, 249
+  index: -1
+hashirama action3_woodgolem/0_00012
+  rotate: true
+  xy: 710, 677
+  size: 524, 857
+  orig: 1700, 1275
+  offset: 431, 270
+  index: -1
+hashirama action3_woodgolem/0_00014
+  rotate: true
+  xy: 902, 1203
+  size: 838, 804
+  orig: 1700, 1275
+  offset: 455, 178
+  index: -1
+hashirama action3_woodgolem/0_00015
+  rotate: false
+  xy: 2, 1421
+  size: 898, 620
+  orig: 1700, 1275
+  offset: 501, 178
+  index: -1
+hashirama action3_woodgolem/0_00016
+  rotate: true
+  xy: 2, 2
+  size: 705, 689
+  orig: 1700, 1275
+  offset: 691, 173
+  index: -1
+hashirama action3_woodgolem/0_00017
+  rotate: false
+  xy: 2, 709
+  size: 706, 710
+  orig: 1700, 1275
+  offset: 683, 170
+  index: -1
+
+action2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hashirama action3_woodgolem/0_00000
+  rotate: false
+  xy: 1259, 362
+  size: 408, 388
+  orig: 1700, 1275
+  offset: 490, 208
+  index: -1
+hashirama action3_woodgolem/0_00004
+  rotate: false
+  xy: 775, 52
+  size: 482, 509
+  orig: 1700, 1275
+  offset: 445, 226
+  index: -1
+hashirama action3_woodgolem/0_00009
+  rotate: false
+  xy: 2, 1315
+  size: 685, 697
+  orig: 1700, 1275
+  offset: 338, 252
+  index: -1
+hashirama action3_woodgolem/0_00010
+  rotate: true
+  xy: 689, 1405
+  size: 607, 724
+  orig: 1700, 1275
+  offset: 361, 269
+  index: -1
+hashirama action3_woodgolem/0_00011
+  rotate: false
+  xy: 547, 563
+  size: 554, 750
+  orig: 1700, 1275
+  offset: 419, 254
+  index: -1
+hashirama action3_woodgolem/0_00013
+  rotate: false
+  xy: 2, 517
+  size: 543, 796
+  orig: 1700, 1275
+  offset: 433, 329
+  index: -1
+hashirama action3_woodgolem/0_00018
+  rotate: true
+  xy: 1415, 1307
+  size: 705, 599
+  orig: 1700, 1275
+  offset: 675, 173
+  index: -1
+hashirama action3_woodgolem/0_00019
+  rotate: false
+  xy: 1103, 752
+  size: 743, 553
+  orig: 1700, 1275
+  offset: 649, 161
+  index: -1
+hashirama action3_woodgolem/0_00020
+  rotate: false
+  xy: 2, 2
+  size: 771, 513
+  orig: 1700, 1275
+  offset: 621, 167
+  index: -1

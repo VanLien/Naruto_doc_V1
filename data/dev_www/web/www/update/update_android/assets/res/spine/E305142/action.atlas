@@ -1,0 +1,187 @@
+
+action.png
+size: 2010,1992
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+E305142/0_00020
+  rotate: true
+  xy: 1181, 638
+  size: 414, 322
+  orig: 1200, 800
+  offset: 191, 244
+  index: -1
+E305142/0_00021
+  rotate: true
+  xy: 1192, 1054
+  size: 433, 328
+  orig: 1200, 800
+  offset: 180, 237
+  index: -1
+E305142/0_00023
+  rotate: false
+  xy: 1522, 1040
+  size: 471, 465
+  orig: 1200, 800
+  offset: 160, 188
+  index: -1
+E305142/0_00029
+  rotate: false
+  xy: 1505, 586
+  size: 503, 452
+  orig: 1200, 800
+  offset: 156, 214
+  index: -1
+E305142/0_00030
+  rotate: false
+  xy: 1492, 123
+  size: 499, 461
+  orig: 1200, 800
+  offset: 162, 172
+  index: -1
+E305142/0_00032
+  rotate: false
+  xy: 587, 40
+  size: 508, 341
+  orig: 1200, 800
+  offset: 78, 256
+  index: -1
+E305142/0_00033
+  rotate: false
+  xy: 587, 383
+  size: 524, 448
+  orig: 1200, 800
+  offset: 105, 169
+  index: -1
+E305142/0_00034
+  rotate: false
+  xy: 2, 929
+  size: 597, 575
+  orig: 1200, 800
+  offset: 176, 192
+  index: -1
+E305142/0_00035
+  rotate: false
+  xy: 1321, 1507
+  size: 614, 483
+  orig: 1200, 800
+  offset: 168, 196
+  index: -1
+E305142/0_00036
+  rotate: false
+  xy: 2, 1506
+  size: 701, 484
+  orig: 1200, 800
+  offset: 68, 184
+  index: -1
+E305142/0_00037
+  rotate: false
+  xy: 705, 1489
+  size: 614, 501
+  orig: 1200, 800
+  offset: 33, 185
+  index: -1
+E305142/0_00038
+  rotate: false
+  xy: 2, 371
+  size: 583, 556
+  orig: 1200, 800
+  offset: 72, 213
+  index: -1
+E305142/0_00039
+  rotate: true
+  xy: 601, 1057
+  size: 430, 589
+  orig: 1200, 800
+  offset: 185, 181
+  index: -1
+E305142/0_00040
+  rotate: true
+  xy: 601, 833
+  size: 222, 578
+  orig: 1200, 800
+  offset: 381, 159
+  index: -1
+E305142/0_00041
+  rotate: true
+  xy: 2, 2
+  size: 367, 542
+  orig: 1200, 800
+  offset: 249, 230
+  index: -1
+E305142/0_00042
+  rotate: true
+  xy: 1113, 214
+  size: 422, 377
+  orig: 1200, 800
+  offset: 94, 210
+  index: -1
+
+action2.png
+size: 1919,855
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+E305142/0_00019
+  rotate: false
+  xy: 444, 41
+  size: 311, 345
+  orig: 1200, 800
+  offset: 234, 248
+  index: -1
+E305142/0_00022
+  rotate: false
+  xy: 2, 36
+  size: 440, 350
+  orig: 1200, 800
+  offset: 180, 241
+  index: -1
+E305142/0_00024
+  rotate: false
+  xy: 1054, 2
+  size: 434, 415
+  orig: 1200, 800
+  offset: 193, 221
+  index: -1
+E305142/0_00025
+  rotate: false
+  xy: 1369, 436
+  size: 472, 417
+  orig: 1200, 800
+  offset: 146, 227
+  index: -1
+E305142/0_00026
+  rotate: true
+  xy: 2, 388
+  size: 465, 453
+  orig: 1200, 800
+  offset: 151, 167
+  index: -1
+E305142/0_00027
+  rotate: true
+  xy: 457, 396
+  size: 457, 444
+  orig: 1200, 800
+  offset: 152, 231
+  index: -1
+E305142/0_00028
+  rotate: false
+  xy: 903, 419
+  size: 464, 434
+  orig: 1200, 800
+  offset: 171, 251
+  index: -1
+E305142/0_00031
+  rotate: true
+  xy: 757, 49
+  size: 345, 295
+  orig: 1200, 800
+  offset: 232, 267
+  index: -1
+E305142/1
+  rotate: false
+  xy: 1490, 7
+  size: 427, 427
+  orig: 500, 500
+  offset: 37, 36
+  index: -1

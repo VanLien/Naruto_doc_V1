@@ -1,0 +1,132 @@
+
+action2.png
+size: 420,568
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action1/0_00001
+  rotate: true
+  xy: 2, 203
+  size: 88, 142
+  orig: 300, 300
+  offset: 109, 76
+  index: -1
+action1/0_00003
+  rotate: false
+  xy: 231, 345
+  size: 98, 142
+  orig: 300, 300
+  offset: 100, 74
+  index: -1
+action1/0_00004
+  rotate: false
+  xy: 231, 200
+  size: 93, 143
+  orig: 300, 300
+  offset: 105, 74
+  index: -1
+action1/0_00005
+  rotate: false
+  xy: 326, 139
+  size: 92, 136
+  orig: 300, 300
+  offset: 106, 74
+  index: -1
+action1/1_00005
+  rotate: true
+  xy: 2, 431
+  size: 135, 150
+  orig: 300, 300
+  offset: 93, 68
+  index: -1
+action2/0_00001
+  rotate: false
+  xy: 2, 311
+  size: 88, 118
+  orig: 300, 300
+  offset: 89, 75
+  index: -1
+action2/0_00003
+  rotate: false
+  xy: 346, 404
+  size: 70, 162
+  orig: 300, 300
+  offset: 80, 77
+  index: -1
+action2/0_00005
+  rotate: true
+  xy: 154, 489
+  size: 77, 190
+  orig: 300, 300
+  offset: 73, 67
+  index: -1
+action2/0_00007
+  rotate: false
+  xy: 154, 293
+  size: 75, 194
+  orig: 300, 300
+  offset: 74, 68
+  index: -1
+action2/0_00009
+  rotate: true
+  xy: 155, 4
+  size: 44, 160
+  orig: 300, 300
+  offset: 89, 77
+  index: -1
+action2/0_00011
+  rotate: true
+  xy: 2, 142
+  size: 56, 160
+  orig: 300, 300
+  offset: 74, 79
+  index: -1
+action2/0_00013
+  rotate: true
+  xy: 331, 277
+  size: 125, 85
+  orig: 300, 300
+  offset: 59, 70
+  index: -1
+action2/0_00022
+  rotate: true
+  xy: 2, 2
+  size: 135, 95
+  orig: 300, 300
+  offset: 52, 68
+  index: -1
+action2/0_00023
+  rotate: true
+  xy: 317, 10
+  size: 127, 94
+  orig: 300, 300
+  offset: 60, 69
+  index: -1
+action2/0_00025
+  rotate: true
+  xy: 221, 75
+  size: 123, 91
+  orig: 300, 300
+  offset: 64, 72
+  index: -1
+action2/0_00026
+  rotate: false
+  xy: 146, 205
+  size: 74, 86
+  orig: 300, 300
+  offset: 71, 77
+  index: -1
+action2/0_00027
+  rotate: false
+  xy: 99, 2
+  size: 54, 138
+  orig: 300, 300
+  offset: 87, 75
+  index: -1
+action2/0_00029
+  rotate: false
+  xy: 164, 50
+  size: 55, 153
+  orig: 300, 300
+  offset: 107, 76
+  index: -1

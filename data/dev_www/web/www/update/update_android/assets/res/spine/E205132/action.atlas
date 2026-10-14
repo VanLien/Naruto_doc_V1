@@ -1,0 +1,166 @@
+
+action.png
+size: 2044,2046
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill2/1
+  rotate: true
+  xy: 1300, 807
+  size: 94, 49
+  orig: 560, 650
+  offset: 375, 233
+  index: -1
+skill2/10
+  rotate: true
+  xy: 1363, 598
+  size: 495, 600
+  orig: 560, 650
+  offset: 25, 50
+  index: -1
+skill2/12
+  rotate: false
+  xy: 471, 2
+  size: 496, 594
+  orig: 560, 650
+  offset: 36, 49
+  index: -1
+skill2/14
+  rotate: false
+  xy: 1300, 23
+  size: 471, 573
+  orig: 560, 650
+  offset: 49, 48
+  index: -1
+skill2/19
+  rotate: true
+  xy: 1773, 115
+  size: 481, 269
+  orig: 560, 650
+  offset: 51, 49
+  index: -1
+skill2/2
+  rotate: false
+  xy: 969, 12
+  size: 329, 584
+  orig: 560, 650
+  offset: 160, 66
+  index: -1
+skill2/21
+  rotate: false
+  xy: 940, 1439
+  size: 455, 605
+  orig: 560, 650
+  offset: 62, 45
+  index: -1
+skill2/22
+  rotate: true
+  xy: 1397, 1589
+  size: 455, 605
+  orig: 560, 650
+  offset: 58, 45
+  index: -1
+skill2/23
+  rotate: false
+  xy: 2, 822
+  size: 429, 610
+  orig: 560, 650
+  offset: 48, 40
+  index: -1
+skill2/25
+  rotate: false
+  xy: 2, 212
+  size: 467, 608
+  orig: 560, 650
+  offset: 42, 42
+  index: -1
+skill2/27
+  rotate: false
+  xy: 433, 825
+  size: 512, 607
+  orig: 560, 650
+  offset: 29, 43
+  index: -1
+skill2/28
+  rotate: false
+  xy: 477, 1437
+  size: 461, 607
+  orig: 560, 650
+  offset: 30, 43
+  index: -1
+skill2/32
+  rotate: false
+  xy: 947, 903
+  size: 414, 534
+  orig: 560, 650
+  offset: 53, 61
+  index: -1
+skill2/36
+  rotate: false
+  xy: 2004, 2026
+  size: 28, 18
+  orig: 560, 650
+  offset: 274, 496
+  index: -1
+skill2/4
+  rotate: false
+  xy: 2, 1434
+  size: 473, 610
+  orig: 560, 650
+  offset: 59, 40
+  index: -1
+skill2/8
+  rotate: true
+  xy: 1397, 1095
+  size: 492, 601
+  orig: 560, 650
+  offset: 40, 49
+  index: -1
+
+action2.png
+size: 1930,487
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill2/15
+  rotate: true
+  xy: 1105, 2
+  size: 483, 278
+  orig: 560, 650
+  offset: 49, 49
+  index: -1
+skill2/17
+  rotate: true
+  xy: 1385, 13
+  size: 472, 275
+  orig: 560, 650
+  offset: 55, 50
+  index: -1
+skill2/20
+  rotate: true
+  xy: 538, 5
+  size: 480, 284
+  orig: 560, 650
+  offset: 52, 48
+  index: -1
+skill2/30
+  rotate: true
+  xy: 2, 34
+  size: 451, 534
+  orig: 560, 650
+  offset: 40, 49
+  index: -1
+skill2/5
+  rotate: true
+  xy: 1662, 9
+  size: 476, 266
+  orig: 560, 650
+  offset: 51, 49
+  index: -1
+skill2/7
+  rotate: true
+  xy: 824, 2
+  size: 483, 279
+  orig: 560, 650
+  offset: 49, 48
+  index: -1

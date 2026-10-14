@@ -1,0 +1,62 @@
+
+action.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+seq_520_Scl _001
+  rotate: true
+  xy: 161, 51
+  size: 47, 92
+  orig: 64, 128
+  offset: 10, 12
+  index: -1
+seq_520_Scl _002
+  rotate: true
+  xy: 61, 56
+  size: 42, 98
+  orig: 64, 128
+  offset: 10, 11
+  index: -1
+seq_520_Scl _003
+  rotate: true
+  xy: 147, 2
+  size: 47, 61
+  orig: 64, 128
+  offset: 8, 11
+  index: -1
+seq_520_Scl _004
+  rotate: true
+  xy: 434, 37
+  size: 61, 73
+  orig: 64, 128
+  offset: 1, 12
+  index: -1
+seq_520_Scl _005
+  rotate: false
+  xy: 2, 13
+  size: 57, 85
+  orig: 64, 128
+  offset: 6, 9
+  index: -1
+seq_520_Scl _006
+  rotate: true
+  xy: 61, 6
+  size: 48, 84
+  orig: 64, 128
+  offset: 10, 10
+  index: -1
+seq_520_Scl _007
+  rotate: true
+  xy: 346, 47
+  size: 51, 86
+  orig: 64, 128
+  offset: 7, 11
+  index: -1
+seq_520_Scl _008
+  rotate: true
+  xy: 255, 47
+  size: 51, 89
+  orig: 64, 128
+  offset: 6, 8
+  index: -1

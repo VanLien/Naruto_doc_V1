@@ -1,0 +1,13 @@
+
+action4.png
+size: 128,256
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+action4/0_00002
+  rotate: false
+  xy: 2, 2
+  size: 85, 135
+  orig: 1000, 800
+  offset: 166, 197
+  index: -1

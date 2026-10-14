@@ -1,0 +1,180 @@
+﻿local var_0_0 = class("Event")
+local var_0_1 = {
+	"addEventListener",
+	"dispatchEvent",
+	"removeEventListener",
+	"removeEventListenersByTag",
+	"removeEventListenersByEvent",
+	"removeAllEventListeners",
+	"hasEventListener",
+	"dumpAllEventListeners"
+}
+
+function var_0_0.init_(arg_1_0)
+	arg_1_0.target_ = nil
+	arg_1_0.listeners_ = {}
+	arg_1_0.nextListenerHandleIndex_ = 0
+end
+
+function var_0_0.bind(arg_2_0, arg_2_1)
+	arg_2_0:init_()
+	cc.setmethods(arg_2_1, arg_2_0, var_0_1)
+
+	arg_2_0.target_ = arg_2_1
+end
+
+function var_0_0.unbind(arg_3_0, arg_3_1)
+	cc.unsetmethods(arg_3_1, var_0_1)
+	arg_3_0:init_()
+end
+
+function var_0_0.on(arg_4_0, arg_4_1, arg_4_2, arg_4_3)
+	assert(type(arg_4_1) == "string" and arg_4_1 ~= "", "Event:addEventListener() - invalid eventName")
+
+	arg_4_1 = string.upper(arg_4_1)
+
+	if arg_4_0.listeners_[arg_4_1] == nil then
+		arg_4_0.listeners_[arg_4_1] = {}
+	end
+
+	arg_4_0.nextListenerHandleIndex_ = arg_4_0.nextListenerHandleIndex_ + 1
+
+	local var_4_0 = tostring(arg_4_0.nextListenerHandleIndex_)
+
+	arg_4_3 = arg_4_3 or ""
+	arg_4_0.listeners_[arg_4_1][var_4_0] = {
+		arg_4_2,
+		arg_4_3
+	}
+
+	if DEBUG > 1 then
+		printInfo("%s [Event] addEventListener() - event: %s, handle: %s, tag: \"%s\"", tostring(arg_4_0.target_), arg_4_1, var_4_0, tostring(arg_4_3))
+	end
+
+	return arg_4_0.target_, var_4_0
+end
+
+var_0_0.addEventListener = var_0_0.on
+
+function var_0_0.dispatchEvent(arg_5_0, arg_5_1)
+	arg_5_1.name = string.upper(tostring(arg_5_1.name))
+
+	local var_5_0 = arg_5_1.name
+
+	if DEBUG > 1 then
+		printInfo("%s [Event] dispatchEvent() - event %s", tostring(arg_5_0.target_), var_5_0)
+	end
+
+	if arg_5_0.listeners_[var_5_0] == nil then
+		return
+	end
+
+	arg_5_1.target = arg_5_0.target_
+	arg_5_1.stop_ = false
+
+	function arg_5_1.stop(arg_6_0)
+		arg_6_0.stop_ = true
+	end
+
+	for iter_5_0, iter_5_1 in pairs(arg_5_0.listeners_[var_5_0]) do
+		if DEBUG > 1 then
+			printInfo("%s [Event] dispatchEvent() - dispatching event %s to listener %s", tostring(arg_5_0.target_), var_5_0, iter_5_0)
+		end
+
+		arg_5_1.tag = iter_5_1[2]
+
+		iter_5_1[1](arg_5_1)
+
+		if arg_5_1.stop_ then
+			if DEBUG > 1 then
+				printInfo("%s [Event] dispatchEvent() - break dispatching for event %s", tostring(arg_5_0.target_), var_5_0)
+			end
+
+			break
+		end
+	end
+
+	return arg_5_0.target_
+end
+
+function var_0_0.removeEventListener(arg_7_0, arg_7_1)
+	for iter_7_0, iter_7_1 in pairs(arg_7_0.listeners_) do
+		for iter_7_2, iter_7_3 in pairs(iter_7_1) do
+			if iter_7_2 == arg_7_1 then
+				iter_7_1[iter_7_2] = nil
+
+				if DEBUG > 1 then
+					printInfo("%s [Event] removeEventListener() - remove listener [%s] for event %s", tostring(arg_7_0.target_), iter_7_2, iter_7_0)
+				end
+
+				return arg_7_0.target_
+			end
+		end
+	end
+
+	return arg_7_0.target_
+end
+
+function var_0_0.removeEventListenersByTag(arg_8_0, arg_8_1)
+	for iter_8_0, iter_8_1 in pairs(arg_8_0.listeners_) do
+		for iter_8_2, iter_8_3 in pairs(iter_8_1) do
+			if iter_8_3[2] == arg_8_1 then
+				iter_8_1[iter_8_2] = nil
+
+				if DEBUG > 1 then
+					printInfo("%s [Event] removeEventListener() - remove listener [%s] for event %s", tostring(arg_8_0.target_), iter_8_2, iter_8_0)
+				end
+			end
+		end
+	end
+
+	return arg_8_0.target_
+end
+
+function var_0_0.removeEventListenersByEvent(arg_9_0, arg_9_1)
+	arg_9_0.listeners_[string.upper(arg_9_1)] = nil
+
+	if DEBUG > 1 then
+		printInfo("%s [Event] removeAllEventListenersForEvent() - remove all listeners for event %s", tostring(arg_9_0.target_), arg_9_1)
+	end
+
+	return arg_9_0.target_
+end
+
+function var_0_0.removeAllEventListeners(arg_10_0)
+	arg_10_0.listeners_ = {}
+
+	if DEBUG > 1 then
+		printInfo("%s [Event] removeAllEventListeners() - remove all listeners", tostring(arg_10_0.target_))
+	end
+
+	return arg_10_0.target_
+end
+
+function var_0_0.hasEventListener(arg_11_0, arg_11_1)
+	arg_11_1 = string.upper(tostring(arg_11_1))
+
+	local var_11_0 = arg_11_0.listeners_[arg_11_1]
+
+	for iter_11_0, iter_11_1 in pairs(var_11_0) do
+		return true
+	end
+
+	return false
+end
+
+function var_0_0.dumpAllEventListeners(arg_12_0)
+	print("---- Event:dumpAllEventListeners() ----")
+
+	for iter_12_0, iter_12_1 in pairs(arg_12_0.listeners_) do
+		printf("-- event: %s", iter_12_0)
+
+		for iter_12_2, iter_12_3 in pairs(iter_12_1) do
+			printf("--     listener: %s, handle: %s", tostring(iter_12_3[1]), tostring(iter_12_2))
+		end
+	end
+
+	return arg_12_0.target_
+end
+
+return var_0_0

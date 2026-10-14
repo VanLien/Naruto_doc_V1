@@ -1,0 +1,104 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/obito action1_hit/0_00000
+  rotate: false
+  xy: 832, 516
+  size: 253, 212
+  orig: 800, 500
+  offset: 308, 110
+  index: -1
+images/obito action1_hit/0_00001
+  rotate: false
+  xy: 544, 498
+  size: 286, 230
+  orig: 800, 500
+  offset: 310, 114
+  index: -1
+images/obito action1_hit/0_00002
+  rotate: true
+  xy: 1759, 688
+  size: 327, 254
+  orig: 800, 500
+  offset: 311, 112
+  index: -1
+images/obito action1_hit/0_00003
+  rotate: false
+  xy: 1078, 744
+  size: 354, 271
+  orig: 800, 500
+  offset: 319, 112
+  index: -1
+images/obito action1_hit/0_00004
+  rotate: true
+  xy: 2, 2
+  size: 337, 290
+  orig: 800, 500
+  offset: 342, 112
+  index: -1
+images/obito action1_hit/0_00005
+  rotate: false
+  xy: 2, 708
+  size: 353, 307
+  orig: 800, 500
+  offset: 343, 110
+  index: -1
+images/obito action1_hit/0_00006
+  rotate: true
+  xy: 2, 341
+  size: 365, 295
+  orig: 800, 500
+  offset: 345, 110
+  index: -1
+images/obito action1_hit/0_00007
+  rotate: false
+  xy: 718, 730
+  size: 358, 285
+  orig: 800, 500
+  offset: 356, 111
+  index: -1
+images/obito action1_hit/0_00008
+  rotate: false
+  xy: 357, 730
+  size: 359, 285
+  orig: 800, 500
+  offset: 358, 112
+  index: -1
+images/obito action1_hit/0_00009
+  rotate: false
+  xy: 1434, 728
+  size: 323, 287
+  orig: 800, 500
+  offset: 380, 115
+  index: -1
+images/obito action1_hit/0_00010
+  rotate: true
+  xy: 299, 413
+  size: 293, 243
+  orig: 800, 500
+  offset: 396, 121
+  index: -1
+images/obito action1_hit/0_00011
+  rotate: false
+  xy: 1087, 531
+  size: 250, 211
+  orig: 800, 500
+  offset: 440, 147
+  index: -1
+images/obito action1_hit/0_00012
+  rotate: false
+  xy: 544, 363
+  size: 203, 133
+  orig: 800, 500
+  offset: 489, 184
+  index: -1
+images/obito action1_hit/0_00013
+  rotate: true
+  xy: 1339, 609
+  size: 133, 79
+  orig: 800, 500
+  offset: 504, 200
+  index: -1

@@ -1,0 +1,146 @@
+
+action.png
+size: 1007,917
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dluoguang_113
+  rotate: false
+  xy: 422, 474
+  size: 258, 443
+  orig: 300, 500
+  offset: 17, 43
+  index: -1
+glow
+  rotate: false
+  xy: 389, 125
+  size: 278, 278
+  orig: 360, 360
+  offset: 82, 0
+  index: -1
+glow_Add
+  rotate: false
+  xy: 0, 16
+  size: 387, 387
+  orig: 387, 387
+  offset: 0, 0
+  index: -1
+jiaXue_00
+  rotate: false
+  xy: 871, 441
+  size: 136, 78
+  orig: 163, 233
+  offset: 20, 17
+  index: -1
+jiaXue_01
+  rotate: false
+  xy: 534, 4
+  size: 143, 119
+  orig: 163, 233
+  offset: 7, 0
+  index: -1
+jiaXue_02
+  rotate: true
+  xy: 871, 313
+  size: 126, 134
+  orig: 163, 233
+  offset: 20, 17
+  index: -1
+jiaXue_03
+  rotate: false
+  xy: 877, 521
+  size: 126, 174
+  orig: 163, 233
+  offset: 20, 32
+  index: -1
+jiaXue_04
+  rotate: false
+  xy: 868, 0
+  size: 132, 162
+  orig: 163, 233
+  offset: 17, 32
+  index: -1
+jiaXue_05
+  rotate: true
+  xy: 682, 440
+  size: 163, 187
+  orig: 163, 233
+  offset: 0, 32
+  index: -1
+jiaXue_06
+  rotate: true
+  xy: 679, 278
+  size: 160, 187
+  orig: 163, 233
+  offset: 3, 33
+  index: -1
+jiaXue_07
+  rotate: true
+  xy: 682, 760
+  size: 157, 200
+  orig: 163, 233
+  offset: 6, 33
+  index: -1
+jiaXue_08
+  rotate: true
+  xy: 682, 605
+  size: 153, 193
+  orig: 163, 233
+  offset: 10, 40
+  index: -1
+jiaXue_09
+  rotate: true
+  xy: 679, 128
+  size: 148, 187
+  orig: 163, 233
+  offset: 15, 46
+  index: -1
+jiaXue_10
+  rotate: false
+  xy: 868, 164
+  size: 139, 147
+  orig: 163, 233
+  offset: 21, 80
+  index: -1
+jiaXue_11
+  rotate: true
+  xy: 389, 0
+  size: 123, 143
+  orig: 163, 233
+  offset: 29, 83
+  index: -1
+jiaXue_12
+  rotate: false
+  xy: 884, 697
+  size: 98, 133
+  orig: 163, 233
+  offset: 37, 92
+  index: -1
+jiaXue_13
+  rotate: true
+  xy: 884, 832
+  size: 85, 108
+  orig: 163, 233
+  offset: 48, 118
+  index: -1
+jiaXue_14
+  rotate: true
+  xy: 679, 45
+  size: 81, 79
+  orig: 163, 233
+  offset: 50, 135
+  index: -1
+jiaXue_15
+  rotate: true
+  xy: 760, 57
+  size: 69, 79
+  orig: 163, 233
+  offset: 53, 137
+  index: -1
+rainbow
+  rotate: true
+  xy: 0, 405
+  size: 512, 420
+  orig: 512, 420
+  offset: 0, 0
+  index: -1

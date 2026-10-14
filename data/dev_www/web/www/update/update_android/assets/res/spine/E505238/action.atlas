@@ -1,0 +1,90 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/heal/1
+  rotate: false
+  xy: 1699, 439
+  size: 273, 209
+  orig: 349, 379
+  offset: 49, 2
+  index: -1
+images/heal/10
+  rotate: false
+  xy: 2, 269
+  size: 331, 373
+  orig: 349, 379
+  offset: 15, 1
+  index: -1
+images/heal/11
+  rotate: false
+  xy: 1767, 650
+  size: 265, 365
+  orig: 349, 379
+  offset: 75, 11
+  index: -1
+images/heal/12
+  rotate: true
+  xy: 2, 2
+  size: 265, 368
+  orig: 349, 379
+  offset: 75, 11
+  index: -1
+images/heal/2
+  rotate: true
+  xy: 1419, 677
+  size: 338, 346
+  orig: 349, 379
+  offset: 11, 2
+  index: -1
+images/heal/3
+  rotate: true
+  xy: 686, 345
+  size: 338, 345
+  orig: 349, 379
+  offset: 10, 2
+  index: -1
+images/heal/4
+  rotate: false
+  xy: 1369, 384
+  size: 328, 291
+  orig: 349, 379
+  offset: 5, 1
+  index: -1
+images/heal/5
+  rotate: false
+  xy: 1033, 345
+  size: 334, 334
+  orig: 349, 379
+  offset: 3, 1
+  index: -1
+images/heal/6
+  rotate: true
+  xy: 1056, 681
+  size: 334, 361
+  orig: 349, 379
+  offset: 3, 0
+  index: -1
+images/heal/7
+  rotate: false
+  xy: 345, 652
+  size: 339, 363
+  orig: 349, 379
+  offset: 1, 0
+  index: -1
+images/heal/8
+  rotate: false
+  xy: 2, 644
+  size: 341, 371
+  orig: 349, 379
+  offset: 0, 0
+  index: -1
+images/heal/9
+  rotate: true
+  xy: 686, 685
+  size: 330, 368
+  orig: 349, 379
+  offset: 18, 0
+  index: -1

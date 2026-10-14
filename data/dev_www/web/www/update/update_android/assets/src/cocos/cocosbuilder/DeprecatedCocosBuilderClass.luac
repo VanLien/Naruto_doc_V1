@@ -1,0 +1,33 @@
+﻿if cc.CCBProxy == nil then
+	return
+end
+
+DeprecatedCocosBuilderClass = {} or DeprecatedCocosBuilderClass
+
+local function var_0_0(arg_1_0, arg_1_1)
+	return
+end
+
+function DeprecatedCocosBuilderClass.CCBReader()
+	var_0_0("CCBReader", "cc.BReader")
+
+	return cc.BReader
+end
+
+_G.CCBReader = DeprecatedCocosBuilderClass.CCBReader()
+
+function DeprecatedCocosBuilderClass.CCBAnimationManager()
+	var_0_0("CCBAnimationManager", "cc.BAnimationManager")
+
+	return cc.BAnimationManager
+end
+
+_G.CCBAnimationManager = DeprecatedCocosBuilderClass.CCBAnimationManager()
+
+function DeprecatedCocosBuilderClass.CCBProxy()
+	var_0_0("CCBProxy", "cc.CCBProxy")
+
+	return cc.CCBProxy
+end
+
+_G.CCBProxy = DeprecatedCocosBuilderClass.CCBProxy()

@@ -1,0 +1,76 @@
+
+action.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/E24301/E24301
+  rotate: false
+  xy: 1152, 173
+  size: 196, 56
+  orig: 210, 71
+  offset: 8, 6
+  index: -1
+images/E24301/E24301_$en
+  rotate: false
+  xy: 1350, 187
+  size: 204, 42
+  orig: 210, 71
+  offset: 4, 13
+  index: -1
+images/E24301/E24301_$ru
+  rotate: false
+  xy: 940, 159
+  size: 210, 70
+  orig: 210, 71
+  offset: 0, 0
+  index: -1
+images/E24301_01
+  rotate: false
+  xy: 0, 0
+  size: 279, 229
+  orig: 279, 229
+  offset: 0, 0
+  index: -1
+images/E24301_02
+  rotate: false
+  xy: 1722, 114
+  size: 155, 115
+  orig: 155, 115
+  offset: 0, 0
+  index: -1
+images/E24301_03
+  rotate: false
+  xy: 281, 114
+  size: 354, 115
+  orig: 354, 115
+  offset: 0, 0
+  index: -1
+images/E24301_04
+  rotate: false
+  xy: 1556, 170
+  size: 164, 59
+  orig: 164, 59
+  offset: 0, 0
+  index: -1
+images/E24301_05
+  rotate: false
+  xy: 281, 16
+  size: 345, 96
+  orig: 345, 96
+  offset: 0, 0
+  index: -1
+images/E24301_06
+  rotate: false
+  xy: 637, 172
+  size: 301, 57
+  orig: 301, 57
+  offset: 0, 0
+  index: -1
+images/E24301_07
+  rotate: false
+  xy: 637, 125
+  size: 209, 45
+  orig: 209, 45
+  offset: 0, 0
+  index: -1

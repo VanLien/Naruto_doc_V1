@@ -1,0 +1,153 @@
+
+action.png
+size: 2048,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/0/0_00000
+  rotate: true
+  xy: 1799, 21
+  size: 102, 108
+  orig: 120, 120
+  offset: 13, 8
+  index: -1
+images/0/0_00001
+  rotate: true
+  xy: 1689, 19
+  size: 104, 108
+  orig: 120, 120
+  offset: 11, 8
+  index: -1
+images/0/0_00002
+  rotate: true
+  xy: 1909, 19
+  size: 104, 106
+  orig: 120, 120
+  offset: 10, 9
+  index: -1
+images/0/0_00003
+  rotate: false
+  xy: 1466, 14
+  size: 109, 109
+  orig: 120, 120
+  offset: 6, 5
+  index: -1
+images/0/0_00004
+  rotate: false
+  xy: 1353, 13
+  size: 111, 110
+  orig: 120, 120
+  offset: 5, 4
+  index: -1
+images/0/0_00005
+  rotate: false
+  xy: 1011, 11
+  size: 113, 112
+  orig: 120, 120
+  offset: 3, 3
+  index: -1
+images/0/0_00006
+  rotate: false
+  xy: 1126, 12
+  size: 112, 111
+  orig: 120, 120
+  offset: 4, 4
+  index: -1
+images/0/0_00007
+  rotate: false
+  xy: 1240, 12
+  size: 111, 111
+  orig: 120, 120
+  offset: 5, 5
+  index: -1
+images/ZD
+  rotate: false
+  xy: 640, 37
+  size: 72, 38
+  orig: 72, 38
+  offset: 0, 0
+  index: -1
+images/d
+  rotate: false
+  xy: 1577, 17
+  size: 110, 106
+  orig: 120, 120
+  offset: 6, 6
+  index: -1
+images/en
+  rotate: true
+  xy: 2017, 23
+  size: 100, 25
+  orig: 100, 25
+  offset: 0, 0
+  index: -1
+images/ru
+  rotate: false
+  xy: 545, 50
+  size: 93, 25
+  orig: 93, 25
+  offset: 0, 0
+  index: -1
+images/wq
+  rotate: true
+  xy: 186, 2
+  size: 32, 124
+  orig: 128, 128
+  offset: 48, 2
+  index: -1
+images/wq/0_00000
+  rotate: true
+  xy: 186, 36
+  size: 37, 121
+  orig: 100, 250
+  offset: 33, 31
+  index: -1
+images/wq/0_00001
+  rotate: true
+  xy: 2, 77
+  size: 46, 188
+  orig: 100, 250
+  offset: 26, 32
+  index: -1
+images/wq/0_00002
+  rotate: true
+  xy: 2, 23
+  size: 52, 182
+  orig: 100, 250
+  offset: 22, 35
+  index: -1
+images/wq/0_00003
+  rotate: true
+  xy: 192, 75
+  size: 48, 178
+  orig: 100, 250
+  offset: 26, 37
+  index: -1
+images/wq/0_00004
+  rotate: true
+  xy: 372, 76
+  size: 47, 171
+  orig: 100, 250
+  offset: 26, 46
+  index: -1
+images/wq/0_00005
+  rotate: true
+  xy: 545, 77
+  size: 46, 160
+  orig: 100, 250
+  offset: 26, 55
+  index: -1
+images/wq/0_00006
+  rotate: true
+  xy: 707, 77
+  size: 46, 153
+  orig: 100, 250
+  offset: 26, 57
+  index: -1
+images/wq/0_00007
+  rotate: true
+  xy: 862, 76
+  size: 47, 147
+  orig: 100, 250
+  offset: 25, 64
+  index: -1

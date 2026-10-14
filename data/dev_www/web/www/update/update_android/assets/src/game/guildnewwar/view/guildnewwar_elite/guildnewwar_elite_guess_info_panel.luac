@@ -1,0 +1,330 @@
+-- --------------------------------------------------------------------
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      联盟战传奇赛 竞猜信息
+-- <br/> 2019年11月19日
+-- --------------------------------------------------------------------
+GuildnewwarEliteGuessInfoPanel = GuildnewwarEliteGuessInfoPanel or BaseClass(BaseView)
+
+local controller = GuildNewwarController:getInstance()
+local model = controller:getModel()
+local string_format = string.format
+local table_insert = table.insert
+local table_sort = table.sort
+
+
+function GuildnewwarEliteGuessInfoPanel:__init()
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+    self.win_type = WinType.Big   
+    self.is_full_screen = false
+    self.layout_name = "guildnewwar/guildnewwar_elite/guildnewwar_elite_guess_info_panel"
+
+    self.res_list = {
+        -- { path = PathTool.getPlistImgForDownLoad("vedio","vedio"), type = ResourcesType.plist },
+    }
+
+    --奖励
+    -- self.dic_reward_list = {}
+    self.show_list = {}
+end
+
+function GuildnewwarEliteGuessInfoPanel:open_callback()
+    self.background = self.root_wnd:getChildByName("background")
+    if self.background ~= nil then
+        self.background:setScale(display.getMaxScale())
+    end
+
+    self.main_container = self.root_wnd:getChildByName("main_container")
+    self:playEnterAnimatianByObj(self.main_container, 1)
+    self.main_panel = self.main_container:getChildByName("main_panel")
+
+    self.title = self.main_panel:getChildByName("win_title")
+    self.title:setString(TI18N("语言_c_543"))
+
+    self.scroll_container = self.main_panel:getChildByName("scroll_container")
+
+    self.close_btn = self.main_panel:getChildByName("close_btn")
+end
+
+function GuildnewwarEliteGuessInfoPanel:register_event()
+    registerButtonEventListener(self.background, handler(self, self.onClickBtnClose) ,false, 1)
+    registerButtonEventListener(self.close_btn, handler(self, self.onClickBtnClose) ,true, 2)
+
+
+     --我的竞猜信息返回 
+    self:addGlobalEvent(GuildNewwarEvent.GUILDNEWWAR_MY_GUESSING_INFO_EVENT, function(data)
+        if not data then return end
+        self:setData(data)
+    end)
+end
+
+--关闭
+function GuildnewwarEliteGuessInfoPanel:onClickBtnClose()
+    GuildNewwarController:getInstance():openGuildnewwarEliteGuessInfoPanel(false)
+end
+
+function GuildnewwarEliteGuessInfoPanel:openRootWnd()
+    controller:sender14245()
+end
+
+function GuildnewwarEliteGuessInfoPanel:setData(data)
+    self.show_list = data or {}
+    -- local list = data or {}
+    -- local once_list = {}
+    -- for i,v in ipairs(list) do
+    --     if v.step ~= 0 then
+    --         if v.step == 1 then
+    --             table_insert(once_list, v)
+    --         else
+    --             table_insert(self.show_list, v)
+    --         end
+    --     end
+    -- end 
+    -- local func = SortTools.tableCommonSorter({{"step", false}, {"round", true}})
+    -- table.sort(self.show_list,func )
+    -- table.sort(once_list, function(a, b) return a.round > b.round end)
+    -- for i,v in ipairs(once_list) do
+    --     table_insert(self.show_list, v)
+    -- end
+    self:updateList()
+end
+
+function GuildnewwarEliteGuessInfoPanel:updateList()
+    if self.item_scrollview == nil then
+        local scroll_view_size = self.scroll_container:getContentSize()
+        local setting = {
+            start_x = 0,                     -- 第一个单元的X起点
+            space_x = 0,                     -- x方向的间隔
+            start_y = 0,                     -- 第一个单元的Y起点
+            space_y = 0,                     -- y方向的间隔
+            item_width = 606,                -- 单元的尺寸width
+            item_height = 150,               -- 单元的尺寸height
+            row = 1,                         -- 行数，作用于水平滚动类型
+            col = 1,                         -- 列数，作用于垂直滚动类型
+            once_num = 1,                    -- 每次创建的数量
+        }
+        self.item_scrollview = CommonScrollViewSingleLayout.new(self.scroll_container, cc.p(0,0) , ScrollViewDir.vertical, ScrollViewStartPos.top, scroll_view_size, setting, cc.p(0, 0))
+
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.createNewCell), ScrollViewFuncType.CreateNewCell) --创建cell
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.numberOfCells), ScrollViewFuncType.NumberOfCells) --获取数量
+        self.item_scrollview:registerScriptHandlerSingle(handler(self,self.updateCellByIndex), ScrollViewFuncType.UpdateCellByIndex) --更新cell
+    end
+    
+    self.item_scrollview:reloadData()
+    if #self.show_list == 0 then
+        commonShowEmptyIcon(self.scroll_container, true, {text = TI18N("语言_c_592")})
+    else
+        commonShowEmptyIcon(self.scroll_container, false)
+    end
+end
+
+
+--创建cell 
+--@width 是setting.item_width
+--@height 是setting.item_height
+function GuildnewwarEliteGuessInfoPanel:createNewCell(width, height)
+   local cell = GuildnewwarEliteGuessInfoItem.new(width, height)
+   -- cell:setActionRankCommonType(self.holiday_bid, self.type)
+    -- cell:addCallBack(function() self:onCellTouched(cell) end)
+    return cell
+end
+--获取数据数量
+function GuildnewwarEliteGuessInfoPanel:numberOfCells()
+    if not self.show_list then return 0 end
+    return #self.show_list
+end
+--更新cell(拖动的时候.刷新数据时候会执行次方法)
+--cell :createNewCell的返回的对象
+--index :数据的索引
+function GuildnewwarEliteGuessInfoPanel:updateCellByIndex(cell, index)
+    cell.index = index
+    local cell_data = self.show_list[index]
+    if not cell_data then return end
+    cell:setData(cell_data)
+end
+
+
+function GuildnewwarEliteGuessInfoPanel:close_callback()
+    if self.item_scrollview then
+        self.item_scrollview:DeleteMe()
+    end
+    self.item_scrollview = nil
+
+    GuildNewwarController:getInstance():openGuildnewwarEliteGuessInfoPanel(false)
+end
+
+------------------------------------------
+-- 子项
+GuildnewwarEliteGuessInfoItem = class("GuildnewwarEliteGuessInfoItem", function()
+    return ccui.Widget:create()
+end)
+
+function GuildnewwarEliteGuessInfoItem:ctor(width, height)
+    self:configUI(width, height)
+    self:register_event()
+end
+
+function GuildnewwarEliteGuessInfoItem:configUI( width, height )
+    self.size = cc.size(width, height)
+    self:setTouchEnabled(true)
+    self:setContentSize(self.size)
+
+
+    local csbPath = PathTool.getTargetCSB("guildnewwar/guildnewwar_elite/guildnewwar_elite_guess_info_item")
+    self.root_wnd = cc.CSLoader:createNode(csbPath)
+    self.root_wnd:setAnchorPoint(cc.p(0.5, 0.5))
+    self.root_wnd:setPosition(cc.p(width * 0.5 , height * 0.5))
+    self:addChild(self.root_wnd)
+   
+
+    self.container = self.root_wnd:getChildByName("container")
+
+    local left_role = self.container:getChildByName("left_role")
+
+    local right_role = self.container:getChildByName("right_role")
+
+    local badge_item = GuildBadgeItem.new()
+    self.left_badge_item = badge_item
+    left_role:addChild(badge_item)
+
+    local badge_item = GuildBadgeItem.new()
+    self.right_badge_item = badge_item
+    right_role:addChild(badge_item)
+
+    self.success_img = self.container:getChildByName("success_img")
+    --观看
+    self.check_fight_btn = self.container:getChildByName("check_fight_btn")
+    --名字
+    self.left_name = self.container:getChildByName("left_name")
+    self.right_name = self.container:getChildByName("right_name")
+
+    self.match_step_label = self.container:getChildByName("match_step_label")
+    self.match_step_label:setString("")
+    --投注
+    self.guess_label = self.container:getChildByName("guess_label")
+    self.guess_label:setString(TI18N("语言_c_593"))
+    self.success_lable = self.container:getChildByName("success_lable")
+
+    --竞猜信息
+    self.guess_count_info = createRichLabel(22, cc.c4b(0x64,0x32,0x23,0xff), cc.p(0, 0.5), cc.p(310, 48),nil,nil,1000)
+    self.container:addChild(self.guess_count_info)
+end
+
+function GuildnewwarEliteGuessInfoItem:register_event( )
+    registerButtonEventListener(self.check_fight_btn, handler(self, self.onClickFightBtn) ,true, 2)
+end
+
+function GuildnewwarEliteGuessInfoItem:onClickFightBtn()
+    if not self.data then return end
+    -- body
+    -- local replay_id=self.data.replay_id
+    -- BattleController:getInstance():csRecordBattle(replay_id or 0)
+
+	if self.data.id then
+		controller:openGuildnewwarEliteFightListPanel(true, {pk_id = self.data.id, p_type = "guess"}) 
+	end       
+end
+
+
+function GuildnewwarEliteGuessInfoItem:setData(data)
+    if not data then return end
+    self.data = data
+
+    local badge_data = GuildController:getInstance():getModel():getBadgeItemData(self.data.a_avatar, self.data.a_avatar_frame)
+    badge_data.lev = self.data.b_lev or 1
+    self.left_badge_item:setData(badge_data)
+    local badge_data = GuildController:getInstance():getModel():getBadgeItemData(self.data.b_avatar, self.data.b_avatar_frame)
+    badge_data.lev = self.data.b_lev or 1
+    self.right_badge_item:setData(badge_data)
+
+    self.left_name:setString(self.data.a_gname)
+    self.right_name:setString(self.data.b_gname)
+
+    --胜利的
+    if self.data.ret == 0 then
+        self.success_img:setVisible(false)
+        self.check_fight_btn:setVisible(false)
+    else
+        self.success_img:setVisible(true)
+        self.check_fight_btn:setVisible(true)
+        if self.data.ret == 1 then
+            self.success_img:setPositionX(32)
+        else
+            self.success_img:setPositionX(180)
+        end
+    end
+
+    --投注
+    if self.data.target == 1 then
+        self.guess_label:setPositionX(62)
+    elseif self.data.target == 2 then    
+        self.guess_label:setPositionX(218)
+    else
+        self.guess_label:setPositionX(-10000)
+    end
+
+    local str, str1 = model:getMacthText(self.data.step)
+    self.match_step_label:setString(str)
+
+    self:setSuccessInfo()
+end
+
+function GuildnewwarEliteGuessInfoItem:setSuccessInfo()
+    if not self.data then return end
+       --竞猜
+    local item_config = Config.ItemData.data_get_data(33)
+    local icon_res =  PathTool.getItemRes(item_config.icon)
+    local count = 0
+    local str = ""
+
+    if self.data.ret == 0 then --未打
+        self.success_lable:setString(TI18N("语言_c_594"))
+        count = self.data.bet
+        str = string_format(TI18N("语言_c_595"),icon_res, count)
+    else
+        if self.data.ret == 1 then --a玩家赢了
+            if self.data.target == 1 then
+                count = self.data.get_bet
+                self.success_lable:setString(TI18N("语言_c_596"))
+                str = string_format(TI18N("语言_c_597"),icon_res, count)
+            elseif self.data.target == 2 then
+                count = self.data.bet
+                self.success_lable:setString(TI18N("语言_c_598"))
+                str = string_format(TI18N("语言_c_599"),icon_res, count)
+            else
+                self.success_lable:setString("")
+            end    
+        else --a玩家输了 
+            if self.data.target == 1 then
+                count = self.data.bet
+                self.success_lable:setString(TI18N("语言_c_598"))
+                str = string_format(TI18N("语言_c_599"),icon_res, count)
+            elseif self.data.target == 2 then
+                count = self.data.get_bet
+                self.success_lable:setString(TI18N("语言_c_596"))
+                str = string_format(TI18N("语言_c_597"),icon_res, count)
+            else
+                self.success_lable:setString("")
+            end 
+        end
+    end
+
+    self.guess_count_info:setString(str)
+end
+
+
+function GuildnewwarEliteGuessInfoItem:DeleteMe( )
+    if self.left_badge_item then
+        self.left_badge_item:DeleteMe()
+        self.left_badge_item = nil
+    end
+
+    if self.right_badge_item then
+        self.right_badge_item:DeleteMe()
+        self.right_badge_item = nil
+    end
+
+    self:removeAllChildren()
+    self:removeFromParent()
+end

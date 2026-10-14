@@ -1,0 +1,20 @@
+
+action.png
+size: 512,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+attack2/0_00001
+  rotate: false
+  xy: 181, 15
+  size: 168, 169
+  orig: 900, 600
+  offset: 330, 169
+  index: -1
+attack2/0_00002
+  rotate: false
+  xy: 2, 2
+  size: 177, 182
+  orig: 900, 600
+  offset: 310, 193
+  index: -1

@@ -1,0 +1,160 @@
+
+action.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/action3/00001
+  rotate: false
+  xy: 1, 179
+  size: 132, 184
+  orig: 768, 384
+  offset: 198, 80
+  index: -1
+image/action3/00002
+  rotate: false
+  xy: 1, 1
+  size: 128, 177
+  orig: 768, 384
+  offset: 200, 83
+  index: -1
+image/action3/00003
+  rotate: false
+  xy: 1539, 1443
+  size: 131, 173
+  orig: 768, 384
+  offset: 201, 82
+  index: -1
+image/action3/00004
+  rotate: true
+  xy: 1688, 1652
+  size: 133, 170
+  orig: 768, 384
+  offset: 201, 82
+  index: -1
+image/action3/00005
+  rotate: false
+  xy: 770, 798
+  size: 228, 164
+  orig: 768, 384
+  offset: 208, 81
+  index: -1
+image/action3/00006
+  rotate: false
+  xy: 999, 810
+  size: 155, 152
+  orig: 768, 384
+  offset: 204, 82
+  index: -1
+image/action3/00007
+  rotate: false
+  xy: 770, 647
+  size: 160, 150
+  orig: 768, 384
+  offset: 204, 82
+  index: -1
+image/action3/00008
+  rotate: false
+  xy: 1539, 1786
+  size: 362, 160
+  orig: 768, 384
+  offset: 0, 81
+  index: -1
+image/action3/00009
+  rotate: false
+  xy: 1539, 1617
+  size: 148, 168
+  orig: 768, 384
+  offset: 172, 81
+  index: -1
+image/action3/00010
+  rotate: false
+  xy: 134, 186
+  size: 128, 177
+  orig: 768, 384
+  offset: 180, 80
+  index: -1
+image/action3/00011
+  rotate: false
+  xy: 770, 462
+  size: 108, 184
+  orig: 768, 384
+  offset: 188, 80
+  index: -1
+image/action3/00012
+  rotate: true
+  xy: 1155, 869
+  size: 93, 188
+  orig: 768, 384
+  offset: 195, 80
+  index: -1
+image/action3_tx/00005
+  rotate: false
+  xy: 1, 364
+  size: 768, 257
+  orig: 768, 384
+  offset: 0, 44
+  index: -1
+image/action3_tx/00006
+  rotate: false
+  xy: 1, 1269
+  size: 768, 336
+  orig: 768, 384
+  offset: 0, 0
+  index: -1
+image/action3_tx/00007
+  rotate: false
+  xy: 1, 938
+  size: 768, 330
+  orig: 768, 384
+  offset: 0, 6
+  index: -1
+image/action3_tx/00008
+  rotate: false
+  xy: 770, 963
+  size: 703, 327
+  orig: 768, 384
+  offset: 36, 5
+  index: -1
+image/action3_tx/00009
+  rotate: false
+  xy: 1, 1606
+  size: 768, 340
+  orig: 768, 384
+  offset: 0, 0
+  index: -1
+image/action3_tx/00010
+  rotate: false
+  xy: 1, 622
+  size: 768, 315
+  orig: 768, 384
+  offset: 0, 12
+  index: -1
+image/action3_tx/00011
+  rotate: false
+  xy: 770, 1612
+  size: 768, 334
+  orig: 768, 384
+  offset: 0, 0
+  index: -1
+image/action3_tx/00012
+  rotate: false
+  xy: 770, 1291
+  size: 768, 320
+  orig: 768, 384
+  offset: 0, 0
+  index: -1
+image/jianying/000000
+  rotate: false
+  xy: 263, 280
+  size: 168, 83
+  orig: 1200, 1200
+  offset: 404, 543
+  index: -1
+image/jianying/000002
+  rotate: false
+  xy: 263, 196
+  size: 168, 83
+  orig: 1200, 1200
+  offset: 404, 543
+  index: -1

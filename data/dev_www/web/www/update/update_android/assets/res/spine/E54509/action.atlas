@@ -1,0 +1,118 @@
+
+action.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+niao2/01
+  rotate: false
+  xy: 321, 61
+  size: 73, 65
+  orig: 128, 128
+  offset: 25, 48
+  index: -1
+niao2/02
+  rotate: false
+  xy: 321, 61
+  size: 73, 65
+  orig: 128, 128
+  offset: 25, 48
+  index: -1
+niao2/03
+  rotate: true
+  xy: 86, 53
+  size: 73, 77
+  orig: 128, 128
+  offset: 25, 48
+  index: -1
+niao2/04
+  rotate: false
+  xy: 165, 54
+  size: 78, 72
+  orig: 128, 128
+  offset: 24, 48
+  index: -1
+niao2/05
+  rotate: false
+  xy: 170, 10
+  size: 86, 42
+  orig: 128, 128
+  offset: 25, 38
+  index: -1
+niao2/06
+  rotate: false
+  xy: 170, 10
+  size: 86, 42
+  orig: 128, 128
+  offset: 25, 38
+  index: -1
+niao2/07
+  rotate: false
+  xy: 396, 66
+  size: 77, 60
+  orig: 128, 128
+  offset: 24, 12
+  index: -1
+niao2/08
+  rotate: false
+  xy: 396, 66
+  size: 77, 60
+  orig: 128, 128
+  offset: 24, 12
+  index: -1
+niao2/09
+  rotate: false
+  xy: 94, 3
+  size: 74, 48
+  orig: 128, 128
+  offset: 26, 24
+  index: -1
+niao2/10
+  rotate: false
+  xy: 258, 15
+  size: 76, 40
+  orig: 128, 128
+  offset: 26, 48
+  index: -1
+niao2/11
+  rotate: false
+  xy: 0, 0
+  size: 92, 48
+  orig: 128, 128
+  offset: 24, 48
+  index: -1
+niao2/12
+  rotate: false
+  xy: 0, 0
+  size: 92, 48
+  orig: 128, 128
+  offset: 24, 48
+  index: -1
+niao2/13
+  rotate: false
+  xy: 0, 50
+  size: 84, 76
+  orig: 128, 128
+  offset: 24, 48
+  index: -1
+niao2/14
+  rotate: false
+  xy: 0, 50
+  size: 84, 76
+  orig: 128, 128
+  offset: 24, 48
+  index: -1
+niao2/15
+  rotate: false
+  xy: 245, 57
+  size: 74, 69
+  orig: 128, 128
+  offset: 24, 48
+  index: -1
+niao2/16
+  rotate: false
+  xy: 245, 57
+  size: 74, 69
+  orig: 128, 128
+  offset: 24, 48
+  index: -1

@@ -1,0 +1,125 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/tx/E405132/0_00002
+  rotate: false
+  xy: 1984, 949
+  size: 51, 73
+  orig: 800, 400
+  offset: 222, 160
+  index: -1
+image/tx/E405132/0_00003
+  rotate: false
+  xy: 204, 32
+  size: 116, 100
+  orig: 800, 400
+  offset: 212, 132
+  index: -1
+image/tx/E405132/0_00004
+  rotate: false
+  xy: 543, 138
+  size: 134, 183
+  orig: 800, 400
+  offset: 196, 73
+  index: -1
+image/tx/E405132/0_00005
+  rotate: true
+  xy: 2, 2
+  size: 130, 200
+  orig: 800, 400
+  offset: 201, 59
+  index: -1
+image/tx/E405132/0_00006
+  rotate: true
+  xy: 342, 130
+  size: 191, 199
+  orig: 800, 400
+  offset: 193, 55
+  index: -1
+image/tx/E405132/0_00007
+  rotate: false
+  xy: 386, 556
+  size: 271, 207
+  orig: 800, 400
+  offset: 150, 59
+  index: -1
+image/tx/E405132/0_00008
+  rotate: false
+  xy: 754, 792
+  size: 365, 230
+  orig: 800, 400
+  offset: 88, 62
+  index: -1
+image/tx/E405132/0_00009
+  rotate: false
+  xy: 386, 765
+  size: 366, 257
+  orig: 800, 400
+  offset: 90, 72
+  index: -1
+image/tx/E405132/0_00010
+  rotate: false
+  xy: 2, 725
+  size: 382, 297
+  orig: 800, 400
+  offset: 92, 54
+  index: -1
+image/tx/E405132/0_00011
+  rotate: false
+  xy: 2, 409
+  size: 353, 314
+  orig: 800, 400
+  offset: 135, 49
+  index: -1
+image/tx/E405132/0_00012
+  rotate: false
+  xy: 2, 134
+  size: 338, 273
+  orig: 800, 400
+  offset: 145, 53
+  index: -1
+image/tx/E405132/0_00013
+  rotate: false
+  xy: 1121, 779
+  size: 337, 243
+  orig: 800, 400
+  offset: 142, 68
+  index: -1
+image/tx/E405132/0_00014
+  rotate: false
+  xy: 357, 323
+  size: 256, 231
+  orig: 800, 400
+  offset: 144, 70
+  index: -1
+image/tx/E405132/0_00015
+  rotate: false
+  xy: 1730, 776
+  size: 252, 246
+  orig: 800, 400
+  offset: 127, 75
+  index: -1
+image/tx/E405132/0_00016
+  rotate: false
+  xy: 1460, 754
+  size: 268, 268
+  orig: 800, 400
+  offset: 118, 73
+  index: -1
+image/tx/E405132/0_00017
+  rotate: true
+  xy: 659, 571
+  size: 192, 182
+  orig: 800, 400
+  offset: 185, 74
+  index: -1
+image/tx/E405132/0_00018
+  rotate: false
+  xy: 843, 609
+  size: 191, 181
+  orig: 800, 400
+  offset: 185, 74
+  index: -1

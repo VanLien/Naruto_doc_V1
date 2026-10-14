@@ -1,0 +1,91 @@
+--******** 文件说明 ********
+-- 
+-- @description: 活动结束警告
+-- @DateTime:    2020-02-20
+-- *******************************
+ActionUpstarOrderEndWarnWindow = ActionUpstarOrderEndWarnWindow or BaseClass(BaseView)
+
+local controller = ActionController:getInstance()
+
+function ActionUpstarOrderEndWarnWindow:__init()
+    self.is_full_screen = true
+    self.win_type = WinType.Mini
+    self.view_tag = ViewMgrTag.DIALOGUE_TAG
+    self.layout_name = "neworderaction/neworderaction_end_warn_window"
+end
+
+function ActionUpstarOrderEndWarnWindow:open_callback()
+    self.background = self.root_wnd:getChildByName("background")
+    self.background:setScale(display.getMaxScale())
+    local main_container = self.root_wnd:getChildByName("main_container")
+    self:playEnterAnimatianByObj(self.main_container , 2) 
+    main_container:getChildByName("Image_16"):getChildByName("Text_15"):setString(TI18N("语言_c_719"))
+    self.btn_close = main_container:getChildByName("btn_close")
+    self.btn_ok = main_container:getChildByName("btn_ok")
+    self.btn_ok:getChildByName("Text_14"):setString(TI18N("语言_c_720"))
+    self.btn_unlock = main_container:getChildByName("btn_unlock")
+    self.btn_unlock:getChildByName("label"):setString(TI18N("语言_c_2677"))
+    local str_warn = string.format(TI18N("语言_c_2678"))
+    local desc_text = main_container:getChildByName("desc_text")
+    desc_text:setString(str_warn)
+    desc_text:ignoreContentAdaptWithSize(true)
+    desc_text:setTextAreaSize(cc.size(580,0))
+    desc_text:setScale(1)
+    self.reamin_day = main_container:getChildByName("reamin_day")
+end
+
+function ActionUpstarOrderEndWarnWindow:register_event()
+    registerButtonEventListener(
+        self.background,
+        function()
+            controller:openUpStarEndWarnView(false)
+        end,
+        false,
+        2
+    )
+    registerButtonEventListener(
+        self.btn_close,
+        function()
+            controller:openUpStarEndWarnView(false)
+        end,
+        true,
+        2
+    )
+    registerButtonEventListener(
+        self.btn_ok,
+        function()
+            controller:openUpStarEndWarnView(false)
+        end,
+        true,
+        1
+    )
+    registerButtonEventListener(
+        self.btn_unlock,
+        function()
+            controller:openUpStarEndWarnView(false)
+            self.callBack()
+        end,
+        true,
+        1
+    )
+end
+
+function ActionUpstarOrderEndWarnWindow:openRootWnd(day,orderStatus,callback)
+    day = day or 0
+    local str = ""
+    local remain_day = day
+    str = string.format(TI18N("语言_c_4703"),remain_day)
+    self.reamin_day:setString(str)
+    self.orderStatus = orderStatus
+    self.callBack = callback
+    if self.orderStatus then --战令已经解锁
+        self.btn_unlock:setTouchEnabled(false)
+        setChildUnEnabled(true,self.btn_unlock)
+    else
+        self.btn_unlock:setTouchEnabled(true)
+        setChildUnEnabled(false,self.btn_unlock)
+    end
+end
+function ActionUpstarOrderEndWarnWindow:close_callback()
+    controller:openEndWarnView(false)
+end

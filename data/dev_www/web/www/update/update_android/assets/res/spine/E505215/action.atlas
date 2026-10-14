@@ -1,0 +1,62 @@
+
+action.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/obito attack_hit/0_00000
+  rotate: false
+  xy: 1541, 331
+  size: 119, 133
+  orig: 500, 500
+  offset: 158, 185
+  index: -1
+images/obito attack_hit/0_00001
+  rotate: false
+  xy: 1402, 294
+  size: 137, 170
+  orig: 500, 500
+  offset: 169, 192
+  index: -1
+images/obito attack_hit/0_00002
+  rotate: false
+  xy: 1275, 251
+  size: 125, 213
+  orig: 500, 500
+  offset: 192, 142
+  index: -1
+images/obito attack_hit/0_00003
+  rotate: true
+  xy: 2, 2
+  size: 173, 225
+  orig: 500, 500
+  offset: 161, 136
+  index: -1
+images/obito attack_hit/0_00004
+  rotate: false
+  xy: 2, 177
+  size: 318, 287
+  orig: 500, 500
+  offset: 81, 122
+  index: -1
+images/obito attack_hit/0_00005
+  rotate: false
+  xy: 966, 197
+  size: 307, 267
+  orig: 500, 500
+  offset: 79, 142
+  index: -1
+images/obito attack_hit/0_00006
+  rotate: false
+  xy: 322, 189
+  size: 320, 275
+  orig: 500, 500
+  offset: 72, 140
+  index: -1
+images/obito attack_hit/0_00007
+  rotate: false
+  xy: 644, 189
+  size: 320, 275
+  orig: 500, 500
+  offset: 72, 140
+  index: -1

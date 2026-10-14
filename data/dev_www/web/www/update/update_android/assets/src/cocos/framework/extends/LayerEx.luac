@@ -1,0 +1,83 @@
+﻿local var_0_0 = cc.Layer
+
+function var_0_0.onTouch(arg_1_0, arg_1_1, arg_1_2, arg_1_3)
+	if type(arg_1_2) ~= "boolean" then
+		arg_1_2 = false
+	end
+
+	if type(arg_1_3) ~= "boolean" then
+		arg_1_3 = false
+	end
+
+	arg_1_0:registerScriptTouchHandler(function(arg_2_0, ...)
+		local var_2_0 = {
+			...
+		}
+		local var_2_1 = {
+			name = arg_2_0
+		}
+
+		if arg_1_2 then
+			var_2_0 = var_2_0[1]
+
+			local var_2_2 = {}
+
+			for iter_2_0 = 1, #var_2_0, 3 do
+				local var_2_3 = var_2_0[iter_2_0]
+				local var_2_4 = var_2_0[iter_2_0 + 1]
+				local var_2_5 = var_2_0[iter_2_0 + 2]
+
+				var_2_2[var_2_5] = {
+					x = var_2_3,
+					y = var_2_4,
+					id = var_2_5
+				}
+			end
+
+			var_2_1.points = var_2_2
+		else
+			var_2_1.x = var_2_0[1]
+			var_2_1.y = var_2_0[2]
+		end
+
+		return arg_1_1(var_2_1)
+	end, arg_1_2, 0, arg_1_3)
+	arg_1_0:setTouchEnabled(true)
+
+	return arg_1_0
+end
+
+function var_0_0.removeTouch(arg_3_0)
+	arg_3_0:unregisterScriptTouchHandler()
+	arg_3_0:setTouchEnabled(false)
+
+	return arg_3_0
+end
+
+function var_0_0.onKeypad(arg_4_0, arg_4_1)
+	arg_4_0:registerScriptKeypadHandler(arg_4_1)
+	arg_4_0:setKeyboardEnabled(true)
+
+	return arg_4_0
+end
+
+function var_0_0.removeKeypad(arg_5_0)
+	arg_5_0:unregisterScriptKeypadHandler()
+	arg_5_0:setKeyboardEnabled(false)
+
+	return arg_5_0
+end
+
+function var_0_0.onAccelerate(arg_6_0, arg_6_1)
+	arg_6_0:registerScriptAccelerateHandler(arg_6_1)
+	arg_6_0:setAccelerometerEnabled(true)
+
+	return arg_6_0
+end
+
+function var_0_0.removeAccelerate(arg_7_0)
+	arg_7_0:unregisterScriptAccelerateHandler()
+	arg_7_0:setAccelerometerEnabled(false)
+
+	return arg_7_0
+end

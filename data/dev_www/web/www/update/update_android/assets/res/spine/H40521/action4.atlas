@@ -1,0 +1,76 @@
+
+action4.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/stand/0_00000
+  rotate: false
+  xy: 1011, 37
+  size: 113, 204
+  orig: 600, 400
+  offset: 87, 78
+  index: -1
+images/stand/0_00001
+  rotate: false
+  xy: 785, 26
+  size: 111, 215
+  orig: 600, 400
+  offset: 87, 78
+  index: -1
+images/stand/0_00002
+  rotate: false
+  xy: 337, 13
+  size: 111, 228
+  orig: 600, 400
+  offset: 87, 78
+  index: -1
+images/stand/0_00003
+  rotate: false
+  xy: 898, 29
+  size: 111, 212
+  orig: 600, 400
+  offset: 87, 78
+  index: -1
+images/stand/0_00004
+  rotate: false
+  xy: 673, 21
+  size: 110, 220
+  orig: 600, 400
+  offset: 88, 78
+  index: -1
+images/stand/0_00005
+  rotate: false
+  xy: 2, 2
+  size: 109, 239
+  orig: 600, 400
+  offset: 88, 78
+  index: -1
+images/stand/0_00006
+  rotate: false
+  xy: 562, 19
+  size: 109, 222
+  orig: 600, 400
+  offset: 88, 78
+  index: -1
+images/stand/0_00007
+  rotate: false
+  xy: 113, 6
+  size: 109, 235
+  orig: 600, 400
+  offset: 88, 78
+  index: -1
+images/stand/0_00008
+  rotate: false
+  xy: 450, 14
+  size: 110, 227
+  orig: 600, 400
+  offset: 88, 78
+  index: -1
+images/stand/0_00009
+  rotate: false
+  xy: 224, 10
+  size: 111, 231
+  orig: 600, 400
+  offset: 87, 78
+  index: -1

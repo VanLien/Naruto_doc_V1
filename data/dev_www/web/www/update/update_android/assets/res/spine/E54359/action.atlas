@@ -1,0 +1,356 @@
+
+action.png
+size: 1986,1906
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dazhao/bai
+  rotate: false
+  xy: 1032, 14
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+dazhao/dao1/dao1_13
+  rotate: false
+  xy: 1726, 879
+  size: 255, 142
+  orig: 400, 300
+  offset: 29, 142
+  index: -1
+dazhao/dao1/dao1_14
+  rotate: true
+  xy: 618, 1292
+  size: 400, 271
+  orig: 400, 300
+  offset: 0, 21
+  index: -1
+dazhao/dao1/dao1_15
+  rotate: false
+  xy: 1397, 1415
+  size: 397, 271
+  orig: 400, 300
+  offset: 3, 21
+  index: -1
+dazhao/dao1/dao1_17
+  rotate: true
+  xy: 1128, 1310
+  size: 387, 267
+  orig: 400, 300
+  offset: 13, 21
+  index: -1
+dazhao/dao1/dao1_19
+  rotate: false
+  xy: 1397, 1133
+  size: 383, 280
+  orig: 400, 300
+  offset: 17, 4
+  index: -1
+dazhao/dao1/dao1_21
+  rotate: true
+  xy: 205, 358
+  size: 382, 248
+  orig: 400, 300
+  offset: 17, 23
+  index: -1
+dazhao/dao1/dao1_23
+  rotate: true
+  xy: 213, 826
+  size: 377, 262
+  orig: 400, 300
+  offset: 18, 4
+  index: -1
+dazhao/dao1/dao1_25
+  rotate: true
+  xy: 1135, 959
+  size: 349, 234
+  orig: 400, 300
+  offset: 18, 28
+  index: -1
+dazhao/dao1/dao1_27
+  rotate: true
+  xy: 889, 935
+  size: 344, 244
+  orig: 400, 300
+  offset: 22, 16
+  index: -1
+dazhao/dao1/dao1_29
+  rotate: false
+  xy: 477, 677
+  size: 319, 219
+  orig: 400, 300
+  offset: 40, 33
+  index: -1
+dazhao/dao2/dao2_25
+  rotate: false
+  xy: 1421, 568
+  size: 251, 106
+  orig: 360, 250
+  offset: 62, 131
+  index: -1
+dazhao/dao2/dao2_26
+  rotate: false
+  xy: 803, 236
+  size: 344, 215
+  orig: 360, 250
+  offset: 15, 24
+  index: -1
+dazhao/dao2/dao2_27
+  rotate: false
+  xy: 455, 438
+  size: 346, 237
+  orig: 360, 250
+  offset: 11, 5
+  index: -1
+dazhao/dao2/dao2_29
+  rotate: true
+  xy: 477, 898
+  size: 353, 213
+  orig: 360, 250
+  offset: 7, 26
+  index: -1
+dazhao/dao2/dao2_31
+  rotate: true
+  xy: 232, 2
+  size: 354, 232
+  orig: 360, 250
+  offset: 5, 6
+  index: -1
+dazhao/dao2/dao2_33
+  rotate: false
+  xy: 1371, 924
+  size: 353, 207
+  orig: 360, 250
+  offset: 5, 27
+  index: -1
+dazhao/dao2/dao2_35
+  rotate: true
+  xy: 692, 949
+  size: 341, 195
+  orig: 360, 250
+  offset: 7, 29
+  index: -1
+dazhao/dao2/dao2_37
+  rotate: true
+  xy: 1796, 1325
+  size: 311, 190
+  orig: 360, 250
+  offset: 14, 33
+  index: -1
+dazhao/dao2/dao2_39
+  rotate: false
+  xy: 466, 0
+  size: 282, 183
+  orig: 360, 250
+  offset: 40, 40
+  index: -1
+dazhao/dao2/dao2_41
+  rotate: true
+  xy: 1820, 1638
+  size: 268, 166
+  orig: 360, 250
+  offset: 47, 53
+  index: -1
+dazhao/dao3/dao3_43
+  rotate: false
+  xy: 213, 769
+  size: 180, 55
+  orig: 500, 260
+  offset: 73, 185
+  index: -1
+dazhao/dao3/dao3_44
+  rotate: false
+  xy: 795, 116
+  size: 338, 118
+  orig: 500, 260
+  offset: 101, 122
+  index: -1
+dazhao/dao3/dao3_45
+  rotate: true
+  xy: 891, 1281
+  size: 411, 235
+  orig: 500, 260
+  offset: 63, 12
+  index: -1
+dazhao/dao3/dao3_46
+  rotate: false
+  xy: 0, 1673
+  size: 465, 233
+  orig: 500, 260
+  offset: 11, 14
+  index: -1
+dazhao/dao3/dao3_48
+  rotate: true
+  xy: 218, 1206
+  size: 465, 206
+  orig: 500, 260
+  offset: 11, 34
+  index: -1
+dazhao/dao3/dao3_50
+  rotate: false
+  xy: 933, 1699
+  size: 463, 207
+  orig: 500, 260
+  offset: 12, 35
+  index: -1
+dazhao/dao3/dao3_52
+  rotate: false
+  xy: 467, 1694
+  size: 464, 212
+  orig: 500, 260
+  offset: 14, 31
+  index: -1
+dazhao/dao3/dao3_54
+  rotate: true
+  xy: 0, 1205
+  size: 466, 216
+  orig: 500, 260
+  offset: 17, 28
+  index: -1
+dazhao/dao3/dao3_56
+  rotate: true
+  xy: 0, 742
+  size: 461, 211
+  orig: 500, 260
+  offset: 25, 26
+  index: -1
+dazhao/dao3/dao3_58
+  rotate: true
+  xy: 0, 306
+  size: 434, 203
+  orig: 500, 260
+  offset: 54, 26
+  index: -1
+dazhao/dao3/dao3_60
+  rotate: true
+  xy: 426, 1253
+  size: 418, 190
+  orig: 500, 260
+  offset: 71, 34
+  index: -1
+dazhao/dao3/dao3_62
+  rotate: true
+  xy: 1659, 247
+  size: 319, 142
+  orig: 500, 260
+  offset: 91, 79
+  index: -1
+dazhao/dao3/dao3_64
+  rotate: false
+  xy: 1149, 105
+  size: 294, 133
+  orig: 500, 260
+  offset: 97, 88
+  index: -1
+dazhao/dao3/dao3_66
+  rotate: false
+  xy: 1659, 112
+  size: 296, 133
+  orig: 500, 260
+  offset: 96, 88
+  index: -1
+dazhao/fazhen
+  rotate: false
+  xy: 1398, 1688
+  size: 420, 218
+  orig: 420, 220
+  offset: 0, 1
+  index: -1
+dazhao/guangxian
+  rotate: false
+  xy: 750, 14
+  size: 280, 100
+  orig: 300, 100
+  offset: 10, 0
+  index: -1
+dazhao/longjuan/longjuan_01
+  rotate: false
+  xy: 1445, 13
+  size: 212, 247
+  orig: 360, 360
+  offset: 62, 82
+  index: -1
+dazhao/longjuan/longjuan_03
+  rotate: false
+  xy: 1711, 606
+  size: 274, 271
+  orig: 360, 360
+  offset: 46, 63
+  index: -1
+dazhao/longjuan/longjuan_05
+  rotate: false
+  xy: 1149, 240
+  size: 281, 233
+  orig: 360, 360
+  offset: 43, 58
+  index: -1
+dazhao/longjuan/longjuan_07
+  rotate: false
+  xy: 1421, 676
+  size: 288, 246
+  orig: 360, 360
+  offset: 35, 51
+  index: -1
+dazhao/longjuan/longjuan_09
+  rotate: false
+  xy: 798, 681
+  size: 315, 252
+  orig: 360, 360
+  offset: 20, 44
+  index: -1
+dazhao/longjuan/longjuan_11
+  rotate: false
+  xy: 466, 185
+  size: 327, 251
+  orig: 360, 360
+  offset: 15, 42
+  index: -1
+dazhao/tiaodai/tiaodai_62
+  rotate: false
+  xy: 1803, 315
+  size: 154, 289
+  orig: 240, 350
+  offset: 56, 31
+  index: -1
+dazhao/tiaodai/tiaodai_63
+  rotate: false
+  xy: 1782, 1023
+  size: 203, 300
+  orig: 240, 350
+  offset: 33, 24
+  index: -1
+dazhao/tiaodai/tiaodai_64
+  rotate: true
+  xy: 1115, 475
+  size: 219, 304
+  orig: 240, 350
+  offset: 21, 23
+  index: -1
+dazhao/tiaodai/tiaodai_65
+  rotate: false
+  xy: 1432, 262
+  size: 225, 304
+  orig: 240, 350
+  offset: 14, 23
+  index: -1
+dazhao/tiaodai/tiaodai_66
+  rotate: false
+  xy: 0, 0
+  size: 230, 304
+  orig: 240, 350
+  offset: 6, 23
+  index: -1
+dazhao/tiaodai/tiaodai_67
+  rotate: true
+  xy: 803, 453
+  size: 226, 304
+  orig: 240, 350
+  offset: 5, 23
+  index: -1
+dazhao/tiaodai/tiaodai_68
+  rotate: true
+  xy: 1115, 696
+  size: 226, 304
+  orig: 240, 350
+  offset: 3, 23
+  index: -1

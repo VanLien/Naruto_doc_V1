@@ -1,0 +1,144 @@
+
+show.png
+size: 804,998
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+show0002
+  rotate: true
+  xy: 354, 647
+  size: 349, 448
+  orig: 1062, 1062
+  offset: 305, 361
+  index: -1
+show0003
+  rotate: false
+  xy: 2, 548
+  size: 350, 448
+  orig: 1062, 1062
+  offset: 305, 361
+  index: -1
+show0004
+  rotate: false
+  xy: 2, 99
+  size: 350, 447
+  orig: 1062, 1062
+  offset: 304, 361
+  index: -1
+show0005
+  rotate: false
+  xy: 354, 199
+  size: 348, 446
+  orig: 1062, 1062
+  offset: 304, 361
+  index: -1
+wuqi_eff01
+  rotate: false
+  xy: 2, 3
+  size: 58, 94
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff02
+  rotate: false
+  xy: 121, 3
+  size: 57, 94
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff03
+  rotate: false
+  xy: 62, 2
+  size: 57, 95
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff04
+  rotate: false
+  xy: 298, 3
+  size: 56, 94
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff05
+  rotate: false
+  xy: 354, 104
+  size: 56, 93
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff06
+  rotate: false
+  xy: 239, 4
+  size: 57, 93
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff07
+  rotate: false
+  xy: 356, 9
+  size: 56, 93
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff08
+  rotate: false
+  xy: 412, 104
+  size: 56, 93
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff09
+  rotate: false
+  xy: 180, 3
+  size: 57, 94
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+
+show2.png
+size: 798,900
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+show0000
+  rotate: true
+  xy: 348, 557
+  size: 341, 448
+  orig: 1062, 1062
+  offset: 307, 361
+  index: -1
+show0001
+  rotate: false
+  xy: 2, 450
+  size: 344, 448
+  orig: 1062, 1062
+  offset: 307, 361
+  index: -1
+show0006
+  rotate: false
+  xy: 2, 2
+  size: 344, 446
+  orig: 1062, 1062
+  offset: 305, 361
+  index: -1
+show0008
+  rotate: true
+  xy: 348, 214
+  size: 341, 448
+  orig: 1062, 1062
+  offset: 307, 361
+  index: -1
+
+show3.png
+size: 345,451
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+show0007
+  rotate: false
+  xy: 2, 2
+  size: 341, 447
+  orig: 1062, 1062
+  offset: 306, 361
+  index: -1

@@ -1,0 +1,153 @@
+
+action3.png
+size: 1007,672
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+J0000
+  rotate: false
+  xy: 209, 3
+  size: 230, 218
+  orig: 1062, 1062
+  offset: 427, 518
+  index: -1
+J0091
+  rotate: false
+  xy: 853, 474
+  size: 152, 196
+  orig: 1062, 1062
+  offset: 370, 525
+  index: -1
+J0092
+  rotate: false
+  xy: 650, 43
+  size: 214, 202
+  orig: 1062, 1062
+  offset: 325, 525
+  index: -1
+J0093
+  rotate: true
+  xy: 650, 247
+  size: 215, 214
+  orig: 1062, 1062
+  offset: 347, 522
+  index: -1
+J0094
+  rotate: true
+  xy: 441, 3
+  size: 219, 206
+  orig: 1062, 1062
+  offset: 391, 524
+  index: -1
+J0095
+  rotate: true
+  xy: 2, 2
+  size: 164, 205
+  orig: 1062, 1062
+  offset: 451, 523
+  index: -1
+J0096
+  rotate: false
+  xy: 303, 483
+  size: 287, 187
+  orig: 1062, 1062
+  offset: 467, 523
+  index: -1
+J0097
+  rotate: true
+  xy: 2, 168
+  size: 301, 195
+  orig: 1062, 1062
+  offset: 456, 523
+  index: -1
+J0098
+  rotate: false
+  xy: 2, 471
+  size: 299, 199
+  orig: 1062, 1062
+  offset: 433, 522
+  index: -1
+J0099
+  rotate: false
+  xy: 592, 464
+  size: 259, 206
+  orig: 1062, 1062
+  offset: 447, 511
+  index: -1
+J0100
+  rotate: true
+  xy: 199, 223
+  size: 246, 222
+  orig: 1062, 1062
+  offset: 429, 517
+  index: -1
+J0101
+  rotate: false
+  xy: 423, 224
+  size: 225, 238
+  orig: 1062, 1062
+  offset: 428, 518
+  index: -1
+wuqi_eff01
+  rotate: false
+  xy: 866, 378
+  size: 58, 94
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff02
+  rotate: false
+  xy: 926, 378
+  size: 57, 94
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff03
+  rotate: false
+  xy: 866, 281
+  size: 57, 95
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff04
+  rotate: false
+  xy: 925, 282
+  size: 56, 94
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff05
+  rotate: false
+  xy: 925, 187
+  size: 56, 93
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff06
+  rotate: false
+  xy: 866, 90
+  size: 57, 93
+  orig: 63, 96
+  offset: 2, 0
+  index: -1
+wuqi_eff07
+  rotate: false
+  xy: 925, 92
+  size: 56, 93
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff08
+  rotate: true
+  xy: 866, 32
+  size: 56, 93
+  orig: 63, 96
+  offset: 3, 0
+  index: -1
+wuqi_eff09
+  rotate: false
+  xy: 866, 185
+  size: 57, 94
+  orig: 63, 96
+  offset: 3, 0
+  index: -1

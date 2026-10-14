@@ -1,0 +1,137 @@
+﻿local var_0_0 = {}
+
+function BaseClass(arg_1_0)
+	local var_1_0 = {}
+
+	var_1_0.__init = false
+	var_1_0.__delete = false
+	var_1_0.super = arg_1_0
+
+	function var_1_0.New(...)
+		local var_2_0 = {
+			_class_type = var_1_0
+		}
+
+		setmetatable(var_2_0, {
+			__index = var_0_0[var_1_0]
+		})
+
+		local var_2_1
+
+		local function var_2_2(arg_3_0, ...)
+			if arg_3_0.super then
+				var_2_2(arg_3_0.super, ...)
+			end
+
+			if arg_3_0.__init then
+				arg_3_0.__init(var_2_0, ...)
+			end
+		end
+
+		var_2_2(var_1_0, ...)
+
+		function var_2_0.DeleteMe(arg_4_0)
+			local var_4_0 = arg_4_0._class_type
+
+			while var_4_0 ~= nil do
+				if var_4_0.__delete then
+					var_4_0.__delete(arg_4_0)
+				end
+
+				var_4_0 = var_4_0.super
+			end
+		end
+
+		return var_2_0
+	end
+
+	local var_1_1 = {}
+
+	var_0_0[var_1_0] = var_1_1
+
+	setmetatable(var_1_0, {
+		__newindex = function(arg_5_0, arg_5_1, arg_5_2)
+			var_1_1[arg_5_1] = arg_5_2
+		end,
+		__index = var_1_1
+	})
+
+	if arg_1_0 then
+		setmetatable(var_1_1, {
+			__index = function(arg_6_0, arg_6_1)
+				if var_0_0[arg_1_0] == nil or arg_6_1 == nil then
+					return {}
+				end
+
+				return var_0_0[arg_1_0][arg_6_1]
+			end
+		})
+	end
+
+	return var_1_0
+end
+
+local var_0_1 = {}
+local var_0_2 = NewModelFile or {}
+local var_0_3 = {}
+
+setmetatable(_G, var_0_1)
+
+function var_0_1.__index(arg_7_0, arg_7_1)
+	local var_7_0 = var_0_2[arg_7_1]
+
+	if var_7_0 and not var_0_3[var_7_0] then
+		var_0_2[arg_7_1] = nil
+		var_0_3[var_7_0] = true
+
+		local var_7_1 = require(var_7_0)
+
+		if type(var_7_1) == "boolean" then
+			return _G[arg_7_1]
+		else
+			return var_7_1
+		end
+	end
+end
+
+local var_0_4 = {}
+local var_0_5 = {}
+
+Config = Config or {}
+
+setmetatable(_G.Config, var_0_4)
+
+function var_0_4.__index(arg_8_0, arg_8_1)
+	if not arg_8_1 then
+		return
+	end
+
+	local var_8_0 = "Config_" .. arg_8_1
+	local var_8_1 = var_0_2[var_8_0]
+
+	if var_8_1 and not var_0_3[var_8_1] then
+		var_0_2[var_8_0] = nil
+		var_0_3[var_8_1] = true
+
+		local var_8_2 = require(var_8_1)
+
+		if type(var_8_2) == "boolean" then
+			return _G.Config[arg_8_1]
+		else
+			return var_8_2
+		end
+	end
+end
+
+function clearSuperClass()
+	var_0_0 = {}
+	var_0_1 = {}
+	var_0_4 = {}
+	var_0_2 = {}
+	var_0_3 = {}
+	var_0_5 = {}
+end
+
+function getSuperClass(arg_10_0)
+	return var_0_0[arg_10_0]
+end

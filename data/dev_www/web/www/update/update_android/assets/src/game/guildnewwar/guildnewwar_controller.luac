@@ -1,0 +1,1198 @@
+-- --------------------------------------------------------------------
+-- 这里填写简要说明(必填),
+--
+-- (必填, 创建模块的人员)
+-- (必填, 后续维护以及修改的人员)
+-- @description:
+--      这里填写详细说明,主要填写该模块的功能简要
+-- <br/>Create: 2018-10-08
+-- --------------------------------------------------------------------
+GuildNewwarController = GuildNewwarController or BaseClass(BaseController)
+
+function GuildNewwarController:config()
+    self.model = GuildNewwarModel.New(self)
+    self.dispather = GlobalEvent:getInstance()
+end
+
+function GuildNewwarController:getModel()
+    return self.model
+end
+
+function GuildNewwarController:registerEvents()
+	if self.init_role_event == nil then
+        self.init_role_event = GlobalEvent:getInstance():Bind(EventId.ROLE_CREATE_SUCCESS, function()
+            GlobalEvent:getInstance():UnBind(self.init_role_event)
+            self.init_role_event = nil
+            self.role_vo = RoleController:getInstance():getRoleVo()
+            if self.role_vo ~= nil then
+                --self:requestInitProtocal()
+                if self.role_assets_event == nil then
+                    self.role_assets_event = self.role_vo:Bind(RoleEvent.UPDATE_ROLE_ATTRIBUTE, function(key, value)
+                        if key == "guild_lev" then
+                            if value == 0 then -- 退出联盟,清掉数据
+                                self.model:config()
+                            end
+                            self:requestInitProtocal()
+                        end
+                    end)
+                end
+            end
+        end)
+    end
+
+    -- 断线重连的时候
+    if self.re_link_game_event == nil then
+        self.re_link_game_event = GlobalEvent:getInstance():Bind(LoginEvent.RE_LINK_GAME, function()
+            self.model:clearEnemyCacheData()
+        end)
+    end
+end
+
+-- 登陆时、联盟等级变化时请求
+function GuildNewwarController:requestInitProtocal( )
+	self:reqestGuildWarStatus()
+    self:requestAwardBoxData() -- 公会宝箱红点用到
+end
+
+---------------------@ c2s
+-- 请求联盟战详细数据
+function GuildNewwarController:requestGuildWarData(  )
+    self:SendProtocal(14200, {})
+end
+
+-- 请求敌方单个据点数据
+function GuildNewwarController:requestEnemyPositionData( pos )
+    if not pos then return end
+    local protocal = {}
+    protocal.pos = pos
+    self:SendProtocal(14201, protocal)
+end
+
+-- 发起战斗
+function GuildNewwarController:requestGuildWarFighting( pos, hp, flag )
+    if not pos then return end
+    local protocal = {}
+    protocal.pos = pos
+    protocal.hp = hp
+    protocal.flag = flag
+    self:SendProtocal(14202, protocal)
+end
+
+-- 请求联盟战状态
+function GuildNewwarController:reqestGuildWarStatus( )
+    self:SendProtocal(14204, {})
+end
+
+-- 请求对战列表数据
+function GuildNewwarController:requestGuildWarBattleList(  )
+    self:SendProtocal(14205, {})
+end
+
+-- 请求本方联盟战据点数据
+function GuildNewwarController:requestMyGuildPositionData(  )
+    self:SendProtocal(14208, {})
+end
+
+-- 请求据点防守记录
+function GuildNewwarController:requestPositionDefendData( g_id1, g_sid1, pos )
+    local protocal = {}
+    protocal.g_id1 = g_id1
+    protocal.g_sid1 = g_sid1
+    protocal.pos = pos
+    self:SendProtocal(14209, protocal)
+end
+
+-- 请求战场日志
+function GuildNewwarController:requestBattleLogData(  )
+    self:SendProtocal(14212, {})
+end
+
+-- 请求联盟战详细排名数据
+function GuildNewwarController:requestGuildWarRankData(  )
+    self:SendProtocal(14213, {})
+end
+
+-- 请求宝箱数据
+function GuildNewwarController:requestAwardBoxData(  )
+    self:SendProtocal(14220, {})
+end
+
+-- 请求领取宝箱数据
+function GuildNewwarController:requestGetBoxAward( order )
+    local protocal = {}
+    protocal.order = order
+    self:SendProtocal(14221, protocal)
+end
+
+---------------------@ s2c
+
+function GuildNewwarController:registerProtocals()
+    self:RegisterProtocal(14200, "handle14200")     -- 联盟战详细信息
+    self:RegisterProtocal(14201, "handle14201")     -- 敌方单个据点信息
+    self:RegisterProtocal(14202, "handle14202")     -- 发起战斗
+    self:RegisterProtocal(14203, "handle14203")     -- 战斗结果
+    self:RegisterProtocal(14204, "handle14204")     -- 联盟战的状态
+    self:RegisterProtocal(14205, "handle14205")     -- 对战列表
+    self:RegisterProtocal(14206, "handle14206")     -- 据点数据更新(只更新有变化的)
+    self:RegisterProtocal(14207, "handle14207")     -- 联盟战基础数据更新（星数、buff等）
+    self:RegisterProtocal(14208, "handle14208")     -- 本方联盟战据点数据
+    self:RegisterProtocal(14209, "handle14209")     -- 防守记录
+    self:RegisterProtocal(14210, "handle14210")     -- 有新的日志产生
+    self:RegisterProtocal(14212, "handle14212")     -- 战场日志
+    self:RegisterProtocal(14213, "handle14213")     -- 联盟战详细排名
+    self:RegisterProtocal(14214, "handle14214")     -- 联盟战结果
+    self:RegisterProtocal(14220, "handle14220")     -- 联盟战宝箱数据
+    self:RegisterProtocal(14221, "handle14221")     -- 领取联盟战宝箱
+    self:RegisterProtocal(14223, "handle14223")     -- 更新单个联盟战宝箱
+
+    self:RegisterProtocal(14224, "handle14224")     -- 赛区排行
+    self:RegisterProtocal(14225, "handle14225")     -- 赛季统计
+    self:RegisterProtocal(14226, "handle14226")     -- 对战记录
+
+    --传奇赛
+    self:RegisterProtocal(14230, "handle14230")     -- 请求红点信息
+    self:RegisterProtocal(14231, "handle14231")     -- 点击红点
+    self:RegisterProtocal(14232, "handle14232")     -- 设置阵法
+    self:RegisterProtocal(14233, "handle14233")     -- 请求阵法
+    self:RegisterProtocal(14234, "handle14234")     -- 请求队伍列表
+    self:RegisterProtocal(14240, "handle14240")     -- 公会联赛状态
+    self:RegisterProtocal(14241, "handle14241")     -- 个人基本信息
+    self:RegisterProtocal(14242, "handle14242")     -- 我的比赛信息
+    self:RegisterProtocal(14243, "handle14243")     -- 竞猜信息
+    self:RegisterProtocal(14244, "handle14244")     -- 竞猜押注
+    self:RegisterProtocal(14245, "handle14245")     -- 我的竞猜信息
+    self:RegisterProtocal(14246, "handle14246")     -- 上次比赛结果信息
+    self:RegisterProtocal(14247, "handle14247")     -- 竞猜押注实时更新
+    self:RegisterProtocal(14248, "handle14248")     -- 我的PK信息
+    self:RegisterProtocal(14249, "handle14249")     -- 获取64强信息
+    self:RegisterProtocal(14250, "handle14250")     -- 获取8强信息
+    self:RegisterProtocal(14251, "handle14251")     -- 请求对战詳情
+    self:RegisterProtocal(14252, "handle14252")     -- 请求对战列表
+    self:RegisterProtocal(14253, "handle14253")     -- 获取前8信息
+    self:RegisterProtocal(14235, "handle14235")     -- 兑换
+end
+
+function GuildNewwarController:printMsgGuildNewwar(id, msg)
+end
+
+-- 联盟战数据
+function GuildNewwarController:handle14200( data )
+    self:printMsgGuildNewwar(14200, data)
+    data = data or {}
+    if data.count then -- 已挑战次数
+        self.model:setGuildWarChallengeCount(data.count)
+    end
+    if data.result then
+        self.model:setGuildWarResult(data.result)
+    end
+    if data.ranks then
+        self.model:setGuildWarTopThreeRank(data.ranks)
+    end
+
+    -- 我方联盟基础信息
+    local myBaseInfo = {}
+    myBaseInfo.gname = data.gname1
+    myBaseInfo.hp = data.hp1
+    myBaseInfo.buff_lev = data.buff_lev1
+    --new dan 段位  cups 杯数
+    myBaseInfo.dan = data.dan or 1
+    myBaseInfo.cups = data.cups or 1000
+    self.model:setMyGuildWarBaseInfo(myBaseInfo)
+
+    -- 敌方联盟数据
+    self.model:setEnemyGuildWarData(data)
+
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GuildWarEnemyPositionDataInitEvent)
+end
+ 
+-- 敌方单个据点数据
+function GuildNewwarController:handle14201( data )
+    self:printMsgGuildNewwar(14201, data)
+    if data and self.attk_position_window then
+        self.attk_position_window:setData(data)
+    end
+end
+
+-- 发起战斗
+function GuildNewwarController:handle14202( data )
+    self:printMsgGuildNewwar(14202, data)
+    message(data.msg)
+    if data.code == TRUE then
+        self.model:setGuildWarChallengeCount(data.count)
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.UpdateGuildwarChallengeCountEvent)
+        self:openAttkPositionWindow(false)
+        self:openAttkLookWindow(false)
+    end
+end
+
+-- 挑战据点的战斗结果
+function GuildNewwarController:handle14203( data )
+    self:printMsgGuildNewwar(14203, data)
+    BattleController:getInstance():openFinishView(true, BattleConst.Fight_Type.GuildNewWar, data)
+end
+
+-- 联盟战状态
+function GuildNewwarController:handle14204( data )
+    self:printMsgGuildNewwar(14204, data)
+    if data then
+        self.model:setGuildWarStatus(data)
+        self.model:setSeasonData(data)
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.UpdateGuildWarStatusEvent, data.status, data.flag)
+    end
+end
+
+-- 联盟战对阵列表
+function GuildNewwarController:handle14205( data )
+    self:printMsgGuildNewwar(14205, data)
+    if data and self.battle_list_window then
+        self.battle_list_window:setData(data)
+    end
+end
+
+-- 据点数据更新(本方与对方都走这里，变量更)
+function GuildNewwarController:handle14206( data )
+    self:printMsgGuildNewwar(14206, data)
+    if data then
+        if data.flag and data.flag == TRUE then
+            self.model:updateMyGuildWarPositionData(data.defense)
+        else
+            self.model:updateEnemyGuildWarPositionData(data.defense)
+        end
+    end
+end
+
+-- 联盟战基础数据更新(星数、buff等)
+function GuildNewwarController:handle14207( data )
+    self:printMsgGuildNewwar(14207, data)
+    if data then
+        if data.result then
+            self.model:setGuildWarResult(data.result)
+        end
+        if data.hp and data.buff_lev then
+            local myBaseInfo = {}
+            myBaseInfo.hp = data.hp
+            myBaseInfo.buff_lev = data.buff_lev
+            self.model:updateMyGuildWarBaseInfo(myBaseInfo)
+        end
+        if data.hp2 then
+            self.model:updateEnemyGuildWarBaseInfo(data.hp2)
+        end
+        if data.ranks then
+            self.model:setGuildWarTopThreeRank(data.ranks)
+        end
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.UpdateGuildWarBaseInfoEvent)
+    end
+end
+
+-- 本方据点数据
+function GuildNewwarController:handle14208( data )
+    self:printMsgGuildNewwar(14208, data)
+    if data then
+        self.model:setMyGuildWarPositionData(data.defense)
+        self.model:setAvgPower(data.avg_power)
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.GetGuildWarMyPositionDataEvent)
+    end
+end
+
+-- 防守记录
+function GuildNewwarController:handle14209( data )
+    self:printMsgGuildNewwar(14209, data)
+    if data and self.defend_look_window then
+        self.defend_look_window:setData(data)
+    end
+end
+
+-- 有新的日志产生
+function GuildNewwarController:handle14210(  )
+    self:printMsgGuildNewwar(14210, data)
+    self.model:updateGuildWarRedStatus(GuildConst.red_index.guildnewwar_log, true, true)
+end
+
+-- 战场日志
+function GuildNewwarController:handle14212( data )
+    self:printMsgGuildNewwar(14212, data)
+    if self.battle_log_window and data then
+        self.battle_log_window:setData(data.guild_league_peak_log)
+    end
+end
+
+-- 联盟战详细排名
+function GuildNewwarController:handle14213( data )
+    if data then
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.UpdateGuildWarRankDataEvent, data.ranks)
+    end
+end
+
+-- 联盟战结果
+function GuildNewwarController:handle14214( data )
+    if data and data.result then
+        self.model:setGuildWarResult(data.result)
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.UpdateGuildWarBaseInfoEvent)
+    end
+end
+
+-- 联盟战宝箱数据
+function GuildNewwarController:handle14220( data )
+    if data then
+        self.model:setGuildWarBoxData(data)
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.UpdateGuildWarBoxDataEvent, data)
+    end
+end
+
+-- 领取宝箱
+function GuildNewwarController:handle14221( data )
+    message(data.msg) 
+end
+
+-- 更新单个宝箱数据
+function GuildNewwarController:handle14223( data )
+    if data then
+        self.model:updateGuildWarBoxData(data)
+        -- 判断一下是否为玩家自己领取了宝箱，更新界面领取状态
+        if self.role_vo and data.rid == self.role_vo.rid and data.sid == self.role_vo.srv_id then
+            GlobalEvent:getInstance():Fire(GuildNewwarEvent.UpdateMyAwardBoxEvent)
+        end
+    end
+end
+
+-- 赛区排行
+function GuildNewwarController:sender14224(zone_id)
+    local protocal = {}
+    protocal.zone_id = zone_id
+    self:SendProtocal(14224, protocal)
+end
+
+function GuildNewwarController:handle14224( data )
+    self:printMsgGuildNewwar(14224, data)
+    if data then
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_NOMAL_RANK, data.ranks)
+    end
+end
+
+-- 赛季统计
+function GuildNewwarController:sender14225(season)
+    local protocal = {}
+    protocal.season = season or 1
+    self:SendProtocal(14225, protocal)
+end
+
+function GuildNewwarController:handle14225( data )
+    self:printMsgGuildNewwar(14225, data)
+    if data then
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_SEASON_STATISTICS, data)
+    end
+end
+
+-- 赛区排行
+function GuildNewwarController:sender14226(season)
+    local protocal = {}
+    protocal.season = season or 1
+    self:SendProtocal(14226, protocal)
+end
+
+function GuildNewwarController:handle14226( data )
+    self:printMsgGuildNewwar(14226, data)
+    if data then
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_SEASON_PLAY, data.log_list)
+    end
+end
+
+-------------------------@ 界面
+function GuildNewwarController:openGuildnewwarGateWindow( status, setting )
+    if status == false then
+        if self.guildnewwar_gate_window then
+            self.guildnewwar_gate_window:close()
+            self.guildnewwar_gate_window = nil
+        end
+    else
+        if self.guildnewwar_gate_window == nil then
+            self.guildnewwar_gate_window = GuildnewwarGateWindow.New()
+        end
+        if self.guildnewwar_gate_window:isOpen() == false then
+            self.guildnewwar_gate_window:open(setting)
+        end
+    end
+end
+
+-- 打开联盟战主界面
+function GuildNewwarController:openMainWindow( status )
+	if status == false then
+        if self.main_window then
+            self.main_window:close()
+            self.main_window = nil
+        end
+    else
+        if(FILTER_CHARGE == true) then
+            message(TI18N("语言_c_2050"))
+            return;
+        end
+
+        if self.role_vo == nil or self.role_vo.gid == 0 then 
+            message(TI18N("语言_c_538"))
+            return 
+        end
+        local config = Config.GuildWarNewData.data_const.limit_lev
+        if config == nil then 
+            message(TI18N("语言_c_3858"))
+            return
+        end
+        if self.role_vo.guild_lev < config.val then
+            message(TI18N("语言_c_3859"))
+            return 
+        end
+        if self.main_window == nil then
+            self.main_window = GuildNewwarMainWindow.New()
+        end
+        if self.main_window:isOpen() == false then
+            self.main_window:open()
+        end
+    end
+end
+
+-- 打开进攻一览
+function GuildNewwarController:openAttkLookWindow( status )
+    if status == false then
+        if self.attk_look_window then
+            self.attk_look_window:close()
+            self.attk_look_window = nil
+        end
+    else
+        if self.attk_look_window == nil then
+            self.attk_look_window = GuildNewwarAttkLookWindow.New()
+        end
+        if self.attk_look_window:isOpen() == false then
+            self.attk_look_window:open()
+        end
+    end
+end
+
+-- 打开防守记录
+function GuildNewwarController:openDefendLookWindow( status, g_id, g_sid, pos )
+    if status == false then
+        if self.defend_look_window then
+            self.defend_look_window:close()
+            self.defend_look_window = nil
+        end
+    else
+        if self.defend_look_window == nil then
+            self.defend_look_window = GuildNewwarDefendLookWindow.New()
+        end
+        if self.defend_look_window:isOpen() == false then
+            self.defend_look_window:open(g_id, g_sid, pos)
+        end
+    end
+end
+
+-- 打开对阵列表
+function GuildNewwarController:openBattleListWindow( status )
+    if status == false then
+        if self.battle_list_window then
+            self.battle_list_window:close()
+            self.battle_list_window = nil
+        end
+    else
+        if self.battle_list_window == nil then
+            self.battle_list_window = GuildNewwarBattleListWindow.New()
+        end
+        if self.battle_list_window:isOpen() == false then
+            self.battle_list_window:open()
+        end
+    end
+end
+
+-- 打开战场日志
+function GuildNewwarController:openBattleLogWindow( status )
+    if status == false then
+        if self.battle_log_window then
+            self.battle_log_window:close()
+            self.battle_log_window = nil
+        end
+    else
+        if self.battle_log_window == nil then
+            self.battle_log_window = GuildNewwarBattleLogWindow.New()
+        end
+        if self.battle_log_window:isOpen() == false then
+            self.battle_log_window:open()
+        end
+    end
+end
+
+-- 打开战绩奖励
+function GuildNewwarController:openGuildWarAwardWindow( status )
+    if status == false then
+        if self.guildwar_award_window then
+            self.guildwar_award_window:close()
+            self.guildwar_award_window = nil
+        end
+    else
+        if self.guildwar_award_window == nil then
+            self.guildwar_award_window = GuildNewwarAwardWindow.New()
+        end
+        if self.guildwar_award_window:isOpen() == false then
+            self.guildwar_award_window:open()
+        end
+    end
+end
+
+-- 打开战绩奖励
+function GuildNewwarController:openGuildNewwarRankAwardPreview( status )
+    if status == false then
+        if self.guildnewwar_rank_award_preview then
+            self.guildnewwar_rank_award_preview:close()
+            self.guildnewwar_rank_award_preview = nil
+        end
+    else
+        if self.guildnewwar_rank_award_preview == nil then
+            self.guildnewwar_rank_award_preview = GuildNewwarRankAwardPreview.New()
+        end
+        if self.guildnewwar_rank_award_preview:isOpen() == false then
+            self.guildnewwar_rank_award_preview:open()
+        end
+    end
+end
+
+-- 打开赛季统计
+function GuildNewwarController:openGuildnewwarSeasonStatisticsPanel( status )
+    if status == false then
+        if self.season_statistics_panel then
+            self.season_statistics_panel:close()
+            self.season_statistics_panel = nil
+        end
+    else
+        if self.season_statistics_panel == nil then
+            self.season_statistics_panel = GuildnewwarSeasonStatisticsPanel.New()
+        end
+        if self.season_statistics_panel:isOpen() == false then
+            self.season_statistics_panel:open()
+        end
+    end
+end
+
+-- 打开挑战据点界面
+function GuildNewwarController:openAttkPositionWindow( status, pos )
+    if status == false then
+        if self.attk_position_window then
+            self.attk_position_window:close()
+            self.attk_position_window = nil
+        end
+    else
+        if self.attk_position_window == nil then
+            self.attk_position_window = GuildNewwarAttkPositionWindow.New()
+        end
+        if self.attk_position_window:isOpen() == false then
+            self.attk_position_window:open(pos)
+        end
+    end
+end
+
+-- 打开战绩排行榜界面
+function GuildNewwarController:openGuildWarRankView( status )
+    if status == false then
+        if self.guildwar_rank_window then
+            self.guildwar_rank_window:close()
+            self.guildwar_rank_window = nil
+        end
+    else
+        if self.guildwar_rank_window == nil then
+            self.guildwar_rank_window = GuildNewWarRankWindow.New()
+        end
+        if self.guildwar_rank_window:isOpen() == false then
+            self.guildwar_rank_window:open()
+        end
+    end
+end
+
+-- 打开公会常规赛段位排行榜界面
+function GuildNewwarController:openGuildnewwarSeasonRankWindow( status, data)
+    if status == false then
+        if self.guildwar_new_season_rank then
+            self.guildwar_new_season_rank:close()
+            self.guildwar_new_season_rank = nil
+        end
+    else
+        if self.guildwar_new_season_rank == nil then
+            self.guildwar_new_season_rank = GuildnewwarSeasonRankWindow.New()
+        end
+        if self.guildwar_new_season_rank:isOpen() == false then
+            self.guildwar_new_season_rank:open(data)
+        end
+    end
+end
+
+-- 打开段位奖励
+function GuildNewwarController:openGuildNewWarRankAwardPreview( status )
+    if status == false then
+        if self.guildnewwar_rank_award_preview then
+            self.guildnewwar_rank_award_preview:close()
+            self.guildnewwar_rank_award_preview = nil
+        end
+    else
+        if self.guildnewwar_rank_award_preview == nil then
+            self.guildnewwar_rank_award_preview = GuildNewwarRankAwardPreview.New()
+        end
+        if self.guildnewwar_rank_award_preview:isOpen() == false then
+            self.guildnewwar_rank_award_preview:open()
+        end
+    end
+end
+
+-- 判断是否开启联盟战
+function GuildNewwarController:checkIsCanOpenGuildWarWindow(not_tips)
+    local isOpen = true
+    local limit_lev = Config.GuildWarNewData.data_const.limit_lev.val
+    local config_day = Config.GuildWarNewData.data_const.limit_open_time -- 开服天数限制
+    local role_vo = RoleController:getInstance():getRoleVo()
+    local open_srv_day = RoleController:getInstance():getModel():getOpenSrvDay()
+    if not role_vo:isHasGuild() then
+        if not not_tips then
+            message(TI18N("语言_c_538"))
+        end
+        isOpen = false
+    elseif role_vo.guild_lev < limit_lev then
+        if not not_tips then
+            message(TI18N("语言_c_3859"))
+        end
+        isOpen = false
+    elseif open_srv_day <= config_day.val then
+        if not not_tips then
+            message(config_day.desc)
+        end
+        isOpen = false
+    end
+    return isOpen , limit_lev
+end
+
+-- 打开公会战宝箱奖励
+function GuildNewwarController:openAwardBoxWindow( status )
+    if status == true then
+        if not self.award_box_win then
+            self.award_box_win = GuildNewwarAwardBoxWindow.New()
+        end
+        if self.award_box_win:isOpen() == false then
+            self.award_box_win:open()
+        end
+    else
+        if self.award_box_win then
+            self.award_box_win:close()
+            self.award_box_win = nil
+        end
+    end
+end
+
+-- 打开宝箱奖励预览
+function GuildNewwarController:openAwardBoxPreview( status )
+    if status == true then
+        if not self.award_box_preview then
+            self.award_box_preview = GuildNewwarAwardBoxPreview.New()
+        end
+        if self.award_box_preview:isOpen() == false then
+            self.award_box_preview:open()
+        end
+    else
+        if self.award_box_preview then
+            self.award_box_preview:close()
+            self.award_box_preview = nil
+        end
+    end
+end
+
+----------------------------------------------------联盟战 传奇赛
+--协议
+----请求红点信息
+function GuildNewwarController:sender14230()
+    local protocal = {}
+    self:SendProtocal(14230, protocal)
+end
+
+function GuildNewwarController:handle14230( data )
+    self:printMsgGuildNewwar(14230, data)
+    self.model:setLoginRedPoint(data)
+end
+----点击红点
+function GuildNewwarController:sender14231(_type)
+    local protocal = {}
+    protocal.type = _type  --"红点类型（1:我的赛程  2:64强/8强红点）
+    self:SendProtocal(14231, protocal)
+end
+
+function GuildNewwarController:handle14231( data )
+    self:printMsgGuildNewwar(14231, data)
+    -- GlobalEvent:getInstance():Fire(ArenapeakchampionEvent.ARENAPEAKCHAMPION_HIT_RED_POINT_EVENT, data)
+end
+----设置阵法
+function GuildNewwarController:sender14232(formations,isTips)
+    self.isTips = isTips or 0
+    local protocal = {}
+    protocal.formations = formations or {}
+    self.record_formations = formations
+    self:SendProtocal(14232, protocal)
+end
+
+function GuildNewwarController:handle14232( data )
+    self:printMsgGuildNewwar(14232, data)
+    if self.isTips == 0 then
+        message(data.msg)
+    end
+    if data.code == TRUE then
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_SAVE_FROM_EVENT, data)
+        if self.record_formations then
+            local model = HeroController:getInstance():getModel()
+            for i,v in ipairs(self.record_formations) do
+                v.type = PartnerConst.Fun_Form.GuildNewWarLegend
+                model:setFormList(v, v.order)
+            end
+        end
+        HeroController:getInstance():getModel():NextBattle(14232)
+    else
+        GlobalEvent:getInstance():Fire(HeroEvent.Hero_no_Sacrifice_bttom_Event,data.msg,PartnerConst.Fun_Form.GuildNewWarLegend)
+        HeroController:getInstance():getModel():NextBattle(14232)
+    end
+end
+----请求阵法
+function GuildNewwarController:sender14233()
+    local protocal = {}
+    self:SendProtocal(14233, protocal)
+end
+
+function GuildNewwarController:handle14233( data )
+    self:printMsgGuildNewwar(14233, data)
+    -- if data then
+    --     local data = {
+    --         formations = {
+    --             [1] = {
+    --                 formation_type = 1,
+    --                 hallows_id = 0,
+    --                 order = 1,
+    --                 pos_info = {
+    --                     [1] = {
+    --                         id = 1,
+    --                         pos = 1,
+    --                     },
+    --                 },
+    --             },
+    --             [2] = {
+    --                 formation_type = 1,
+    --                 hallows_id = 0,
+    --                 order = 2,
+    --                 pos_info = {
+    --                 },
+    --             },
+    --             [3] = {
+    --                 formation_type = 1,
+    --                 hallows_id = 0,
+    --                 order = 3,
+    --                 pos_info = {
+    --                 },
+    --             },
+    --         },
+    --     }
+    --     local model = HeroController:getInstance():getModel()
+    --     for i,v in ipairs(data.formations) do
+    --         v.type = PartnerConst.Fun_Form.GuildNewWarLegend
+    --         model:setFormList(v, v.order)
+    --         -- v.old_order = v.order --记录保存旧的old_order
+    --     end
+    --     GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_FROM_EVENT, data)
+    -- end
+    local model = HeroController:getInstance():getModel()
+    for i,v in ipairs(data.formations) do
+        v.type = PartnerConst.Fun_Form.GuildNewWarLegend
+        model:setFormList(v, v.order)
+        -- v.old_order = v.order --记录保存旧的old_order
+    end
+
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_FROM_EVENT, data)
+end
+----请求队伍列表
+function GuildNewwarController:sender14234()
+    local protocal = {}
+    self:SendProtocal(14234, protocal)
+end
+
+function GuildNewwarController:handle14234( data )
+    self:printMsgGuildNewwar(14234, data)
+    local team_list = data.team_list or {}
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_TEAM_LIST_EVENT, team_list)
+end
+----公会联赛状态(传奇赛)
+function GuildNewwarController:sender14240()
+    local protocal = {}
+    self:SendProtocal(14240, protocal)
+end
+
+function GuildNewwarController:handle14240( data )
+    self:printMsgGuildNewwar(14240, data)
+    -- data.step = 1
+    -- data.step_status = 5
+    self.model:setMainData(data)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_MAIN_EVENT, data)
+    if data.step_status ~= GuildNewwarConst.guessing_set_status_type.set_status_quiz then
+        PromptController:getInstance():getModel():removePromptDataByTpye(PromptTypeConst.Guild_New_war)
+    end
+
+    local is_open = self.model:checkGuildNewWarIsOpen(true)
+    if not is_open then return end
+    
+    if data.step_status == GuildNewwarConst.guessing_set_status_type.set_status_quiz or data.step_status == GuildNewwarConst.guessing_set_status_type.set_status_Idle then
+        --进竞猜阶段..后端才会刷新数据.这个时候我刷新一下数据 额外到休整期也会清
+        self.model:setMatchData64(nil, data.zone_id)
+        self.model:setMatchData8(nil, data.zone_id)
+    end
+    -- self.current_round_status = data.round_status
+
+    --通知客户端观看录像
+    if data.flag == GuildNewwarConst.guessing_flag_type.demand_radio then
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_SHOW_VEDIO_EVENT, data)
+    end
+end
+----个人基本信息
+function GuildNewwarController:sender14241()
+    local protocal = {}
+    self:SendProtocal(14241, protocal)
+end
+
+function GuildNewwarController:handle14241( data )
+    self:printMsgGuildNewwar(14241, data)
+    self.model:setMyGuessData(data)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_SINGLE_INFO_EVENT, data)
+end
+----我的比赛信息
+function GuildNewwarController:sender14242()
+    local protocal = {}
+    self:SendProtocal(14242, protocal)
+end
+
+function GuildNewwarController:handle14242( data )
+    self:printMsgGuildNewwar(14242, data)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_MY_MATCH_INFO_EVENT, data)
+end
+----竞猜信息
+function GuildNewwarController:sender14243()
+    local protocal = {}
+    self:SendProtocal(14243, protocal)
+end
+
+function GuildNewwarController:handle14243( data )
+    self:printMsgGuildNewwar(14243, data)
+    self.model:setBetTypeInfo(data.bet_type)
+    self.model:setBetInfo(data)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_GUESSING_INFO_EVENT, data)
+end
+----竞猜押注
+function GuildNewwarController:sender14244(bet_type, bet_val)
+    local protocal = {}
+    protocal.bet_type = bet_type
+    protocal.bet_val = bet_val
+    self:SendProtocal(14244, protocal)
+end
+
+function GuildNewwarController:handle14244( data )
+    self:printMsgGuildNewwar(14244, data)
+    message(data.msg)
+    if data.code == TRUE then
+        --下次成功需要更新代币
+        self:sender14241()
+        self.model:setBetTypeInfo(data.bet_type)
+        PromptController:getInstance():getModel():removePromptDataByTpye(PromptTypeConst.Guild_New_war)
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_GUESSING_STAKE_EVENT, data)
+        if self.elite_guessing_count then
+            self.elite_guessing_count:onClickCloseBtn()
+        end
+    end
+end
+----我的竞猜信息
+function GuildNewwarController:sender14245()
+    local protocal = {}
+    self:SendProtocal(14245, protocal)
+end
+
+function GuildNewwarController:handle14245( data )
+    self:printMsgGuildNewwar(14245, data)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_MY_GUESSING_INFO_EVENT, data.list)
+end
+----上次比赛结果信息
+function GuildNewwarController:sender14246()
+    local protocal = {}
+    self:SendProtocal(14246, protocal)
+end
+
+function GuildNewwarController:handle14246( data )
+    self:printMsgGuildNewwar(14246, data)
+    ArenapeakchampionController:getInstall():openArenapeakchampionResultPanel(true, data) --结算
+end
+----竞猜押注实时更新
+-- function GuildNewwarController:sender14247()
+--     local protocal = {}
+--     self:SendProtocal(14247, protocal)
+-- end
+
+function GuildNewwarController:handle14247( data )
+    self:printMsgGuildNewwar(14247, data)
+    self.model:updateBetInfo(data)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_UPDATE_GUESSING_INFO_EVENT, data)
+end
+----我的PK信息
+function GuildNewwarController:sender14248()
+    local protocal = {}
+    self:SendProtocal(14248, protocal)
+end
+
+function GuildNewwarController:handle14248( data )
+    self:printMsgGuildNewwar(14248, data)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_MY_MATCH_LOG_EVENT, data.list)
+end
+----获取64强信息
+function GuildNewwarController:sender14249(zone_id)
+    local protocal = {}
+    protocal.zone_id = zone_id
+    self:SendProtocal(14249, protocal)
+end
+
+function GuildNewwarController:handle14249( data )
+    self:printMsgGuildNewwar(14249, data)
+    -- if data.type == 1 then --256
+        -- self.model:setMatchData256(data.list, data.zone_id)
+    -- elseif data.type == 2 then --64强
+        self.model:setMatchData64(data.list, data.zone_id)
+    -- else
+    --     --其他数据忽略
+    --     return
+    -- end
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_TOP_64_EVENT, data)
+end
+
+--8强
+function GuildNewwarController:sender14250(zone_id)
+    local protocal = {}
+    protocal.zone_id = zone_id
+    self:SendProtocal(14250, protocal)
+end
+
+function GuildNewwarController:handle14250(data)
+    self:printMsgGuildNewwar(14250, data)
+    self.model:setMatchData8(data.pos_list, data.zone_id)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_TOP_8_EVENT, data)
+end
+
+--请求对战詳情
+function GuildNewwarController:sender14251()
+    local protocal = {}
+    self:SendProtocal(14251, protocal)
+end
+
+function GuildNewwarController:handle14251(data)
+    self:printMsgGuildNewwar(14251, data)
+    local otherdata = clone(data)
+    otherdata.a_team_list = {}
+    otherdata.b_team_list = {}
+    self:printMsgGuildNewwar(14251, otherdata)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_UPDATE_BATTLE_DATA_EVENT, data)
+end
+
+--请求对战列表
+function GuildNewwarController:sender14252(pk_id)
+    local protocal = {}
+    protocal.pk_id = pk_id
+    self:SendProtocal(14252, protocal)
+end
+
+function GuildNewwarController:handle14252(data)
+    self:printMsgGuildNewwar(14252, data)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_UPDATE_BATTLE_List_EVENT, data)
+end
+
+--请求前8信息
+function GuildNewwarController:sender14253(zone_id)
+    local protocal = {}
+    protocal.zone_id = zone_id
+    self:SendProtocal(14253, protocal)
+end
+
+function GuildNewwarController:handle14253(data)
+    self:printMsgGuildNewwar(14253, data)
+    GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_UPDATE_Main_Rank, data.pos_list)
+end
+
+--兑换精英转盘券 
+function GuildNewwarController:sender14235(num)
+    local protocal = {}
+    protocal.num = num
+    self:SendProtocal(14235, protocal)
+end
+
+function GuildNewwarController:handle14235(data)
+    self:printMsgGuildNewwar(14235, data)
+    message(data.msg)
+    ArenaController:getInstance():openArenaLoopChallengeBuy(false)
+    if data.code == 1 then
+        GlobalEvent:getInstance():Fire(GuildNewwarEvent.GUILDNEWWAR_EXCHANGE_NUM)
+    end
+end
+
+-- ui
+--幸运转盘
+function GuildNewwarController:openGuildnewwarTurntablePanel( status )
+    if status == true then
+        if not self.turntable_panel then
+            self.turntable_panel = GuildnewwarTurntablePanel.New()
+        end
+        if self.turntable_panel:isOpen() == false then
+            self.turntable_panel:open()
+        end
+    else
+        if self.turntable_panel then
+            self.turntable_panel:close()
+            self.turntable_panel = nil
+        end
+    end
+end
+--排行奖励
+function GuildNewwarController:openGuildNewwarEliteRankAwardPreview( status )
+    if status == true then
+        if not self.elite_rank_award_preview then
+            self.elite_rank_award_preview = GuildNewwarEliteRankAwardPreview.New()
+        end
+        if self.elite_rank_award_preview:isOpen() == false then
+            self.elite_rank_award_preview:open()
+        end
+    else
+        if self.elite_rank_award_preview then
+            self.elite_rank_award_preview:close()
+            self.elite_rank_award_preview = nil
+        end
+    end
+end
+function GuildNewwarController:openGuildnewwarEliteDetailedRewardPanel( status, data )
+    if status == true then
+        if not self.elite_detailed_reward_panel then
+            self.elite_detailed_reward_panel = GuildnewwarEliteDetailedRewardPanel.New()
+        end
+        if self.elite_detailed_reward_panel:isOpen() == false then
+            self.elite_detailed_reward_panel:open(data)
+        end
+    else
+        if self.elite_detailed_reward_panel then
+            self.elite_detailed_reward_panel:close()
+            self.elite_detailed_reward_panel = nil
+        end
+    end
+end
+--赛程安排
+function GuildNewwarController:openGuildnewwarElitePlanPanel( status )
+    if status == true then
+        if not self.elite_plan_panel then
+            self.elite_plan_panel = GuildnewwarElitePlanPanel.New()
+        end
+        if self.elite_plan_panel:isOpen() == false then
+            self.elite_plan_panel:open()
+        end
+    else
+        if self.elite_plan_panel then
+            self.elite_plan_panel:close()
+            self.elite_plan_panel = nil
+        end
+    end
+end
+--布阵
+function GuildNewwarController:openGuildnewwarEliteTeamListPanel( status )
+    if status == true then
+        if not self.elite_team_list_panel then
+            self.elite_team_list_panel = GuildnewwarEliteTeamListPanel.New()
+        end
+        if self.elite_team_list_panel:isOpen() == false then
+            self.elite_team_list_panel:open()
+        end
+    else
+        if self.elite_team_list_panel then
+            self.elite_team_list_panel:close()
+            self.elite_team_list_panel = nil
+        end
+    end
+end
+--竞猜主界面
+function GuildNewwarController:openGuildnewwarEliteGuessingWindow( status )
+    if status == true then
+        if not self.elite_guessing_window then
+            self.elite_guessing_window = GuildnewwarEliteGuessingWindow.New()
+        end
+        if self.elite_guessing_window:isOpen() == false then
+            self.elite_guessing_window:open()
+        end
+    else
+        if self.elite_guessing_window then
+            self.elite_guessing_window:close()
+            self.elite_guessing_window = nil
+        end
+    end
+end
+--竞猜信息
+function GuildNewwarController:openGuildnewwarEliteGuessInfoPanel( status )
+    if status == true then
+        if not self.elite_guessing_info then
+            self.elite_guessing_info = GuildnewwarEliteGuessInfoPanel.New()
+        end
+        if self.elite_guessing_info:isOpen() == false then
+            self.elite_guessing_info:open()
+        end
+    else
+        if self.elite_guessing_info then
+            self.elite_guessing_info:close()
+            self.elite_guessing_info = nil
+        end
+    end
+end
+
+function GuildNewwarController:openGuildnewwarEliteGuessCountPanel( status, setting )
+    if status == true then
+        if not self.elite_guessing_count then
+            self.elite_guessing_count = GuildnewwarEliteGuessCountPanel.New()
+        end
+        if self.elite_guessing_count:isOpen() == false then
+            self.elite_guessing_count:open(setting)
+        end
+    else
+        if self.elite_guessing_count then
+            self.elite_guessing_count:close()
+            self.elite_guessing_count = nil
+        end
+    end
+end
+--對戰詳情
+function GuildNewwarController:openGuildnewwarEliteFightInfoPanel( status, setting )
+    if status == true then
+        if not self.fight_info_panel then
+            self.fight_info_panel = GuildnewwarEliteFightInfoPanel.New()
+        end
+        if self.fight_info_panel:isOpen() == false then
+            self.fight_info_panel:open(setting)
+        end
+    else
+        if self.fight_info_panel then
+            self.fight_info_panel:close()
+            self.fight_info_panel = nil
+        end
+    end
+end
+--戰況
+function GuildNewwarController:openGuildnewwarEliteFightListPanel( status, setting )
+    if status == true then
+        if not self.fight_list_panel then
+            self.fight_list_panel = GuildnewwarEliteFightListPanel.New()
+        end
+        if self.fight_list_panel:isOpen() == false then
+            self.fight_list_panel:open(setting)
+        end
+    else
+        if self.fight_list_panel then
+            self.fight_list_panel:close()
+            self.fight_list_panel = nil
+        end
+    end
+end
+
+function GuildNewwarController:__delete()
+    if self.model ~= nil then
+        self.model:DeleteMe()
+        self.model = nil
+    end
+end

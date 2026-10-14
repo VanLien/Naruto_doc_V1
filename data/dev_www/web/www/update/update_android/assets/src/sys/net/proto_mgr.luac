@@ -1,0 +1,103 @@
+﻿ProtoMgr = ProtoMgr or BaseClass()
+
+function ProtoMgr.getInstance(arg_1_0)
+	if not arg_1_0.is_init then
+		arg_1_0.cmd_callback_table = {}
+		arg_1_0.net_manager = cc.SmartSocket:getInstance()
+
+		arg_1_0:LoadMate()
+
+		arg_1_0.is_init = true
+	end
+
+	return arg_1_0
+end
+
+function ProtoMgr.LoadMate(arg_2_0)
+	local var_2_0 = require("sys.net.proto_mate")
+
+	arg_2_0.net_manager:loadSendMateData(var_2_0.send)
+	arg_2_0.net_manager:loadRecvMateData(var_2_0.recv)
+end
+
+function ProtoMgr.hasReg(arg_3_0, arg_3_1)
+	return arg_3_0.cmd_callback_table[arg_3_1] ~= nil
+end
+
+function ProtoMgr.RegisterCmdCallback(arg_4_0, arg_4_1, arg_4_2, arg_4_3)
+	arg_4_2 = arg_4_2 or "handle_" .. arg_4_1
+
+	local var_4_0
+
+	if type(arg_4_3) == "function" then
+		var_4_0 = arg_4_3
+	elseif arg_4_3 then
+		if not arg_4_3[arg_4_2] then
+			Debug.error("@注册协议出错,不存在的函数调用", arg_4_1, arg_4_2)
+
+			return false
+		end
+
+		function var_4_0(arg_5_0)
+			arg_4_3[arg_4_2](arg_4_3, arg_5_0)
+		end
+	else
+		local var_4_1 = _G[arg_4_2] or arg_4_2
+
+		function var_4_0(arg_6_0)
+			var_4_1(arg_6_0)
+		end
+	end
+
+	if not arg_4_0.cmd_callback_table[arg_4_1] then
+		arg_4_0.cmd_callback_table[arg_4_1] = {}
+	end
+
+	arg_4_0.cmd_callback_table[arg_4_1][arg_4_2] = var_4_0
+end
+
+function ProtoMgr.UnRegisterCmdCallback(arg_7_0, arg_7_1, arg_7_2)
+	if not arg_7_0.cmd_callback_table[arg_7_1] then
+		return
+	end
+
+	arg_7_2 = arg_7_2 or "handle_" .. arg_7_1
+
+	if not arg_7_0.cmd_callback_table[arg_7_1][arg_7_2] then
+		return
+	end
+
+	arg_7_0.cmd_callback_table[arg_7_1][arg_7_2] = nil
+end
+
+function ProtoMgr.cmd_callback(arg_8_0, arg_8_1, arg_8_2)
+	arg_8_0:ChangeLangeServer(arg_8_2)
+
+	if not arg_8_0.cmd_callback_table[arg_8_1] then
+		return
+	end
+
+	local var_8_0 = arg_8_0.cmd_callback_table[arg_8_1]
+
+	for iter_8_0, iter_8_1 in pairs(var_8_0) do
+		iter_8_1(arg_8_2)
+	end
+
+	arg_8_2 = nil
+end
+
+function ProtoMgr.ChangeLangeServer(arg_9_0, arg_9_1)
+	if type(arg_9_1) == "table" then
+		for iter_9_0, iter_9_1 in pairs(arg_9_1) do
+			local var_9_0 = type(iter_9_1)
+
+			if var_9_0 == "string" then
+				if string.find(iter_9_1, "α") then
+					arg_9_1[iter_9_0] = GetLangSeverStr(iter_9_1)
+				end
+			elseif var_9_0 == "table" then
+				arg_9_0:ChangeLangeServer(iter_9_1)
+			end
+		end
+	end
+end

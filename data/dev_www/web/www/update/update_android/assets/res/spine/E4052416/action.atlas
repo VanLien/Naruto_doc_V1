@@ -1,0 +1,62 @@
+
+action.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+madara action2_hit/0_00000
+  rotate: false
+  xy: 1589, 604
+  size: 429, 402
+  orig: 700, 700
+  offset: 132, 155
+  index: -1
+madara action2_hit/0_00001
+  rotate: false
+  xy: 1095, 520
+  size: 492, 486
+  orig: 700, 700
+  offset: 101, 140
+  index: -1
+madara action2_hit/0_00002
+  rotate: false
+  xy: 562, 519
+  size: 531, 487
+  orig: 700, 700
+  offset: 84, 127
+  index: -1
+madara action2_hit/0_00003
+  rotate: false
+  xy: 2, 493
+  size: 558, 513
+  orig: 700, 700
+  offset: 74, 126
+  index: -1
+madara action2_hit/0_00004
+  rotate: false
+  xy: 2, 2
+  size: 548, 489
+  orig: 700, 700
+  offset: 80, 132
+  index: -1
+madara action2_hit/0_00005
+  rotate: false
+  xy: 1589, 205
+  size: 419, 397
+  orig: 700, 700
+  offset: 147, 166
+  index: -1
+madara action2_hit/0_00006
+  rotate: true
+  xy: 562, 176
+  size: 341, 355
+  orig: 700, 700
+  offset: 187, 193
+  index: -1
+madara action2_hit/0_00007
+  rotate: false
+  xy: 919, 233
+  size: 262, 284
+  orig: 700, 700
+  offset: 220, 226
+  index: -1

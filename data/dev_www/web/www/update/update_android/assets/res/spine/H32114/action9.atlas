@@ -1,0 +1,146 @@
+
+action9.png
+size: 1651,342
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+0_00000
+  rotate: false
+  xy: 1163, 117
+  size: 160, 223
+  orig: 360, 360
+  offset: 84, 106
+  index: -1
+0_00001
+  rotate: false
+  xy: 992, 116
+  size: 169, 224
+  orig: 360, 360
+  offset: 78, 105
+  index: -1
+0_00002
+  rotate: false
+  xy: 821, 113
+  size: 169, 227
+  orig: 360, 360
+  offset: 78, 105
+  index: -1
+0_00003
+  rotate: false
+  xy: 498, 109
+  size: 161, 231
+  orig: 360, 360
+  offset: 80, 102
+  index: -1
+0_00004
+  rotate: false
+  xy: 661, 110
+  size: 158, 230
+  orig: 360, 360
+  offset: 85, 102
+  index: -1
+0_00005
+  rotate: false
+  xy: 1480, 129
+  size: 169, 211
+  orig: 360, 360
+  offset: 78, 106
+  index: -1
+0_00006
+  rotate: false
+  xy: 327, 104
+  size: 169, 236
+  orig: 360, 360
+  offset: 78, 106
+  index: -1
+0_00007
+  rotate: false
+  xy: 2, 100
+  size: 164, 240
+  orig: 360, 360
+  offset: 81, 106
+  index: -1
+0_00008
+  rotate: false
+  xy: 168, 102
+  size: 157, 238
+  orig: 360, 360
+  offset: 85, 106
+  index: -1
+0_00009
+  rotate: false
+  xy: 1325, 121
+  size: 153, 219
+  orig: 360, 360
+  offset: 89, 102
+  index: -1
+1_00000
+  rotate: true
+  xy: 1215, 19
+  size: 96, 132
+  orig: 360, 360
+  offset: 119, 105
+  index: -1
+1_00001
+  rotate: true
+  xy: 138, 2
+  size: 96, 133
+  orig: 360, 360
+  offset: 119, 105
+  index: -1
+1_00002
+  rotate: true
+  xy: 2, 2
+  size: 96, 134
+  orig: 360, 360
+  offset: 119, 105
+  index: -1
+1_00003
+  rotate: true
+  xy: 675, 11
+  size: 97, 134
+  orig: 360, 360
+  offset: 118, 105
+  index: -1
+1_00004
+  rotate: true
+  xy: 811, 11
+  size: 97, 133
+  orig: 360, 360
+  offset: 118, 105
+  index: -1
+1_00005
+  rotate: true
+  xy: 946, 14
+  size: 97, 133
+  orig: 360, 360
+  offset: 118, 105
+  index: -1
+1_00006
+  rotate: true
+  xy: 273, 2
+  size: 98, 132
+  orig: 360, 360
+  offset: 117, 105
+  index: -1
+1_00007
+  rotate: true
+  xy: 407, 4
+  size: 98, 132
+  orig: 360, 360
+  offset: 117, 105
+  index: -1
+1_00008
+  rotate: true
+  xy: 541, 9
+  size: 98, 132
+  orig: 360, 360
+  offset: 117, 105
+  index: -1
+1_00009
+  rotate: true
+  xy: 1081, 17
+  size: 97, 132
+  orig: 360, 360
+  offset: 118, 105
+  index: -1

@@ -1,0 +1,76 @@
+
+action.png
+size: 1880,1232
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+andi_0000
+  rotate: false
+  xy: 0, 38
+  size: 472, 472
+  orig: 720, 720
+  offset: 124, 124
+  index: -1
+beijingdda
+  rotate: true
+  xy: 0, 512
+  size: 720, 1600
+  orig: 720, 1600
+  offset: 0, 0
+  index: -1
+diliegg
+  rotate: true
+  xy: 1602, 643
+  size: 589, 278
+  orig: 684, 280
+  offset: 50, 1
+  index: -1
+shan
+  rotate: false
+  xy: 968, 22
+  size: 480, 265
+  orig: 480, 265
+  offset: 0, 0
+  index: -1
+shan01
+  rotate: true
+  xy: 474, 171
+  size: 339, 492
+  orig: 339, 492
+  offset: 0, 0
+  index: -1
+shan02
+  rotate: false
+  xy: 1602, 441
+  size: 246, 200
+  orig: 246, 200
+  offset: 0, 0
+  index: -1
+shan03
+  rotate: false
+  xy: 1450, 17
+  size: 228, 73
+  orig: 228, 73
+  offset: 0, 0
+  index: -1
+sun
+  rotate: false
+  xy: 1496, 92
+  size: 350, 347
+  orig: 350, 347
+  offset: 0, 0
+  index: -1
+yana
+  rotate: false
+  xy: 474, 0
+  size: 434, 169
+  orig: 461, 220
+  offset: 27, 26
+  index: -1
+yanb
+  rotate: false
+  xy: 968, 289
+  size: 526, 221
+  orig: 568, 262
+  offset: 0, 0
+  index: -1

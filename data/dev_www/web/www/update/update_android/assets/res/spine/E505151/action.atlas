@@ -1,0 +1,13 @@
+
+action.png
+size: 128,128
+format: RGBA8888
+filter: MipMapLinearLinear,Nearest
+repeat: none
+image/E505151/1
+  rotate: false
+  xy: 2, 2
+  size: 121, 121
+  orig: 159, 170
+  offset: 19, 24
+  index: -1

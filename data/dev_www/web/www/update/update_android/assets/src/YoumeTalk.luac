@@ -1,0 +1,282 @@
+﻿YoumeTalk = YoumeTalk or {}
+
+if not cc.YTalk then
+	return
+end
+
+cc.exports.youmetalk = cc.YTalk:create()
+cc.exports.userID = ""
+cc.exports.roomID = ""
+cc.exports.roleType = 0
+
+local function var_0_0(arg_1_0)
+	local var_1_0 = cc.EventCustom:new("Tips")
+
+	var_1_0._usedata = arg_1_0
+
+	cc.Director:getInstance():getEventDispatcher():dispatchEvent(var_1_0)
+end
+
+function cc.exports.youmetalk.OnEvent(arg_2_0, arg_2_1, arg_2_2, arg_2_3)
+	print("@收到Talk回调:" .. arg_2_0 .. "," .. arg_2_1 .. "," .. arg_2_2 .. "," .. arg_2_3)
+
+	if arg_2_0 == 0 then
+		print("joinChannelSingleMode", YoumeTalk.joinChannelSingleMode("test", "test", 1, false))
+		var_0_0(TI18N("语言_c_4623"))
+	elseif arg_2_0 == 1 then
+		arg_2_0(TI18N("语言_c_4624"))
+	elseif arg_2_0 == 2 then
+		var_0_0(TI18N("语言_c_4672") .. arg_2_2)
+		print("why?")
+
+		local var_2_0 = cc.EventCustom:new("EnterRoom")
+
+		cc.Director:getInstance():getEventDispatcher():dispatchEvent(var_2_0)
+	elseif arg_2_0 == 3 then
+		var_0_0(TI18N("语言_c_4640"))
+	elseif arg_2_0 == 4 then
+		var_0_0(TI18N("语言_c_4625"))
+	elseif arg_2_0 == 5 then
+		var_0_0(TI18N("语言_c_4625"))
+	elseif arg_2_0 == 6 then
+		var_0_0(TI18N("语言_c_1024"))
+	elseif arg_2_0 == 7 then
+		var_0_0(TI18N("语言_c_4626"))
+	elseif arg_2_0 == 8 then
+		-- block empty
+	elseif arg_2_0 == 9 then
+		-- block empty
+	elseif arg_2_0 == 10 then
+		var_0_0(TI18N("语言_c_4627"))
+	elseif arg_2_0 == 11 then
+		var_0_0(TI18N("语言_c_4628"))
+	elseif arg_2_0 == 12 and arg_2_1 == -202 then
+		var_0_0(TI18N("语言_c_4629"))
+	elseif arg_2_0 == 13 then
+		var_0_0(TI18N("语言_c_4641"))
+	elseif arg_2_0 == 14 then
+		var_0_0(TI18N("语言_c_4642"))
+	elseif arg_2_0 == 15 then
+		print("@频道成员变化:" .. arg_2_3)
+	elseif arg_2_0 == 16 then
+		print("@其他用户麦克风打开:" .. arg_2_3)
+	elseif arg_2_0 == 17 then
+		print("@其他用户麦克风关闭:" .. arg_2_3)
+	elseif arg_2_0 == 18 then
+		print("@其他用户扬声器打开" .. arg_2_3)
+	elseif arg_2_0 == 19 then
+		print("@其他用户扬声器关闭" .. arg_2_3)
+	elseif arg_2_0 == 20 then
+		print("@其他用户进入讲话状态:" .. arg_2_3)
+	elseif arg_2_0 == 21 then
+		print("@其他用户进入静默状态:" .. arg_2_3)
+	elseif arg_2_0 == 22 then
+		print("@麦克风的语音级别:" .. arg_2_3)
+	elseif arg_2_0 == 23 then
+		print("@麦克风被其他用户打开:" .. arg_2_3)
+	elseif arg_2_0 == 24 then
+		print("@麦克风被其他用户关闭:" .. arg_2_3)
+	elseif arg_2_0 == 25 then
+		print("@扬声器被其他用户打开:" .. arg_2_3)
+	elseif arg_2_0 == 26 then
+		print("@扬声器被其他用户关闭:" .. arg_2_3)
+	elseif arg_2_0 == 27 then
+		print("@取消屏蔽某人语音:" .. arg_2_3)
+	elseif arg_2_0 == 28 then
+		print("@屏蔽某人语音:" .. arg_2_3)
+	end
+end
+
+function cc.exports.youmetalk.OnMemberChange(arg_3_0, arg_3_1, arg_3_2)
+	print("OnMemberChange:" .. arg_3_0 .. ",json:" .. arg_3_1)
+end
+
+function cc.exports.youmetalk.OnRequestRestApi(arg_4_0, arg_4_1, arg_4_2, arg_4_3)
+	print("OnRequestRestApi:" .. arg_4_0)
+	print(arg_4_1)
+	print(arg_4_2)
+	print(arg_4_3)
+end
+
+function cc.exports.youmetalk.OnBroadcast(arg_5_0, arg_5_1, arg_5_2, arg_5_3, arg_5_4)
+	print("OnBroadcast:" .. arg_5_0 .. ",channel:" .. arg_5_1 .. ",P1:" .. arg_5_2 .. ",P2" .. arg_5_3 .. ",content:" .. arg_5_4)
+end
+
+cc.exports.youmetalk.registerScriptHandler(cc.exports.youmetalk, cc.exports.youmetalk.OnEvent, cc.exports.youmetalk.OnRequestRestApi, cc.exports.youmetalk.OnMemberChange, cc.exports.youmetalk.OnBroadcast)
+
+youmetalk_obj = cc.exports.youmetalk
+YoumeTalk.strAppKey = "YOUME23C443832F3F84453C257CD8D842320A64320CC2"
+YoumeTalk.strAPPSecret = "vNeRSaWi54VMrQ9B3ADFgx9OIUEKj+hSQH0sduwXvcKJ0Egfss4FbK9TpZBKGFv8CT9YHZnTTP1aCkj/q2oyZf6wMU4cwTWMP0wrhvkfP6F6CPFI+7yUqgKBHfUuTV3xM94lq7lP0KW7ub+C7mDJA6J004NaZ2EKyAXADUBcBJkBAAE="
+
+function YoumeTalk.init()
+	if YoumeTalk.is_init == nil then
+		YoumeTalk.is_init = true
+
+		return youmetalk_obj:init(YoumeTalk.strAppKey, YoumeTalk.strAPPSecret, 0, "cn")
+	end
+end
+
+function YoumeTalk.joinChannelSingleMode(arg_7_0, arg_7_1, arg_7_2, arg_7_3)
+	return youmetalk_obj:joinChannelSingleMode(arg_7_0, arg_7_1, arg_7_2, arg_7_3)
+end
+
+function YoumeTalk.joinChannelMultiMode(arg_8_0, arg_8_1, arg_8_2)
+	return youmetalk_obj:joinChannelMultiMode(arg_8_0, arg_8_1, arg_8_2)
+end
+
+function YoumeTalk.speakToChannel(arg_9_0)
+	return youmetalk_obj:speakToChannel(arg_9_0)
+end
+
+function YoumeTalk.leaveChannelMultiMode(arg_10_0)
+	return youmetalk_obj:leaveChannelMultiMode(arg_10_0)
+end
+
+function YoumeTalk.leaveChannelAll()
+	return youmetalk_obj:leaveChannelAll()
+end
+
+function YoumeTalk.setWhiteUserList(arg_12_0, arg_12_1)
+	return youmetalk_obj:setWhiteUserList(arg_12_0, arg_12_1)
+end
+
+function YoumeTalk.setOutputToSpeaker(arg_13_0)
+	return youmetalk_obj:setOutputToSpeaker(arg_13_0)
+end
+
+function YoumeTalk.setSpeakerMute(arg_14_0)
+	return youmetalk_obj:setSpeakerMute(arg_14_0)
+end
+
+function YoumeTalk.getSpeakerMute()
+	return youmetalk_obj:getSpeakerMute()
+end
+
+function YoumeTalk.setAutoSendStatus(arg_16_0)
+	return youmetalk_obj:setAutoSendStatus(arg_16_0)
+end
+
+function YoumeTalk.setVolume(arg_17_0)
+	return youmetalk_obj:setVolume(arg_17_0)
+end
+
+function YoumeTalk.setHeadsetMonitorOn(arg_18_0, arg_18_1)
+	return youmetalk_obj:setHeadsetMonitorOn(arg_18_0, arg_18_1)
+end
+
+function YoumeTalk.getVolume()
+	return youmetalk_obj:getVolume()
+end
+
+function YoumeTalk.setUseMobileNetworkEnabled(arg_20_0)
+	return youmetalk_obj:setUseMobileNetworkEnabled(arg_20_0)
+end
+
+function YoumeTalk.getUseMobileNetworkEnabled()
+	return youmetalk_obj:getUseMobileNetworkEnabled()
+end
+
+function YoumeTalk.setOtherMicMute(arg_22_0, arg_22_1)
+	return youmetalk_obj:setOtherMicMute(arg_22_0, arg_22_1)
+end
+
+function YoumeTalk.setOtherSpeakerMute(arg_23_0, arg_23_1)
+	return youmetalk_obj:setOtherSpeakerMute(arg_23_0, arg_23_1)
+end
+
+function YoumeTalk.setListenOtherVoice(arg_24_0, arg_24_1)
+	return youmetalk_obj:setListenOtherVoice(arg_24_0, arg_24_1)
+end
+
+function YoumeTalk.setReleaseMicWhenMute(arg_25_0)
+	return youmetalk_obj:setReleaseMicWhenMute(arg_25_0)
+end
+
+function YoumeTalk.setExitCommModeWhenHeadsetPlugin(arg_26_0)
+	return youmetalk_obj:setExitCommModeWhenHeadsetPlugin(arg_26_0)
+end
+
+function YoumeTalk.pauseChannel()
+	return youmetalk_obj:pauseChannel()
+end
+
+function YoumeTalk.resumeChannel()
+	return youmetalk_obj:resumeChannel()
+end
+
+function YoumeTalk.setVadCallbackEnabled(arg_29_0)
+	return youmetalk_obj:setVadCallbackEnabled(arg_29_0)
+end
+
+function YoumeTalk.playBackgroundMusic(arg_30_0, arg_30_1)
+	return youmetalk_obj:playBackgroundMusic(arg_30_0, arg_30_1)
+end
+
+function YoumeTalk.stopBackgroundMusic()
+	return youmetalk_obj:stopBackgroundMusic()
+end
+
+function YoumeTalk.setBackgroundMusicVolume(arg_32_0)
+	return youmetalk_obj:setBackgroundMusicVolume(arg_32_0)
+end
+
+function YoumeTalk.getSoundtouchPitchSemiTones()
+	return youmetalk_obj:getSoundtouchPitchSemiTones()
+end
+
+function YoumeTalk.setSoundtouchPitchSemiTones(arg_34_0)
+	return youmetalk_obj:setSoundtouchPitchSemiTones(arg_34_0)
+end
+
+function YoumeTalk.setReverbEnabled(arg_35_0)
+	return youmetalk_obj:setReverbEnabled(arg_35_0)
+end
+
+function YoumeTalk.setRecordingTimeMs(arg_36_0)
+	return youmetalk_obj:setRecordingTimeMs(arg_36_0)
+end
+
+function YoumeTalk.setPlayingTimeMs(arg_37_0)
+	return youmetalk_obj:setPlayingTimeMs(arg_37_0)
+end
+
+function YoumeTalk.setServerRegion(arg_38_0, arg_38_1)
+	return youmetalk_obj:setServerRegion(arg_38_0, arg_38_1)
+end
+
+function YoumeTalk.requestRestApi(arg_39_0, arg_39_1)
+	return youmetalk_obj:requestRestApi(arg_39_0, arg_39_1)
+end
+
+function YoumeTalk.setToken(arg_40_0)
+	return youmetalk_obj:setToken(arg_40_0)
+end
+
+function YoumeTalk.getChannelUserList(arg_41_0, arg_41_1, arg_41_2)
+	return youmetalk_obj:getChannelUserList(arg_41_0, arg_41_1, arg_41_2)
+end
+
+function YoumeTalk.sendMessage(arg_42_0, arg_42_1)
+	return youmetalk_obj:sendMessage(arg_42_0, arg_42_1)
+end
+
+function YoumeTalk.kickOtherFromChannel(arg_43_0, arg_43_1, arg_43_2)
+	return youmetalk_obj:kickOtherFromChannel(arg_43_0, arg_43_1, arg_43_2)
+end
+
+function YoumeTalk.setLogLevel(arg_44_0)
+	return youmetalk_obj:setLogLevel(arg_44_0)
+end
+
+function YoumeTalk.unInit()
+	if YoumeTalk.is_init then
+		YoumeTalk.is_init = nil
+
+		youmetalk_obj:unInit()
+	end
+end
+
+print = game_print
+
+print("========= YoumeTalk=== init")
+print("========= YoumeTalk=== init end")

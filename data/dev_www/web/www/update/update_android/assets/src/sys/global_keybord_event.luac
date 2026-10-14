@@ -1,0 +1,116 @@
+﻿GlobalKeybordEvent = GlobalKeybordEvent or BaseClass()
+
+function GlobalKeybordEvent.getInstance(arg_1_0)
+	if not arg_1_0.is_init then
+		arg_1_0.event_list = {}
+		arg_1_0.is_init = true
+		arg_1_0.keydown_list = {}
+		arg_1_0.keyup_list = {}
+
+		local function var_1_0(arg_2_0, arg_2_1)
+			arg_1_0:onKeyPressed(arg_2_0)
+
+			if not arg_1_0.keyCode then
+				arg_1_0.keyCode = arg_2_0
+			end
+
+			if DEBUG_MODE then
+				print("@按了", arg_2_0)
+			end
+		end
+
+		local function var_1_1(arg_3_0, arg_3_1)
+			if DEBUG_MODE then
+				print("@松开", arg_3_0)
+			end
+
+			if arg_1_0.keyCode == arg_3_0 then
+				arg_1_0.keyCode = nil
+			end
+
+			arg_1_0:onKeyReleased(arg_3_0)
+		end
+
+		local var_1_2 = cc.EventListenerKeyboard:create()
+
+		var_1_2:registerScriptHandler(var_1_0, cc.Handler.EVENT_KEYBOARD_PRESSED)
+		var_1_2:registerScriptHandler(var_1_1, cc.Handler.EVENT_KEYBOARD_RELEASED)
+
+		local var_1_3 = ViewManager:getInstance():getLayerByTag(ViewMgrTag.WIN_TAG)
+
+		cc.Director:getInstance():getEventDispatcher():addEventListenerWithSceneGraphPriority(var_1_2, var_1_3)
+	end
+
+	return arg_1_0
+end
+
+function GlobalKeybordEvent.add(arg_4_0, arg_4_1, arg_4_2, arg_4_3, arg_4_4, arg_4_5)
+	if cc.PLATFORM_OS_WINDOWS ~= PLATFORM and cc.PLATFORM_OS_MAC ~= PLATFORM then
+		return
+	end
+
+	if arg_4_1 == nil then
+		return
+	end
+
+	arg_4_4 = arg_4_4 or 1
+	arg_4_5 = arg_4_5 or autoId()
+	arg_4_3 = arg_4_3 or cc.Handler.EVENT_CONTROLLER_KEYUP
+	arg_4_2 = arg_4_2 or cc.Handler.EVENT_KEYBOARD_PRESSED
+	arg_4_0.event_list[arg_4_5] = {
+		call_back = arg_4_1,
+		limit_time = arg_4_4,
+		type = arg_4_2,
+		keycode = arg_4_3
+	}
+
+	return arg_4_5
+end
+
+function GlobalKeybordEvent.remove(arg_5_0, arg_5_1)
+	arg_5_0.event_list[arg_5_1] = nil
+end
+
+function GlobalKeybordEvent.inKeyCode(arg_6_0, arg_6_1)
+	return arg_6_0.keyCode == arg_6_1
+end
+
+function GlobalKeybordEvent.onKeyPressed(arg_7_0, arg_7_1)
+	if cc.PLATFORM_OS_WINDOWS ~= PLATFORM and cc.PLATFORM_OS_MAC ~= PLATFORM then
+		return
+	end
+
+	for iter_7_0, iter_7_1 in pairs(arg_7_0.event_list) do
+		if iter_7_1.type == cc.Handler.EVENT_KEYBOARD_PRESSED and arg_7_1 == iter_7_1.keycode then
+			iter_7_1.call_back()
+
+			if iter_7_1.limit_time == 0 then
+				-- block empty
+			elseif iter_7_1.limit_time == 1 then
+				arg_7_0.event_list[iter_7_0] = nil
+			elseif iter_7_1.limit_time > 1 then
+				iter_7_1.limit_time = iter_7_1.limit_time - 1
+			end
+		end
+	end
+end
+
+function GlobalKeybordEvent.onKeyReleased(arg_8_0, arg_8_1)
+	if cc.PLATFORM_OS_WINDOWS ~= PLATFORM and cc.PLATFORM_OS_MAC ~= PLATFORM then
+		return
+	end
+
+	for iter_8_0, iter_8_1 in pairs(arg_8_0.event_list) do
+		if iter_8_1.type == cc.Handler.EVENT_KEYBOARD_RELEASED and arg_8_1 == iter_8_1.keycode then
+			iter_8_1.call_back()
+
+			if iter_8_1.limit_time == 0 then
+				-- block empty
+			elseif iter_8_1.limit_time == 1 then
+				arg_8_0.event_list[iter_8_0] = nil
+			elseif iter_8_1.limit_time > 1 then
+				iter_8_1.limit_time = iter_8_1.limit_time - 1
+			end
+		end
+	end
+end
