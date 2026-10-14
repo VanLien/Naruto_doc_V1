@@ -1,0 +1,234 @@
+body {
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-width: 1000px;
+  overflow-x: auto;
+  min-height: 100vh;
+  background-image: url(../img/backend-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.char-left-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.char-right-bg {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  z-index: 3;
+  width: 285.6px;
+  height: 390.6px;
+  /* width: 204px;
+  height: 279px; */
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  min-width: 70%;
+  min-height: 540px;
+  display: flex;
+  background-image: url(../img/card-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profile-con {
+  position: absolute;
+  top: -40px;
+  left: -10px;
+}
+
+.profile {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+}
+
+.name {
+  font-size: 22px;
+  font-family: BebasNeue-Regular;
+  text-shadow: 2px 2px #000000;
+  color: #d1b538;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 34px;
+  width: 144px;
+  background-clip: content-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-image: url(../img/name-bar.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.level-con {
+  display: flex;
+  align-items: center;
+  min-height: 78px;
+  width: 262px;
+  background-clip: content-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: absolute;
+  bottom: -39px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  /*background-image: url(../img/bg-exp.png);*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: contain;*/
+}
+
+.level {
+  font-family: BebasNeue-Regular;
+  margin-left: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d1b538;
+  height: 37px;
+  width: 34px;
+}
+
+.vip {
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+}
+
+.level-progress-con {
+  width: 150px;
+  margin-left: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.level-progress-text {
+  font-family: BebasNeue-Regular;
+  color: #ffffff;
+}
+
+.level-progress-text-remain {
+  font-family: BebasNeue-Regular;
+  color: #818181;
+}
+
+.level-progress-bar {
+  width: 100%;
+  border-radius: 0px;
+  height: 6px;
+}
+.level-progress-bar::-webkit-progress-bar {
+  background-color: rgba(209, 181, 56, 0.2);
+}
+.level-progress-bar::-webkit-progress-value {
+  background-color: #f0bf4a;
+}
+
+.coin-con {
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: -152px;
+  width: 162px;
+  height: 68px;
+  background-image: url(../img/coins.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.coin-1-text {
+  font-family: BebasNeue-Regular;
+  margin-top: 4px;
+  transform: rotate(358deg);
+  margin-left: 10px;
+  color: #d1b538;
+}
+
+.coin-2-text {
+  font-family: BebasNeue-Regular;
+  transform: rotate(358deg);
+  margin-left: 10px;
+  color: #812fb0;
+}
+
+.coin-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.logout-btn {
+  width: 218.4px;
+  height: 114.8px;
+  position: absolute;
+  bottom: -40px;
+  left: 24px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: -16px;
+  top: 150px;
+}
+
+.sidebar-btn {
+  width: 181px;
+  height: 61px;
+  object-fit: contain;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.title {
+  width: 319.2px;
+  height: 67.9px;
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 65%;
+  top: -16px;
+}
+
+.content {
+  display: flex;
+  padding: 3rem 3rem 1.5rem 1rem;
+  flex-direction: column;
+  margin-top: 33px;
+  margin-left: 27.9%;
+  height: 100%;
+  max-height: 480px;
+  width: 70%;
+}
+#topup-content {
+  overflow-y: auto;
+}
+#receive-item-content {
+  overflow-y: auto;
+}

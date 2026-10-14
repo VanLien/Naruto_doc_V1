@@ -1,0 +1,1 @@
+{"data":"Chính thức ra mắt máy chủ đầu tiên\nS4-NAVI ngày 12/6/2021\r\nFanpage: fb.com/haitach5online\r\nGame haitach5.online chơi trên mọi thiết bị không cần cài đặt\r\nChúc các bạn chơi game vui vẻ theo dõi fanpage để nhận giftcode mới nhất nhé \nThân!","result_msg":"OK","status":200,"result":1,"status_msg":"OK"}

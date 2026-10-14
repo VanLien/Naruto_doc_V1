@@ -1,0 +1,646 @@
+@font-face {
+  font-family: 'Gilroy';
+  src: url("../../../site/melior/assets/fonts/gilroy/Gilroy-Light.eot");
+  src: local("☺"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Light.woff") format("woff"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Light.ttf") format("truetype"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Light.svg") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("../../../site/melior/assets/fonts/gilroy/Gilroy-Regular.eot");
+  src: local("☺"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Regular.woff") format("woff"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Regular.ttf") format("truetype"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Regular.svg") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("../../../site/melior/assets/fonts/gilroy/Gilroy-Medium.eot");
+  src: local("☺"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Medium.woff") format("woff"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Medium.ttf") format("truetype"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Medium.svg") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("../../../site/melior/assets/fonts/gilroy/Gilroy-Bold.eot");
+  src: local("☺"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Bold.woff") format("woff"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Bold.ttf") format("truetype"), url("../../../site/melior/assets/fonts/gilroy/Gilroy-Bold.svg") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+.melior body {
+    background: #1f1f1f url(../../../site/melior/assets/images/bg/header_bg.jpg) no-repeat center center; /* Đặt nền căn giữa */
+    background-size: contain; /* Đảm bảo nền hiển thị toàn bộ ảnh */
+    background-attachment: scroll; /* Cuộn theo nội dung */
+    color: #edff06; 
+    min-height: 100vh; 
+}
+@media (max-width: 768px) {
+    .melior body {
+		background: #1f1f1f url(../../../site/melior/assets/images/bg/header_bg_mb.png) no-repeat center center; /* Đặt nền căn giữa */
+        background-size: cover; /* Lấp đầy màn hình trên điện thoại */
+        background-position: relative; /* Căn ảnh về phía trên để tập trung phần chính */
+    }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+    .melior body {
+		background: #1f1f1f url(../../../site/melior/assets/images/bg/header_bg_mb.png) no-repeat center center; /* Đặt nền căn giữa */
+        background-size: contain; /* Hiển thị toàn bộ ảnh */
+    }
+}
+
+/* Điện thoại nhỏ hơn 480px */
+@media (max-width: 480px) {
+    .melior body {
+		background: #1f1f1f url(../../../site/melior/assets/images/bg/header_bg_mb.png) no-repeat center center; /* Đặt nền căn giữa */
+        background-size: cover; /* Lấp đầy màn hình */
+        background-position: top center; /* Tập trung nội dung chính */
+    }
+}  
+  .melior a {
+    color: #c3bcb7;
+  }
+  
+  .melior a:hover {
+    color: #ff9d00;
+  }
+  
+  .melior #page-header {
+    /* background-color: rgba(255, 255, 255, 0.44); */
+    /* background-color: rgba(36, 37, 40, 0.45) !important; */
+    background-color: #1f1f1f !important;
+  }
+  
+  .melior .nav-main-header a {
+    color: #e4e4e4;
+    background: rgba(74, 74, 74, 0.31);
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    transition: .3s all;
+  }
+  
+  .melior .nav-main-header a>i {
+    color: #ff9d00;
+  }
+  
+  .melior .nav-main-header a:hover>i,
+  .melior .nav-main-header .open a>i,
+  .melior .nav-main-header a:focus>i {
+    color: #000;
+  }
+  
+  .melior .btn-dual-secondary {
+    color: #e4e4e4;
+  }
+  
+  .melior .text-dual-primary-dark {
+    color: #e4e4e4 !important;
+  }
+  
+  .melior a.link-effect::before {
+    background-color: #e4e4e4;
+  }
+  
+  .melior .nav-main-header a:hover,
+  .melior .nav-main-header a:focus,
+  .melior .nav-main-header a.active,
+  .melior .nav-main-header li.open>a.nav-submenu,
+  .melior .nav-main-header li:hover>a.nav-submenu {
+    background-color: #ff9d00;
+    border: 1px solid transparent;
+    color: #000;
+  }
+  
+  
+  .melior .btn-dual-secondary:not([disabled]):not(.disabled).active,
+  .melior .show>.btn-dual-secondary.dropdown-toggle,
+  .melior .btn-dual-secondary:hover,
+  .melior .btn-dual-secondary:focus,
+  .melior .btn-dual-secondary.focus {
+    color: rgb(255, 242, 211);
+    background-color: #ff9d00;
+    border-color: rgba(255, 180, 0, 0.37);
+  }
+  
+  .melior .block {
+    background-color: #1f1f1f;
+    /* border: 1px solid #333; */
+    border: 0px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: none;
+  }
+  
+  .melior .block.block-shadow {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.14);
+  }
+  
+  .melior .block-header {
+    background: #232323 !important;
+    border-bottom: 1px solid #2b2a2a;
+  }
+  
+  .melior .bg-body-light {
+    background-color: #1f1f1f!important;
+    box-sizing: border-box;
+    border-top: 1px solid #2b2a2a;
+  }
+  
+  .melior a.text-muted:hover,
+  .melior a.text-muted:focus {
+    color: rgb(187, 187, 187) !important;
+  }
+  
+  .melior .submit-form {
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.46);
+    border-color: rgba(0, 0, 0, 0);
+    font-size: 15px;
+  }
+  
+  .melior .submit-form:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: rgb(0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+  }
+  
+  
+  .melior .custom-control-input:checked~.custom-control-label::before {
+    color: rgb(255, 255, 255);
+    border-color: rgb(41, 145, 62);
+    background-color: rgb(38, 166, 46);
+  }
+  
+  .melior .form-control {
+    color: rgb(130, 130, 130);
+    background-color: rgba(0, 0, 0, 0.44);
+    border: 1px solid #333;
+  }
+  
+  .melior .form-control:focus {
+    color: rgb(219, 219, 219);
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #333;
+  }
+  
+  .melior .form-control optgroup {
+    background-color: #333;
+    color: rgb(182, 182, 182);
+  }
+  
+  .melior .form-control option {
+    background-color: rgb(27, 27, 27);
+    color: rgb(219, 219, 219);
+  }
+  
+  .melior .nav-tabs-alt .nav-link.active,
+  .melior .nav-tabs-alt .nav-item.show .nav-link {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: inset 0 -2px rgb(36, 36, 36);
+    color: rgb(219, 219, 219);
+  }
+  
+  .melior .nav-link {
+    color: #8c8c8c;
+  }
+  
+  .melior .nav-link:hover {
+    color: #ff9d00;
+  }
+  
+  .melior .nav-tabs {
+    border-bottom: 0;
+  }
+  
+  .melior .btn-secondary {
+    color: rgb(130, 130, 130);
+    background-color: rgba(0, 0, 0, 0.44);
+    border: 1px solid #333;
+  }
+  
+  .melior .btn-secondary:not([disabled]):not(.disabled):active {
+    color: rgb(219, 219, 219) !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid #333 !important;
+  }
+  
+  .melior .breadcrumb-item {
+    color: #ff9d00;
+  }
+  
+  .melior .breadcrumb-item:hover {
+    color: #8b7655;
+  }
+  
+  .melior .breadcrumb-item.active {
+    opacity: 0.4;
+  }
+  
+  .melior h1,
+  .melior h2,
+  .melior h3,
+  .melior h4,
+  .melior h5,
+  .melior h6,
+  .melior .h1,
+  .melior .h2,
+  .melior .h3,
+  .melior .h4,
+  .melior .h5,
+  .melior .h6 {
+    color: #06ff8e !important;
+    font-family: 'Gilroy';
+  }
+  
+  .melior .nav-tabs-alt .nav-link:hover,
+  .melior .nav-tabs-alt .nav-link:focus {
+    color: #ff9d00;
+    box-shadow: inset 0 -2px #ff9d00;
+  }
+  
+  .melior .nav-tabs-block {
+    background-color: rgba(246, 247, 249, 0.11);
+  }
+  
+  .melior.nav-tabs-block .nav-link:hover,
+  .melior .nav-tabs-block .nav-link:focus {
+    color: #ff9d00;
+  }
+  
+  .melior .table {
+    color: #a8a8a8;
+  }
+
+  .melior .block-title small {
+    color: #f0e3db;
+  }
+  
+  .melior .table-bordered th,
+  .melior .table-bordered td {
+    border: 1px solid #333;
+  }
+  
+  .melior .table th,
+  .melior .table td {
+    border-top: 1px solid #333;
+  }
+  
+  .melior .input-group-text {
+    background-color: rgba(39, 37, 45, 0.94);
+    border: 1px solid #383b3ea8;
+    color: #a2a1a1;
+  }
+  
+  .melior .border-bottom {
+    border-bottom: 1px solid #333 !important;
+  }
+  
+  .melior #calculation_board {
+    color: rgba(253, 253, 253, 0.45);
+  }
+  
+  .melior .dropdown-menu {
+    background-color: rgba(53, 53, 53, 0.95);
+    border: 1px solid transparent;
+    border-radius: 5px;
+  }
+  
+  .melior .dropdown-item {
+    color: #c8c8c8;
+  }
+  
+  .melior.dropdown-item:focus,
+  .melior .dropdown-item:hover {
+    color: #3b3b3b;
+  }
+  
+  .melior .nav-main-header ul,
+  .melior .nav-main-header>li:hover>a.nav-submenu {
+    background-color: #ff9d00;
+    border: 1px solid transparent;
+    color: #000;
+  }
+  
+  .melior .nav-main-header li a span,
+  .melior .nav-main-header li a i {
+    transition: .3s all;
+  }
+  
+  .melior .nav-main-header li ul li a {
+    background-color: #ff9d00;
+    color: #000;
+  }
+  
+  .melior .nav-main-header li ul li a i {
+    color: #000 !important;
+    transition: .3s all;
+  }
+  
+  .melior .nav-main-header>li ul li a:hover {
+    background-color: #000;
+    color: #ff9d00;
+  }
+  
+  .melior .nav-main-header li ul li a:hover i {
+    color: #ff9d00 !important;
+  }
+  
+  .melior .dropdown-divider {
+    border-top: 1px solid #333;
+  }
+  
+  .melior .border-b {
+    border-bottom: 1px solid #333 !important;
+  }
+  
+  
+  
+  /* .logo {
+    max-width: 90px;
+  } */
+  
+  .melior .logo {
+    filter: invert(100%);
+    margin-top: -7px;
+    display: block;
+  }
+  
+  @media (max-width: 450px) {
+    .melior .logo {
+        display: none;
+    }
+  }
+  
+  .melior .block.block-fx-shadow {
+    box-shadow: none;
+  }
+  
+  .melior .content .push {
+    background-color: rgba(255, 255, 255, 0.169) !important;
+  }
+  
+  .melior .block .push {
+    background-color: transparent !important;
+  }
+  
+  .melior .bg-info {
+    background-color: rgba(38, 218, 193, 0.369) !important;
+  }
+  
+  .melior .content-heading {
+    border-color: #333;
+  }
+  
+  .melior .alert-warning {
+    color: #ffedcb;
+    background-color: rgba(255, 220, 119, 0.271);
+    border-color: rgb(255, 240, 195);
+  }
+  
+  .melior #page-container.page-header-modern #sidebar {
+    box-shadow: 5px 0 20px #000;
+  }
+  
+  .melior #page-container #sidebar {
+    color: #d9d8e3;
+    background-color: #16171a;
+  }
+  
+  .melior #sidebar .nav-main a {
+    color: rgba(121, 119, 119, 0.9);
+    transition: .2s all;
+  }
+  
+  .melior #sidebar .nav-main a>i {
+    color: rgba(121, 119, 119, 0.8);
+    transition: .2s all;
+  }
+  
+  .melior #sidebar .nav-main a:hover,
+  .melior #sidebar .nav-main a:focus,
+  .melior #sidebar .nav-main a.active {
+    color: #ff9d00;
+  }
+  
+  .melior #sidebar .nav-main a.active>i,
+  .melior #sidebar .nav-main a:focus>i,
+  .melior #sidebar .nav-main a:hover>i {
+    color: #ff9d00;
+  }
+  
+  .melior .modal-content {
+    background-color: #0f1d2b;
+  }
+  
+  .melior .border-right,
+  .melior .border-left,
+  .melior .border-top,
+  .melior .border-bottom {
+    border-color: rgba(222, 226, 230, 0.08) !important;
+  }
+  
+  .melior hr {
+    border-color: rgba(222, 226, 230, 0.08) !important;
+  }
+  
+  
+  /* psa */
+  
+  .psa {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .psa__title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #ff9d00;
+  }
+  
+  .psa__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+  
+  .melior .options-container .options-overlay {
+    background-color: #1e1e1e !important;
+  }
+  
+  .melior .btn-alt-success {
+    color: #0d0b0a;
+    background-color: #ff9c00;
+    border: 0;
+  }
+  
+  .melior .btn-alt-success:hover,
+  .melior .btn-alt-success:focus,
+  .melior .btn-alt-success.focus,
+  .melior .btn-alt-success:not([disabled]):not(.disabled):active {
+    color: #000000;
+    background-color: #ff9e22;
+    border-color: #ffb461;
+  }
+  
+  .melior .btn-outline-primary {
+    color: #377db7;
+    border-color: #245277;
+  }
+  
+  .melior .btn-outline-primary:hover,
+  .melior .btn-outline-primary:focus,
+  .melior .btn-outline-primary.focus,
+  .melior .btn-outline-primary:not([disabled]):not(.disabled):active {
+    color: #c7e7f7;
+    background-color: #1b3a53;
+    border-color: #1e4a6c;
+  }
+  
+  .melior .btn-primary {
+    color: #c7e7f7;
+    background-color: #1b3a53;
+    border-color: #1e4a6c;
+  }
+  
+  .melior .btn-primary:hover,
+  .melior .btn-primary:focus,
+  .melior .btn-primary.focus,
+  .melior .btn-primary:not([disabled]):not(.disabled):active {
+    color: #e3f3fb;
+    background-color: #326086;
+    border-color: #246597;
+  }
+  
+  .melior .btn-alt-danger {
+    color: #ee9f9e;
+    background-color: #7b3633ab;
+    border-color: #ffb2ae30;
+  }
+  
+  .melior .btn-alt-danger:hover,
+  .melior .btn-alt-danger:focus,
+  .melior .btn-alt-danger.focus,
+  .melior .btn-alt-danger:not([disabled]):not(.disabled):active {
+    color: #f4a6a4;
+    background-color: #661a15;
+    border-color: #7b2621;
+  }
+  
+  .melior .css-switch .css-control-input~.css-control-indicator {
+    background-color: #535353;
+  }
+  
+  .melior .nav-tabs-block .nav-link.active,
+  .melior .nav-tabs-block .nav-item.show .nav-link {
+    color: #d79d39;
+    background-color: #aea88338;
+    border-color: transparent;
+  }
+  
+  .melior .list-group-item {
+    background-color: #5e5e5e3d;
+    border: 1px solid #47494f80;
+  }
+  
+  .melior .list-group-item-action {
+    color: #00fef2;
+  }
+  
+  .melior .intl-tel-input .country-list {
+    background-color: #1a1a1a;
+    border-color: #464646;
+  }
+  
+  .melior .intl-tel-input .country-list .country.highlight {
+    background-color: rgb(40, 40, 40);
+  }
+  
+  .melior .intl-tel-input .country-list .divider {
+    border-color: #464646;
+  }
+  
+  .melior .modal-backdrop {
+    background-color: #212528;
+  }
+  
+  .melior a.block.block-link-shadow:hover {
+    /* box-shadow: 0 0 6px rgba(255, 255, 255, 0.150); */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.30);
+    border-color: #ff9d00;
+  }
+  
+  .melior .nav-pills .nav-link.active,
+  .melior .nav-pills .nav-link.active:hover,
+  .melior .nav-pills .show>.nav-link,
+  .melior .nav-pills .show>.nav-link:hover {
+    background-color: #ff9d00;
+    color: #000
+  }
+  
+  .melior .isel {
+    background-color: rgba(51, 51, 51, 0.44);
+    margin-bottom: 4px;
+    border: none;
+  }
+  
+  .melior .checkbox__block {
+    background: rgba(255, 238, 145, 0.44);
+    border-radius: 3px 0 0 3px;
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.63);
+    transform: scale(1);
+  }
+  
+  .melior .checkbox__block:after {
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .melior .checkbox__input:checked+.checkbox__block:after {
+    background-color: rgb(41, 104, 41);
+  }
+  
+  /* itm */
+  
+  .itm-list {
+    display: grid;
+    gap: 6px;
+  }
+  
+  .itm {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+  }
+  
+  .itm__pic {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 3px;
+    flex-shrink: 0;
+  }
+  
+  .itm__img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .itm__content {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.02em;
+    color: rgb(255, 255, 255);
+    margin-left: 6px;
+  }

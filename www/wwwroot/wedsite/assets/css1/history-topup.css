@@ -1,0 +1,47 @@
+.topup-history-text-history {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f8fafe;
+  text-align: center;
+  background-image: url("../img/head-bg_r.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  text-shadow: -2px 2px #000000;
+  -webkit-text-stroke: 0.5px black;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+tr {
+  text-align: left;
+  padding: 16px;
+  text-align: center;
+  align-items: center;
+}
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  align-items: center;
+  font-size: 1rem;
+}
+.td-weight-normal{
+  font-weight: 100;
+  color: #676f78;
+}
+.topup-history-thead {
+  background: url("../img/his-head.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.topup-history-tbody {
+  background: url("../img/his-coum.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

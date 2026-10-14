@@ -1,0 +1,15 @@
+.swap-point-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f8fafe;
+  text-align: center;
+  background-image: url("../img/head-bg_r.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  text-shadow: -2px 2px #000000;
+  -webkit-text-stroke: 0.5px black;
+}

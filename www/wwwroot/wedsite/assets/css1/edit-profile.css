@@ -1,0 +1,98 @@
+.accout-title {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/head-bg_r.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.accout-title  span{
+  font-size: 1.5rem;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: -2px 2px #000000;
+  color: #f8fafe;
+}
+
+.accout-from {
+  display: flex;
+  max-height: 200px;
+  justify-content: center;
+  background: url(../img/bg-info2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+}
+
+.accout-from-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 100%;
+}
+
+.accout-from-row-1 {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding-left: 2%;
+}
+
+.accout-from-row-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 6%;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 60%;
+}
+
+.input-from {
+  border: none;
+  font-size: 1rem;
+  background: transparent;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+::placeholder {
+  color: rgb(189, 189, 189);
+}
+
+.input-from-bg {
+  width: 100%;
+  margin-top: 0.6rem;
+  background: url("../img/head-bg_r.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.from-title {
+  text-align: center;
+  line-height: 0;
+  color: #ffffff;
+  font-size: 1.5rem;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: -2px 1px #000000;
+}
+
+.from-sub-title {
+  color: white;
+  margin-top: 0;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  margin-top: 0.6rem;
+  transform: scale(80%);
+  cursor: pointer;
+}

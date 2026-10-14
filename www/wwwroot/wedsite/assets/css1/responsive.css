@@ -1,0 +1,342 @@
+.open-menu {
+    display: none;
+}
+
+.icon-noti {
+    position: absolute;
+    top: -50px;
+    left: 10px;
+}
+
+.number-noti {
+    background: red;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    position: absolute;
+    left: 12px;
+    top: 5px;
+}
+
+@media (max-width: 1100px) {
+    body {
+        min-width: initial;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .nav-cus {
+        padding: 0.5rem 1rem;
+    }
+
+    .login-logout-btn {
+        margin-left: 10px;
+    }
+
+    .main-btn-con {
+        flex-direction: column;
+    }
+
+    .main-btn-con a:nth-child(1) {
+        order: 1;
+        margin-top: 1em;
+    }
+
+    .logo-banner-main {
+        max-width: 300px;
+    }
+
+    .main-section {
+        background-position: center 4rem;
+    }
+
+    .luffy-chibi {
+        right: -15%;
+    }
+
+    .overall-news {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .news-slick {
+        width: 90%;
+        max-width: 100%;
+        margin: 1em auto;
+    }
+
+    .news-zoro {
+        left: -60px;
+    }
+
+    .news-char-right {
+        top: 23%;
+        right: -30px;
+    }
+
+    .news-card-con {
+        flex-direction: column;
+        margin-top: 3em;
+    }
+
+    .new-card-each-con {
+        max-width: 250px;
+        width: initial;
+    }
+
+    .news-card-con > * + * {
+        margin-left: 0;
+        margin-top: 2em;
+    }
+
+    .news-card {
+        width: initial;
+        height: initial;
+    }
+
+    .section-register-textbg {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .section-register-textbg span {
+        font-size: 2em;
+    }
+
+    .section-register-wrapper-all-item {
+        width: 80%;
+        flex-wrap: wrap;
+    }
+
+    .section-register-bg-item {
+        width: 45%;
+        margin: 0 0 6px;
+    }
+
+    .section-wallpaper-inside {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .wallpaper-text {
+        left: 0;
+        top: 0;
+    }
+
+    .wallpaper-1 {
+        margin-right: 0;
+        margin-bottom: 1em;
+    }
+
+    .footer-content-manu {
+        flex-direction: column;
+    }
+
+    .footer-content-midded {
+        order: 1;
+        margin-top: 1em;
+    }
+
+    #section-character {
+        min-height: initial;
+    }
+
+    #section-download {
+        min-height: initial;
+    }
+
+    .characters-slick .slick-list {
+        padding: 20px 0 !important;
+    }
+
+    .profile-info-con {
+        width: 170px;
+        padding-top: 0.8em;
+        flex-wrap: wrap;
+    }
+
+    .profile-info-con span.coin-1-text, .profile-info-con span.coin-2-text {
+        flex: 0 0 50%;
+        margin: 0;
+    }
+
+    a.btn-logout {
+        display: none;
+    }
+
+    .content {
+        margin-left: 10%;
+        width: 85%;
+    }
+
+    .card {
+        background-position: -150px center;
+        min-width: 100%;
+    }
+
+    .char-left-bg {
+        display: none;
+        max-width: 30%;
+        height: initial;
+        z-index: 5;
+    }
+
+    .char-right-bg {
+        display: none;
+        max-width: 30%;
+        height: initial;
+        right: 0;
+    }
+
+    .accout-from-row iframe {
+        max-width: 100% !important;
+    }
+
+    .profile {
+        width: 100px;
+        height: initial;
+    }
+
+    .title.account {
+        width: 150px;
+        height: initial;
+        right: 0;
+        left: initial;
+        transform: initial;
+        top: -10px;
+    }
+
+    .profile-con {
+        left: 60px;
+    }
+
+    .profile-con.hide {
+        display: none;
+    }
+
+    .coin-con {
+        top: 60%;
+    }
+
+    .content-account{
+        max-height: 600px;
+    }
+
+    .content-account, .content.visable {
+        padding: 0 0 2rem;
+        margin: 6.5rem 3% 3%;
+        width: 100%;
+        overflow-y: auto;
+    }
+
+    #account-content {
+        margin: 6.5rem 3% 3%;
+    }
+
+    #title-account.move-down {
+        top: 80px;
+    }
+
+    .logout-btn {
+        width: 140px;
+        height: initial;
+        bottom: -90px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+
+    .card-account {
+        min-height: 75vh;
+        background: #fff;
+        align-self: flex-start;
+        margin-top: 70px;
+    }
+
+    .open-menu {
+        display: block;
+        border-top: 3px solid #fff;
+        width: 30px;
+        height: 24px;
+        cursor: pointer;
+        position: fixed;
+        z-index: 50;
+        margin-top: 5px;
+        right: 1rem;
+        top: 20px;
+    }
+
+    .open-menu:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #fff;
+        top: 5px;
+        left: 0;
+        -webkit-transition: all 300ms ease-in-out;
+        -o-transition: all 300ms ease-in-out;
+        -ms-transition: all 300ms ease-in-out;
+        transition: all 300ms ease-in-out;
+    }
+
+    .open-menu:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #fff;
+        bottom: 5px;
+        left: 0;
+        -webkit-transition: all 300ms ease-in-out;
+        -o-transition: all 300ms ease-in-out;
+        -ms-transition: all 300ms ease-in-out;
+        transition: all 300ms ease-in-out;
+    }
+
+    .sidebar {
+        left: -100%;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    #sidebar-account {
+        background: #D6D6D6;
+        padding: 1rem 0 0;
+        top: 110px;
+        border-radius: 0 10px 10px 0;
+        box-shadow: 2px 2px 2px #707070;
+    }
+
+    .icon-noti {
+        top: -36px;
+        left: 20px;
+    }
+
+    .itemcode-dropdown-bar{
+        width: 90%;
+    }
+
+    select.select-dropdown-bar{
+        max-width: 100%;
+        width: 90%;
+        justify-content: center;
+        text-align-last:center;
+    }
+}
+
+.icon-noti-home{
+    position: relative;
+}
+.icon-noti-home .number-noti{
+    left: 20px;
+    top: -7px;
+}

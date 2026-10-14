@@ -1,0 +1,5 @@
+08:26:45 31/05/2023 - {"Code":"1","Mess":"X\u1eed l\u00fd xong","Reason":"Th\u00e0nh c\u00f4ng","CardValue":"100000","TrxID":"B5168068-AB37-49AC-9664-5BAB4D76CB2C","CardCode":"15849901308087","CardSeri":"55010124024248"}
+08:44:34 31/05/2023 - {"Code":"1","Mess":"X\u1eed l\u00fd xong","Reason":"Th\u00e0nh c\u00f4ng","CardValue":"100000","TrxID":"B5168068-AB37-49AC-9664-5BAB4D76CB2C","CardCode":"15849901308087","CardSeri":"55010124024248"}
+21:56:53 10/06/2023 - {"Code":"5","Mess":"X\u1eed l\u00fd xong","Reason":"Th\u1ebb sai","CardValue":"0","TrxID":"BAE61C1C-75DD-4959-8DE3-2CBEDB04283A","CardCode":"711376802295366","CardSeri":"1111999000"}
+16:57:22 28/06/2023 - {"Code":"5","Mess":"X\u1eed l\u00fd xong","Reason":"Th\u1ebb sai","CardValue":"0","TrxID":"4CC2FA5C-62E7-40AE-A65C-52DDB7B99343","CardCode":"010682589485908","CardSeri":"100097314037"}
+03:30:44 04/07/2023 - {"Code":"1","Mess":"X\u1eed l\u00fd xong","Reason":"Th\u00e0nh c\u00f4ng","CardValue":"10000","TrxID":"C9914D91-29A1-4B97-8CB3-53B824E42644","CardCode":"423282693599388","CardSeri":"20000252218972"}

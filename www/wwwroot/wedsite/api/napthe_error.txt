@@ -1,0 +1,11 @@
+11:47:58 02/06/2023 - {"Code":0,"Message":"Độ dài thẻ không đúng","KeyLog":"3146F16CC9294673A4A01323D333D9EE"}
+21:36:58 04/06/2023 - {"Code":0,"Message":"Thẻ bị từ chối","KeyLog":"82BB13A6332F43C98E3E2894D1A9F8DA"}
+21:39:21 04/06/2023 - {"Code":0,"Message":"Thẻ bị từ chối","KeyLog":"004EBC69141D4E3A83D5D081BE5AFC8A"}
+21:55:51 07/06/2023 - {"Code":0,"Message":"Cardcode không đúng định dạng","KeyLog":"4CE0BBD320724722B9337DED0B9E8AFE"}
+21:56:29 10/06/2023 - {"Code":0,"Message":"Thẻ bị từ chối","KeyLog":"934CA5BC3FA04C3093BB43D69AC8D484"}
+12:34:38 13/06/2023 - {"Code":0,"Message":"Thẻ bị từ chối","KeyLog":"C2805532F6E24DCB84A97C9FCCF99D8B"}
+12:34:45 13/06/2023 - {"Code":0,"Message":"Thẻ bị từ chối","KeyLog":"7FD0F8C4C3A94186955EB6FAD814BA50"}
+12:36:15 13/06/2023 - {"Code":0,"Message":"Thẻ bị từ chối","KeyLog":"6D85110F6D584A789B377468896066AA"}
+19:10:47 01/07/2023 - {"Code":0,"Message":"Độ dài thẻ không đúng","KeyLog":"8AB017B5566F4593A191966E7253C0AB"}
+03:31:45 04/07/2023 - {"Code":0,"Message":"Thẻ bị từ chối","KeyLog":"EE5E56A793A34495A582205CD8840A15"}
+03:33:11 04/07/2023 - {"Code":0,"Message":"Thẻ bị từ chối","KeyLog":"59354FCDD4824807A6F01FBE7C4EC9E9"}

@@ -1,0 +1,176 @@
+.topup-content-header {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/head-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.topup-content-header span {
+  font-size: 1.5rem;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: -2px 2px #000000;
+  color: #f8fafe;
+}
+
+.topup-content-bg-channel-money {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/Rectangle6.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 10px;
+}
+.topup-content-truemoney-botton img {
+  width: 172.2px;
+}
+.topup-content-razer-botton img {
+  width: 172.2px;
+}
+.topup-content-wrapper-botton {
+  display: flex;
+}
+.topup-content-bg-text-money {
+  width: 100%;
+  padding: 0rem 1rem 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/bg-refil.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 3rem;
+}
+.topup-content-wrapper-tex-money {
+  width: 100%;
+}
+.topup-content-money-botton img {
+  width: 150px;
+  margin-top: 12px;
+}
+.topup-content-money-botton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -28px;
+}
+/* .topup-content-bg-point {
+  width: 80%;
+  padding: 0.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../assets/backend/topup/BG-point.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 30px;
+} */
+
+.topup-content-text-bar img {
+  width: 223px;
+}
+.topup-content-text-bar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-size: cover;
+  background-image: url("../img/textbar.png");
+}
+.top-up-center {
+  display: block;
+  text-align: -webkit-center;
+}
+input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0.7rem;
+}
+.topup-content-wrapper-tex-money {
+  width: 50%;
+}
+
+.topup-content-money-botton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -28px;
+}
+.topup-content-bg-point {
+  width: 80%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/BG-point.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 30px;
+}
+.topup-content-wrapper-upper img {
+  width: 125px;
+  margin-right: 10px;
+}
+
+.topup-content-wrapper-point-upper {
+  display: flex;
+  margin-block: 10px;
+}
+.topup-content-wrapper-bottom img {
+  width: 125px;
+  margin-right: 10px;
+}
+.topup-content-wrapper-point-bottom {
+  display: flex;
+  margin-block: 10px;
+}
+
+select.select-dropdown-gold-bar {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  height: 34px;
+  text-align: center;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+}
+.topup-content-dropdown {
+  background-image: url("../img/bg-bar.png");
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1rem 1rem -1rem 1rem;
+  margin-top: 10px;
+  height: 36px;
+}
+.content::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+.content::-webkit-scrollbar-thumb {
+  background: #747474;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.content::-webkit-scrollbar-thumb:hover {
+  background: #747474;
+}
